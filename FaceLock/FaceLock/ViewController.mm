@@ -144,13 +144,7 @@
     [self connectAndStartStreaming];
 }
 
-
-<<<<<<< HEAD
-- (void)didReceiveMemoryWarning
-{
-=======
 - (void)didReceiveMemoryWarning {
->>>>>>> 78f1fba5eac5900c9613522ea92a56848247b286
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
