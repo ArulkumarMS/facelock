@@ -14,8 +14,16 @@
 		CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0FE0E51AB37E97007BF483 /* Images.xcassets */; };
 		CB0FE0E91AB37E97007BF483 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0FE0E71AB37E97007BF483 /* LaunchScreen.xib */; };
 		CB0FE0F51AB37E97007BF483 /* FaceLockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0F41AB37E97007BF483 /* FaceLockTests.m */; };
-		CBFD805A1AB3958800C8CE64 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD80591AB3958800C8CE64 /* opencv2.framework */; };
-		CBFD805E1AB39DBA00C8CE64 /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD805D1AB39DBA00C8CE64 /* Structure.framework */; };
+		CB4CDA3F1AB74D6A000C18A8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4CDA3D1AB74D6A000C18A8 /* opencv2.framework */; };
+		CB4CDA401AB74D6A000C18A8 /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */; };
+		CB7EB9991AB7DB3B00B2A40D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB9981AB7DB3B00B2A40D /* AVFoundation.framework */; };
+		CB7EB99B1AB7DBF800B2A40D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB99A1AB7DBF800B2A40D /* QuartzCore.framework */; };
+		CB7EB99D1AB7DC0500B2A40D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB99C1AB7DC0500B2A40D /* Foundation.framework */; };
+		CB7EB99F1AB7DC1C00B2A40D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB99E1AB7DC1C00B2A40D /* OpenGLES.framework */; };
+		CB7EB9A11AB7DC3C00B2A40D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB9A01AB7DC3C00B2A40D /* CoreGraphics.framework */; };
+		CB7EB9A31AB7DC5800B2A40D /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB9A21AB7DC5800B2A40D /* CoreImage.framework */; };
+		CB7EB9A51AB7DC6E00B2A40D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB9A41AB7DC6E00B2A40D /* CoreVideo.framework */; };
+		CB7EB9A71AB7DC8500B2A40D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB9A61AB7DC8500B2A40D /* UIKit.framework */; };
 		CBFD80601AB3A44400C8CE64 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD805F1AB3A44400C8CE64 /* libz.dylib */; };
 		CBFD80621AB3A45A00C8CE64 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD80611AB3A45A00C8CE64 /* CoreMotion.framework */; };
 		CBFD80641AB3A46A00C8CE64 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD80631AB3A46A00C8CE64 /* ImageIO.framework */; };
@@ -48,8 +56,16 @@
 		CB0FE0EE1AB37E97007BF483 /* FaceLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FaceLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0FE0F31AB37E97007BF483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0FE0F41AB37E97007BF483 /* FaceLockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceLockTests.m; sourceTree = "<group>"; };
-		CBFD80591AB3958800C8CE64 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = "../../../../Dropbox/Structure Sensor/SDK/opencv2.framework"; sourceTree = "<group>"; };
-		CBFD805D1AB39DBA00C8CE64 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Structure.framework; path = "../../../../Dropbox/Structure Sensor/SDK/Structure SDK/Frameworks/Structure.framework"; sourceTree = "<group>"; };
+		CB4CDA3D1AB74D6A000C18A8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Frameworks/opencv2.framework; sourceTree = "<group>"; };
+		CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Structure.framework; path = Frameworks/Structure.framework; sourceTree = "<group>"; };
+		CB7EB9981AB7DB3B00B2A40D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CB7EB99A1AB7DBF800B2A40D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CB7EB99C1AB7DC0500B2A40D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CB7EB99E1AB7DC1C00B2A40D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CB7EB9A01AB7DC3C00B2A40D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CB7EB9A21AB7DC5800B2A40D /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CB7EB9A41AB7DC6E00B2A40D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CB7EB9A61AB7DC8500B2A40D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CBFD805F1AB3A44400C8CE64 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CBFD80611AB3A45A00C8CE64 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		CBFD80631AB3A46A00C8CE64 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -63,14 +79,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7EB9A71AB7DC8500B2A40D /* UIKit.framework in Frameworks */,
+				CB7EB9A51AB7DC6E00B2A40D /* CoreVideo.framework in Frameworks */,
+				CB7EB9A31AB7DC5800B2A40D /* CoreImage.framework in Frameworks */,
+				CB7EB99F1AB7DC1C00B2A40D /* OpenGLES.framework in Frameworks */,
+				CB7EB9A11AB7DC3C00B2A40D /* CoreGraphics.framework in Frameworks */,
+				CB7EB99D1AB7DC0500B2A40D /* Foundation.framework in Frameworks */,
+				CB7EB99B1AB7DBF800B2A40D /* QuartzCore.framework in Frameworks */,
+				CB7EB9991AB7DB3B00B2A40D /* AVFoundation.framework in Frameworks */,
+				CB4CDA3F1AB74D6A000C18A8 /* opencv2.framework in Frameworks */,
+				CB4CDA401AB74D6A000C18A8 /* Structure.framework in Frameworks */,
 				CBFD806A1AB3A49400C8CE64 /* Accelerate.framework in Frameworks */,
 				CBFD80681AB3A48900C8CE64 /* CoreMedia.framework in Frameworks */,
 				CBFD80661AB3A47B00C8CE64 /* ExternalAccessory.framework in Frameworks */,
 				CBFD80641AB3A46A00C8CE64 /* ImageIO.framework in Frameworks */,
 				CBFD80621AB3A45A00C8CE64 /* CoreMotion.framework in Frameworks */,
 				CBFD80601AB3A44400C8CE64 /* libz.dylib in Frameworks */,
-				CBFD805E1AB39DBA00C8CE64 /* Structure.framework in Frameworks */,
-				CBFD805A1AB3958800C8CE64 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,14 +111,22 @@
 		CB0FE0CC1AB37E96007BF483 = {
 			isa = PBXGroup;
 			children = (
+				CB7EB9A61AB7DC8500B2A40D /* UIKit.framework */,
+				CB7EB9A41AB7DC6E00B2A40D /* CoreVideo.framework */,
+				CB7EB9A21AB7DC5800B2A40D /* CoreImage.framework */,
+				CB7EB9A01AB7DC3C00B2A40D /* CoreGraphics.framework */,
+				CB7EB99E1AB7DC1C00B2A40D /* OpenGLES.framework */,
+				CB7EB99C1AB7DC0500B2A40D /* Foundation.framework */,
+				CB7EB99A1AB7DBF800B2A40D /* QuartzCore.framework */,
+				CB7EB9981AB7DB3B00B2A40D /* AVFoundation.framework */,
+				CB4CDA3D1AB74D6A000C18A8 /* opencv2.framework */,
+				CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */,
 				CBFD80691AB3A49400C8CE64 /* Accelerate.framework */,
 				CBFD80671AB3A48900C8CE64 /* CoreMedia.framework */,
 				CBFD80651AB3A47B00C8CE64 /* ExternalAccessory.framework */,
 				CBFD80631AB3A46A00C8CE64 /* ImageIO.framework */,
 				CBFD80611AB3A45A00C8CE64 /* CoreMotion.framework */,
 				CBFD805F1AB3A44400C8CE64 /* libz.dylib */,
-				CBFD805D1AB39DBA00C8CE64 /* Structure.framework */,
-				CBFD80591AB3958800C8CE64 /* opencv2.framework */,
 				CB0FE0D71AB37E97007BF483 /* FaceLock */,
 				CB0FE0F11AB37E97007BF483 /* FaceLockTests */,
 				CB0FE0D61AB37E97007BF483 /* Products */,
@@ -200,6 +232,7 @@
 				TargetAttributes = {
 					CB0FE0D41AB37E97007BF483 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = L7APG8X9DE;
 					};
 					CB0FE0ED1AB37E97007BF483 = {
 						CreatedOnToolsVersion = 6.2;
@@ -379,11 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/LG/Dropbox/Structure,
-					Sensor/SDK,
-					/Users/LG/Dropbox/Structure,
-					Sensor/SDK/Structure,
-					SDK/Frameworks,
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = FaceLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -397,11 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/LG/Dropbox/Structure,
-					Sensor/SDK,
-					/Users/LG/Dropbox/Structure,
-					Sensor/SDK/Structure,
-					SDK/Frameworks,
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = FaceLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

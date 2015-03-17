@@ -1,5 +1,4 @@
-dependencies: \
-  /Users/LG/Documents/my_document/2.Program/FaceLock/FaceLockTests/FaceLockTests.m \
+dependencies: /Users/LG/facelock/FaceLock/FaceLockTests/FaceLockTests.m \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestSuiteRun.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestSuite.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework/Headers/XCTestProbe.h \
