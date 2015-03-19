@@ -14,29 +14,8 @@
 
 #include <algorithm>
 #include <opencv2/opencv.hpp>
-//#include <stdint.h>
-// Hello World
 
-@interface ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>{
-    STSensorController *_sensorController;
-    
-    AVCaptureSession *_avCaptureSession;
-    AVCaptureDevice *_videoDevice;
-    
-    UIImageView *_depthImageView;
-    UIImageView *_normalsImageView;
-    UIImageView *_colorImageView;
-    
-    uint16_t *_linearizeBuffer;
-    uint8_t *_coloredDepthBuffer;
-    uint8_t *_normalsBuffer;
-    
-    STFloatDepthFrame *_floatDepthFrame;
-    STNormalEstimator *_normalsEstimator;
-    
-    UILabel* _statusLabel;
-    
-    AppStatus _appStatus;
+@interface ViewController (){
 }
 
 @end

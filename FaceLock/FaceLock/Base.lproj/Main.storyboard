@@ -7,7 +7,7 @@
         <!--2D-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sb_2d" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController_2D" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,18 +15,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2D" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDV-Zc-HBN">
+                                <rect key="frame" x="109" y="225" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="2D" id="oPK-ym-Zkk"/>
+                    <connections>
+                        <outlet property="test_label_2d" destination="nDV-Zc-HBN" id="2Zx-Mf-wgS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="-331"/>
+            <point key="canvasLocation" x="1062" y="-875"/>
         </scene>
         <!--3D-->
         <scene sceneID="PPh-E0-Jjy">
             <objects>
-                <viewController id="cTa-p8-g6v" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sb_3d" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cTa-p8-g6v" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ikD-bw-eEt"/>
                         <viewControllerLayoutGuide type="bottom" id="Tee-LF-Ec8"/>
@@ -34,18 +45,26 @@
                     <view key="view" contentMode="scaleToFill" id="D7t-Zx-nFU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3D" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k53-GA-sac">
+                                <rect key="frame" x="289" y="289" width="22" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="3D" id="Jp2-A4-Ur5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRB-hl-818" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="524"/>
+            <point key="canvasLocation" x="1074" y="12"/>
         </scene>
         <!--Setting-->
         <scene sceneID="mh8-U6-WdC">
             <objects>
-                <viewController id="Kxd-ub-Lj8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sb_setting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Kxd-ub-Lj8" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MXA-hh-imR"/>
                         <viewControllerLayoutGuide type="bottom" id="Dz4-GQ-pz5"/>
@@ -53,18 +72,26 @@
                     <view key="view" contentMode="scaleToFill" id="v0m-SP-W8e">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpp-fw-BFl">
+                                <rect key="frame" x="273" y="289" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Setting" id="TcR-hB-aoe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="go0-Qi-KLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="1448"/>
+            <point key="canvasLocation" x="1074" y="800"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Z8O-HR-4V8">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="MI0-ht-pFD" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="sb_tb" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MI0-ht-pFD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="aQH-CN-FhC">
@@ -79,7 +106,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7eU-op-nh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="236" y="401"/>
+            <point key="canvasLocation" x="160" y="53"/>
         </scene>
     </scenes>
 </document>

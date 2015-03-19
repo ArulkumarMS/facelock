@@ -18,16 +18,12 @@ struct AppStatus{
         SensorStatusNeedsUserToConnect,
         SensorStatusNeedsUserToCharge,
     };
-    
     // Structure Sensor status.
     SensorStatus sensorStatus = SensorStatusOk;
-    
     // Whether iOS camera access was granted by the user.
     bool colorCameraIsAuthorized = true;
-    
     // Whether there is currently a message to show.
     bool needsDisplayOfStatusMessage = false;
-    
     // Flag to disable entirely status message display.
     bool statusMessageDisabled = false;
 };
