@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>41EA51BD-888E-4CF1-B374-0AC4CEF72262</string>
+	<string>DEF48853-D44D-4EAA-B6E2-8D88A9173C1F</string>
 	<key>IDESourceControlProjectName</key>
 	<string>FaceLock</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>71A69775BBF0DD28B94CA46CB319C447721D3EE6</string>
 			<key>IDESourceControlWCCName</key>
-			<string>FaceLock</string>
+			<string>facelock</string>
 		</dict>
 	</array>
 </dict>
