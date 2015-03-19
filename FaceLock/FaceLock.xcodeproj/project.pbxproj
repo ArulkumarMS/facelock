@@ -16,6 +16,7 @@
 		CB0FE0F51AB37E97007BF483 /* FaceLockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0F41AB37E97007BF483 /* FaceLockTests.m */; };
 		CB4CDA3F1AB74D6A000C18A8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4CDA3D1AB74D6A000C18A8 /* opencv2.framework */; };
 		CB4CDA401AB74D6A000C18A8 /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */; };
+		CB61C04B1ABB6FF50077C43D /* ViewController_2D.m in Sources */ = {isa = PBXBuildFile; fileRef = CB61C04A1ABB6FF50077C43D /* ViewController_2D.m */; };
 		CB7EB9991AB7DB3B00B2A40D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB9981AB7DB3B00B2A40D /* AVFoundation.framework */; };
 		CB7EB99B1AB7DBF800B2A40D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB99A1AB7DBF800B2A40D /* QuartzCore.framework */; };
 		CB7EB99D1AB7DC0500B2A40D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB99C1AB7DC0500B2A40D /* Foundation.framework */; };
@@ -58,6 +59,8 @@
 		CB0FE0F41AB37E97007BF483 /* FaceLockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceLockTests.m; sourceTree = "<group>"; };
 		CB4CDA3D1AB74D6A000C18A8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Frameworks/opencv2.framework; sourceTree = "<group>"; };
 		CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Structure.framework; path = Frameworks/Structure.framework; sourceTree = "<group>"; };
+		CB61C0491ABB6FF50077C43D /* ViewController_2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_2D.h; sourceTree = "<group>"; };
+		CB61C04A1ABB6FF50077C43D /* ViewController_2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_2D.m; sourceTree = "<group>"; };
 		CB7EB9981AB7DB3B00B2A40D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CB7EB99A1AB7DBF800B2A40D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CB7EB99C1AB7DC0500B2A40D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,6 +156,8 @@
 				CB0FE0E51AB37E97007BF483 /* Images.xcassets */,
 				CB0FE0E71AB37E97007BF483 /* LaunchScreen.xib */,
 				CB0FE0D81AB37E97007BF483 /* Supporting Files */,
+				CB61C0491ABB6FF50077C43D /* ViewController_2D.h */,
+				CB61C04A1ABB6FF50077C43D /* ViewController_2D.m */,
 			);
 			path = FaceLock;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			files = (
 				CB0FE0E11AB37E97007BF483 /* ViewController.mm in Sources */,
 				CB0FE0DE1AB37E97007BF483 /* AppDelegate.m in Sources */,
+				CB61C04B1ABB6FF50077C43D /* ViewController_2D.m in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
