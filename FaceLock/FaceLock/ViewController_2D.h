@@ -6,10 +6,19 @@
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
+#ifdef __cpluscplus
+#import <opencv2/opencv.hpp>
+#endif
+#import <opencv2/videoio/cap_ios.h>
+
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController_2D : UIViewController
-
-@property (weak, nonatomic) IBOutlet UILabel *test_label_2d;
+@interface ViewController_2D : UIViewController <CvVideoCameraDelegate>{
+    UIImageView *_colorImageView;
+    CvVideoCamera* _videoCamera;
+}
+@property (nonatomic, retain) CvVideoCamera* videoCamera;
 
 @end

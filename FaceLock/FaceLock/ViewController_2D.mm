@@ -9,8 +9,9 @@
 #import "ViewController_2D.h"
 
 @interface ViewController_2D (){
-    UIImageView *_colorImageView;
+    
 }
+
 @end
 
 @implementation ViewController_2D
@@ -18,19 +19,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _test_label_2d.text = @"Hello World";
+    
     CGRect colorFrame = self.view.frame;
     _colorImageView = [[UIImageView alloc]initWithFrame:colorFrame];
     _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:_colorImageView];
+    self.videoCamera = [[CvVideoCamera alloc] initWithParentView:_colorImageView];
+    self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
+    self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
+    self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
+    self.videoCamera.defaultFPS = 30;
+    self.videoCamera.grayscaleMode = NO;
+    self.videoCamera.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self startColorCamera];
+    [_colorImageView setImage:[UIImage imageNamed:@"bg_horizon.jpg"]];
+    [self.videoCamera start];
 }
-
-
+#pragma mark -Protocol CvVideoCameraDelegate
+#ifdef __cplusplus
+- (void) processImage:(cv::Mat &)image{
+    //Do some openCV stuff with the image
+}
+#endif
+/*
 - (void)startColorCamera {
     BOOL isCamera = [UIImagePickerController isCameraDeviceAvailable:(UIImagePickerControllerCameraDeviceFront)];
     if (!isCamera) {
@@ -44,7 +58,7 @@
     //imagePicker.delegate =;
     imagePicker.allowsEditing = YES;
     [self presentViewController:imagePicker animated:YES completion:^{}];
-}
+}*/
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
