@@ -33,14 +33,14 @@
     self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
     self.videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPreset1280x720;
     self.videoCamera.defaultAVCaptureVideoOrientation = AVCaptureVideoOrientationPortrait;
-    self.videoCamera.defaultFPS = 10;
+    self.videoCamera.defaultFPS = 30;
     self.videoCamera.grayscaleMode = NO;
     self.videoCamera.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [_colorImageView setImage:[UIImage imageNamed:@"bg_horizon.jpg"]];
+//    [_colorImageView setImage:[UIImage imageNamed:@"bg_horizon.jpg"]];
     [self.videoCamera start];
 }
 
@@ -56,16 +56,19 @@
 
 - (void) processImage:(cv::Mat &)image{
     //Do some openCV stuff with the image
-    NSLog(@"It calls processing Image function\n");
+    //NSLog(@"It calls processing Image function\n");
     _count++;
-    
     if (0 == _count%30) {
-        NSLog(@"Hello World!\n");
+        NSLog(@"Detecting face...\n");
         _faceCascade->detectMultiScale(image, _faces);
+        if (_faces.size() > 0) {
+            NSLog(@"Found a face!\n");
+        }
         for(int i =0; i<_faces.size(); i++){
             CvRect rect = _faces[i];
             cv::rectangle(image, cv::Point(rect.x, rect.y), cv::Point(rect.x + rect.width, rect.y + rect.height), cv::Scalar(0, 255, 255), 5, 8);
         }
+        _count = 0; //Reset _count, (Ha Le)
     }
 }
 #endif
