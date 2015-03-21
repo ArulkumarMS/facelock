@@ -58,7 +58,7 @@
     //Do some openCV stuff with the image
     //NSLog(@"It calls processing Image function\n");
     _count++;
-    if (0 == _count%30) {
+    if (_count == 30) {
         NSLog(@"Detecting face...\n");
         _faceCascade->detectMultiScale(image, _faces);
         if (_faces.size() > 0) {
