@@ -58,15 +58,18 @@
     //Do some openCV stuff with the image
     //NSLog(@"It calls processing Image function\n");
     _count++;
+    cv::Rect roi = cv::Rect(0.25*image.cols,0,image.cols/2,image.rows);
+    cv::rectangle(image, roi, cv::Scalar(0, 255, 0), 1, 8);
     if (_count == 30) {
         NSLog(@"Detecting face...\n");
-        _faceCascade->detectMultiScale(image, _faces);
+        
+        cv::Mat image_roi = image(roi);
+        _faceCascade->detectMultiScale(image_roi, _faces);
         if (_faces.size() > 0) {
             NSLog(@"Found a face!\n");
         }
         for(int i =0; i<_faces.size(); i++){
-            CvRect rect = _faces[i];
-            cv::rectangle(image, cv::Point(rect.x, rect.y), cv::Point(rect.x + rect.width, rect.y + rect.height), cv::Scalar(0, 255, 255), 5, 8);
+            cv::rectangle(image, _faces[i], cv::Scalar(0, 255, 255), 1, 8);
         }
         _count = 0; //Reset _count, (Ha Le)
     }
