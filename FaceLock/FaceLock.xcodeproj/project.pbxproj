@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */; };
 		CB0FE0DB1AB37E97007BF483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0DA1AB37E97007BF483 /* main.m */; };
 		CB0FE0DE1AB37E97007BF483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0DD1AB37E97007BF483 /* AppDelegate.m */; };
 		CB0FE0E11AB37E97007BF483 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0E01AB37E97007BF483 /* ViewController.mm */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		CB0FE0D51AB37E97007BF483 /* FaceLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0FE0D91AB37E97007BF483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0FE0DA1AB37E97007BF483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		CB0FE0D81AB37E97007BF483 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */,
 				CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */,
 				CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */,
 				CB2D4DB61ABC9F5B00962452 /* bg_horizon.jpg */,
@@ -293,6 +296,7 @@
 				CB2D4DB71ABC9F5B00962452 /* bg_horizon.jpg in Resources */,
 				CB7F09CB1ABD0E5500996B5E /* haarcascade_frontalface_default.xml in Resources */,
 				CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */,
+				297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

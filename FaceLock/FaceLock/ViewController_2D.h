@@ -26,11 +26,13 @@
     //CIContext *_context;
     //NSArray *_features;
     cv::CascadeClassifier *_faceCascade;
+    cv::CascadeClassifier *_eyeCascade;
     std::vector<cv::Rect> _faces;
+    std::vector<cv::Rect> _eyes;
     CGContextRef _contextRef;
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
-- (cv::CascadeClassifier*)loadClassifier;
+- (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path;
 
 @end
