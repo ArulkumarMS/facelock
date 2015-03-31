@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+@import AVFoundation;
 
 int main(int argc, char * argv[]) {
+    AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome to FaceLock"];
+    [utterance setRate:0.1f];
+    [synthesizer speakUtterance:utterance];
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
