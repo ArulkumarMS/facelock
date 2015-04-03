@@ -17,6 +17,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
+#import <ImageIO/ImageIO.h>
 
 @interface ViewController_2D : UIViewController <CvVideoCameraDelegate>{
     UIImageView *_colorImageView;
@@ -34,5 +35,6 @@
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path;
-
+- (BOOL) saveImage: (cv::Mat) img andName:(NSString*) imagname;
+- (BOOL) saveImage2:(UIImage*)img andName:(NSString *)imagname;
 @end

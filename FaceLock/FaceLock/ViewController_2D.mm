@@ -18,6 +18,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImage* testImage = [UIImage imageNamed:@"bg_horizon.jpg"];
+    //[self saveImage2:testImage andName:@"b.jpg"];
+    cv::Mat testImage2 = [UIImageCVMatConverter cvMatFromUIImage:testImage];
+    UIImage* testImage3 = [UIImageCVMatConverter UIImageFromCVMat:testImage2];
+    [self saveImage2:testImage3 andName: @"c.jpg"];
     // Do any additional setup after loading the view.
     _count = 0;
     CGRect colorFrame = self.view.frame;
@@ -43,6 +48,42 @@
     [super viewDidAppear:animated];
 //    [_colorImageView setImage:[UIImage imageNamed:@"bg_horizon.jpg"]];
     [self.videoCamera start];
+}
+
+#pragma mark - Save Image to Sandbox/Documents
+
+- (BOOL) saveImage:(cv::Mat)img andName:(NSString *)imagname{
+    NSLog(@"W: %d, H: %d", img.cols, img.rows);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",imagname]];
+    UIImage* image = [UIImageCVMatConverter UIImageFromCVMat:img];
+    // NSLog(@"UIImage: W: %d, H: %d", image.)
+    BOOL result = [UIImageJPEGRepresentation(image, 1)writeToFile:filePath atomically:YES];
+    
+    if (result) {
+        NSLog(@"Save Correctly...");
+    }else{
+        NSLog(@"Save Problem...");
+    }
+    
+    return result;
+}
+
+- (BOOL) saveImage2:(UIImage*)image andName:(NSString *)imagname{
+    //NSLog(@"W: %d, H: %d", img.cols, img.rows);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",imagname]];
+    //UIImage* image = [UIImageCVMatConverter UIImageFromCVMat:img];
+    // NSLog(@"UIImage: W: %d, H: %d", image.)
+    BOOL result = [UIImageJPEGRepresentation(image, 1)writeToFile:filePath atomically:YES];
+    
+    if (result) {
+        NSLog(@"Save Correctly...");
+    }else{
+        NSLog(@"Save Problem...");
+    }
+    
+    return result;
 }
 
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path{
@@ -77,7 +118,13 @@
         NSLog(@"Found %@ faces!\n", @(_faces.size()));
         for(int i =0; i<_faces.size(); i++){
             cv::rectangle(image_roi, _faces[i], cv::Scalar(0, 255, 255), 1, 8);
-            cv::Mat image_eye_roi = image(roi);
+            NSString* imagename = @"a.jpg";
+            
+            
+            cv::Mat image_eye_roi = image_roi(_faces[i]).clone();
+            UIImage* saveimage = [UIImageCVMatConverter UIImageFromCVMat:image_eye_roi];
+            [self saveImage2: saveimage andName: imagename];
+            
             _eyeCascade->detectMultiScale(image_eye_roi, _eyes);
             NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
             for (int j = 0; j<_eyes.size(); j++) {
