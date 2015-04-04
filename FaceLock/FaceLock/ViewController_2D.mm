@@ -71,10 +71,10 @@
     return cvimage;
 }
 
-- (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path{
-    NSString* haar = [[NSBundle mainBundle]pathForResource:haar_file_path ofType:@"xml"];
+- (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path{
+    NSString* model = [[NSBundle mainBundle]pathForResource:model_file_path ofType:@"xml"];
     cv::CascadeClassifier* cascade = new cv::CascadeClassifier();
-    cascade->load([haar UTF8String]);
+    cascade->load([model UTF8String]);
     return cascade;
 }
 
@@ -86,6 +86,11 @@
     cv::Rect roi = cv::Rect(0.25*image.cols,0,image.cols/2,image.rows);
     cv::rectangle(image, roi, cv::Scalar(0, 255, 0), 1, 8);
     cv::Mat image_roi = image(roi);
+//    _faceCascade->detectMultiScale(image_roi, _faces, 2, 3, 0, cv::Size(50,50));
+//    if (_faces.size() > 0) {
+//        NSLog(@"Found %@ faces!\n", @(_faces.size()));
+//    }
+
     // Detection and Recognition every roundly 10 frames
     if (_count == 1) {
         __block cv::Mat image_roi_clone = image_roi.clone();
@@ -122,7 +127,7 @@
             _count = 0; //Reset _count
         });
     }
-    
+
     // Draw face and eyes boundaries
     for(int i =0; i<_faces.size(); i++){
         cv::rectangle(image_roi, _faces[i], cv::Scalar(0, 255, 255), 1, 8);

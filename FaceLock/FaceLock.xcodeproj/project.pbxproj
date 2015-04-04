@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */; };
+		29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */; };
 		CB0FE0DB1AB37E97007BF483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0DA1AB37E97007BF483 /* main.m */; };
 		CB0FE0DE1AB37E97007BF483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0DD1AB37E97007BF483 /* AppDelegate.m */; };
 		CB0FE0E11AB37E97007BF483 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0E01AB37E97007BF483 /* ViewController.mm */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
+		29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
 		CB0FE0D51AB37E97007BF483 /* FaceLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0FE0D91AB37E97007BF483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0FE0DA1AB37E97007BF483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CB0FE0CC1AB37E96007BF483 = {
+		29E3411A1AD07C77003CF1EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				CB2D4DB81ABCADC300962452 /* AssetsLibrary.framework */,
@@ -144,6 +146,14 @@
 				CBFD80651AB3A47B00C8CE64 /* ExternalAccessory.framework */,
 				CBFD80631AB3A46A00C8CE64 /* ImageIO.framework */,
 				CBFD80611AB3A45A00C8CE64 /* CoreMotion.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB0FE0CC1AB37E96007BF483 = {
+			isa = PBXGroup;
+			children = (
+				29E3411A1AD07C77003CF1EC /* Frameworks */,
 				CBFD805F1AB3A44400C8CE64 /* libz.dylib */,
 				CB0FE0D71AB37E97007BF483 /* FaceLock */,
 				CB0FE0F11AB37E97007BF483 /* FaceLockTests */,
@@ -182,6 +192,7 @@
 		CB0FE0D81AB37E97007BF483 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */,
 				297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */,
 				CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */,
 				CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */,
@@ -297,6 +308,7 @@
 				CB7F09CB1ABD0E5500996B5E /* haarcascade_frontalface_default.xml in Resources */,
 				CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */,
 				297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
+				29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
