@@ -18,8 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //UIImage* testImage = [UIImage imageNamed:@"bg_horizon.jpg"];
+    //[self saveImage2:testImage andName:@"b.jpg"];
+    //cv::Mat testImage2 = [UIImageCVMatConverter cvMatFromUIImage:testImage];
+    //UIImage* testImage3 = [UIImageCVMatConverter UIImageFromCVMat:testImage2];
+    //[self saveImage2:testImage3 andName: @"c.jpg"];
     // Do any additional setup after loading the view.
     _count = 0;
+    _imagename_count = 0;
     CGRect colorFrame = self.view.frame;
     _colorImageView = [[UIImageView alloc]initWithFrame:colorFrame];
     _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -45,6 +51,34 @@
     [self.videoCamera start];
 }
 
+#pragma mark - Save Image to Sandbox/Documents
+
+- (BOOL) saveMATImage:(cv::Mat)img andName:(NSString *)imagname{
+    NSLog(@"W: %d, H: %d", img.cols, img.rows);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",imagname]];
+    UIImage* image = [UIImageCVMatConverter UIImageFromCVMat:img];
+    // NSLog(@"UIImage: W: %d, H: %d", image.)
+    BOOL result = [UIImageJPEGRepresentation(image, 1)writeToFile:filePath atomically:YES];
+    
+    if (result) {
+        NSLog(@"Save Correctly...");
+    }else{
+        NSLog(@"Save Problem...");
+    }
+    
+    return result;
+}
+
+- (cv::Mat) loadImage2MAT:(NSString *)imagename{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *img_path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", imagename]];
+    NSData *img_data = [NSData dataWithContentsOfFile:img_path];
+    UIImage *uiimage = [UIImage imageWithData:img_data];
+    cv::Mat cvimage = [UIImageCVMatConverter cvMatFromUIImage:uiimage];
+    return cvimage;
+}
+
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path{
     NSString* haar = [[NSBundle mainBundle]pathForResource:haar_file_path ofType:@"xml"];
     cv::CascadeClassifier* cascade = new cv::CascadeClassifier();
@@ -59,6 +93,7 @@
     _count++;
     cv::Rect roi = cv::Rect(0.25*image.cols,0,image.cols/2,image.rows);
     cv::rectangle(image, roi, cv::Scalar(0, 255, 0), 1, 8);
+<<<<<<< HEAD
     cv::Mat image_roi = image(roi).clone();
     if (_count == 30) {
         // dispatch_queue_t face_recognition_queue = dispatch_queue_create("Face Recognition Queue",NULL);
@@ -92,6 +127,40 @@
         
         // Continue doing other stuff on the 
         // main thread while process is running.
+=======
+    
+    if (_count == 1) {
+        //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+        if(orientation == UIDeviceOrientationLandscapeLeft)
+        {
+            //NSLog(@"Landscape Left...\n");
+        }
+        //NSLog(@"Detecting face...\n");
+        cv::Mat image_roi = image(roi);
+        _faceCascade->detectMultiScale(image_roi, _faces, 2, 3, 0, cv::Size(50,50));
+        NSLog(@"Found %@ faces!\n", @(_faces.size()));
+        for(int i =0; i<_faces.size(); i++){
+            cv::rectangle(image_roi, _faces[i], cv::Scalar(0, 255, 255), 1, 8);
+            _imagename_count++;
+            NSString* imagename = [NSString stringWithFormat:@"%d.jpg", _imagename_count];
+        
+            cv::Mat image_eye_roi = image_roi(_faces[i]).clone();
+            [self saveMATImage: image_eye_roi andName: imagename];
+            
+            _eyeCascade->detectMultiScale(image_eye_roi, _eyes);
+            NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
+            for (int j = 0; j<_eyes.size(); j++) {
+                cv::Point eye_center( _eyes[j].x + _eyes[j].width/2, _eyes[j].y + _eyes[j].height/2 );
+                int radius = cvRound((_eyes[j].width + _eyes[j].height)*0.25 );
+                cv::circle(image_eye_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
+                //cv::rectangle(image_eye_roi, _eyes[j], cv::Scalar(0, 0, 255), 1, 8);
+            }
+            
+        }
+        _count = 0; //Reset _count, (Ha Le)
+        //});
+>>>>>>> 69401f5e479385f74ee41e92be4a9b4b1596fc53
     }
     
 }
