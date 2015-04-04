@@ -36,7 +36,6 @@
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path;
-- (BOOL) saveMATImage: (cv::Mat) img andName:(NSString*) imagname;
-//- (BOOL) saveImage2:(UIImage*)img andName:(NSString *)imagname;
+- (BOOL) saveMATImage: (cv::Mat) img andName:(NSString*) imagename;
 - (cv::Mat) loadImage2MAT: (NSString*) imagename;
 @end
