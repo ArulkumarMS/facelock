@@ -139,6 +139,64 @@
 //            cv::circle(image_face_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
         }
     }
+    
+    cv::Ptr<cv::face::FaceRecognizer> LBPHFR=cv::face::createLBPHFaceRecognizer();
+    std::vector<cv::Mat> Images;
+    std::vector<int> Lables;
+    
+    for(int x=2; x<=10;x++){
+        NSString *filename = [NSString stringWithFormat: @"%@%@",
+                              @"xiang", [@(x) stringValue]];
+        NSLog(@"%@",filename);
+        NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"JPG" ];
+        UIImage* resImage = [UIImage imageWithContentsOfFile:filePath];
+        cv::Mat cvImage;
+        cvImage=[UIImageCVMatConverter cvMatGrayFromUIImage:resImage];
+        
+        if(cvImage.data )                              // Check for invalid input
+        {
+            NSLog(@"!!!");
+            Images.push_back(cvImage);Lables.push_back(0);
+        }
+    }
+    for(int h=2; h<=10;h++){
+        NSString *filename = [NSString stringWithFormat: @"%@%@",
+                              @"ha", [@(h) stringValue]];
+        NSLog(@"%@",filename);
+        NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"JPG" ];
+        UIImage* resImage = [UIImage imageWithContentsOfFile:filePath];
+        cv::Mat cvImage;
+        cvImage=[UIImageCVMatConverter cvMatGrayFromUIImage:resImage];
+        
+        if(cvImage.data )                              // Check for invalid input
+        {
+            NSLog(@"!!!");
+            Images.push_back(cvImage);Lables.push_back(1);
+        }
+    }
+    
+    
+    LBPHFR->train(Images, Lables);
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"xiang1" ofType:@"jpg" ];
+    UIImage* resImage = [UIImage imageWithContentsOfFile:filePath];
+    cv::Mat newimg=[UIImageCVMatConverter cvMatGrayFromUIImage:resImage];
+    //int label=LBPHFR->predict(newimg);
+    //[_colorImageView setImage:resImage  ];
+    //NSLog(@"Found %d \n", label);
+    
+    
+    //const cv::String filename="LBPHmodel.xml";
+    cv::FileStorage filestrg("LBPHmodel.xml", cv::FileStorage::WRITE);
+    LBPHFR->save(filestrg);
+    
+    
+    
+    cv::Ptr<cv::face::FaceRecognizer> LBPHFRnew=cv::face::createLBPHFaceRecognizer();
+    LBPHFRnew->load(filestrg);
+    int label=LBPHFRnew->predict(newimg);
+    [_colorImageView setImage:resImage  ];
+    NSLog(@"Found %d \n", label);
+    
 }
 
 #endif

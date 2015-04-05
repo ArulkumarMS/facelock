@@ -12,6 +12,8 @@
 #import <opencv2/videoio/cap_ios.h>
 #import <opencv2/imgproc/imgproc_c.h>
 #import <opencv2/objdetect/objdetect.hpp>
+#import <opencv2/face.hpp>
+#import <opencv2/face/facerec.hpp>
 #import "UIImageCVMatConverter.h"
 
 #import <UIKit/UIKit.h>
