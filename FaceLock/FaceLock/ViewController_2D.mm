@@ -7,7 +7,7 @@
 //
 
 #import "ViewController_2D.h"
-#import "Utils.h"
+
 
 @interface ViewController_2D (){
     
@@ -45,36 +45,6 @@
 //    [_colorImageView setImage:[UIImage imageNamed:@"bg_horizon.jpg"]];
     [self.videoCamera start];
 }
-/*
-- (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path{
-    NSString* haar = [[NSBundle mainBundle]pathForResource:haar_file_path ofType:@"xml"];
-}*/
-/*
-#pragma mark - Save Image to Sandbox/Documents
-
-- (BOOL) saveMATImage:(cv::Mat)img andName:(NSString *)imagename{
-//    NSLog(@"W: %d, H: %d", img.cols, img.rows);
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",imagename]];
-    UIImage* image = [UIImageCVMatConverter UIImageFromCVMat:img];
-//    NSLog(@"UIImage: W: %d, H: %d", image.)
-    BOOL result = [UIImageJPEGRepresentation(image, 1)writeToFile:filePath atomically:YES];
-    
-//    if (result) {
-//        NSLog(@"Image saved");
-//    }
-    
-    return result;
-}
-
-- (cv::Mat) loadImage2MAT:(NSString *)imagename{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *img_path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", imagename]];
-    NSData *img_data = [NSData dataWithContentsOfFile:img_path];
-    UIImage *uiimage = [UIImage imageWithData:img_data];
-    cv::Mat cvimage = [UIImageCVMatConverter cvMatFromUIImage:uiimage];
-    return cvimage;
-}*/
 
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path{
     NSString* model = [[NSBundle mainBundle]pathForResource:model_file_path ofType:@"xml"];
@@ -103,10 +73,6 @@
         dispatch_queue_t face_recognition_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(face_recognition_queue, ^{
             // Perform long running process
-//            NSString* imagename = [NSString stringWithFormat:@"roi_%.4d.jpg", _imagename_count];
-//            _imagename_count++;
-//            [self saveMATImage:image_roi_clone andName:imagename];
-//            NSLog(@"Detecting face...\n");
             _faceCascade->detectMultiScale(image_roi_clone, _faces, 2, 3, 0, cv::Size(50,50));
             if (_faces.size() > 0) {
                 NSLog(@"Found %@ faces!\n", @(_faces.size()));

@@ -15,6 +15,7 @@
 #import <opencv2/face.hpp>
 #import <opencv2/face/facerec.hpp>
 #import "UIImageCVMatConverter.h"
+#import "Utils.h"
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
@@ -37,13 +38,7 @@
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
-//- (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path;
-
-//- (BOOL) saveImage2:(UIImage*)img andName:(NSString *)imagname;
-
-//=======
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path;
-//- (BOOL) saveMATImage: (cv::Mat) img andName:(NSString*) imagename;
-//- (cv::Mat) loadImage2MAT: (NSString*) imagename;
+
 
 @end
