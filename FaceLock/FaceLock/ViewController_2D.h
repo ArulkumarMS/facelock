@@ -35,6 +35,7 @@
     std::vector<cv::Rect> _eyes;
     CGContextRef _contextRef;
     cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
+    NSString *user;
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 

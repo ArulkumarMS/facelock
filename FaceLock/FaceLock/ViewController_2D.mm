@@ -213,19 +213,36 @@
     }
     
     _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-    cv::Ptr<cv::face::FaceRecognizer>_LBPHFaceRecognizer1=cv::face::createLBPHFaceRecognizer();
+    //cv::Ptr<cv::face::FaceRecognizer>_LBPHFaceRecognizer1=cv::face::createLBPHFaceRecognizer();
     //    [self saveFaceRecognizer:_LBPHFaceRecognizer];
     //    [self loadFaceRecognizer:_LBPHFaceRecognizer];
-    [self trainFaceRecognizer:_LBPHFaceRecognizer andUser:@"xiang" andLabel:1 andTrainNum:9];
-    [self trainFaceRecognizer:_LBPHFaceRecognizer andUser:@"ha" andLabel:2 andTrainNum:9];
-    [self saveFaceRecognizer:_LBPHFaceRecognizer];
-    [self loadFaceRecognizer:_LBPHFaceRecognizer1];
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"xiang10" ofType:@"JPG" ];
+    //[self trainFaceRecognizer:_LBPHFaceRecognizer andUser:@"xiang" andLabel:1 andTrainNum:9];
+    //[self trainFaceRecognizer:_LBPHFaceRecognizer andUser:@"ha" andLabel:2 andTrainNum:9];
+    //[self saveFaceRecognizer:_LBPHFaceRecognizer];
+    [self loadFaceRecognizer:_LBPHFaceRecognizer];
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"yiwen2" ofType:@"JPG" ];
     UIImage* resImage = [UIImage imageWithContentsOfFile:filePath];
     cv::Mat newimg=[UIImageCVMatConverter cvMatGrayFromUIImage:resImage];
-    int label=_LBPHFaceRecognizer1->predict(newimg);
+    int label;
+    double predicted_confidence;
+    _LBPHFaceRecognizer->predict(newimg,label,predicted_confidence);
     //[_colorImageView setImage:resImage  ];
-    NSLog(@"Found %d \n", label);
+    NSLog(@"Found %d,with confidence %f \n", label,predicted_confidence);
+    if(predicted_confidence>20){//need to update after experiment.
+        NSLog(@"Sorry, you can not enter the door.\n");
+        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+        [utterance setRate:0.1f];
+        [synthesizer speakUtterance:utterance];
+    }
+    else{
+        NSLog(@"Welcome Back.\n");
+        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back."];
+        [utterance setRate:0.1f];
+        [synthesizer speakUtterance:utterance];
+    }
+    
     
 }
 
