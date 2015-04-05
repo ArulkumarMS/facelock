@@ -7,6 +7,7 @@
 //
 
 #import "ViewController_2D.h"
+#import "Utils.h"
 
 @interface ViewController_2D (){
     
@@ -51,34 +52,6 @@
     [self.videoCamera start];
 }
 
-#pragma mark - Save Image to Sandbox/Documents
-
-- (BOOL) saveMATImage:(cv::Mat)img andName:(NSString *)imagname{
-    NSLog(@"W: %d, H: %d", img.cols, img.rows);
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",imagname]];
-    UIImage* image = [UIImageCVMatConverter UIImageFromCVMat:img];
-    // NSLog(@"UIImage: W: %d, H: %d", image.)
-    BOOL result = [UIImageJPEGRepresentation(image, 1)writeToFile:filePath atomically:YES];
-    
-    if (result) {
-        NSLog(@"Save Correctly...");
-    }else{
-        NSLog(@"Save Problem...");
-    }
-    
-    return result;
-}
-
-- (cv::Mat) loadImage2MAT:(NSString *)imagename{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *img_path = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", imagename]];
-    NSData *img_data = [NSData dataWithContentsOfFile:img_path];
-    UIImage *uiimage = [UIImage imageWithData:img_data];
-    cv::Mat cvimage = [UIImageCVMatConverter cvMatFromUIImage:uiimage];
-    return cvimage;
-}
-
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) haar_file_path{
     NSString* haar = [[NSBundle mainBundle]pathForResource:haar_file_path ofType:@"xml"];
     cv::CascadeClassifier* cascade = new cv::CascadeClassifier();
@@ -115,7 +88,7 @@
             NSString* imagename = [NSString stringWithFormat:@"%d.jpg", _imagename_count];
         
             cv::Mat image_eye_roi = image_roi(_faces[i]).clone();
-            [self saveMATImage: image_eye_roi andName: imagename];
+            [Utils saveMATImage: image_eye_roi andName: imagename];
             
             _eyeCascade->detectMultiScale(image_eye_roi, _eyes);
             NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
@@ -123,7 +96,15 @@
                 cv::Point eye_center( _eyes[j].x + _eyes[j].width/2, _eyes[j].y + _eyes[j].height/2 );
                 int radius = cvRound((_eyes[j].width + _eyes[j].height)*0.25 );
                 cv::circle(image_eye_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
-                //cv::rectangle(image_eye_roi, _eyes[j], cv::Scalar(0, 0, 255), 1, 8);
+            }
+            
+            if (2 == _eyes.size()) {
+                cv::Mat eyeLeft = (cv::Mat_<double>(1,2)<< _eyes[0].x + _eyes[0].width/2, _eyes[0].y + _eyes[0].height/2);
+                cv::Mat eyeRight = (cv::Mat_<double>(1,2)<< _eyes[1].x + _eyes[1].width/2, _eyes[1].y + _eyes[1].height/2);
+                cv::Mat offset =  (cv::Mat_<double>(1,2)<< 0.2, 0.2);
+                cv::Mat dst_sz = (cv::Mat_<double>(1,2)<< 70, 70);
+                cv::Mat normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]) andEyeLeft: eyeLeft andEyeRight: eyeRight andOffset: offset andDstsize: dst_sz];
+                [Utils saveMATImage:normalFaceImg andName:@"NormalFace.jpg"];
             }
             
         }

@@ -31,6 +31,7 @@
 		CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB7F09C61ABCD2FB00996B5E /* UIImageCVMatConverter.mm */; };
 		CB7F09C91ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */; };
 		CB7F09CB1ABD0E5500996B5E /* haarcascade_frontalface_default.xml in Resources */ = {isa = PBXBuildFile; fileRef = CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */; };
+		CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBB1DF161ACF8CF2000A5A6D /* Utils.mm */; };
 		CBFD80601AB3A44400C8CE64 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD805F1AB3A44400C8CE64 /* libz.dylib */; };
 		CBFD80621AB3A45A00C8CE64 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD80611AB3A45A00C8CE64 /* CoreMotion.framework */; };
 		CBFD80641AB3A46A00C8CE64 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD80631AB3A46A00C8CE64 /* ImageIO.framework */; };
@@ -82,6 +83,8 @@
 		CB7F09C61ABCD2FB00996B5E /* UIImageCVMatConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImageCVMatConverter.mm; sourceTree = "<group>"; };
 		CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
 		CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_default.xml; sourceTree = "<group>"; };
+		CBB1DF151ACF8CF2000A5A6D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		CBB1DF161ACF8CF2000A5A6D /* Utils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Utils.mm; sourceTree = "<group>"; };
 		CBFD805F1AB3A44400C8CE64 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CBFD80611AB3A45A00C8CE64 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		CBFD80631AB3A46A00C8CE64 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -175,6 +178,8 @@
 				CB61C04A1ABB6FF50077C43D /* ViewController_2D.mm */,
 				CB7F09C51ABCD2FB00996B5E /* UIImageCVMatConverter.h */,
 				CB7F09C61ABCD2FB00996B5E /* UIImageCVMatConverter.mm */,
+				CBB1DF151ACF8CF2000A5A6D /* Utils.h */,
+				CBB1DF161ACF8CF2000A5A6D /* Utils.mm */,
 			);
 			path = FaceLock;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 				CB0FE0E11AB37E97007BF483 /* ViewController.mm in Sources */,
 				CB0FE0DE1AB37E97007BF483 /* AppDelegate.m in Sources */,
 				CB61C04B1ABB6FF50077C43D /* ViewController_2D.mm in Sources */,
+				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
 				CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,
 			);
