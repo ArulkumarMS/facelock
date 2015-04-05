@@ -34,6 +34,7 @@
     std::vector<cv::Rect> _faces;
     std::vector<cv::Rect> _eyes;
     CGContextRef _contextRef;
+    cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
@@ -45,5 +46,10 @@
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path;
 //- (BOOL) saveMATImage: (cv::Mat) img andName:(NSString*) imagename;
 //- (cv::Mat) loadImage2MAT: (NSString*) imagename;
+- (BOOL) saveMATImage: (cv::Mat) img andName:(NSString*) imagename;
+- (cv::Mat) loadImage2MAT: (NSString*) imagename;
+- (void)saveFaceRecognizer: (cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;
+- (void)loadFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;
+- (void)trainFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR andUser:(NSString*) username andLabel: (int)label andTrainNum:(NSInteger)imageNum;
 
 @end
