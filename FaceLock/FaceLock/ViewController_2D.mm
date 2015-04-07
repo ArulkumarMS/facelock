@@ -38,6 +38,19 @@
     self.videoCamera.defaultFPS = 30;
     self.videoCamera.grayscaleMode = NO;
     self.videoCamera.delegate = self;
+    
+    //if run FaceLock in the ios device first time, uncommend following part.
+    /*
+    cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+    [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
+    [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"xiang" andLabel:1 andTrainNum:9];
+    [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"ha" andLabel:2 andTrainNum:9];
+    [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+     */
+    
+    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -118,23 +131,44 @@
         
         _eyeCascade->detectMultiScale(image_eye_roi, _eyes);
         NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
+        
         for (int j = 0; j<_eyes.size(); j++) {
             cv::Point eye_center( _eyes[j].x + _eyes[j].width/2, _eyes[j].y + _eyes[j].height/2 );
             int radius = cvRound((_eyes[j].width + _eyes[j].height)*0.25 );
             cv::circle(image_eye_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
         }
+        
+        //face recognition
+        int label;
+        double predicted_confidence;
+        cv::Mat newface;
+        _LBPHFaceRecognizer->predict(newface,label,predicted_confidence);
+        //[_colorImageView setImage:resImage  ];
+        NSLog(@"Found %d,with confidence %f \n", label,predicted_confidence);
+        if(predicted_confidence>20){//need to update after experiment.
+            NSLog(@"Sorry, you can not enter the door.\n");
+            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+            [utterance setRate:0.1f];
+            [synthesizer speakUtterance:utterance];
+        }
+        else{
+            NSLog(@"Welcome Back.\n");
+            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back."];
+            [utterance setRate:0.1f];
+            [synthesizer speakUtterance:utterance];
+        }
+        
+
+        
 
     }
     
-    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-    //cv::Ptr<cv::face::FaceRecognizer>_LBPHFaceRecognizer1=cv::face::createLBPHFaceRecognizer();
-    //    [self saveFaceRecognizer:_LBPHFaceRecognizer];
-    //    [self loadFaceRecognizer:_LBPHFaceRecognizer];
-    //[self trainFaceRecognizer:_LBPHFaceRecognizer andUser:@"xiang" andLabel:1 andTrainNum:9];
-    //[self trainFaceRecognizer:_LBPHFaceRecognizer andUser:@"ha" andLabel:2 andTrainNum:9];
-    //[self saveFaceRecognizer:_LBPHFaceRecognizer];
-    [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"ha10" ofType:@"JPG" ];
+    
+
+    /*
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"yiwen10" ofType:@"JPG" ];
     UIImage* resImage = [UIImage imageWithContentsOfFile:filePath];
     cv::Mat newimg=[UIImageCVMatConverter cvMatGrayFromUIImage:resImage];
     int label;
@@ -157,7 +191,7 @@
         [synthesizer speakUtterance:utterance];
     }
     
-    
+    */
 }
 
 #endif
