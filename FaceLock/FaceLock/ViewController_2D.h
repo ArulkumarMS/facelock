@@ -16,6 +16,7 @@
 #import <opencv2/face/facerec.hpp>
 #import "UIImageCVMatConverter.h"
 #import "Utils.h"
+#import "FaceRecognition_2D.h"
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
@@ -41,9 +42,5 @@
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
 - (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path;
-
-- (void)saveFaceRecognizer: (cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;
-- (void)loadFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;
-- (void)trainFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR andUser:(NSString*) username andLabel: (int)label andTrainNum:(NSInteger)imageNum;
 
 @end
