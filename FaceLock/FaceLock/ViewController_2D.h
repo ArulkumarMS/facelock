@@ -41,6 +41,6 @@
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
-- (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path;
+
 
 @end

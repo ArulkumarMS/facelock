@@ -26,8 +26,8 @@
     _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:_colorImageView];
     // Create face detector
-    _faceCascade = [self loadClassifier:@"haarcascade_frontalface_alt2"];
-    _eyeCascade = [self loadClassifier:@"haarcascade_eye_tree_eyeglasses"];
+    _faceCascade = [Utils loadClassifier:@"haarcascade_frontalface_alt2"];
+    _eyeCascade = [Utils loadClassifier:@"haarcascade_eye_tree_eyeglasses"];
     //_context = [CIContext contextWithOptions:nil];
     //_faceDectector = [CIDetector detectorOfType:CIDetectorTypeFace context:_context options:@{CIDetectorAccuracy: CIDetectorAccuracyHigh}];
     // Call OPENCV video camera
@@ -46,12 +46,6 @@
     [self.videoCamera start];
 }
 
-- (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path{
-    NSString* model = [[NSBundle mainBundle]pathForResource:model_file_path ofType:@"xml"];
-    cv::CascadeClassifier* cascade = new cv::CascadeClassifier();
-    cascade->load([model UTF8String]);
-    return cascade;
-}
 
 #pragma mark -Protocol CvVideoCameraDelegate
 #ifdef __cplusplus
@@ -89,6 +83,15 @@
                 if (_eyes.size() > 0) {
                     NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
                 }
+                
+                if (2 == _eyes.size()) {
+                    cv::Mat eyeLeft = (cv::Mat_<double>(1,2)<< _eyes[0].x + _eyes[0].width/2, _eyes[0].y + _eyes[0].height/2);
+                    cv::Mat eyeRight = (cv::Mat_<double>(1,2)<< _eyes[1].x + _eyes[1].width/2, _eyes[1].y + _eyes[1].height/2);
+                    cv::Mat offset =  (cv::Mat_<double>(1,2)<< 0.2, 0.2);
+                    cv::Mat dst_sz = (cv::Mat_<double>(1,2)<< 70, 70);
+                    cv::Mat normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]) andEyeLeft: eyeLeft andEyeRight: eyeRight andOffset: offset andDstsize: dst_sz];
+                    [Utils saveMATImage:normalFaceImg andName:@"NormalFace.jpg"];
+                }
             }
 
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -119,15 +122,6 @@
             cv::Point eye_center( _eyes[j].x + _eyes[j].width/2, _eyes[j].y + _eyes[j].height/2 );
             int radius = cvRound((_eyes[j].width + _eyes[j].height)*0.25 );
             cv::circle(image_eye_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
-        }
-        
-        if (2 == _eyes.size()) {
-            cv::Mat eyeLeft = (cv::Mat_<double>(1,2)<< _eyes[0].x + _eyes[0].width/2, _eyes[0].y + _eyes[0].height/2);
-            cv::Mat eyeRight = (cv::Mat_<double>(1,2)<< _eyes[1].x + _eyes[1].width/2, _eyes[1].y + _eyes[1].height/2);
-            cv::Mat offset =  (cv::Mat_<double>(1,2)<< 0.2, 0.2);
-            cv::Mat dst_sz = (cv::Mat_<double>(1,2)<< 70, 70);
-            cv::Mat normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]) andEyeLeft: eyeLeft andEyeRight: eyeRight andOffset: offset andDstsize: dst_sz];
-            [Utils saveMATImage:normalFaceImg andName:@"NormalFace.jpg"];
         }
 
     }
