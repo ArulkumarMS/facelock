@@ -45,54 +45,41 @@
     return cascade;
 }
 
-+ (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Mat) eye_left andEyeRight:(cv::Mat) eye_right andOffset:(cv::Mat)offset andDstsize:(cv::Mat)dest_size{
++ (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Mat) eye_left andEyeRight:(cv::Mat) eye_right andDstsize:(cv::Mat)dest_size andHistEqual:(BOOL)doLeftandRightSeparately{
+    
     // distance between eyes
     double dist_between_eye = cv::norm(eye_left-eye_right);
-    NSLog(@"Distance between two eyes: %f", dist_between_eye);
-    // calculate offsets
-    double offset_h = floor(offset.at<double>(0, 0)*dest_size.at<double>(0, 0));
-    //double offset_v = floor(offset.at<double>(0, 1)*dest_size.at<double>(0, 1));
+    //NSLog(@"Distance between two eyes: %f", dist_between_eye);
+    cv::Point center = cv::Point((eye_left.at<double>(0, 0)+eye_right.at<double>(0, 0))/2, (eye_left.at<double>(0, 1)+eye_right.at<double>(0, 1))/2);
     // get the direction
     cv::Mat eye_direction = eye_right - eye_left;
     // calculate rotation angle in radians
     double rotation = atan(eye_direction.at<double>(0, 0)/eye_direction.at<double>(0, 1));
-    NSLog(@"Rotation Angle is %f", rotation*180/M_PI);
-    // calculate the reference eye-width
-    double reference = dest_size.at<double>(0,0) - 2* offset_h;
-    // scale factor
-    double scale = dist_between_eye/reference;
-    // rotate orginal around the left eye
-    cv::Mat image = [self ScaleRotateTranslate:img andEyeLeft:eye_left andRotation:rotation andScale:scale];
-    // crop the rotated image
-    //double x = eye_left.at<double>(0, 0) - scale*offset_h, y = eye_left.at<double>(0,1) - scale*offset_v;
-    //double w = dest_size.at<double>(0,0)*scale, h = dest_size.at<double>(0,1)*scale;
-    //cv::Rect rect = cv::Rect(x, y, w, h);
-    //cv::Mat image = img(rect);
-    return image;
-}
-
-+ (cv::Mat) ScaleRotateTranslate: (cv::Mat&)image andEyeLeft:(cv::Mat) eye_Left andRotation: (double) angle andScale:(double) scale{
-    double nx = eye_Left.at<double>(0, 0);
-    double ny = eye_Left.at<double>(0, 1);
     
-    double x = nx, y= ny;
-    double sx = scale, sy = scale;
+    double Desired_Face_Width = dest_size.at<double>(0,0);
+    double Desired_Face_Height = dest_size.at<double>(0,1);
+    const double DESIRED_LEFT_EYE_X = 0.16; const double DESIRED_LEFT_EYE_Y = 0.14;
+    const double DESIRED_RIGHT_EYE_X = 1 - DESIRED_LEFT_EYE_X;
+    double disiredLen = (DESIRED_RIGHT_EYE_X-DESIRED_LEFT_EYE_X)*Desired_Face_Width;
+    double scale = disiredLen/dist_between_eye;
     
-    double cosine = cos(angle);
-    double sine = sin(angle);
+    cv::Mat M = cv::getRotationMatrix2D(center, rotation, scale);
+    M.at<double>(0, 2) += Desired_Face_Width * 0.5f - center.x;
+    M.at<double>(1, 2) += Desired_Face_Width * DESIRED_LEFT_EYE_Y - center.y;
+    //cv::Mat M = (cv::Mat_<double> (2, 3)<< a,b,0, d,e,0);
+    cv::Mat warped = cv::Mat(Desired_Face_Height, Desired_Face_Width, CV_8U, cv::Scalar(128));
+    cv::warpAffine(img, warped, M, warped.size());
+    if (!doLeftandRightSeparately) {
+        cv::equalizeHist(warped, warped);
+    }else{
+        [self equalizeLeftAndRightHalves:warped];
+    }
+    cv::Mat filtered = cv::Mat(warped.size(), CV_8U);
+    cv::bilateralFilter(warped, filtered, 0, 20, 2);
+    //cv::namedWindow("image", CV_WINDOW_AUTOSIZE);
+    //imshow("image", filtered);
     
-    double a = cosine/sx, b = sine/sx, c = x - nx*a - ny*b;
-    double d = -sine/sy, e = cosine/sy, f = y - nx*d - ny*e;
-    NSLog(@"Image Width is %d and Height is %d", image.cols, image.rows);
-    
-    cv::Mat M = (cv::Mat_<double> (2, 3)<< a,b,c,d,e,f);
-    //cv::Mat imageT;
-    cv::Mat warped = cv::Mat(image.rows/sx, image.cols*sx, CV_8U, cvScalar(128));
-    cv::warpAffine(image, warped, M, warped.size());
-    //[self equalizeLeftAndRightHalves:warped];
-    //cv::bilateralFilter(warped, warped, 0, 20, 2);
-    cv::Mat dstImg = cv::Mat(warped.size(), CV_8U, cvScalar(128));
-    return dstImg;
+    return filtered;
 }
 
 + (void) equalizeLeftAndRightHalves: (cv::Mat&) faceImg{

@@ -15,8 +15,7 @@
 
 + (BOOL) saveMATImage: (cv::Mat) img andName:(NSString*) imagname;
 + (cv::Mat) loadImage2MAT: (NSString*) imagename;
-+ (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Mat) eye_left andEyeRight:(cv::Mat) eye_right andOffset:(cv::Mat) offset andDstsize: (cv::Mat) dest_size;
-+ (cv::Mat) ScaleRotateTranslate: (cv::Mat&)image andEyeLeft:(cv::Mat) eye_Left andRotation: (double) angle andScale:(double) scale;
++ (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Mat) eye_left andEyeRight:(cv::Mat) eye_right andDstsize: (cv::Mat) dest_size andHistEqual: (BOOL) doLeftandRightSeparately;
 + (void) equalizeLeftAndRightHalves: (cv::Mat&) faceImg;
 
 + (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path;

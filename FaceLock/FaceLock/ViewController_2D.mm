@@ -98,14 +98,15 @@
                 }
                 
                 if (2 == _eyes.size()) {
-                    cv::Mat eyeLeft = (cv::Mat_<double>(1,2)<< _eyes[0].x + _eyes[0].width/2, _eyes[0].y + _eyes[0].height/2);
-                    cv::Mat eyeRight = (cv::Mat_<double>(1,2)<< _eyes[1].x + _eyes[1].width/2, _eyes[1].y + _eyes[1].height/2);
-                    cv::Mat offset =  (cv::Mat_<double>(1,2)<< 0.2, 0.2);
+                    cv::Mat eyeLeft = (cv::Mat_<double>(1,2)<< _eyes[0].x + _eyes[0].width/2 - _faces[i].x, _eyes[0].y + _eyes[0].height/2 - _faces[i].y);
+                    cv::Mat eyeRight = (cv::Mat_<double>(1,2)<< _eyes[1].x + _eyes[1].width/2 - _faces[i].x, _eyes[1].y + _eyes[1].height/2 - _faces[i].y);
+                    
                     cv::Mat dst_sz = (cv::Mat_<double>(1,2)<< 70, 70);
-                    cv::Mat normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]) andEyeLeft: eyeLeft andEyeRight: eyeRight andOffset: offset andDstsize: dst_sz];
-                    [Utils saveMATImage:normalFaceImg andName:@"NormalFace.jpg"];
+                    cv::Mat normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]) andEyeLeft: eyeLeft andEyeRight: eyeRight andDstsize: dst_sz andHistEqual:true];
+                    [Utils saveMATImage:normalFaceImg andName:[NSString stringWithFormat: @"NormalFace_%.4d.jpg", _imagename_count]];
                 }
             }
+            
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Update the UI
