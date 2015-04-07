@@ -40,7 +40,7 @@
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 
-- (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path;
+
 
 - (void)saveFaceRecognizer: (cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;
 - (void)loadFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;

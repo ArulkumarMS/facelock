@@ -38,6 +38,13 @@
     return cvimage;
 }
 
++ (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path{
+    NSString* model = [[NSBundle mainBundle]pathForResource:model_file_path ofType:@"xml"];
+    cv::CascadeClassifier* cascade = new cv::CascadeClassifier();
+    cascade->load([model UTF8String]);
+    return cascade;
+}
+
 + (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Mat) eye_left andEyeRight:(cv::Mat) eye_right andOffset:(cv::Mat)offset andDstsize:(cv::Mat)dest_size{
     // distance between eyes
     double dist_between_eye = cv::norm(eye_left-eye_right);
