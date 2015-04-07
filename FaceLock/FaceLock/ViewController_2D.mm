@@ -102,8 +102,33 @@
                     cv::Mat eyeRight = (cv::Mat_<double>(1,2)<< _eyes[1].x + _eyes[1].width/2 - _faces[i].x, _eyes[1].y + _eyes[1].height/2 - _faces[i].y);
                     
                     cv::Mat dst_sz = (cv::Mat_<double>(1,2)<< 70, 70);
-                    cv::Mat normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]) andEyeLeft: eyeLeft andEyeRight: eyeRight andDstsize: dst_sz andHistEqual:true];
+                    cv::Mat normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]) andEyeLeft: eyeLeft andEyeRight: eyeRight andDstsize: dst_sz andHistEqual:false];
                     [Utils saveMATImage:normalFaceImg andName:[NSString stringWithFormat: @"NormalFace_%.4d.jpg", _imagename_count]];
+                    
+                    //face recognition
+                    int label;
+                    double predicted_confidence;
+                    //cv::Mat newface;
+                    _LBPHFaceRecognizer->predict(normalFaceImg,label,predicted_confidence);
+                    //[_colorImageView setImage:resImage  ];
+                    NSLog(@"Found %d,with confidence %f \n", label,predicted_confidence);
+                    if(predicted_confidence>20){//need to update after experiment.
+                        NSLog(@"Sorry, you can not enter the door.\n");
+                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+                        [utterance setRate:0.1f];
+                        [synthesizer speakUtterance:utterance];
+                    }
+                    else{
+                        NSLog(@"Welcome Back.\n");
+                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back."];
+                        [utterance setRate:0.1f];
+                        [synthesizer speakUtterance:utterance];
+                    }
+
+                    
+                    
                 }
             }
             
@@ -139,27 +164,6 @@
             cv::circle(image_eye_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
         }
         
-        //face recognition
-        int label;
-        double predicted_confidence;
-        cv::Mat newface;
-        _LBPHFaceRecognizer->predict(newface,label,predicted_confidence);
-        //[_colorImageView setImage:resImage  ];
-        NSLog(@"Found %d,with confidence %f \n", label,predicted_confidence);
-        if(predicted_confidence>20){//need to update after experiment.
-            NSLog(@"Sorry, you can not enter the door.\n");
-            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
-            [utterance setRate:0.1f];
-            [synthesizer speakUtterance:utterance];
-        }
-        else{
-            NSLog(@"Welcome Back.\n");
-            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back."];
-            [utterance setRate:0.1f];
-            [synthesizer speakUtterance:utterance];
-        }
         
 
         
