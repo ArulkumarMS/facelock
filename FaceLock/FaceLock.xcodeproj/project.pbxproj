@@ -51,6 +51,8 @@
 		CB4CDA3F1AB74D6A000C18A8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4CDA3D1AB74D6A000C18A8 /* opencv2.framework */; };
 		CB4CDA401AB74D6A000C18A8 /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */; };
 		CB61C04B1ABB6FF50077C43D /* ViewController_2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB61C04A1ABB6FF50077C43D /* ViewController_2D.mm */; };
+		CB6F20CD1AD4CF8000563FFD /* UserDefaultsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6F20CC1AD4CF8000563FFD /* UserDefaultsHelper.m */; };
+		CB6F20D01AD4D41800563FFD /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6F20CF1AD4D41800563FFD /* Constants.m */; };
 		CB7EB9991AB7DB3B00B2A40D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB9981AB7DB3B00B2A40D /* AVFoundation.framework */; };
 		CB7EB99B1AB7DBF800B2A40D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB99A1AB7DBF800B2A40D /* QuartzCore.framework */; };
 		CB7EB99D1AB7DC0500B2A40D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB99C1AB7DC0500B2A40D /* Foundation.framework */; };
@@ -134,6 +136,10 @@
 		CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Structure.framework; path = Frameworks/Structure.framework; sourceTree = "<group>"; };
 		CB61C0491ABB6FF50077C43D /* ViewController_2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_2D.h; sourceTree = "<group>"; };
 		CB61C04A1ABB6FF50077C43D /* ViewController_2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController_2D.mm; sourceTree = "<group>"; };
+		CB6F20CB1AD4CF8000563FFD /* UserDefaultsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsHelper.h; sourceTree = "<group>"; };
+		CB6F20CC1AD4CF8000563FFD /* UserDefaultsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsHelper.m; sourceTree = "<group>"; };
+		CB6F20CE1AD4D41800563FFD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CB6F20CF1AD4D41800563FFD /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		CB7EB9981AB7DB3B00B2A40D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CB7EB99A1AB7DBF800B2A40D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CB7EB99C1AB7DC0500B2A40D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -289,6 +295,10 @@
 				CBB1DF161ACF8CF2000A5A6D /* Utils.mm */,
 				36953F681AD38190005B4C1B /* FaceRecognition_2D.h */,
 				36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */,
+				CB6F20CB1AD4CF8000563FFD /* UserDefaultsHelper.h */,
+				CB6F20CC1AD4CF8000563FFD /* UserDefaultsHelper.m */,
+				CB6F20CE1AD4D41800563FFD /* Constants.h */,
+				CB6F20CF1AD4D41800563FFD /* Constants.m */,
 			);
 			path = FaceLock;
 			sourceTree = "<group>";
@@ -466,7 +476,9 @@
 				36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */,
 				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
 				CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */,
+				CB6F20CD1AD4CF8000563FFD /* UserDefaultsHelper.m in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,
+				CB6F20D01AD4D41800563FFD /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

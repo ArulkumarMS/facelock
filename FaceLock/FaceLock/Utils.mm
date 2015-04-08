@@ -92,7 +92,7 @@
     
     int w = faceImg.cols;
     int h = faceImg.rows;
-    
+    cvtColor(faceImg, faceImg, CV_BGR2GRAY);
     // 1) First, equalize the whole face.
     cv::Mat wholeFace;
     cv::equalizeHist(faceImg, wholeFace);
