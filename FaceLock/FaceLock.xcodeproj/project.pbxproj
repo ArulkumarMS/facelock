@@ -39,6 +39,8 @@
 		36B596781AD1DEBE002BF75A /* yiwen6.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B5965B1AD1DEBE002BF75A /* yiwen6.JPG */; };
 		36B596791AD1DEBE002BF75A /* yiwen8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B5965C1AD1DEBE002BF75A /* yiwen8.JPG */; };
 		36B5967A1AD1DEBE002BF75A /* yiwen9.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B5965D1AD1DEBE002BF75A /* yiwen9.JPG */; };
+		36CD1C1D1AD865A500D0140F /* ViewController_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CD1C1C1AD865A500D0140F /* ViewController_Setting.m */; };
+		36CD1C201AD86B2200D0140F /* ViewController_AddUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.m */; };
 		CB0FE0DB1AB37E97007BF483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0DA1AB37E97007BF483 /* main.m */; };
 		CB0FE0DE1AB37E97007BF483 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0DD1AB37E97007BF483 /* AppDelegate.m */; };
 		CB0FE0E11AB37E97007BF483 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0E01AB37E97007BF483 /* ViewController.mm */; };
@@ -117,6 +119,10 @@
 		36B5965B1AD1DEBE002BF75A /* yiwen6.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yiwen6.JPG; sourceTree = "<group>"; };
 		36B5965C1AD1DEBE002BF75A /* yiwen8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yiwen8.JPG; sourceTree = "<group>"; };
 		36B5965D1AD1DEBE002BF75A /* yiwen9.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yiwen9.JPG; sourceTree = "<group>"; };
+		36CD1C1B1AD865A500D0140F /* ViewController_Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_Setting.h; sourceTree = "<group>"; };
+		36CD1C1C1AD865A500D0140F /* ViewController_Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_Setting.m; sourceTree = "<group>"; };
+		36CD1C1E1AD86B2200D0140F /* ViewController_AddUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_AddUser.h; sourceTree = "<group>"; };
+		36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_AddUser.m; sourceTree = "<group>"; };
 		CB0FE0D51AB37E97007BF483 /* FaceLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0FE0D91AB37E97007BF483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0FE0DA1AB37E97007BF483 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -299,6 +305,10 @@
 				CB6F20CC1AD4CF8000563FFD /* UserDefaultsHelper.m */,
 				CB6F20CE1AD4D41800563FFD /* Constants.h */,
 				CB6F20CF1AD4D41800563FFD /* Constants.m */,
+				36CD1C1B1AD865A500D0140F /* ViewController_Setting.h */,
+				36CD1C1C1AD865A500D0140F /* ViewController_Setting.m */,
+				36CD1C1E1AD86B2200D0140F /* ViewController_AddUser.h */,
+				36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.m */,
 			);
 			path = FaceLock;
 			sourceTree = "<group>";
@@ -475,10 +485,12 @@
 				CB61C04B1ABB6FF50077C43D /* ViewController_2D.mm in Sources */,
 				36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */,
 				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
+				36CD1C1D1AD865A500D0140F /* ViewController_Setting.m in Sources */,
 				CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */,
 				CB6F20CD1AD4CF8000563FFD /* UserDefaultsHelper.m in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,
 				CB6F20D01AD4D41800563FFD /* Constants.m in Sources */,
+				36CD1C201AD86B2200D0140F /* ViewController_AddUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
