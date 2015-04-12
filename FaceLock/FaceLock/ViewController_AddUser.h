@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewController_AddUser : UIViewController
+@interface ViewController_AddUser : UIViewController{
+}
 @property (weak, nonatomic) IBOutlet UITextField *TFFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *TFLastName;
+@property (weak, nonatomic) IBOutlet UILabel *LBNotification;
+
+
+- (void) initUserFile;
 @end
