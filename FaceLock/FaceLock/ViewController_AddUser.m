@@ -52,7 +52,7 @@
     arrayPath = [[paths objectAtIndex:0]
                  stringByAppendingPathComponent:@"array.out"];
     [array writeToFile:arrayPath atomically:YES];
-    NSMutableArray *arrayFromFile = [NSMutableArray arrayWithContentsOfFile:arrayPath];
+    //NSMutableArray *arrayFromFile = [NSMutableArray arrayWithContentsOfFile:arrayPath];
     NSLog(@"%lu",(unsigned long)[array count]);
 }
 
@@ -83,7 +83,7 @@
     // Print the contents
     NSLog(@"Before add a new user.");
     for (NSString *element in curUserName){
-        NSLog(@"element: %@,%d", element,[curUserName indexOfObject:element]);
+        NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
         if([element isEqualToString:NewUserName]){
             [self.LBNotification setText:@"Username already exists!"];
             return;
@@ -94,7 +94,7 @@
     NSLog(@"After add a new user.");
     [curUserName addObject:NewUserName];
     for (NSString *element in curUserName)
-        NSLog(@"element: %@,%d", element,[curUserName indexOfObject:element]);
+        NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
     NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
     [self SaveUserFile:curUserName];
 

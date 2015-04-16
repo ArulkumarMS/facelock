@@ -300,6 +300,10 @@
 				CB61C04A1ABB6FF50077C43D /* ViewController_2D.mm */,
 				CB27EBD71AE01593006B5750 /* ViewController_3D.h */,
 				CB27EBD81AE01593006B5750 /* ViewController_3D.mm */,
+				36CD1C1B1AD865A500D0140F /* ViewController_Setting.h */,
+				36CD1C1C1AD865A500D0140F /* ViewController_Setting.m */,
+				36CD1C1E1AD86B2200D0140F /* ViewController_AddUser.h */,
+				36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.m */,
 				CB7F09C51ABCD2FB00996B5E /* UIImageCVMatConverter.h */,
 				CB7F09C61ABCD2FB00996B5E /* UIImageCVMatConverter.mm */,
 				CBB1DF151ACF8CF2000A5A6D /* Utils.h */,
@@ -310,10 +314,6 @@
 				CB6F20CC1AD4CF8000563FFD /* UserDefaultsHelper.m */,
 				CB6F20CE1AD4D41800563FFD /* Constants.h */,
 				CB6F20CF1AD4D41800563FFD /* Constants.m */,
-				36CD1C1B1AD865A500D0140F /* ViewController_Setting.h */,
-				36CD1C1C1AD865A500D0140F /* ViewController_Setting.m */,
-				36CD1C1E1AD86B2200D0140F /* ViewController_AddUser.h */,
-				36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.m */,
 			);
 			path = FaceLock;
 			sourceTree = "<group>";

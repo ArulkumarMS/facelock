@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Structure/Structure.h>
 
-@interface ViewController_3D : UIViewController
-
+@interface ViewController_3D : UIViewController<STSensorControllerDelegate>
 @end
