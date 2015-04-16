@@ -6,13 +6,6 @@
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
-/*
- This file is part of the Structure SDK.
- Copyright © 2015 Occipital, Inc. All rights reserved.
- http://structure.io
- */
-
-
 #import "ViewController_3D.h"
 
 #import <AVFoundation/AVFoundation.h>
@@ -95,15 +88,15 @@ struct AppStatus
     
     CGRect depthFrame = self.view.frame;
     depthFrame.size.height /= 2;
-    depthFrame.origin.y = self.view.frame.size.height/2;
-    depthFrame.origin.x = 1;
-    depthFrame.origin.x = -self.view.frame.size.width * 0.25;
+    //depthFrame.origin.y = self.view.frame.size.height/2;
+    //depthFrame.origin.x = 1;
+    //depthFrame.origin.x = -self.view.frame.size.width * 0.25;
     
     CGRect normalsFrame = self.view.frame;
     normalsFrame.size.height /= 2;
     normalsFrame.origin.y = self.view.frame.size.height/2;
     normalsFrame.origin.x = 1;
-    normalsFrame.origin.x = self.view.frame.size.width * 0.25;
+    //normalsFrame.origin.y = self.view.frame.size.width * 0.25;
     
     CGRect colorFrame = self.view.frame;
     colorFrame.size.height /= 2;
@@ -122,7 +115,7 @@ struct AppStatus
     
     _colorImageView = [[UIImageView alloc] initWithFrame:colorFrame];
     _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:_colorImageView];
+    //[self.view addSubview:_colorImageView];
     
     [self setupColorCamera];
     
