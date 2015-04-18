@@ -19,7 +19,7 @@
 - (IBAction)AddNewUser:(id)sender {
     NSLog(@"%@",self.TFFirstName.text);
     NSLog(@"%@",self.TFLastName.text);
-    //[self initUserFile];
+    [self initUserFile];
     NSString *trimmedFirstName = [self.TFFirstName.text stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceCharacterSet]];
     NSString *trimmedLastName = [self.TFLastName.text stringByTrimmingCharactersInSet:

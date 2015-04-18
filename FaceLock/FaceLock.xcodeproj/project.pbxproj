@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */; };
 		29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */; };
+		3692CF711ADAD08B00E27CB3 /* TableViewController_DeleteUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3692CF701ADAD08B00E27CB3 /* TableViewController_DeleteUser.m */; };
 		36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */; };
 		36B5965E1AD1DEBE002BF75A /* ha1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B596411AD1DEBE002BF75A /* ha1.JPG */; };
 		36B5965F1AD1DEBE002BF75A /* ha10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B596421AD1DEBE002BF75A /* ha10.JPG */; };
@@ -88,6 +89,8 @@
 /* Begin PBXFileReference section */
 		297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
+		3692CF6F1ADAD08B00E27CB3 /* TableViewController_DeleteUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_DeleteUser.h; sourceTree = "<group>"; };
+		3692CF701ADAD08B00E27CB3 /* TableViewController_DeleteUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_DeleteUser.m; sourceTree = "<group>"; };
 		36953F681AD38190005B4C1B /* FaceRecognition_2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceRecognition_2D.h; sourceTree = "<group>"; };
 		36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceRecognition_2D.mm; sourceTree = "<group>"; };
 		36B596411AD1DEBE002BF75A /* ha1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ha1.JPG; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				36CD1C1C1AD865A500D0140F /* ViewController_Setting.m */,
 				36CD1C1E1AD86B2200D0140F /* ViewController_AddUser.h */,
 				36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.m */,
+				3692CF6F1ADAD08B00E27CB3 /* TableViewController_DeleteUser.h */,
+				3692CF701ADAD08B00E27CB3 /* TableViewController_DeleteUser.m */,
 			);
 			path = FaceLock;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */,
 				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
 				36CD1C1D1AD865A500D0140F /* ViewController_Setting.m in Sources */,
+				3692CF711ADAD08B00E27CB3 /* TableViewController_DeleteUser.m in Sources */,
 				CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */,
 				CB6F20CD1AD4CF8000563FFD /* UserDefaultsHelper.m in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,
