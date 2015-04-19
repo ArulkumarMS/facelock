@@ -18,8 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    curUserName=[NSMutableArray arrayWithObjects:@"Yiwen", @"Ha",@"Xiang",@"Shiwani", nil];
-    UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
+    //curUserName=[NSMutableArray arrayWithObjects:@"Yiwen", @"Ha",@"Xiang",@"Shiwani", nil];
+    curUserName=[Setting_UserManagement LoadUserFile];
+    UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(AddUser2:)];
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = addButton;
     // Uncomment the following line to preserve selection between presentations.
@@ -33,6 +34,10 @@
 
     [curUserName addObject:@"K"];
     [self.tableView reloadData];
+}
+
+-(void)AddUser2:(id)sender {
+    [self performSegueWithIdentifier:@"Segue_Add_User2" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

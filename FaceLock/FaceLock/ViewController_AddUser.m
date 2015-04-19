@@ -19,7 +19,7 @@
 - (IBAction)AddNewUser:(id)sender {
     NSLog(@"%@",self.TFFirstName.text);
     NSLog(@"%@",self.TFLastName.text);
-    [self initUserFile];
+    //[self initUserFile];
     NSString *trimmedFirstName = [self.TFFirstName.text stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceCharacterSet]];
     NSString *trimmedLastName = [self.TFLastName.text stringByTrimmingCharactersInSet:
@@ -31,10 +31,9 @@
         self.LBNotification.text=@"Last Name can not be empty!";
     }
     else{
-        NSString *FullName = [NSString stringWithFormat:@"%@ %@", trimmedFirstName, trimmedLastName];
+        NSString *FullName = [NSString stringWithFormat:@"%@ %@", trimmedFirstName.uppercaseString, trimmedLastName.uppercaseString];
         [self addNewUser:FullName];
     }
-
 }
 
 
@@ -97,7 +96,7 @@
         NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
     NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
     [self SaveUserFile:curUserName];
-
+    [self.LBNotification setText:@"New user added seccessfully!"];
 }
 
 @end

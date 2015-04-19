@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableViewController_AddUser.h"
 
 
 @interface ViewController_AddUser : UIViewController{

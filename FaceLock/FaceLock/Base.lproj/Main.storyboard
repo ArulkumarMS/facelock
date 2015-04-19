@@ -190,111 +190,64 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="to9-eE-PGe"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="Vmb-mr-gVm" kind="push" identifier="Segue_Add_User2" id="v3W-gg-Nhu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2N-Qn-eW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709.5" y="340.5"/>
         </scene>
-        <!--Setting-->
-        <scene sceneID="mh8-U6-WdC">
-            <objects>
-                <viewController storyboardIdentifier="sb_setting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Kxd-ub-Lj8" customClass="ViewController_Setting" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MXA-hh-imR"/>
-                        <viewControllerLayoutGuide type="bottom" id="Dz4-GQ-pz5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="v0m-SP-W8e">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xu0-Hm-r5m">
-                                <rect key="frame" x="157" y="305" width="286" height="102"/>
-                                <color key="backgroundColor" red="0.90196084980000002" green="0.90196084980000002" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <state key="normal" title="Delete A User">
-                                    <color key="titleColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDC-Ua-2qO">
-                                <rect key="frame" x="157" y="128" width="286" height="102"/>
-                                <color key="backgroundColor" red="0.90196084976196289" green="0.90196084976196289" blue="0.90196084976196289" alpha="1" colorSpace="deviceRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <state key="normal" title="Add A New User">
-                                    <color key="titleColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="AddUser:" destination="Kxd-ub-Lj8" eventType="touchUpInside" id="P4B-eI-USS"/>
-                                    <segue destination="Vmb-mr-gVm" kind="modal" id="lE6-fe-jjR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Setting" id="TcR-hB-aoe"/>
-                    <navigationItem key="navigationItem" id="sBC-mz-pN6"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="go0-Qi-KLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1752" y="761"/>
-        </scene>
-        <!--Add User-->
+        <!--Add User 2-->
         <scene sceneID="iRU-yU-rZt">
             <objects>
-                <viewController id="Vmb-mr-gVm" userLabel="Add User" customClass="ViewController_AddUser" sceneMemberID="viewController">
+                <viewController id="Vmb-mr-gVm" userLabel="Add User 2" customClass="ViewController_AddUser" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Aa7-RC-hgH"/>
                         <viewControllerLayoutGuide type="bottom" id="xEa-qp-FTS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xzn-Tz-EyZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9M0-hF-XDw">
-                                <rect key="frame" x="37" y="28" width="91" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="&lt;Back">
-                                    <color key="titleColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="back:" destination="Vmb-mr-gVm" eventType="touchUpInside" id="dUG-JJ-M6p"/>
-                                    <segue destination="Kxd-ub-Lj8" kind="modal" id="t5W-B5-cPW"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kGT-h8-CUz" userLabel="tfLastName">
-                                <rect key="frame" x="173" y="339" width="286" height="30"/>
+                                <rect key="frame" x="44" y="326" width="286" height="30"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKL-AX-jha">
-                                <rect key="frame" x="173" y="296" width="150" height="35"/>
+                                <rect key="frame" x="44" y="283" width="150" height="35"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NEW USER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bm-qZ-1IQ">
-                                <rect key="frame" x="173" y="105" width="158" height="36"/>
+                                <rect key="frame" x="44" y="92" width="158" height="36"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="30"/>
                                 <color key="textColor" white="0.5170740927419355" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCa-LF-Wl7">
-                                <rect key="frame" x="173" y="192" width="150" height="36"/>
+                                <rect key="frame" x="44" y="179" width="150" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ivr-gk-BAR" userLabel="tfFirstName">
-                                <rect key="frame" x="173" y="236" width="286" height="30"/>
+                                <rect key="frame" x="44" y="223" width="286" height="30"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D2-ie-yH0" userLabel="Notification">
+                                <rect key="frame" x="44" y="378" width="286" height="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <color key="textColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSw-u9-JFp">
-                                <rect key="frame" x="173" y="438" width="286" height="57"/>
+                                <rect key="frame" x="44" y="569" width="286" height="57"/>
                                 <color key="backgroundColor" red="0.90196084980000002" green="0.90196084980000002" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <state key="normal" title="Add ">
@@ -303,19 +256,37 @@
                                 </state>
                                 <connections>
                                     <action selector="AddNewUser:" destination="Vmb-mr-gVm" eventType="touchUpInside" id="LUA-jz-iXN"/>
-                                    <action selector="AddUser:" destination="Kxd-ub-Lj8" eventType="touchUpInside" id="DmZ-PV-re2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D2-ie-yH0" userLabel="Notification">
-                                <rect key="frame" x="173" y="392" width="286" height="20"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                <color key="textColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKg-mI-hza">
+                                <rect key="frame" x="44" y="496" width="286" height="57"/>
+                                <color key="backgroundColor" red="0.90196084980000002" green="0.90196084980000002" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Take 3D Image">
+                                    <color key="titleColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddNewUser:" destination="Vmb-mr-gVm" eventType="touchUpInside" id="25I-iR-UFb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6t0-lW-Uqn">
+                                <rect key="frame" x="44" y="420" width="286" height="57"/>
+                                <color key="backgroundColor" red="0.90196084980000002" green="0.90196084980000002" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Take 2D Image">
+                                    <color key="titleColor" red="0.77647066119999997" green="0.086274512110000007" blue="0.20000001789999999" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddNewUser:" destination="Vmb-mr-gVm" eventType="touchUpInside" id="C65-r7-lr8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="VaQ-fw-G2n"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="LBNotification" destination="9D2-ie-yH0" id="Hcj-O9-RtR"/>
                         <outlet property="TFFirstName" destination="ivr-gk-BAR" id="H8h-kx-S7q"/>
@@ -324,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyi-Kz-h7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3047" y="716"/>
+            <point key="canvasLocation" x="1187.5" y="340.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Z8O-HR-4V8">

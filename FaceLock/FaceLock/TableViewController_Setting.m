@@ -7,7 +7,6 @@
 //
 
 #import "TableViewController_Setting.h"
-#import "TableViewController_User.h"
 
 @interface TableViewController_Setting ()
 
@@ -99,12 +98,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Segue_Add_User"]) {
         //NSIndexPath *indexPath= [self.tableView indexPathForSelectedRow];
-        TableViewController_User *destViewController = segue.destinationViewController;
+        TableViewController_Setting *destViewController = segue.destinationViewController;
         //destViewController.settingOptions = [SettingOptions objectAtIndex:indexPath.row];
         destViewController.title=@"Add User";
     }
     else if ([segue.identifier isEqualToString:@"Segue_Delete_User"]) {
-        TableViewController_User *destViewController = segue.destinationViewController;
+        TableViewController_Setting *destViewController = segue.destinationViewController;
         destViewController.title=@"Delete User";
     }
 
