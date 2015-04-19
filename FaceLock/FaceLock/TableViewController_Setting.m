@@ -1,24 +1,26 @@
 //
-//  TableViewController_DeleteUser.m
+//  TableViewController_Setting.m
 //  FaceLock
 //
-//  Created by Yiwen Shi on 4/19/15.
+//  Created by Yiwen Shi on 4/18/15.
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
-#import "TableViewController_DeleteUser.h"
+#import "TableViewController_Setting.h"
+#import "TableViewController_User.h"
 
-@interface TableViewController_DeleteUser ()
+@interface TableViewController_Setting ()
+
+
 @end
 
-@implementation TableViewController_DeleteUser{
-    NSMutableArray  *curUserName;
+@implementation TableViewController_Setting{
+        //NSArray *SettingOptions;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    curUserName=[Setting_UserManagement LoadUserFile];
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //SettingOptions=[NSArray arrayWithObjects:@"User Management",@"Collaboration",@"Threshold", nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,22 +40,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [curUserName count];
+    return 4;
+    
+    //return [SettingOptions count];
 }
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"DeleteUserCell";
+    
+    static NSString *simpleTableIdentifier = @"SettingCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text = [curUserName objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [SettingOptions objectAtIndex:indexPath.row];
     return cell;
 }
-
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -89,14 +94,21 @@
 }
 */
 
-/*
-#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"Segue_Add_User"]) {
+        //NSIndexPath *indexPath= [self.tableView indexPathForSelectedRow];
+        TableViewController_User *destViewController = segue.destinationViewController;
+        //destViewController.settingOptions = [SettingOptions objectAtIndex:indexPath.row];
+        destViewController.title=@"Add User";
+    }
+    else if ([segue.identifier isEqualToString:@"Segue_Delete_User"]) {
+        TableViewController_User *destViewController = segue.destinationViewController;
+        destViewController.title=@"Delete User";
+    }
+
 }
-*/
+
 
 @end

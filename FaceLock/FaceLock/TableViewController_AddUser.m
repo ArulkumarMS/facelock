@@ -1,29 +1,38 @@
 //
-//  TableViewController_DeleteUser.m
+//  TableViewController_AddUser.m
 //  FaceLock
 //
 //  Created by Yiwen Shi on 4/19/15.
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
-#import "TableViewController_DeleteUser.h"
+#import "TableViewController_AddUser.h"
 
-@interface TableViewController_DeleteUser ()
+@interface TableViewController_AddUser ()
+
 @end
 
-@implementation TableViewController_DeleteUser{
+@implementation TableViewController_AddUser{
     NSMutableArray  *curUserName;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    curUserName=[Setting_UserManagement LoadUserFile];
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    curUserName=[NSMutableArray arrayWithObjects:@"Yiwen", @"Ha",@"Xiang",@"Shiwani", nil];
+    UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
+    
+    self.navigationItem.rightBarButtonItem = addButton;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)addNewItem{
+
+    [curUserName addObject:@"K"];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,16 +43,20 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
     return [curUserName count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"DeleteUserCell";
+    static NSString *simpleTableIdentifier = @"AddUserCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
@@ -51,8 +64,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     cell.textLabel.text = [curUserName objectAtIndex:indexPath.row];
-    return cell;
-}
+    return cell;}
 
 
 /*

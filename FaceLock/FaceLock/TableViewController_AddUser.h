@@ -1,5 +1,5 @@
 //
-//  TableViewController_DeleteUser.h
+//  TableViewController_AddUser.h
 //  FaceLock
 //
 //  Created by Yiwen Shi on 4/19/15.
@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Setting_UserManagement.h"
 
-
-@interface TableViewController_DeleteUser : UITableViewController
+@interface TableViewController_AddUser : UITableViewController
 
 @end
