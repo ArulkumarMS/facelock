@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Setting_UserManagement.h"
 
-
 @interface TableViewController_DeleteUser : UITableViewController
 
 @end

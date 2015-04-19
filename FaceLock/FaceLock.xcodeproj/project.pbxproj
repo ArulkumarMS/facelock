@@ -12,8 +12,8 @@
 		362E2EBC1AE33AAC0073D12C /* TableViewController_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */; };
 		362E2EBF1AE34D2C0073D12C /* TableViewController_User.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EBE1AE34D2C0073D12C /* TableViewController_User.m */; };
 		362E2EC21AE3FCBD0073D12C /* TableViewController_AddUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */; };
-		362E2EC51AE3FCD50073D12C /* TableViewController_DeleteUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC41AE3FCD50073D12C /* TableViewController_DeleteUser.m */; };
 		362E2EC91AE3FE7D0073D12C /* Setting_UserManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */; };
+		362E2ECC1AE41BB80073D12C /* TableViewController_DeleteUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */; };
 		36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */; };
 		36B5965E1AD1DEBE002BF75A /* ha1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B596411AD1DEBE002BF75A /* ha1.JPG */; };
 		36B5965F1AD1DEBE002BF75A /* ha10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B596421AD1DEBE002BF75A /* ha10.JPG */; };
@@ -100,10 +100,10 @@
 		362E2EBE1AE34D2C0073D12C /* TableViewController_User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_User.m; sourceTree = "<group>"; };
 		362E2EC01AE3FCBD0073D12C /* TableViewController_AddUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_AddUser.h; sourceTree = "<group>"; };
 		362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_AddUser.m; sourceTree = "<group>"; };
-		362E2EC31AE3FCD50073D12C /* TableViewController_DeleteUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_DeleteUser.h; sourceTree = "<group>"; };
-		362E2EC41AE3FCD50073D12C /* TableViewController_DeleteUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_DeleteUser.m; sourceTree = "<group>"; };
 		362E2EC61AE3FE120073D12C /* Setting_UserManagement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Setting_UserManagement.h; sourceTree = "<group>"; };
 		362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting_UserManagement.m; sourceTree = "<group>"; };
+		362E2ECA1AE41BB80073D12C /* TableViewController_DeleteUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_DeleteUser.h; sourceTree = "<group>"; };
+		362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_DeleteUser.m; sourceTree = "<group>"; };
 		36953F681AD38190005B4C1B /* FaceRecognition_2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceRecognition_2D.h; sourceTree = "<group>"; };
 		36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceRecognition_2D.mm; sourceTree = "<group>"; };
 		36B596411AD1DEBE002BF75A /* ha1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ha1.JPG; sourceTree = "<group>"; };
@@ -335,8 +335,8 @@
 				362E2EBE1AE34D2C0073D12C /* TableViewController_User.m */,
 				362E2EC01AE3FCBD0073D12C /* TableViewController_AddUser.h */,
 				362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */,
-				362E2EC31AE3FCD50073D12C /* TableViewController_DeleteUser.h */,
-				362E2EC41AE3FCD50073D12C /* TableViewController_DeleteUser.m */,
+				362E2ECA1AE41BB80073D12C /* TableViewController_DeleteUser.h */,
+				362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */,
 				362E2EC61AE3FE120073D12C /* Setting_UserManagement.h */,
 				362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */,
 			);
@@ -515,9 +515,9 @@
 				362E2EBC1AE33AAC0073D12C /* TableViewController_Setting.m in Sources */,
 				362E2EC21AE3FCBD0073D12C /* TableViewController_AddUser.m in Sources */,
 				CB61C04B1ABB6FF50077C43D /* ViewController_2D.mm in Sources */,
+				362E2ECC1AE41BB80073D12C /* TableViewController_DeleteUser.m in Sources */,
 				362E2EC91AE3FE7D0073D12C /* Setting_UserManagement.m in Sources */,
 				CB27EBD91AE01593006B5750 /* ViewController_3D.mm in Sources */,
-				362E2EC51AE3FCD50073D12C /* TableViewController_DeleteUser.m in Sources */,
 				36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */,
 				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
 				36CD1C1D1AD865A500D0140F /* ViewController_Setting.m in Sources */,
