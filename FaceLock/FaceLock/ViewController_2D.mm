@@ -61,6 +61,10 @@
     [self.videoCamera start];
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    //[super viewDidDisappear:<#animated#>];
+    [self.videoCamera stop];
+}
 
 #pragma mark -Protocol CvVideoCameraDelegate
 #ifdef __cplusplus
