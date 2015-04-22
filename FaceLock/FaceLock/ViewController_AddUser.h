@@ -7,15 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <opencv2/face.hpp>
+#import <opencv2/face/facerec.hpp>
 #import "TableViewController_AddUser.h"
+#import "Setting_UserManagement.h"
+#import "ViewController_Take2DImage.h"
+#import "FaceRecognition_2D.h"
 
 
 @interface ViewController_AddUser : UIViewController{
+    NSString *fullname;
+    cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
 }
 @property (weak, nonatomic) IBOutlet UITextField *TFFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *TFLastName;
 @property (weak, nonatomic) IBOutlet UILabel *LBNotification;
-
-
-- (void) initUserFile;
 @end

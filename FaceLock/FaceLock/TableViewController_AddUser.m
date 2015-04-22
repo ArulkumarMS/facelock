@@ -30,6 +30,16 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+//    curUserName=[Setting_UserManagement LoadUserFile];
+//    cell.textLabel.text = [curUserName objectAtIndex:indexPath.row];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+}
+
 - (void)addNewItem{
 
     [curUserName addObject:@"K"];

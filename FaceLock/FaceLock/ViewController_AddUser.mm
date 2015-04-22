@@ -11,10 +11,20 @@
 
 @implementation ViewController_AddUser
 
-- (IBAction)back:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
-}
 
+- (IBAction)TrainFaceRecg:(id)sender {    
+    cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+    [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
+    NSMutableArray *UserName=[Setting_UserManagement LoadUserFile];
+    
+    for(int i=0;i<=[UserName count]-1;i++){
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:9];
+    }
+
+    [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+}
 
 - (IBAction)AddNewUser:(id)sender {
     NSLog(@"%@",self.TFFirstName.text);
@@ -31,8 +41,8 @@
         self.LBNotification.text=@"Last Name can not be empty!";
     }
     else{
-        NSString *FullName = [NSString stringWithFormat:@"%@ %@", trimmedFirstName.uppercaseString, trimmedLastName.uppercaseString];
-        [self addNewUser:FullName];
+        fullname = [NSString stringWithFormat:@"%@ %@", trimmedFirstName.uppercaseString, trimmedLastName.uppercaseString];
+        [Setting_UserManagement addNewUser:fullname];
     }
 }
 
@@ -41,7 +51,14 @@
     [self.view endEditing:YES];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"Segue_take2Dimage"]){
+        ViewController_Take2DImage *controller = (ViewController_Take2DImage *)segue.destinationViewController;
+        controller.FullName = fullname;
+    }
+}
 
+/*
 - (void) initUserFile{
     NSString  *arrayPath;
     NSMutableArray *array = [[NSMutableArray alloc] init];
@@ -98,5 +115,8 @@
     [self SaveUserFile:curUserName];
     [self.LBNotification setText:@"New user added seccessfully!"];
 }
+*/
+
+
 
 @end
