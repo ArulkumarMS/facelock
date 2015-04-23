@@ -29,7 +29,7 @@
 - (IBAction)AddNewUser:(id)sender {
     NSLog(@"%@",self.TFFirstName.text);
     NSLog(@"%@",self.TFLastName.text);
-    //[self initUserFile];
+    //[Setting_UserManagement initUserFile];
     NSString *trimmedFirstName = [self.TFFirstName.text stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceCharacterSet]];
     NSString *trimmedLastName = [self.TFLastName.text stringByTrimmingCharactersInSet:
@@ -42,8 +42,32 @@
     }
     else{
         fullname = [NSString stringWithFormat:@"%@ %@", trimmedFirstName.uppercaseString, trimmedLastName.uppercaseString];
-        [Setting_UserManagement addNewUser:fullname];
+        [self addNewUser:fullname];
     }
+}
+
+- (void) addNewUser: (NSString*)NewUserName{
+    NSMutableArray  *curUserName=[Setting_UserManagement LoadUserFile];
+    
+    // Print the contents
+    NSLog(@"Before add a new user.");
+    for (NSString *element in curUserName){
+        NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
+        if([element isEqualToString:NewUserName]){
+            self.LBNotification.text=@"Username already exists!";
+            NSLog(@"Username already exists!");
+            return;
+        }
+    }
+    //[self.LBNotification setText:@""];
+    NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
+    NSLog(@"After add a new user.");
+    [curUserName addObject:NewUserName];
+    for (NSString *element in curUserName)
+        NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
+    NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
+    [Setting_UserManagement SaveUserFile:curUserName];
+    self.LBNotification.text=@"New user added seccessfully!";
 }
 
 

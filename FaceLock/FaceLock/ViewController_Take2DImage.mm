@@ -85,6 +85,7 @@
             _faceCascade->detectMultiScale(image_roi_clone, _faces, 1.1, 1, 0|CV_HAAR_SCALE_IMAGE, cv::Size(200,200), cv::Size(image.cols, image.cols));
             if (_faces.size() > 0) {
                 NSLog(@"Found %@ faces!\n", @(_faces.size()));
+                //[self.navigationController popViewControllerAnimated:YES];
             }
             for(int i =0; i <_faces.size(); i++){
                 cv::Mat image_face_roi = image_roi_clone(_faces[i]);
@@ -111,34 +112,8 @@
                     [utterance setRate:0.1f];
                     [synthesizer speakUtterance:utterance];
                     _imagename_count++;
-                    
-                    //face recognition
-                    int label;
-                    double predicted_confidence;
-                    //cv::Mat newface;
-                    _LBPHFaceRecognizer->predict(normalFaceImg,label,predicted_confidence);
-                    //[_colorImageView setImage:resImage  ];
-                    NSLog(@"Found %d,with confidence %f \n", label,predicted_confidence);
-                    if(predicted_confidence>20){//need to update after experiment.
-                        NSLog(@"Sorry, you can not enter the door.\n");
-                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
-                        [utterance setRate:0.1f];
-                        [synthesizer speakUtterance:utterance];
-                    }
-                    else{
-                        NSLog(@"Welcome Back.\n");
-                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back."];
-                        [utterance setRate:0.1f];
-                        [synthesizer speakUtterance:utterance];
-                    }
-                    
                 }
-                
             }
-            
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Update the UI
                 
@@ -157,18 +132,6 @@
             int radius = cvRound((_eyes[j].width + _eyes[j].height)*0.25 );
             cv::circle(image_face_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
         }
-        //NSString *imagename = [NSString stringWithFormat:@"%d.jpg", _imagename_count];
-        //cv::Mat image_eye_roi = image_roi(_faces[i]).clone();
-        //[Utils saveMATImage: image_eye_roi andName: imagename];
-        
-        //_eyeCascade->detectMultiScale(image_eye_roi, _eyes);
-        //NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
-        
-        /*for (int j = 0; j<_eyes.size(); j++) {
-         cv::Point eye_center( _eyes[j].x + _eyes[j].width/2, _eyes[j].y + _eyes[j].height/2 );
-         int radius = cvRound((_eyes[j].width + _eyes[j].height)*0.25 );
-         cv::circle(image_eye_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
-         }*/
     }
     
     

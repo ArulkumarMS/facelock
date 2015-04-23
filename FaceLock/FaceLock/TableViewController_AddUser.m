@@ -13,13 +13,15 @@
 @end
 
 @implementation TableViewController_AddUser{
-    NSMutableArray  *curUserName;
+    //NSMutableArray  *curUserName;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //curUserName=[NSMutableArray arrayWithObjects:@"Yiwen", @"Ha",@"Xiang",@"Shiwani", nil];
-    curUserName=[Setting_UserManagement LoadUserFile];
+
+    //self.UserName=[NSMutableArray arrayWithObjects:@"Yiwen", @"Ha",@"Xiang",@"Shiwani", nil];
+    //NSLog(@"namecount: %d",[self.UserName count]);
+    self.UserName=[Setting_UserManagement LoadUserFile];
     UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(AddUser2:)];
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = addButton;
@@ -42,7 +44,7 @@
 
 - (void)addNewItem{
 
-    [curUserName addObject:@"K"];
+    [self.UserName addObject:@"K"];
     [self.tableView reloadData];
 }
 
@@ -62,20 +64,33 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [curUserName count];
+    return [self.UserName count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"AddUserCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
+    UserCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    int row = [indexPath row];
     if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text = [curUserName objectAtIndex:indexPath.row];
+    cell.Name.text = [self.UserName objectAtIndex:row];
+    cell.Label.text = [@(row) stringValue];
+    //cell.Portrait.image= [UIImage imageNamed:@"xiang10.jpg"];
+    cell.Portrait.image=[self loadImage];
     return cell;
+}
+
+- (UIImage*)loadImage
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0004.jpg"];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    return image;
 }
 
 

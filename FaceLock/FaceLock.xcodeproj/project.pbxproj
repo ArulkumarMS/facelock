@@ -13,6 +13,7 @@
 		362E2EC21AE3FCBD0073D12C /* TableViewController_AddUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */; };
 		362E2EC91AE3FE7D0073D12C /* Setting_UserManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */; };
 		362E2ECC1AE41BB80073D12C /* TableViewController_DeleteUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */; };
+		368DEE211AE851B9004895C1 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DEE201AE851B9004895C1 /* UserCell.m */; };
 		36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */; };
 		36B5965E1AD1DEBE002BF75A /* ha1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B596411AD1DEBE002BF75A /* ha1.JPG */; };
 		36B5965F1AD1DEBE002BF75A /* ha10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B596421AD1DEBE002BF75A /* ha10.JPG */; };
@@ -101,6 +102,8 @@
 		362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting_UserManagement.m; sourceTree = "<group>"; };
 		362E2ECA1AE41BB80073D12C /* TableViewController_DeleteUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_DeleteUser.h; sourceTree = "<group>"; };
 		362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_DeleteUser.m; sourceTree = "<group>"; };
+		368DEE1F1AE851B9004895C1 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		368DEE201AE851B9004895C1 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		36953F681AD38190005B4C1B /* FaceRecognition_2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceRecognition_2D.h; sourceTree = "<group>"; };
 		36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceRecognition_2D.mm; sourceTree = "<group>"; };
 		36B596411AD1DEBE002BF75A /* ha1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ha1.JPG; sourceTree = "<group>"; };
@@ -334,6 +337,8 @@
 				362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */,
 				36CEBAF51AE731E700A08135 /* ViewController_Take2DImage.h */,
 				36CEBAF61AE731E700A08135 /* ViewController_Take2DImage.mm */,
+				368DEE1F1AE851B9004895C1 /* UserCell.h */,
+				368DEE201AE851B9004895C1 /* UserCell.m */,
 			);
 			path = FaceLock;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 				CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */,
 				CB6F20CD1AD4CF8000563FFD /* UserDefaultsHelper.m in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,
+				368DEE211AE851B9004895C1 /* UserCell.m in Sources */,
 				CB6F20D01AD4D41800563FFD /* Constants.m in Sources */,
 				36CD1C201AD86B2200D0140F /* ViewController_AddUser.mm in Sources */,
 			);

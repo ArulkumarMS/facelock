@@ -12,7 +12,7 @@
 
 int main(int argc, char * argv[]) {
     AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome to FaceLock"];
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome to FaceLock!"];
     [utterance setRate:0.1f];
     [synthesizer speakUtterance:utterance];
     @autoreleasepool {
