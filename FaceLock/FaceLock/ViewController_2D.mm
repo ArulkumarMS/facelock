@@ -40,15 +40,16 @@
     self.videoCamera.delegate = self;
     
     //if run FaceLock in the ios device first time, uncommend following part.
-    BOOL flag_fr_initial = [UserDefaultsHelper getBoolForKey: Str_FR_Initial];
-    if (~flag_fr_initial){
+    //BOOL flag_fr_initial = [UserDefaultsHelper getBoolForKey: Str_FR_Initial];
+    if (![FaceRecognition_2D LBPHfileExist]){
+        NSLog(@"IN initiate part!");
         cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
         [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"xiang" andLabel:1 andTrainNum:9];
         [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"ha" andLabel:2 andTrainNum:9];
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
-        [UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
+        //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
     }
     
     _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();

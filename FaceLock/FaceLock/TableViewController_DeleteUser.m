@@ -73,7 +73,7 @@
     static NSString *simpleTableIdentifier = @"DeleteUserCell";
     
     UserCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    int row = [indexPath row];
+    NSInteger row = [indexPath row];
     if (cell == nil){
         cell = [[UserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }

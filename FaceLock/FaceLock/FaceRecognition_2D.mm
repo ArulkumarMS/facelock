@@ -12,6 +12,15 @@
 
 @implementation FaceRecognition_2D
 
++ (BOOL)LBPHfileExist{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *LBPHfilePath = [documentsDirectory stringByAppendingPathComponent:@"LBPHmodel.xml"];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:LBPHfilePath];
+    NSLog(@"LBPHmodel.xml,%s", fileExists ? "true" : "false");
+    return fileExists;
+}
+
 + (void)saveFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR{
     //    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"LBPHmodel" ofType:@"xml" ];
     

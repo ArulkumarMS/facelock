@@ -10,6 +10,15 @@
 #import "Setting_UserManagement.h"
 
 @implementation Setting_UserManagement
++ (BOOL)UserfileExist{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *LBPHfilePath = [documentsDirectory stringByAppendingPathComponent:@"userlist.txt"];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:LBPHfilePath];
+    NSLog(@"userlist.txt,%s", fileExists ? "true" : "false");
+    return fileExists;
+}
+
 + (NSMutableArray*) LoadUserFile{
     NSString  *arrayPath;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
