@@ -1,55 +1,27 @@
 //
-//  TableViewController_AddUser.m
+//  TableViewController_Collaboration.m
 //  FaceLock
 //
-//  Created by Yiwen Shi on 4/19/15.
+//  Created by Yiwen Shi on 4/24/15.
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
-#import "TableViewController_AddUser.h"
+#import "TableViewController_Collaboration.h"
 
-@interface TableViewController_AddUser ()
+@interface TableViewController_Collaboration ()
 
 @end
 
-@implementation TableViewController_AddUser{
-    //NSMutableArray  *curUserName;
-}
+@implementation TableViewController_Collaboration
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //self.UserName=[NSMutableArray arrayWithObjects:@"Yiwen", @"Ha",@"Xiang",@"Shiwani", nil];
-    //NSLog(@"namecount: %d",[self.UserName count]);
     self.UserName=[Setting_UserManagement LoadUserFile];
-    UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(AddUser2:)];
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.navigationItem.rightBarButtonItem = addButton;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self.tableView reloadData];
-//    curUserName=[Setting_UserManagement LoadUserFile];
-//    cell.textLabel.text = [curUserName objectAtIndex:indexPath.row];
-}
-
-- (void)viewDidDisappear:(BOOL)animated{
-}
-
-- (void)addNewItem{
-
-    [self.UserName addObject:@"K"];
-    [self.tableView reloadData];
-}
-
--(void)AddUser2:(id)sender {
-    [self performSegueWithIdentifier:@"Segue_Add_User2" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,12 +36,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.UserName count];
+    return [self.UserName count];;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"AddUserCell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *simpleTableIdentifier = @"CollaborationUserCell";
     
     UserCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     NSInteger row = [indexPath row];
@@ -78,7 +51,6 @@
     }
     cell.Name.text = [self.UserName objectAtIndex:row];
     cell.Label.text = [@(row) stringValue];
-    //cell.Portrait.image= [UIImage imageNamed:@"xiang10.jpg"];
     cell.Portrait.image=[self loadImage];
     return cell;
 }
@@ -88,11 +60,10 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0004.jpg"];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0007.jpg"];
     UIImage* image = [UIImage imageWithContentsOfFile:path];
     return image;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -107,7 +78,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [curUserName removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

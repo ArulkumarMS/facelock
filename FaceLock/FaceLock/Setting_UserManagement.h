@@ -10,9 +10,8 @@
 }
 
 + (NSMutableArray*) LoadUserFile;
++ (BOOL)UserfileExist;
 + (void) initUserFile;
 + (void) SaveUserFile:(NSMutableArray*)UserNameArray;
-+ (void) addNewUser: (NSString*)NewUserName;
-+ (void) deleteUser: (NSString*)DeleteUserName;
 
 @end

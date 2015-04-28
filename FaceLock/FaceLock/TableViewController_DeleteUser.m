@@ -13,12 +13,12 @@
 @end
 
 @implementation TableViewController_DeleteUser{
-    NSMutableArray  *curUserName;
+    //NSMutableArray  *curUserName;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    curUserName=[Setting_UserManagement LoadUserFile];
+    self.UserName=[Setting_UserManagement LoadUserFile];
     //UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem)];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //self.navigationItem.rightBarButtonItem = addButton;
@@ -29,10 +29,28 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)addNewItem{
++ (void) deleteUser: (NSString*)DeleteUserName{
+    NSMutableArray  *curUserName=[Setting_UserManagement LoadUserFile];
     
-    [curUserName addObject:@"K"];
-    [self.tableView reloadData];
+    // Print the contents
+    NSLog(@"Before delete a new user.");
+    for (NSString *element in curUserName){
+        NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
+        if([element isEqualToString:DeleteUserName]){
+            //[ViewController_AddUser::LBNotification setText:@"Username already exists!"];
+            [curUserName removeObject:DeleteUserName];
+            NSLog(@"Username already delete!");
+            return;
+        }
+    }
+    NSLog(@"Username does not exist!");
+    NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
+    NSLog(@"After delete a new user.");
+    for (NSString *element in curUserName)
+        NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
+    NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
+    [Setting_UserManagement SaveUserFile:curUserName];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,22 +65,33 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [curUserName count];
+    return [self.UserName count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"DeleteUserCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
+    UserCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    NSInteger row = [indexPath row];
     if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text = [curUserName objectAtIndex:indexPath.row];
+    cell.Name.text = [self.UserName objectAtIndex:row];
+    cell.Label.text = [@(row) stringValue];
+    cell.Portrait.image=[self loadImage];
     return cell;
 }
 
+- (UIImage*)loadImage
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0007.jpg"];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    return image;
+}
 
 /*
  // Override to support conditional editing of the table view.
@@ -77,8 +106,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [curUserName removeObjectAtIndex:indexPath.row];
-        [Setting_UserManagement SaveUserFile:curUserName];
+        [self.UserName removeObjectAtIndex:indexPath.row];
+        [Setting_UserManagement SaveUserFile:self.UserName];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

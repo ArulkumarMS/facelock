@@ -1,8 +1,8 @@
 //
-//  TableViewController_AddUser.h
+//  TableViewController_Collaboration.h
 //  FaceLock
 //
-//  Created by Yiwen Shi on 4/19/15.
+//  Created by Yiwen Shi on 4/24/15.
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
@@ -10,8 +10,7 @@
 #import "Setting_UserManagement.h"
 #import "UserCell.h"
 
-
-@interface TableViewController_AddUser : UITableViewController
+@interface TableViewController_Collaboration : UITableViewController
 @property (nonatomic, strong) NSMutableArray *UserName;
 @property (nonatomic, strong) NSMutableArray *UserLabel;
 @property (nonatomic, strong) NSMutableArray *Userportrait;

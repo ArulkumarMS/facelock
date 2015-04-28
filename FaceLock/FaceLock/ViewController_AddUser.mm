@@ -11,15 +11,27 @@
 
 @implementation ViewController_AddUser
 
-- (IBAction)back:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
-}
 
+- (IBAction)TrainFaceRecg:(id)sender {    
+    cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+    [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
+    NSMutableArray *UserName=[Setting_UserManagement LoadUserFile];
+    
+    for(int i=0;i<=[UserName count]-1;i++){
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:9];
+    }
+
+    [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+}
 
 - (IBAction)AddNewUser:(id)sender {
     NSLog(@"%@",self.TFFirstName.text);
     NSLog(@"%@",self.TFLastName.text);
-    //[self initUserFile];
+    if (![Setting_UserManagement UserfileExist]) {
+        [Setting_UserManagement initUserFile];
+    }
     NSString *trimmedFirstName = [self.TFFirstName.text stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceCharacterSet]];
     NSString *trimmedLastName = [self.TFLastName.text stringByTrimmingCharactersInSet:
@@ -31,9 +43,33 @@
         self.LBNotification.text=@"Last Name can not be empty!";
     }
     else{
-        NSString *FullName = [NSString stringWithFormat:@"%@ %@", trimmedFirstName.uppercaseString, trimmedLastName.uppercaseString];
-        [self addNewUser:FullName];
+        fullname = [NSString stringWithFormat:@"%@ %@", trimmedFirstName.uppercaseString, trimmedLastName.uppercaseString];
+        [self addNewUser:fullname];
     }
+}
+
+- (void) addNewUser: (NSString*)NewUserName{
+    NSMutableArray  *curUserName=[Setting_UserManagement LoadUserFile];
+    
+    // Print the contents
+    NSLog(@"Before add a new user.");
+    for (NSString *element in curUserName){
+        NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
+        if([element isEqualToString:NewUserName]){
+            self.LBNotification.text=@"Username already exists!";
+            NSLog(@"Username already exists!");
+            return;
+        }
+    }
+    //[self.LBNotification setText:@""];
+    NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
+    NSLog(@"After add a new user.");
+    [curUserName addObject:NewUserName];
+    for (NSString *element in curUserName)
+        NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
+    NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
+    [Setting_UserManagement SaveUserFile:curUserName];
+    self.LBNotification.text=@"New user added seccessfully!";
 }
 
 
@@ -41,7 +77,14 @@
     [self.view endEditing:YES];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"Segue_take2Dimage"]){
+        ViewController_Take2DImage *controller = (ViewController_Take2DImage *)segue.destinationViewController;
+        controller.FullName = fullname;
+    }
+}
 
+/*
 - (void) initUserFile{
     NSString  *arrayPath;
     NSMutableArray *array = [[NSMutableArray alloc] init];
@@ -98,5 +141,8 @@
     [self SaveUserFile:curUserName];
     [self.LBNotification setText:@"New user added seccessfully!"];
 }
+*/
+
+
 
 @end
