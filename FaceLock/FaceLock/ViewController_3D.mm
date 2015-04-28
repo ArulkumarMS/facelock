@@ -182,6 +182,9 @@ struct AppStatus
     [self connectAndStartStreaming];
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    [self stopColorCamera];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -209,6 +212,7 @@ struct AppStatus
         
         // Set sensor stream quality
         STStreamConfig streamConfig = STStreamConfigDepth320x240;
+        
         
         // Request that we receive depth frames with synchronized color pairs
         // After this call, we will start to receive frames through the delegate methods
@@ -472,6 +476,8 @@ const uint16_t maxShiftValue = 2048;
     size_t cols = depthFrame.width;
     size_t rows = depthFrame.height;
     
+    
+    
     if (_linearizeBuffer == NULL || _normalsBuffer == NULL)
     {
         [self populateLinearizeBuffer];
@@ -506,8 +512,8 @@ const uint16_t maxShiftValue = 2048;
                                         kCGRenderingIntentDefault);  //rendering intent
     
     // Assign CGImage to UIImage
-    _depthImageView.image = [UIImage imageWithCGImage:imageRef];
-    
+    UIImage* Img = [UIImage imageWithCGImage:imageRef];
+    _depthImageView.image = Img;
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
@@ -525,17 +531,28 @@ const uint16_t maxShiftValue = 2048;
     size_t cols = normalsFrame.width;
     size_t rows = normalsFrame.height;
     
+    
+    size_t index = [self findNosePosition:depthFrame];
     // Convert normal unit vectors (ranging from -1 to 1) to RGB (ranging from 0 to 255)
     // Z can be slightly positive in some cases too!
     if (_normalsBuffer == NULL)
     {
         _normalsBuffer = (uint8_t*)malloc(cols * rows * 4);
     }
+    
     for (size_t i = 0; i < cols * rows; i++)
     {
-        _normalsBuffer[4*i+0] = (uint8_t)( ( ( normalsFrame.normals[i].x / 2 ) + 0.5 ) * 255);
-        _normalsBuffer[4*i+1] = (uint8_t)( ( ( normalsFrame.normals[i].y / 2 ) + 0.5 ) * 255);
-        _normalsBuffer[4*i+2] = (uint8_t)( ( ( normalsFrame.normals[i].z / 2 ) + 0.5 ) * 255);
+        if (i == index) {
+            _normalsBuffer[4*i+0] = (uint8_t)(255);
+        }else if(depthFrame.data[i]>600||depthFrame.data[i]<400) {
+            _normalsBuffer[4*i+0] = (uint8_t)(0);
+            _normalsBuffer[4*i+1] = (uint8_t)(0);
+            _normalsBuffer[4*i+2] = (uint8_t)(0);
+        }else{
+            _normalsBuffer[4*i+0] = (uint8_t)( ( ( normalsFrame.normals[i].x / 2 ) + 0.5 ) * 255);
+            _normalsBuffer[4*i+1] = (uint8_t)( ( ( normalsFrame.normals[i].y / 2 ) + 0.5 ) * 255);
+            _normalsBuffer[4*i+2] = (uint8_t)( ( ( normalsFrame.normals[i].z / 2 ) + 0.5 ) * 255);
+        }
     }
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -559,12 +576,33 @@ const uint16_t maxShiftValue = 2048;
                                         false,
                                         kCGRenderingIntentDefault);
     
-    _normalsImageView.image = [[UIImage alloc] initWithCGImage:imageRef];
+    UIImage *Img = [[UIImage alloc] initWithCGImage:imageRef];
+    CGRect rect = CGRectMake(cols/4, rows/4, cols/2, rows/2);
+    [Img drawInRect:rect];
+    
+    _normalsImageView.image = Img;
     
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
     
+}
+
+-(size_t)findNosePosition:(STDepthFrame*) depthFrame{
+    
+    size_t ind = 0;
+    size_t cols = depthFrame.width;
+    size_t rows = depthFrame.height;
+    
+    uint8_t MAX_DEPTH = 100;
+    
+    for (size_t i = 0; i < cols*rows; i++) {
+        if (depthFrame.data[i]< MAX_DEPTH) {
+            ind = i;
+        }
+    }
+    
+    return ind;
 }
 
 - (void)renderColorFrame:(CMSampleBufferRef)sampleBuffer
