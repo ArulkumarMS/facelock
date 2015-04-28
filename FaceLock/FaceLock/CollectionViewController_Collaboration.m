@@ -13,14 +13,23 @@
 @end
 
 @implementation CollectionViewController_Collaboration{
-    NSArray *ImageNames;
+    
 }
 
 static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ImageNames=@[@"faces_0004.jpg",
+    //self.ImageNames=[[NSMutableArray alloc]init];
+    for (NSInteger i=1; i<=10; i++) {
+        NSString *ImageName=[NSString stringWithFormat:@"%@%ld.jpg", self.FullName,(long)i];
+        NSLog(@"image name is: %@",ImageName);
+        if (!self.ImageNames ) self.ImageNames  = [[NSMutableArray alloc] init];
+        //[listData addObject:jobName];
+        [self.ImageNames  addObject:ImageName];
+    }
+    /*
+    ImageNames=@[@"%@1.jpg",
                           @"2.jpg",
                           @"3.jpg",
                           @"4.jpg",
@@ -30,10 +39,10 @@ static NSString * const reuseIdentifier = @"Cell";
                           @"8.jpg",
                           @"9.jpg",
                           @"100.jpg",];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
+    */
+     //Uncomment the following line to preserve selection between presentations
+     //self.clearsSelectionOnViewWillAppear = NO;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
@@ -73,10 +82,15 @@ static NSString * const reuseIdentifier = @"Cell";
     NSInteger row = [indexPath row];
 
     // Configure the cell
-    if ([self ImageExist:ImageNames[row]]) {
-        cell.Portrait.image=[self loadImage:ImageNames[row]];
+    //if ([self ImageExist:ImageNames[row]]) {
+    //    cell.Portrait.image=[self loadImage:ImageNames[row]];
+    //}
+    if([UIImage imageNamed:self.ImageNames[row]]!=nil){
+        NSLog(@"%@ is found!",self.ImageNames[row]);
+        cell.Portrait.image=[UIImage imageNamed:self.ImageNames[row]];
     }
     else{
+        NSLog(@"%@ is found!",self.ImageNames[row]);
         cell.Portrait.image=[UIImage imageNamed:@"Default.png"];
     }
     

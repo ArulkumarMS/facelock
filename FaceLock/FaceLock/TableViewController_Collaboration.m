@@ -12,7 +12,9 @@
 
 @end
 
-@implementation TableViewController_Collaboration
+@implementation TableViewController_Collaboration{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,17 +53,20 @@
     }
     cell.Name.text = [self.UserName objectAtIndex:row];
     cell.Label.text = [@(row) stringValue];
-    cell.Portrait.image=[self loadImage];
+    self.fullname=[self.UserName objectAtIndex:row];
+    cell.Portrait.image=[self loadImage:self.fullname];
     return cell;
 }
 
-- (UIImage*)loadImage
+- (UIImage*)loadImage: (NSString *)FullName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0007.jpg"];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0004.jpg"];
     UIImage* image = [UIImage imageWithContentsOfFile:path];
+    NSString* imageName=[NSString stringWithFormat:@"%@1.jpg", FullName];
+    image=[UIImage imageNamed:imageName];
     return image;
 }
 
@@ -99,14 +104,18 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"Segue_Collaboration2"]){
+        CollectionViewController_Collaboration *controller = (CollectionViewController_Collaboration *)segue.destinationViewController;
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        NSInteger row = [indexPath row];
+        controller.FullName = [self.UserName objectAtIndex:row];
+    }
 }
-*/
+
 
 @end

@@ -11,5 +11,6 @@
 #import "CollectionViewCell_Collaboration.h"
 
 @interface CollectionViewController_Collaboration : UICollectionViewController
-
+@property(nonatomic) NSString *FullName;
+@property(nonatomic) NSMutableArray *ImageNames;
 @end

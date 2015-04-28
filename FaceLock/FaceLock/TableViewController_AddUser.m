@@ -79,17 +79,20 @@
     cell.Name.text = [self.UserName objectAtIndex:row];
     cell.Label.text = [@(row) stringValue];
     //cell.Portrait.image= [UIImage imageNamed:@"xiang10.jpg"];
-    cell.Portrait.image=[self loadImage];
+    //NSString *firstname=[self.UserName objectAtIndex:row];
+    cell.Portrait.image=[self loadImage:[self.UserName objectAtIndex:row]];
     return cell;
 }
 
-- (UIImage*)loadImage
+- (UIImage*)loadImage: (NSString *)FullName
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0004.jpg"];
     UIImage* image = [UIImage imageWithContentsOfFile:path];
+    NSString* imageName=[NSString stringWithFormat:@"%@1.jpg", FullName];
+    image=[UIImage imageNamed:imageName];
     return image;
 }
 

@@ -18,6 +18,17 @@
 		3672FBC91AEB31CE00236621 /* CollectionViewCell_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC81AEB31CE00236621 /* CollectionViewCell_Collaboration.m */; };
 		3672FBCB1AEB332300236621 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3672FBCA1AEB332300236621 /* Default.png */; };
 		3672FBCE1AEB480000236621 /* UIImageView_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBCD1AEB480000236621 /* UIImageView_Collaboration.m */; };
+		36734A0D1AEED85300A15029 /* YIWEN SHI1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A0C1AEED85300A15029 /* YIWEN SHI1.jpg */; };
+		36734A181AEEE56B00A15029 /* HA LE1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A0E1AEEE56B00A15029 /* HA LE1.jpg */; };
+		36734A191AEEE56B00A15029 /* SHIWANI BECTOR3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A0F1AEEE56B00A15029 /* SHIWANI BECTOR3.jpg */; };
+		36734A1A1AEEE56B00A15029 /* SHIWANI BECTOR4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A101AEEE56B00A15029 /* SHIWANI BECTOR4.jpg */; };
+		36734A1B1AEEE56B00A15029 /* SHIWANI BECTOR5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A111AEEE56B00A15029 /* SHIWANI BECTOR5.jpg */; };
+		36734A1C1AEEE56B00A15029 /* SHIWANI BECTOR6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A121AEEE56B00A15029 /* SHIWANI BECTOR6.jpg */; };
+		36734A1D1AEEE56B00A15029 /* SHIWANI BECTOR7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A131AEEE56B00A15029 /* SHIWANI BECTOR7.jpg */; };
+		36734A1E1AEEE56B00A15029 /* XIANG XU1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A141AEEE56B00A15029 /* XIANG XU1.jpg */; };
+		36734A1F1AEEE56B00A15029 /* SHIWANI BECTOR1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A151AEEE56B00A15029 /* SHIWANI BECTOR1.jpg */; };
+		36734A201AEEE56B00A15029 /* SHIWANI BECTOR2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A161AEEE56B00A15029 /* SHIWANI BECTOR2.jpg */; };
+		36734A211AEEE56B00A15029 /* SHIWANI BECTOR8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A171AEEE56B00A15029 /* SHIWANI BECTOR8.jpg */; };
 		368DEE211AE851B9004895C1 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DEE201AE851B9004895C1 /* UserCell.m */; };
 		36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */; };
 		36B5965E1AD1DEBE002BF75A /* ha1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 36B596411AD1DEBE002BF75A /* ha1.JPG */; };
@@ -116,6 +127,17 @@
 		3672FBCA1AEB332300236621 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../../Desktop/Default.png; sourceTree = "<group>"; };
 		3672FBCC1AEB480000236621 /* UIImageView_Collaboration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageView_Collaboration.h; sourceTree = "<group>"; };
 		3672FBCD1AEB480000236621 /* UIImageView_Collaboration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageView_Collaboration.m; sourceTree = "<group>"; };
+		36734A0C1AEED85300A15029 /* YIWEN SHI1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "YIWEN SHI1.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/YIWEN SHI1.jpg"; sourceTree = "<group>"; };
+		36734A0E1AEEE56B00A15029 /* HA LE1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "HA LE1.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/HA LE1.jpg"; sourceTree = "<group>"; };
+		36734A0F1AEEE56B00A15029 /* SHIWANI BECTOR3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SHIWANI BECTOR3.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/SHIWANI BECTOR3.jpg"; sourceTree = "<group>"; };
+		36734A101AEEE56B00A15029 /* SHIWANI BECTOR4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SHIWANI BECTOR4.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/SHIWANI BECTOR4.jpg"; sourceTree = "<group>"; };
+		36734A111AEEE56B00A15029 /* SHIWANI BECTOR5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SHIWANI BECTOR5.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/SHIWANI BECTOR5.jpg"; sourceTree = "<group>"; };
+		36734A121AEEE56B00A15029 /* SHIWANI BECTOR6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SHIWANI BECTOR6.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/SHIWANI BECTOR6.jpg"; sourceTree = "<group>"; };
+		36734A131AEEE56B00A15029 /* SHIWANI BECTOR7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SHIWANI BECTOR7.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/SHIWANI BECTOR7.jpg"; sourceTree = "<group>"; };
+		36734A141AEEE56B00A15029 /* XIANG XU1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "XIANG XU1.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/XIANG XU1.jpg"; sourceTree = "<group>"; };
+		36734A151AEEE56B00A15029 /* SHIWANI BECTOR1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SHIWANI BECTOR1.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/SHIWANI BECTOR1.jpg"; sourceTree = "<group>"; };
+		36734A161AEEE56B00A15029 /* SHIWANI BECTOR2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SHIWANI BECTOR2.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/SHIWANI BECTOR2.jpg"; sourceTree = "<group>"; };
+		36734A171AEEE56B00A15029 /* SHIWANI BECTOR8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "SHIWANI BECTOR8.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/SHIWANI BECTOR8.jpg"; sourceTree = "<group>"; };
 		368DEE1F1AE851B9004895C1 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
 		368DEE201AE851B9004895C1 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
 		36953F681AD38190005B4C1B /* FaceRecognition_2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceRecognition_2D.h; sourceTree = "<group>"; };
@@ -261,6 +283,17 @@
 		36B596401AD1DEBE002BF75A /* img */ = {
 			isa = PBXGroup;
 			children = (
+				36734A0E1AEEE56B00A15029 /* HA LE1.jpg */,
+				36734A0F1AEEE56B00A15029 /* SHIWANI BECTOR3.jpg */,
+				36734A101AEEE56B00A15029 /* SHIWANI BECTOR4.jpg */,
+				36734A111AEEE56B00A15029 /* SHIWANI BECTOR5.jpg */,
+				36734A121AEEE56B00A15029 /* SHIWANI BECTOR6.jpg */,
+				36734A131AEEE56B00A15029 /* SHIWANI BECTOR7.jpg */,
+				36734A141AEEE56B00A15029 /* XIANG XU1.jpg */,
+				36734A151AEEE56B00A15029 /* SHIWANI BECTOR1.jpg */,
+				36734A161AEEE56B00A15029 /* SHIWANI BECTOR2.jpg */,
+				36734A171AEEE56B00A15029 /* SHIWANI BECTOR8.jpg */,
+				36734A0C1AEED85300A15029 /* YIWEN SHI1.jpg */,
 				3672FBCA1AEB332300236621 /* Default.png */,
 				36B596411AD1DEBE002BF75A /* ha1.JPG */,
 				36B596421AD1DEBE002BF75A /* ha10.JPG */,
@@ -483,9 +516,11 @@
 				CB0FE0E41AB37E97007BF483 /* Main.storyboard in Resources */,
 				36B596681AD1DEBE002BF75A /* xiang1.JPG in Resources */,
 				36B5966E1AD1DEBE002BF75A /* xiang6.JPG in Resources */,
+				36734A181AEEE56B00A15029 /* HA LE1.jpg in Resources */,
 				CB0FE0E91AB37E97007BF483 /* LaunchScreen.xib in Resources */,
 				36B596701AD1DEBE002BF75A /* xiang8.JPG in Resources */,
 				36B596621AD1DEBE002BF75A /* ha4.JPG in Resources */,
+				36734A211AEEE56B00A15029 /* SHIWANI BECTOR8.jpg in Resources */,
 				36B5965F1AD1DEBE002BF75A /* ha10.JPG in Resources */,
 				36B596711AD1DEBE002BF75A /* xiang9.JPG in Resources */,
 				36B596671AD1DEBE002BF75A /* ha9.JPG in Resources */,
@@ -500,20 +535,29 @@
 				36B596651AD1DEBE002BF75A /* ha7.JPG in Resources */,
 				36B596791AD1DEBE002BF75A /* yiwen8.JPG in Resources */,
 				CB2D4DB71ABC9F5B00962452 /* bg_horizon.jpg in Resources */,
+				36734A1C1AEEE56B00A15029 /* SHIWANI BECTOR6.jpg in Resources */,
 				36B596611AD1DEBE002BF75A /* ha3.JPG in Resources */,
 				36B596691AD1DEBE002BF75A /* xiang10.JPG in Resources */,
 				CB7F09CB1ABD0E5500996B5E /* haarcascade_frontalface_default.xml in Resources */,
+				36734A0D1AEED85300A15029 /* YIWEN SHI1.jpg in Resources */,
+				36734A1A1AEEE56B00A15029 /* SHIWANI BECTOR4.jpg in Resources */,
 				36B5966D1AD1DEBE002BF75A /* xiang5.JPG in Resources */,
 				36B5966C1AD1DEBE002BF75A /* xiang4.JPG in Resources */,
+				36734A1F1AEEE56B00A15029 /* SHIWANI BECTOR1.jpg in Resources */,
 				36B596731AD1DEBE002BF75A /* yiwen10.JPG in Resources */,
 				CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */,
 				36B596601AD1DEBE002BF75A /* ha2.JPG in Resources */,
 				36B5966A1AD1DEBE002BF75A /* xiang2.JPG in Resources */,
 				36B5966B1AD1DEBE002BF75A /* xiang3.JPG in Resources */,
+				36734A1E1AEEE56B00A15029 /* XIANG XU1.jpg in Resources */,
+				36734A1B1AEEE56B00A15029 /* SHIWANI BECTOR5.jpg in Resources */,
+				36734A201AEEE56B00A15029 /* SHIWANI BECTOR2.jpg in Resources */,
 				297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
 				29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */,
+				36734A1D1AEEE56B00A15029 /* SHIWANI BECTOR7.jpg in Resources */,
 				36B596781AD1DEBE002BF75A /* yiwen6.JPG in Resources */,
 				36B596771AD1DEBE002BF75A /* yiwen5.JPG in Resources */,
+				36734A191AEEE56B00A15029 /* SHIWANI BECTOR3.jpg in Resources */,
 				36B596751AD1DEBE002BF75A /* yiwen3.JPG in Resources */,
 				36B596761AD1DEBE002BF75A /* yiwen4.JPG in Resources */,
 				36B5965E1AD1DEBE002BF75A /* ha1.JPG in Resources */,

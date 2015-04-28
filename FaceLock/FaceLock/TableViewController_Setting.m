@@ -106,6 +106,10 @@
         TableViewController_Setting *destViewController = segue.destinationViewController;
         destViewController.title=@"Delete User";
     }
+    else if ([segue.identifier isEqualToString:@"Segue_Collaboration"]) {
+        TableViewController_Setting *destViewController = segue.destinationViewController;
+        destViewController.title=@"Collaboration";
+    }
 
 }
 
