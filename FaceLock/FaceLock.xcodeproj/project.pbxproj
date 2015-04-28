@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */; };
 		29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */; };
+		29E7A6C71AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E7A6C61AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml */; };
+		29E7A6C91AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E7A6C81AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml */; };
 		362E2EBC1AE33AAC0073D12C /* TableViewController_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */; };
 		362E2EC21AE3FCBD0073D12C /* TableViewController_AddUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */; };
 		362E2EC91AE3FE7D0073D12C /* Setting_UserManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */; };
@@ -16,7 +18,6 @@
 		3672FBC31AEA9BB600236621 /* TableViewController_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC21AEA9BB600236621 /* TableViewController_Collaboration.m */; };
 		3672FBC61AEB287100236621 /* CollectionViewController_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC51AEB287100236621 /* CollectionViewController_Collaboration.m */; };
 		3672FBC91AEB31CE00236621 /* CollectionViewCell_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC81AEB31CE00236621 /* CollectionViewCell_Collaboration.m */; };
-		3672FBCB1AEB332300236621 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3672FBCA1AEB332300236621 /* Default.png */; };
 		3672FBCE1AEB480000236621 /* UIImageView_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBCD1AEB480000236621 /* UIImageView_Collaboration.m */; };
 		36734A0D1AEED85300A15029 /* YIWEN SHI1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A0C1AEED85300A15029 /* YIWEN SHI1.jpg */; };
 		36734A181AEEE56B00A15029 /* HA LE1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36734A0E1AEEE56B00A15029 /* HA LE1.jpg */; };
@@ -110,6 +111,8 @@
 /* Begin PBXFileReference section */
 		297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
+		29E7A6C61AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
+		29E7A6C81AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_small.xml; sourceTree = "<group>"; };
 		362E2EBA1AE33AAC0073D12C /* TableViewController_Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_Setting.h; sourceTree = "<group>"; };
 		362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_Setting.m; sourceTree = "<group>"; };
 		362E2EC01AE3FCBD0073D12C /* TableViewController_AddUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_AddUser.h; sourceTree = "<group>"; };
@@ -124,7 +127,6 @@
 		3672FBC51AEB287100236621 /* CollectionViewController_Collaboration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController_Collaboration.m; sourceTree = "<group>"; };
 		3672FBC71AEB31CE00236621 /* CollectionViewCell_Collaboration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell_Collaboration.h; sourceTree = "<group>"; };
 		3672FBC81AEB31CE00236621 /* CollectionViewCell_Collaboration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell_Collaboration.m; sourceTree = "<group>"; };
-		3672FBCA1AEB332300236621 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../../Desktop/Default.png; sourceTree = "<group>"; };
 		3672FBCC1AEB480000236621 /* UIImageView_Collaboration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageView_Collaboration.h; sourceTree = "<group>"; };
 		3672FBCD1AEB480000236621 /* UIImageView_Collaboration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageView_Collaboration.m; sourceTree = "<group>"; };
 		36734A0C1AEED85300A15029 /* YIWEN SHI1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "YIWEN SHI1.jpg"; path = "../../../../Dropbox/Structure Sensor/Training Photos/YIWEN SHI1.jpg"; sourceTree = "<group>"; };
@@ -407,6 +409,8 @@
 				297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */,
 				CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */,
 				CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */,
+				29E7A6C61AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml */,
+				29E7A6C81AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml */,
 				CB2D4DB61ABC9F5B00962452 /* bg_horizon.jpg */,
 				CB0FE0D91AB37E97007BF483 /* Info.plist */,
 				CB0FE0DA1AB37E97007BF483 /* main.m */,
@@ -525,7 +529,6 @@
 				36B596711AD1DEBE002BF75A /* xiang9.JPG in Resources */,
 				36B596671AD1DEBE002BF75A /* ha9.JPG in Resources */,
 				36B5966F1AD1DEBE002BF75A /* xiang7.JPG in Resources */,
-				3672FBCB1AEB332300236621 /* Default.png in Resources */,
 				CB7F09C91ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml in Resources */,
 				36B596631AD1DEBE002BF75A /* ha5.JPG in Resources */,
 				36B596641AD1DEBE002BF75A /* ha6.JPG in Resources */,
@@ -544,6 +547,7 @@
 				36B5966D1AD1DEBE002BF75A /* xiang5.JPG in Resources */,
 				36B5966C1AD1DEBE002BF75A /* xiang4.JPG in Resources */,
 				36734A1F1AEEE56B00A15029 /* SHIWANI BECTOR1.jpg in Resources */,
+				29E7A6C71AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml in Resources */,
 				36B596731AD1DEBE002BF75A /* yiwen10.JPG in Resources */,
 				CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */,
 				36B596601AD1DEBE002BF75A /* ha2.JPG in Resources */,
@@ -560,6 +564,7 @@
 				36734A191AEEE56B00A15029 /* SHIWANI BECTOR3.jpg in Resources */,
 				36B596751AD1DEBE002BF75A /* yiwen3.JPG in Resources */,
 				36B596761AD1DEBE002BF75A /* yiwen4.JPG in Resources */,
+				29E7A6C91AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml in Resources */,
 				36B5965E1AD1DEBE002BF75A /* ha1.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

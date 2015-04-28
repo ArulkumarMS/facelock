@@ -87,9 +87,11 @@
         dispatch_queue_t face_recognition_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(face_recognition_queue, ^{
             // Perform long running process
+            std::vector<cv::Rect> _faces;
+            std::vector<cv::Rect> _eyes;
             _faceCascade->detectMultiScale(image_roi_clone, _faces, 1.1, 1, 0|CV_HAAR_SCALE_IMAGE, cv::Size(200,200), cv::Size(image.cols, image.cols));
             if (_faces.size() > 0) {
-                NSLog(@"Found %@ faces!\n", @(_faces.size()));
+//                NSLog(@"Found %@ faces!\n", @(_faces.size()));
             }
             for(int i =0; i <_faces.size(); i++){
                 NSString* imagename = [NSString stringWithFormat:@"faces_%.4d.jpg", _imagename_count];
@@ -102,7 +104,7 @@
                 _eyeCascade->detectMultiScale(image_face_roi, _eyes);
                 
                 if (_eyes.size() > 0) {
-                    NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
+//                    NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
                 }
                 
                 if (2 == _eyes.size()) {
@@ -143,20 +145,23 @@
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Update the UI
+                _mfaces = _faces;
+                _meyes = _eyes;
                 
             });
             _count = 0; //Reset _count
         });
     }
-
+    NSLog(@"Face %@\n", @(_mfaces.size()));
+    NSLog(@"Eyes %@\n", @(_meyes.size()));
     // Draw face and eyes boundaries
-    for(int i =0; i<_faces.size(); i++){
-        cv::rectangle(image_roi, _faces[i], cv::Scalar(0, 255, 255), 1, 8);
-        cv::Mat image_face_roi = image_roi(_faces[i]);
-        for (int j = 0; j<_eyes.size(); j++) {
-            cv::Point eye_center( _eyes[j].x + _eyes[j].width/2, _eyes[j].y + _eyes[j].height/2 );
+    for(int i =0; i<_mfaces.size(); i++){
+        cv::rectangle(image_roi, _mfaces[i], cv::Scalar(0, 255, 255), 1, 8);
+        cv::Mat image_face_roi = image_roi(_mfaces[i]);
+        for (int j = 0; j<_meyes.size(); j++) {
+            cv::Point eye_center( _meyes[j].x + _meyes[j].width/2, _meyes[j].y + _meyes[j].height/2 );
             //NSLog(@"%d %d %d %d %d", _count, i, j, eye_center.x, eye_center.y);
-            int radius = cvRound((_eyes[j].width + _eyes[j].height)*0.25 );
+            int radius = cvRound((_meyes[j].width + _meyes[j].height)*0.25 );
             cv::circle(image_face_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
         }
         //NSString *imagename = [NSString stringWithFormat:@"%d.jpg", _imagename_count];
