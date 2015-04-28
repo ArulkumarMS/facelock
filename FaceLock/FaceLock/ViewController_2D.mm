@@ -100,7 +100,7 @@
                 //cv::cvtColor(image_roi_clone(_faces[i]), face_image, CV_BGRA2RGB);
                 //[Utils saveMATImage:face_image andName:imagename];
                 cv::Mat image_face_roi = image_roi_clone(_faces[i]);
-                _eyes.clear();
+//                _eyes.clear();
                 _eyeCascade->detectMultiScale(image_face_roi, _eyes);
                 
                 if (_eyes.size() > 0) {
