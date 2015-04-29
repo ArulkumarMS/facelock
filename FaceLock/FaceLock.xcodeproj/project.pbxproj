@@ -71,7 +71,6 @@
 		CB0FE0E91AB37E97007BF483 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0FE0E71AB37E97007BF483 /* LaunchScreen.xib */; };
 		CB0FE0F51AB37E97007BF483 /* FaceLockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0F41AB37E97007BF483 /* FaceLockTests.m */; };
 		CB27EBD91AE01593006B5750 /* ViewController_3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB27EBD81AE01593006B5750 /* ViewController_3D.mm */; };
-		CB2D4DB71ABC9F5B00962452 /* bg_horizon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CB2D4DB61ABC9F5B00962452 /* bg_horizon.jpg */; };
 		CB2D4DB91ABCADC300962452 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB2D4DB81ABCADC300962452 /* AssetsLibrary.framework */; };
 		CB4CDA3F1AB74D6A000C18A8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4CDA3D1AB74D6A000C18A8 /* opencv2.framework */; };
 		CB4CDA401AB74D6A000C18A8 /* Structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */; };
@@ -192,7 +191,6 @@
 		CB0FE0F41AB37E97007BF483 /* FaceLockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceLockTests.m; sourceTree = "<group>"; };
 		CB27EBD71AE01593006B5750 /* ViewController_3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_3D.h; sourceTree = "<group>"; };
 		CB27EBD81AE01593006B5750 /* ViewController_3D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController_3D.mm; sourceTree = "<group>"; };
-		CB2D4DB61ABC9F5B00962452 /* bg_horizon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_horizon.jpg; sourceTree = "<group>"; };
 		CB2D4DB81ABCADC300962452 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		CB4CDA3D1AB74D6A000C18A8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Frameworks/opencv2.framework; sourceTree = "<group>"; };
 		CB4CDA3E1AB74D6A000C18A8 /* Structure.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Structure.framework; path = Frameworks/Structure.framework; sourceTree = "<group>"; };
@@ -410,7 +408,6 @@
 				CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */,
 				29E7A6C61AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml */,
 				29E7A6C81AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml */,
-				CB2D4DB61ABC9F5B00962452 /* bg_horizon.jpg */,
 				CB0FE0D91AB37E97007BF483 /* Info.plist */,
 				CB0FE0DA1AB37E97007BF483 /* main.m */,
 			);
@@ -539,7 +536,6 @@
 				36B596721AD1DEBE002BF75A /* yiwen1.JPG in Resources */,
 				36B596651AD1DEBE002BF75A /* ha7.JPG in Resources */,
 				36B596791AD1DEBE002BF75A /* yiwen8.JPG in Resources */,
-				CB2D4DB71ABC9F5B00962452 /* bg_horizon.jpg in Resources */,
 				298199AC1AF0077E00140D7B /* SHIWANI BECTOR6.jpg in Resources */,
 				36B596611AD1DEBE002BF75A /* ha3.JPG in Resources */,
 				298199AA1AF0077E00140D7B /* SHIWANI BECTOR4.jpg in Resources */,

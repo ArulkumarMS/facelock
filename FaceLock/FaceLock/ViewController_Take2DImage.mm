@@ -96,12 +96,25 @@
                     NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
                 }
                 
-                if (2 == _eyes.size()) {
-                    cv::Mat eyeLeft = (cv::Mat_<double>(1,2)<< _eyes[0].x + _eyes[0].width/2 - _faces[i].x, _eyes[0].y + _eyes[0].height/2 - _faces[i].y);
-                    cv::Mat eyeRight = (cv::Mat_<double>(1,2)<< _eyes[1].x + _eyes[1].width/2 - _faces[i].x, _eyes[1].y + _eyes[1].height/2 - _faces[i].y);
-                    
-                    cv::Mat dst_sz = (cv::Mat_<double>(1,2)<< 70, 70);
-                    cv::Mat normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]) andEyeLeft: eyeLeft andEyeRight: eyeRight andDstsize: dst_sz andHistEqual:true];
+                if (_eyes.size() == 2) {
+                    cv::Point eye_one( _eyes[0].x + _eyes[0].width/2, _eyes[0].y + _eyes[0].height/2 );
+                    cv::Point eye_two( _eyes[1].x + _eyes[1].width/2, _eyes[1].y + _eyes[1].height/2 );
+                    cv::Point face_size(70,70);
+                    cv::Mat normalFaceImg;
+                    if (eye_one.x <= eye_two.x) {
+                        normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]).clone()
+                                                  andEyeLeft: eye_one
+                                                 andEyeRight: eye_two
+                                                 andFaceSize: face_size
+                                                andHistEqual:true];
+                    } else {
+                        normalFaceImg = [Utils normalizeFace:image_roi(_faces[i]).clone()
+                                                  andEyeLeft: eye_two
+                                                 andEyeRight: eye_one
+                                                 andFaceSize: face_size
+                                                andHistEqual:true];
+                    }
+
                     NSString* imagename = [NSString stringWithFormat:@"%@%d.jpg", self.FullName,_imagename_count];
                     NSLog(@"IMAGE FILE NAME IS %@", imagename);
                     [Utils saveMATImage:normalFaceImg andName:imagename];

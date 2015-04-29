@@ -28,16 +28,23 @@
 
 +(UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
 {
-    NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
     CGColorSpaceRef colorSpace;
+    cv::Mat cvMat2 = cvMat;
     if ( cvMat.elemSize() == 1 ) {
         colorSpace = CGColorSpaceCreateDeviceGray();
     }
     else {
+        if (cvMat.channels() == 3) {
+            cv::cvtColor(cvMat, cvMat2, CV_BGR2RGB);
+        }
+        else if (cvMat.channels() == 4) {
+            cv::cvtColor(cvMat, cvMat2, CV_BGRA2RGBA);
+        }
         colorSpace = CGColorSpaceCreateDeviceRGB();
     }
+    NSData *data = [NSData dataWithBytes:cvMat2.data length:cvMat2.elemSize()*cvMat2.total()];
     CGDataProviderRef provider = CGDataProviderCreateWithCFData( (__bridge CFDataRef)data );
-    CGImageRef imageRef = CGImageCreate( cvMat.cols, cvMat.rows, 8, 8 * cvMat.elemSize(), cvMat.step[0], colorSpace, kCGImageAlphaNone|kCGBitmapByteOrderDefault, provider, NULL, false, kCGRenderingIntentDefault );
+    CGImageRef imageRef = CGImageCreate( cvMat2.cols, cvMat2.rows, 8, 8 * cvMat2.elemSize(), cvMat2.step[0], colorSpace, kCGImageAlphaNone|kCGBitmapByteOrderDefault, provider, NULL, false, kCGRenderingIntentDefault );
     UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
     CGImageRelease( imageRef );
     CGDataProviderRelease( provider );
