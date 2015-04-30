@@ -12,7 +12,7 @@
 
 @interface Utils : NSObject{
 }
-
++ (BOOL) saveUIImage:(UIImage*)image andName:(NSString *)imagename;
 + (BOOL) saveMATImage: (cv::Mat) img andName:(NSString*) imagname;
 + (cv::Mat) loadImage2MAT: (NSString*) imagename;
 + (cv::Mat) normalizeFace:(cv::Mat)img andFaceSize:(cv::Point)face_size;

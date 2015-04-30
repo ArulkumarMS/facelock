@@ -12,6 +12,15 @@
 
 #pragma mark - Save Image to Sandbox/Documents
 
++ (BOOL) saveUIImage:(UIImage*)image andName:(NSString *)imagename{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",imagename]];
+    BOOL result = [UIImageJPEGRepresentation(image, 1)writeToFile:filePath atomically:YES];
+    
+    return result;
+}
+
 + (BOOL) saveMATImage:(cv::Mat)img andName:(NSString *)imagename{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);

@@ -65,7 +65,7 @@ struct AppStatus
     // Face Recognition variables
     int _count;
     int _imagename_count;
-    cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
+    cv::Ptr<cv::face::FaceRecognizer> _faceRecognizer;
     // Logger
     NSLogger *logger;
     
@@ -130,23 +130,20 @@ struct AppStatus
 //    [self.view addSubview:_colorImageView];
     
 //    [self setupColorCamera];
-    [logger log:@"CHECK 3D initiate part!"];
-    if (![FaceRecognition_3D LBPHfileExist]){
+    
+    if (![FaceRecognition_3D doesModelFileExist]){
         [logger log:@"IN 3D initiate part!"];
-        NSLog(@"IN 3D initiate part!");
-        cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-        [FaceRecognition_3D saveFaceRecognizer:ini_LBPHFaceRecognizer];
-        [FaceRecognition_3D loadFaceRecognizer:ini_LBPHFaceRecognizer];
-//        [FaceRecognition_3D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"YIWEN SHI 3D" andLabel:0 andTrainNum:46];
-        [FaceRecognition_3D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"HA LE 3D" andLabel:1 andTrainNum:50];
-//        [FaceRecognition_3D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"SHIWANI BECTOR 3D" andLabel:2 andTrainNum:10];
-//        [FaceRecognition_3D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"XIANG XU 3D" andLabel:3 andTrainNum:10];
-        [FaceRecognition_3D saveFaceRecognizer:ini_LBPHFaceRecognizer];
-        //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
+        cv::Ptr<cv::face::FaceRecognizer> initFaceRecognizer=cv::face::createEigenFaceRecognizer();
+        [FaceRecognition_3D saveFaceRecognizer:initFaceRecognizer];
+        [FaceRecognition_3D loadFaceRecognizer:initFaceRecognizer];
+//        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"YIWEN SHI 3D" andLabel:0 andTrainNum:46];
+        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"HA LE 3D" andLabel:1 andTrainNum:50];
+//        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"SHIWANI BECTOR 3D" andLabel:2 andTrainNum:10];
+//        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"XIANG XU 3D" andLabel:3 andTrainNum:10];
+        [FaceRecognition_3D saveFaceRecognizer:initFaceRecognizer];
     }
-    [logger log:@"OUT 3D initiate part!"];
-    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-    [FaceRecognition_3D loadFaceRecognizer:_LBPHFaceRecognizer];
+    _faceRecognizer=cv::face::createEigenFaceRecognizer();
+    [FaceRecognition_3D loadFaceRecognizer:_faceRecognizer];
     
 //     Sample usage of wireless debugging API
 //    NSError* error = nil;
@@ -372,11 +369,11 @@ struct AppStatus
     // filter out object not in range
     cv::Mat mask = depth_mat <= MAX_DEPTH;
     // Save this mask to image
-//    _imagename_count++;
-//    if (_imagename_count % 10 == 0) {
-//        NSString* mask_image_name = [NSString stringWithFormat:@"mask%.4d.jpg",_imagename_count];
-//        [Utils saveMATImage:mask andName:mask_image_name];
-//    }
+    _imagename_count++;
+    if (_imagename_count % 10 == 0) {
+        NSString* mask_image_name = [NSString stringWithFormat:@"mask%.4d.jpg",_imagename_count];
+        [Utils saveMATImage:mask andName:mask_image_name];
+    }
     cv::normalize(mask, mask, 0, 1, cv::NORM_MINMAX);
     // Find the largest Connected Components
 //    cv::Mat labels;
@@ -657,7 +654,14 @@ const uint16_t maxShiftValue = 2048;
                                         kCGRenderingIntentDefault);  //rendering intent
     
     // Assign CGImage to UIImage
-    _depthImageView.image = [UIImage imageWithCGImage:imageRef];
+    UIImage* coloredDepth = [UIImage imageWithCGImage:imageRef];
+//    NSString* depth_image_name = [NSString stringWithFormat:@"depth%.4d.jpg",_imagename_count+1];
+//    [Utils saveUIImage:coloredDepth andName:depth_image_name];
+//    // Face Segmentation
+//    cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);
+//    cv::Rect face = [self faceSegmentation:depth_mat];
+
+    _depthImageView.image = coloredDepth;
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
@@ -749,10 +753,9 @@ const uint16_t maxShiftValue = 2048;
     //Face recognition
     int label;
     double predicted_confidence;
-    _LBPHFaceRecognizer->predict(gray, label, predicted_confidence);
+    _faceRecognizer->predict(gray, label, predicted_confidence);
     NSString* event = [NSString stringWithFormat:@"Label: %d Confidence: %.4f",label, predicted_confidence];
     [logger log:event];
-    NSLog(@"Label: %d Confidence %.4f\n", label, predicted_confidence);
     if(predicted_confidence < 100){
         NSString* welcome;
         if (label==0){

@@ -8,63 +8,54 @@
 
 #import <Foundation/Foundation.h>
 #import "FaceRecognition_3D.h"
-
+#define MODEL_NAME_3D @"EigenFace3DModel.xml"
 
 @implementation FaceRecognition_3D
 
-+ (BOOL)LBPHfileExist{
++ (BOOL)doesModelFileExist
+{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *LBPHfilePath = [documentsDirectory stringByAppendingPathComponent:@"LBPH3Dmodel.xml"];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:LBPHfilePath];
-    NSLog(@"LBPH3Dmodel.xml,%s", fileExists ? "true" : "false");
+    NSString *modelFilePath = [documentsDirectory stringByAppendingPathComponent:MODEL_NAME_3D];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:modelFilePath];
     return fileExists;
 }
 
-+ (void)saveFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR{
-    //    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"LBPHmodel" ofType:@"xml" ];
-    
++ (void)saveFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) faceRecognizer{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *LBPHfilePath = [documentsDirectory stringByAppendingPathComponent:@"LBPH3Dmodel.xml"];
-    const cv::String filename=([LBPHfilePath UTF8String]);
-    LBPHFR->save(filename);
+    NSString *modelFilePath = [documentsDirectory stringByAppendingPathComponent:MODEL_NAME_3D];
+    const cv::String filename=([modelFilePath UTF8String]);
+    faceRecognizer->save(filename);
 }
 
-+ (void)loadFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR{
++ (void)loadFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) faceRecognizer{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *LBPHfilePath = [documentsDirectory stringByAppendingPathComponent:@"LBPH3Dmodel.xml"];
-    const cv::String filename=([LBPHfilePath UTF8String]);
-    //cv::Ptr<cv::face::FaceRecognizer> LBPHFR=cv::face::createLBPHFaceRecognizer();
-    LBPHFR->load(filename);
+    NSString *modelFilePath = [documentsDirectory stringByAppendingPathComponent:MODEL_NAME_3D];
+    const cv::String filename=([modelFilePath UTF8String]);
+    faceRecognizer->load(filename);
 }
 
-+ (void)trainFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR andUser:(NSString*) username andLabel: (int)label andTrainNum:(NSInteger)imageNum{
++ (void)trainFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) faceRecognizer andUser:(NSString*) username andLabel: (int)label andTrainNum:(NSInteger)imageNum{
     
     std::vector<cv::Mat> Images;
     std::vector<int> Lables;
     
     for(int i=1; i<=imageNum; i++){
-        //NSString *path = [[NSBundle mainBundle] pathForResource:@"pattern" ofType:@"bmp"];
-        //const char * cpath = [path cStringUsingEncoding:NSUTF8StringEncoding];
-        //cv::Mat img_object = cv::imread( cpath, CV_LOAD_IMAGE_GRAYSCALE );
-        
         NSString *filename = [NSString stringWithFormat: @"%@%@",
                               username, [@(i) stringValue]];
-        NSLog(@"%@",filename);
         NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"jpg" ];
         const char * cpath = [filePath cStringUsingEncoding:NSUTF8StringEncoding];
         cv::Mat cvImage = cv::imread( cpath, CV_LOAD_IMAGE_GRAYSCALE );
         
         if(cvImage.data )                              // Check for invalid input
         {
-//            NSLog(@"!!!");
             Images.push_back(cvImage);
             Lables.push_back(label);
         }
     }
-    LBPHFR->update(Images, Lables);
-//    LBPHFR->train(Images, Lables);
+//    faceRecognizer->update(Images, Lables);
+    faceRecognizer->train(Images, Lables);
 }
 @end
