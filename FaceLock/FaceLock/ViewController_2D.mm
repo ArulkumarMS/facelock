@@ -45,10 +45,10 @@
         cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"YIWEN SHI" andLabel:0 andTrainNum:46];
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"YIWEN SHI" andLabel:0 andTrainNum:50];
         [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"HA LE" andLabel:1 andTrainNum:50];
-//        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"SHIWANI BECTOR" andLabel:2 andTrainNum:10];
-        //[FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"XIANG XU" andLabel:3 andTrainNum:10];
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"SHIWANI BECTOR" andLabel:2 andTrainNum:50];
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"XIANG XU" andLabel:3 andTrainNum:50];
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
     }
@@ -151,17 +151,21 @@
                     NSString* event = [NSString stringWithFormat:@"Label: %d Confidence: %.4f",label, predicted_confidence];
                     [logger log:event];
                     NSLog(@"Label: %d Confidence %.4f\n", label, predicted_confidence);
-                    if(predicted_confidence < 60){
+                    if(predicted_confidence < 70){
                         NSString* welcome;
                         if (label==0){
                             welcome = @"Welcome back, Yiwen.";
-                        }
+                        } else
                         if (label==1){
                             welcome = @"Welcome back, Ha.";
-                        }
+                        } else
                         if (label==2){
                             welcome = @"Welcome back, Shiwani.";
+                        } else if (label == 3) {
+                            welcome = @"Welcome back, Xiang.";
                         }
+                            
+                            
                         AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
                         AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:welcome];
                         [utterance setRate:0.1f];

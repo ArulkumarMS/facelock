@@ -369,11 +369,11 @@ struct AppStatus
     // filter out object not in range
     cv::Mat mask = depth_mat <= MAX_DEPTH;
     // Save this mask to image
-    _imagename_count++;
-    if (_imagename_count % 10 == 0) {
-        NSString* mask_image_name = [NSString stringWithFormat:@"mask%.4d.jpg",_imagename_count];
-        [Utils saveMATImage:mask andName:mask_image_name];
-    }
+//    _imagename_count++;
+//    if (_imagename_count % 10 == 0) {
+//        NSString* mask_image_name = [NSString stringWithFormat:@"mask%.4d.jpg",_imagename_count];
+//        [Utils saveMATImage:mask andName:mask_image_name];
+//    }
     cv::normalize(mask, mask, 0, 1, cv::NORM_MINMAX);
     // Find the largest Connected Components
 //    cv::Mat labels;
