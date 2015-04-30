@@ -66,8 +66,6 @@
         gray = img;
     }
     
-    [self saveMATImage:gray andName:@"gray.jpg"];
-    
     // Make the face image the same size as the training images.
     
     // Since we found both eyes, lets rotate & scale & translate the face so that the 2 eyes

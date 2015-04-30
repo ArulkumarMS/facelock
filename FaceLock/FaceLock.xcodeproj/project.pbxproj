@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29459E911AF1A02E0037D69E /* NSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29459E901AF1A02E0037D69E /* NSLogger.m */; };
+		29459E961AF1B2100037D69E /* haarcascade_eye.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29459E931AF1B2100037D69E /* haarcascade_eye.xml */; };
+		29459E971AF1B2100037D69E /* haarcascade_lefteye_2splits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29459E941AF1B2100037D69E /* haarcascade_lefteye_2splits.xml */; };
+		29459E981AF1B2100037D69E /* haarcascade_righteye_2splits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29459E951AF1B2100037D69E /* haarcascade_righteye_2splits.xml */; };
 		297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */; };
 		298199A61AF0077E00140D7B /* HA LE1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2981999B1AF0077E00140D7B /* HA LE1.jpg */; };
 		298199A71AF0077E00140D7B /* SHIWANI BECTOR1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2981999C1AF0077E00140D7B /* SHIWANI BECTOR1.jpg */; };
@@ -20,8 +24,6 @@
 		298199AF1AF0077E00140D7B /* XIANG XU1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 298199A41AF0077E00140D7B /* XIANG XU1.jpg */; };
 		298199B01AF0077E00140D7B /* YIWEN SHI1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 298199A51AF0077E00140D7B /* YIWEN SHI1.jpg */; };
 		29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */; };
-		29E7A6C71AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E7A6C61AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml */; };
-		29E7A6C91AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E7A6C81AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml */; };
 		362E2EBC1AE33AAC0073D12C /* TableViewController_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */; };
 		362E2EC21AE3FCBD0073D12C /* TableViewController_AddUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */; };
 		362E2EC91AE3FE7D0073D12C /* Setting_UserManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */; };
@@ -108,6 +110,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29459E8F1AF1A02E0037D69E /* NSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSLogger.h; sourceTree = "<group>"; };
+		29459E901AF1A02E0037D69E /* NSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSLogger.m; sourceTree = "<group>"; };
+		29459E931AF1B2100037D69E /* haarcascade_eye.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye.xml; sourceTree = "<group>"; };
+		29459E941AF1B2100037D69E /* haarcascade_lefteye_2splits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_lefteye_2splits.xml; sourceTree = "<group>"; };
+		29459E951AF1B2100037D69E /* haarcascade_righteye_2splits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_righteye_2splits.xml; sourceTree = "<group>"; };
 		297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		2981999B1AF0077E00140D7B /* HA LE1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE1.jpg"; sourceTree = "<group>"; };
 		2981999C1AF0077E00140D7B /* SHIWANI BECTOR1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "SHIWANI BECTOR1.jpg"; sourceTree = "<group>"; };
@@ -121,8 +128,6 @@
 		298199A41AF0077E00140D7B /* XIANG XU1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "XIANG XU1.jpg"; sourceTree = "<group>"; };
 		298199A51AF0077E00140D7B /* YIWEN SHI1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI1.jpg"; sourceTree = "<group>"; };
 		29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
-		29E7A6C61AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_big.xml; sourceTree = "<group>"; };
-		29E7A6C81AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_mcs_eyepair_small.xml; sourceTree = "<group>"; };
 		362E2EBA1AE33AAC0073D12C /* TableViewController_Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_Setting.h; sourceTree = "<group>"; };
 		362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_Setting.m; sourceTree = "<group>"; };
 		362E2EC01AE3FCBD0073D12C /* TableViewController_AddUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_AddUser.h; sourceTree = "<group>"; };
@@ -257,6 +262,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29459E921AF1A1250037D69E /* Setting View */ = {
+			isa = PBXGroup;
+			children = (
+				36CD1C1E1AD86B2200D0140F /* ViewController_AddUser.h */,
+				36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.mm */,
+				362E2EBA1AE33AAC0073D12C /* TableViewController_Setting.h */,
+				362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */,
+				362E2EC01AE3FCBD0073D12C /* TableViewController_AddUser.h */,
+				362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */,
+				362E2ECA1AE41BB80073D12C /* TableViewController_DeleteUser.h */,
+				362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */,
+				362E2EC61AE3FE120073D12C /* Setting_UserManagement.h */,
+				362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */,
+				36CEBAF51AE731E700A08135 /* ViewController_Take2DImage.h */,
+				36CEBAF61AE731E700A08135 /* ViewController_Take2DImage.mm */,
+				368DEE1F1AE851B9004895C1 /* UserCell.h */,
+				368DEE201AE851B9004895C1 /* UserCell.m */,
+				3672FBC11AEA9BB600236621 /* TableViewController_Collaboration.h */,
+				3672FBC21AEA9BB600236621 /* TableViewController_Collaboration.m */,
+				3672FBC41AEB287100236621 /* CollectionViewController_Collaboration.h */,
+				3672FBC51AEB287100236621 /* CollectionViewController_Collaboration.m */,
+				3672FBC71AEB31CE00236621 /* CollectionViewCell_Collaboration.h */,
+				3672FBC81AEB31CE00236621 /* CollectionViewCell_Collaboration.m */,
+				3672FBCC1AEB480000236621 /* UIImageView_Collaboration.h */,
+				3672FBCD1AEB480000236621 /* UIImageView_Collaboration.m */,
+			);
+			name = "Setting View";
+			sourceTree = "<group>";
+		};
 		29E3411A1AD07C77003CF1EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,14 +384,12 @@
 		CB0FE0D71AB37E97007BF483 /* FaceLock */ = {
 			isa = PBXGroup;
 			children = (
+				CB0FE0D81AB37E97007BF483 /* Supporting Files */,
+				29459E921AF1A1250037D69E /* Setting View */,
 				CB0FE0DC1AB37E97007BF483 /* AppDelegate.h */,
 				CB0FE0DD1AB37E97007BF483 /* AppDelegate.m */,
 				CB0FE0DF1AB37E97007BF483 /* ViewController.h */,
 				CB0FE0E01AB37E97007BF483 /* ViewController.mm */,
-				CB0FE0E21AB37E97007BF483 /* Main.storyboard */,
-				CB0FE0E51AB37E97007BF483 /* Images.xcassets */,
-				CB0FE0E71AB37E97007BF483 /* LaunchScreen.xib */,
-				CB0FE0D81AB37E97007BF483 /* Supporting Files */,
 				CB61C0491ABB6FF50077C43D /* ViewController_2D.h */,
 				CB61C04A1ABB6FF50077C43D /* ViewController_2D.mm */,
 				CB27EBD71AE01593006B5750 /* ViewController_3D.h */,
@@ -366,34 +398,14 @@
 				CB7F09C61ABCD2FB00996B5E /* UIImageCVMatConverter.mm */,
 				CBB1DF151ACF8CF2000A5A6D /* Utils.h */,
 				CBB1DF161ACF8CF2000A5A6D /* Utils.mm */,
+				29459E8F1AF1A02E0037D69E /* NSLogger.h */,
+				29459E901AF1A02E0037D69E /* NSLogger.m */,
 				36953F681AD38190005B4C1B /* FaceRecognition_2D.h */,
 				36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */,
 				CB6F20CB1AD4CF8000563FFD /* UserDefaultsHelper.h */,
 				CB6F20CC1AD4CF8000563FFD /* UserDefaultsHelper.m */,
 				CB6F20CE1AD4D41800563FFD /* Constants.h */,
 				CB6F20CF1AD4D41800563FFD /* Constants.m */,
-				36CD1C1E1AD86B2200D0140F /* ViewController_AddUser.h */,
-				36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.mm */,
-				362E2EBA1AE33AAC0073D12C /* TableViewController_Setting.h */,
-				362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */,
-				362E2EC01AE3FCBD0073D12C /* TableViewController_AddUser.h */,
-				362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */,
-				362E2ECA1AE41BB80073D12C /* TableViewController_DeleteUser.h */,
-				362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */,
-				362E2EC61AE3FE120073D12C /* Setting_UserManagement.h */,
-				362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */,
-				36CEBAF51AE731E700A08135 /* ViewController_Take2DImage.h */,
-				36CEBAF61AE731E700A08135 /* ViewController_Take2DImage.mm */,
-				368DEE1F1AE851B9004895C1 /* UserCell.h */,
-				368DEE201AE851B9004895C1 /* UserCell.m */,
-				3672FBC11AEA9BB600236621 /* TableViewController_Collaboration.h */,
-				3672FBC21AEA9BB600236621 /* TableViewController_Collaboration.m */,
-				3672FBC41AEB287100236621 /* CollectionViewController_Collaboration.h */,
-				3672FBC51AEB287100236621 /* CollectionViewController_Collaboration.m */,
-				3672FBC71AEB31CE00236621 /* CollectionViewCell_Collaboration.h */,
-				3672FBC81AEB31CE00236621 /* CollectionViewCell_Collaboration.m */,
-				3672FBCC1AEB480000236621 /* UIImageView_Collaboration.h */,
-				3672FBCD1AEB480000236621 /* UIImageView_Collaboration.m */,
 			);
 			path = FaceLock;
 			sourceTree = "<group>";
@@ -401,15 +413,19 @@
 		CB0FE0D81AB37E97007BF483 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				36B596401AD1DEBE002BF75A /* img */,
+				CB0FE0E21AB37E97007BF483 /* Main.storyboard */,
+				CB0FE0E51AB37E97007BF483 /* Images.xcassets */,
+				CB0FE0E71AB37E97007BF483 /* LaunchScreen.xib */,
 				29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */,
 				297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */,
 				CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */,
 				CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */,
-				29E7A6C61AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml */,
-				29E7A6C81AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml */,
+				29459E931AF1B2100037D69E /* haarcascade_eye.xml */,
+				29459E941AF1B2100037D69E /* haarcascade_lefteye_2splits.xml */,
+				29459E951AF1B2100037D69E /* haarcascade_righteye_2splits.xml */,
 				CB0FE0D91AB37E97007BF483 /* Info.plist */,
 				CB0FE0DA1AB37E97007BF483 /* main.m */,
+				36B596401AD1DEBE002BF75A /* img */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -514,8 +530,10 @@
 			files = (
 				36B5967A1AD1DEBE002BF75A /* yiwen9.JPG in Resources */,
 				CB0FE0E41AB37E97007BF483 /* Main.storyboard in Resources */,
+				29459E981AF1B2100037D69E /* haarcascade_righteye_2splits.xml in Resources */,
 				36B596681AD1DEBE002BF75A /* xiang1.JPG in Resources */,
 				36B5966E1AD1DEBE002BF75A /* xiang6.JPG in Resources */,
+				29459E961AF1B2100037D69E /* haarcascade_eye.xml in Resources */,
 				298199A61AF0077E00140D7B /* HA LE1.jpg in Resources */,
 				298199AB1AF0077E00140D7B /* SHIWANI BECTOR5.jpg in Resources */,
 				CB0FE0E91AB37E97007BF483 /* LaunchScreen.xib in Resources */,
@@ -530,6 +548,7 @@
 				CB7F09C91ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml in Resources */,
 				36B596631AD1DEBE002BF75A /* ha5.JPG in Resources */,
 				298199A81AF0077E00140D7B /* SHIWANI BECTOR2.jpg in Resources */,
+				29459E971AF1B2100037D69E /* haarcascade_lefteye_2splits.xml in Resources */,
 				36B596641AD1DEBE002BF75A /* ha6.JPG in Resources */,
 				36B596741AD1DEBE002BF75A /* yiwen2.JPG in Resources */,
 				36B596661AD1DEBE002BF75A /* ha8.JPG in Resources */,
@@ -544,7 +563,6 @@
 				36B5966D1AD1DEBE002BF75A /* xiang5.JPG in Resources */,
 				298199A71AF0077E00140D7B /* SHIWANI BECTOR1.jpg in Resources */,
 				36B5966C1AD1DEBE002BF75A /* xiang4.JPG in Resources */,
-				29E7A6C71AEFFC0900070E49 /* haarcascade_mcs_eyepair_big.xml in Resources */,
 				36B596731AD1DEBE002BF75A /* yiwen10.JPG in Resources */,
 				298199AD1AF0077E00140D7B /* SHIWANI BECTOR7.jpg in Resources */,
 				CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */,
@@ -559,7 +577,6 @@
 				36B596751AD1DEBE002BF75A /* yiwen3.JPG in Resources */,
 				298199AE1AF0077E00140D7B /* SHIWANI BECTOR8.jpg in Resources */,
 				36B596761AD1DEBE002BF75A /* yiwen4.JPG in Resources */,
-				29E7A6C91AEFFF7A00070E49 /* haarcascade_mcs_eyepair_small.xml in Resources */,
 				36B5965E1AD1DEBE002BF75A /* ha1.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +605,7 @@
 				362E2ECC1AE41BB80073D12C /* TableViewController_DeleteUser.m in Sources */,
 				362E2EC91AE3FE7D0073D12C /* Setting_UserManagement.m in Sources */,
 				CB27EBD91AE01593006B5750 /* ViewController_3D.mm in Sources */,
+				29459E911AF1A02E0037D69E /* NSLogger.m in Sources */,
 				36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */,
 				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
 				CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */,
