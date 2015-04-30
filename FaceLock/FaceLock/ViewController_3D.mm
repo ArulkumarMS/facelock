@@ -63,7 +63,9 @@ struct AppStatus
     AppStatus _appStatus;
     
     // Face Recognition variables
+    int _count;
     int _imagename_count;
+    cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
     // Logger
     NSLogger *logger;
     
@@ -88,6 +90,7 @@ struct AppStatus
     // Logger Init
     logger = [[NSLogger alloc] init];
     // Face Recognition Init
+    _count = 0;
     _imagename_count = 0;
     // Structure Sensor Init
     _sensorController = [STSensorController sharedController];
@@ -95,13 +98,13 @@ struct AppStatus
     
     // Create three image views where we will render our frames
     
-    CGRect depthFrame = self.view.frame;
+//    CGRect depthFrame = self.view.frame;
 //    depthFrame.size.height /= 2;
 //    depthFrame.origin.y = self.view.frame.size.height/2;
 //    depthFrame.origin.x = 1;
 //    depthFrame.origin.x = -self.view.frame.size.width * 0.25;
     
-//    CGRect normalsFrame = self.view.frame;
+    CGRect normalsFrame = self.view.frame;
 //    normalsFrame.size.height /= 2;
 //    normalsFrame.origin.y = self.view.frame.size.height/2;
 //    normalsFrame.origin.x = 1;
@@ -114,23 +117,40 @@ struct AppStatus
     _coloredDepthBuffer = NULL;
     _normalsBuffer = NULL;
     
-    _depthImageView = [[UIImageView alloc] initWithFrame:depthFrame];
-    _depthImageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self.view addSubview:_depthImageView];
+//    _depthImageView = [[UIImageView alloc] initWithFrame:depthFrame];
+//    _depthImageView.contentMode = UIViewContentModeScaleAspectFill;
+//    [self.view addSubview:_depthImageView];
     
-//    _normalsImageView = [[UIImageView alloc] initWithFrame:normalsFrame];
-//    _normalsImageView.contentMode = UIViewContentModeScaleAspectFit;
-//    [self.view addSubview:_normalsImageView];
+    _normalsImageView = [[UIImageView alloc] initWithFrame:normalsFrame];
+    _normalsImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.view addSubview:_normalsImageView];
     
 //    _colorImageView = [[UIImageView alloc] initWithFrame:colorFrame];
 //    _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
 //    [self.view addSubview:_colorImageView];
     
 //    [self setupColorCamera];
+    [logger log:@"CHECK 3D initiate part!"];
+    if (![FaceRecognition_3D LBPHfileExist]){
+        [logger log:@"IN 3D initiate part!"];
+        NSLog(@"IN 3D initiate part!");
+        cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+        [FaceRecognition_3D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+        [FaceRecognition_3D loadFaceRecognizer:ini_LBPHFaceRecognizer];
+//        [FaceRecognition_3D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"YIWEN SHI 3D" andLabel:0 andTrainNum:46];
+        [FaceRecognition_3D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"HA LE 3D" andLabel:1 andTrainNum:50];
+//        [FaceRecognition_3D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"SHIWANI BECTOR 3D" andLabel:2 andTrainNum:10];
+//        [FaceRecognition_3D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"XIANG XU 3D" andLabel:3 andTrainNum:10];
+        [FaceRecognition_3D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+        //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
+    }
+    [logger log:@"OUT 3D initiate part!"];
+    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    [FaceRecognition_3D loadFaceRecognizer:_LBPHFaceRecognizer];
     
 //     Sample usage of wireless debugging API
 //    NSError* error = nil;
-//    [STWirelessLog broadcastLogsToWirelessConsoleAtAddress:@"172.25.97.219" usingPort:4999 error:&error];
+//    [STWirelessLog broadcastLogsToWirelessConsoleAtAddress:@"10.2.13.57" usingPort:4999 error:&error];
 //    
 //    if (error)
 //        NSLog(@"Oh no! Can't start wireless log: %@", [error localizedDescription]);
@@ -345,18 +365,24 @@ struct AppStatus
 -(cv::Rect) faceSegmentation:(cv::Mat&) depth_mat
 {
     const double MAX_DEPTH = 8192.0 / 9.0; // 2^9 / 9 * 16 = 910.2222
-    const int ELEMENT_RADIUS = 5;
+    const int ELEMENT_RADIUS = 2;
+    int cols = depth_mat.cols;
+    int rows = depth_mat.rows;
     cv::Rect face;
     // filter out object not in range
     cv::Mat mask = depth_mat <= MAX_DEPTH;
     // Save this mask to image
-    [Utils saveMATImage:mask andName:@"mask.jpg"];
+//    _imagename_count++;
+//    if (_imagename_count % 10 == 0) {
+//        NSString* mask_image_name = [NSString stringWithFormat:@"mask%.4d.jpg",_imagename_count];
+//        [Utils saveMATImage:mask andName:mask_image_name];
+//    }
     cv::normalize(mask, mask, 0, 1, cv::NORM_MINMAX);
     // Find the largest Connected Components
 //    cv::Mat labels;
 //    cv::connectedComponents(mask, labels);
     // Apply image erosion
-    cv::Mat element = getStructuringElement(cv::MORPH_ELLIPSE,
+    cv::Mat element = getStructuringElement(cv::MORPH_CROSS,
                                             cv::Size(2*ELEMENT_RADIUS+1, 2*ELEMENT_RADIUS+1));
     cv::erode(mask, mask, element);
     // Compute projected histogram
@@ -367,10 +393,10 @@ struct AppStatus
     cv::reduce(mask, xHist, 0, CV_REDUCE_SUM, CV_32SC1); // Sum of each column
     cv::reduce(mask, yHist, 1, CV_REDUCE_SUM, CV_32SC1); // Sum of each row
     // Find top
-    int i;
+    int i, j;
     const int* yHistData = yHist.ptr<int>(0);
     i = 0;
-    while ((i < yHist.rows) && (yHistData[i] == 0)) {
+    while ((i < rows-1) && (yHistData[i] == 0)) {
         i++;
     }
     face.y = i;
@@ -378,38 +404,41 @@ struct AppStatus
     double maxVal;
     cv::Point maxLoc;
     cv::minMaxLoc(xHist, NULL, &maxVal, NULL, &maxLoc);
-    int maxIdx = maxLoc.y;
-    int lowerIdx = std::max(maxIdx - xHist.cols/8, 0);
-    int upperIdx = std::min(maxIdx + xHist.cols/8, xHist.cols-1);
+    int maxIdx = maxLoc.x;
+    int step = 4;
+    int lowerIdx = std::max(maxIdx - cols/8 - step, 0);
+    int upperIdx = std::min(maxIdx + cols/8 + step, cols-1);
     // Compute the gradient histogram
     const int* xHistData = xHist.ptr<int>(0);
     std::vector<int> gradient;
-    for (i = lowerIdx; i < upperIdx; i++) {
-        gradient.push_back(xHistData[i+1]-xHistData[i]);
-    }
-    long left = lowerIdx + (std::max_element(gradient.begin(), gradient.end()) - gradient.begin());
-    long right = lowerIdx + (std::min_element(gradient.begin(), gradient.end()) - gradient.begin());
-//    face.x = (int) left;
-    // Width = right - left
-    face.width = (int) right - face.x;
-    
-    double t = maxVal-50;
-    // Find left
-    i = 0;
-    while ((i < xHist.cols) && (xHistData[i] < t)) {
-        i++;
-    }
-    face.x = i;
-    // Find right
-    i = xHist.cols-1;
-    while ((i > 0) && (xHistData[i] < t)) {
-        i--;
-    }
-    face.width = i - face.x;
-    
 
-    // Height = 1.25 * width
-    face.height = 1.25 * face.width;
+    for (i = lowerIdx; i <= upperIdx-step; i++) {
+        gradient.push_back(xHistData[i+step]-xHistData[i]);
+    }
+    int left = lowerIdx;
+    int right = upperIdx;
+    int min_grad = rows;
+    int max_grad = -rows;
+    int max_width = (int)gradient.size();
+    for (i = 0; i < max_width/2; i++) {
+        if (gradient[i] > max_grad) {
+            max_grad = gradient[i];
+            left = lowerIdx + i + step/2;
+        }
+        j = max_width-i-1;
+        if (gradient[j] < min_grad) {
+            min_grad = gradient[j];
+            right = lowerIdx + j + step/2;
+        }
+    }
+    
+    face.x = left;
+    // Width = right - left
+    face.width = right - left;
+    // Height = 1.5 * width
+    face.height = std::min((3 * face.width) / 2, rows-face.y-1);
+    
+    [logger log:[NSString stringWithFormat:@"maxIdx: %.4d x:%.4d y:%.4d width:%.4d height: %.4d", maxIdx, face.x, face.y, face.width, face.height]];
     return face;
 }
 
@@ -459,8 +488,8 @@ struct AppStatus
 
 - (void)sensorDidOutputDepthFrame:(STDepthFrame *)depthFrame
 {
-    [self renderDepthFrame:depthFrame];
-//    [self renderNormalsFrame:depthFrame];
+//    [self renderDepthFrame:depthFrame];
+    [self renderNormalsFrame:depthFrame];
 }
 
 // This synchronized API will only be called when two frames match. Typically, timestamps are within 1ms of each other.
@@ -470,8 +499,8 @@ struct AppStatus
 - (void)sensorDidOutputSynchronizedDepthFrame:(STDepthFrame*)depthFrame
                                andColorBuffer:(CMSampleBufferRef)sampleBuffer
 {
-    [self renderDepthFrame:depthFrame];
-//    [self renderNormalsFrame:depthFrame];
+//    [self renderDepthFrame:depthFrame];
+    [self renderNormalsFrame:depthFrame];
 //    [self renderColorFrame:sampleBuffer];
 }
 
@@ -525,7 +554,7 @@ const uint16_t maxShiftValue = 2048;
                 _coloredDepthBuffer[4*i+1] = lowerByte;
                 _coloredDepthBuffer[4*i+2] = 0;
                 break;
-            /*case 2:
+            case 2:
                 _coloredDepthBuffer[4*i+0] = 255-lowerByte;
                 _coloredDepthBuffer[4*i+1] = 255;
                 _coloredDepthBuffer[4*i+2] = 0;
@@ -544,7 +573,7 @@ const uint16_t maxShiftValue = 2048;
                 _coloredDepthBuffer[4*i+0] = 0;
                 _coloredDepthBuffer[4*i+1] = 0;
                 _coloredDepthBuffer[4*i+2] = 255-lowerByte;
-                break; */
+                break;
             default:
                 _coloredDepthBuffer[4*i+0] = 0;
                 _coloredDepthBuffer[4*i+1] = 0;
@@ -567,12 +596,12 @@ const uint16_t maxShiftValue = 2048;
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
     // set stroking color and draw circle
-    [[UIColor greenColor] setStroke];
+    [[UIColor redColor] setStroke];
     
 //    CGRect roi = CGRectMake(0.25*image.size.width, 0, image.size.width/2, image.size.height);
     
     // draw circle
-    CGContextStrokeRectWithWidth(ctx, roi, 1);
+    CGContextStrokeRectWithWidth(ctx, roi, 0.5);
     
     // make image out of bitmap context
     UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -628,43 +657,10 @@ const uint16_t maxShiftValue = 2048;
                                         kCGRenderingIntentDefault);  //rendering intent
     
     // Assign CGImage to UIImage
-    UIImage *coloredDepth = [UIImage imageWithCGImage:imageRef];
-//    CGRect roi = CGRectMake(0.25*coloredDepth.size.width, 0, coloredDepth.size.width/2, coloredDepth.size.height);
-//    coloredDepth = [self drawingRectangleOnImage:coloredDepth withRectangle:roi];
-    
-    cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);
-    cv::Rect face = [self faceSegmentation:depth_mat];
-    CGRect cgface = CGRectMake(face.x, face.y, face.width, face.height);
-    coloredDepth = [self drawingRectangleOnImage:coloredDepth withRectangle:cgface];
-    _depthImageView.image = coloredDepth;
+    _depthImageView.image = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
-    
-    
-//    cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);
-//    cv::Rect face = [self faceSegmentation:depth_mat];
-//    CGRect cgface = CGRectMake(face.x, face.y, face.width, face.height);
-    
-    /*
-    // Run face detection, nose detection and face recognition in a thread (using global thread pool)
-    dispatch_queue_t face_recognition_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(face_recognition_queue, ^{
-        // 3D Face Recognition here
-        
-        
-        
-        
-//        _imagename_count += 1;
-//        NSString* imagename = [NSString stringWithFormat:@"depth_%.4d.jpg", _imagename_count];
-//        [Utils saveMATImage:depth_mat andName:imagename];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Update the UI
-            
-        });
-    });
-    */
-
 }
 
 - (void) renderNormalsFrame: (STDepthFrame*) depthFrame
@@ -689,6 +685,7 @@ const uint16_t maxShiftValue = 2048;
         _normalsBuffer[4*i+0] = (uint8_t)( ( ( normalsFrame.normals[i].x / 2 ) + 0.5 ) * 255);
         _normalsBuffer[4*i+1] = (uint8_t)( ( ( normalsFrame.normals[i].y / 2 ) + 0.5 ) * 255);
         _normalsBuffer[4*i+2] = (uint8_t)( ( ( normalsFrame.normals[i].z / 2 ) + 0.5 ) * 255);
+        _normalsBuffer[4*i+3] = 255;
     }
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -712,12 +709,102 @@ const uint16_t maxShiftValue = 2048;
                                         false,
                                         kCGRenderingIntentDefault);
     
-    _normalsImageView.image = [[UIImage alloc] initWithCGImage:imageRef];
+    UIImage* normalsImg = [[UIImage alloc] initWithCGImage:imageRef];
+    
+    //    CGRect roi = CGRectMake(0.25*normalsImg.size.width, 0, normalsImg.size.width/2, normalsImg.size.height);
+    //    normalsImg = [self drawingRectangleOnImage:normalsImg withRectangle:roi];
+    
+    // Face Segmentation
+    cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);
+    cv::Rect face = [self faceSegmentation:depth_mat];
+    CGRect cgface = CGRectMake(face.x, face.y, face.width, face.height);
+    normalsImg = [self drawingRectangleOnImage:normalsImg withRectangle:cgface];
+    
+    // Update View
+    _normalsImageView.image = normalsImg;
     
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
     
+    if (face.width == 0 || face.height == 0) {
+        return;
+    }
+    
+    // Crop face
+    cv::Mat normals_mat = cv::Mat((int) rows, (int) cols, CV_8UC4, _normalsBuffer);
+    cv::Mat normals_face = normals_mat(face).clone();
+    // Face Alignment
+    cv::Mat aligned_face;
+    cv::resize(normals_face, aligned_face, cv::Size(64,96));
+//    cv::Point face_size(64,96);
+//    cv::Mat aligned_face = [Utils normalizeFace:normals_face andFaceSize:face_size];
+    // Save face
+    _imagename_count++;
+    NSString* aligned_face_name = [NSString stringWithFormat:@"aligned_3dface_%.4d.jpg",_imagename_count];
+    [Utils saveMATImage:aligned_face andName:aligned_face_name];
+    cv::Mat gray;
+    cv::cvtColor(aligned_face, gray, CV_RGBA2GRAY);
+    
+    //Face recognition
+    int label;
+    double predicted_confidence;
+    _LBPHFaceRecognizer->predict(gray, label, predicted_confidence);
+    NSString* event = [NSString stringWithFormat:@"Label: %d Confidence: %.4f",label, predicted_confidence];
+    [logger log:event];
+    NSLog(@"Label: %d Confidence %.4f\n", label, predicted_confidence);
+    if(predicted_confidence < 100){
+        NSString* welcome;
+        if (label==0){
+            welcome = @"Welcome back, Yiwen.";
+        }
+        if (label==1){
+            welcome = @"Welcome back, Ha.";
+        }
+        if (label==2){
+            welcome = @"Welcome back, Shiwani.";
+        }
+        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:welcome];
+        [utterance setRate:0.1f];
+        [synthesizer speakUtterance:utterance];
+    }
+//    else{
+//        NSLog(@"Sorry, you can not enter the door.\n");
+//        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+//        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+//        [utterance setRate:0.1f];
+//        [synthesizer speakUtterance:utterance];
+//    }
+
+    
+    /*
+    _count++;
+    if (_count == 1) {
+        // Crop face
+        cv::Mat normals_mat = cv::Mat((int) rows, (int) cols, CV_8UC4, _normalsBuffer);
+        __block cv::Mat normals_face = normals_mat(face).clone();
+     
+        // Run nose detection, face alignment and face recognition in a thread (using global thread pool)
+        dispatch_queue_t face_recognition_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(face_recognition_queue, ^{
+            // Face Alignment
+            cv::Point face_size(64,96);
+            cv::Mat aligned_face = [Utils normalizeFace:normals_face andFaceSize:face_size];
+            // Save face
+            _imagename_count++;
+            NSString* aligned_face_name = [NSString stringWithFormat:@"aligned_3dface%.4d.jpg",_imagename_count];
+            [Utils saveMATImage:aligned_face andName:aligned_face_name];
+            
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // Update the UI
+                
+            });
+            _count = 0;
+        });
+    }
+     */
 }
 
 - (void)renderColorFrame:(CMSampleBufferRef)sampleBuffer

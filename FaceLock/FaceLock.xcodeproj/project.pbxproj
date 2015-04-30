@@ -11,6 +11,57 @@
 		29459E961AF1B2100037D69E /* haarcascade_eye.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29459E931AF1B2100037D69E /* haarcascade_eye.xml */; };
 		29459E971AF1B2100037D69E /* haarcascade_lefteye_2splits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29459E941AF1B2100037D69E /* haarcascade_lefteye_2splits.xml */; };
 		29459E981AF1B2100037D69E /* haarcascade_righteye_2splits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29459E951AF1B2100037D69E /* haarcascade_righteye_2splits.xml */; };
+		2957F65E1AF21B940032C536 /* FaceRecognition_3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2957F65D1AF21B940032C536 /* FaceRecognition_3D.mm */; };
+		2957F6911AF21E5B0032C536 /* HA LE 3D1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F65F1AF21E5A0032C536 /* HA LE 3D1.jpg */; };
+		2957F6921AF21E5B0032C536 /* HA LE 3D2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6601AF21E5A0032C536 /* HA LE 3D2.jpg */; };
+		2957F6931AF21E5B0032C536 /* HA LE 3D3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6611AF21E5A0032C536 /* HA LE 3D3.jpg */; };
+		2957F6941AF21E5B0032C536 /* HA LE 3D4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6621AF21E5A0032C536 /* HA LE 3D4.jpg */; };
+		2957F6951AF21E5B0032C536 /* HA LE 3D5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6631AF21E5A0032C536 /* HA LE 3D5.jpg */; };
+		2957F6961AF21E5B0032C536 /* HA LE 3D6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6641AF21E5A0032C536 /* HA LE 3D6.jpg */; };
+		2957F6971AF21E5B0032C536 /* HA LE 3D7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6651AF21E5A0032C536 /* HA LE 3D7.jpg */; };
+		2957F6981AF21E5B0032C536 /* HA LE 3D8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6661AF21E5A0032C536 /* HA LE 3D8.jpg */; };
+		2957F6991AF21E5B0032C536 /* HA LE 3D9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6671AF21E5A0032C536 /* HA LE 3D9.jpg */; };
+		2957F69A1AF21E5B0032C536 /* HA LE 3D10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6681AF21E5A0032C536 /* HA LE 3D10.jpg */; };
+		2957F69B1AF21E5B0032C536 /* HA LE 3D11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6691AF21E5A0032C536 /* HA LE 3D11.jpg */; };
+		2957F69C1AF21E5B0032C536 /* HA LE 3D12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F66A1AF21E5A0032C536 /* HA LE 3D12.jpg */; };
+		2957F69D1AF21E5B0032C536 /* HA LE 3D13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F66B1AF21E5A0032C536 /* HA LE 3D13.jpg */; };
+		2957F69E1AF21E5B0032C536 /* HA LE 3D14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F66C1AF21E5A0032C536 /* HA LE 3D14.jpg */; };
+		2957F69F1AF21E5B0032C536 /* HA LE 3D15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F66D1AF21E5A0032C536 /* HA LE 3D15.jpg */; };
+		2957F6A01AF21E5B0032C536 /* HA LE 3D16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F66E1AF21E5A0032C536 /* HA LE 3D16.jpg */; };
+		2957F6A11AF21E5B0032C536 /* HA LE 3D17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F66F1AF21E5A0032C536 /* HA LE 3D17.jpg */; };
+		2957F6A21AF21E5B0032C536 /* HA LE 3D18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6701AF21E5A0032C536 /* HA LE 3D18.jpg */; };
+		2957F6A31AF21E5B0032C536 /* HA LE 3D19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6711AF21E5A0032C536 /* HA LE 3D19.jpg */; };
+		2957F6A41AF21E5B0032C536 /* HA LE 3D20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6721AF21E5A0032C536 /* HA LE 3D20.jpg */; };
+		2957F6A51AF21E5B0032C536 /* HA LE 3D21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6731AF21E5A0032C536 /* HA LE 3D21.jpg */; };
+		2957F6A61AF21E5B0032C536 /* HA LE 3D22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6741AF21E5A0032C536 /* HA LE 3D22.jpg */; };
+		2957F6A71AF21E5B0032C536 /* HA LE 3D23.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6751AF21E5A0032C536 /* HA LE 3D23.jpg */; };
+		2957F6A81AF21E5B0032C536 /* HA LE 3D24.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6761AF21E5A0032C536 /* HA LE 3D24.jpg */; };
+		2957F6A91AF21E5B0032C536 /* HA LE 3D25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6771AF21E5A0032C536 /* HA LE 3D25.jpg */; };
+		2957F6AA1AF21E5B0032C536 /* HA LE 3D26.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6781AF21E5A0032C536 /* HA LE 3D26.jpg */; };
+		2957F6AB1AF21E5B0032C536 /* HA LE 3D27.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6791AF21E5A0032C536 /* HA LE 3D27.jpg */; };
+		2957F6AC1AF21E5B0032C536 /* HA LE 3D28.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F67A1AF21E5A0032C536 /* HA LE 3D28.jpg */; };
+		2957F6AD1AF21E5B0032C536 /* HA LE 3D29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F67B1AF21E5B0032C536 /* HA LE 3D29.jpg */; };
+		2957F6AE1AF21E5B0032C536 /* HA LE 3D30.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F67C1AF21E5B0032C536 /* HA LE 3D30.jpg */; };
+		2957F6AF1AF21E5B0032C536 /* HA LE 3D31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F67D1AF21E5B0032C536 /* HA LE 3D31.jpg */; };
+		2957F6B01AF21E5B0032C536 /* HA LE 3D32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F67E1AF21E5B0032C536 /* HA LE 3D32.jpg */; };
+		2957F6B11AF21E5B0032C536 /* HA LE 3D33.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F67F1AF21E5B0032C536 /* HA LE 3D33.jpg */; };
+		2957F6B21AF21E5B0032C536 /* HA LE 3D34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6801AF21E5B0032C536 /* HA LE 3D34.jpg */; };
+		2957F6B31AF21E5B0032C536 /* HA LE 3D35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6811AF21E5B0032C536 /* HA LE 3D35.jpg */; };
+		2957F6B41AF21E5B0032C536 /* HA LE 3D36.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6821AF21E5B0032C536 /* HA LE 3D36.jpg */; };
+		2957F6B51AF21E5B0032C536 /* HA LE 3D37.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6831AF21E5B0032C536 /* HA LE 3D37.jpg */; };
+		2957F6B61AF21E5B0032C536 /* HA LE 3D38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6841AF21E5B0032C536 /* HA LE 3D38.jpg */; };
+		2957F6B71AF21E5B0032C536 /* HA LE 3D39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6851AF21E5B0032C536 /* HA LE 3D39.jpg */; };
+		2957F6B81AF21E5B0032C536 /* HA LE 3D40.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6861AF21E5B0032C536 /* HA LE 3D40.jpg */; };
+		2957F6B91AF21E5B0032C536 /* HA LE 3D41.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6871AF21E5B0032C536 /* HA LE 3D41.jpg */; };
+		2957F6BA1AF21E5B0032C536 /* HA LE 3D42.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6881AF21E5B0032C536 /* HA LE 3D42.jpg */; };
+		2957F6BB1AF21E5B0032C536 /* HA LE 3D43.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6891AF21E5B0032C536 /* HA LE 3D43.jpg */; };
+		2957F6BC1AF21E5B0032C536 /* HA LE 3D44.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F68A1AF21E5B0032C536 /* HA LE 3D44.jpg */; };
+		2957F6BD1AF21E5B0032C536 /* HA LE 3D45.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F68B1AF21E5B0032C536 /* HA LE 3D45.jpg */; };
+		2957F6BE1AF21E5B0032C536 /* HA LE 3D46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F68C1AF21E5B0032C536 /* HA LE 3D46.jpg */; };
+		2957F6BF1AF21E5B0032C536 /* HA LE 3D47.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F68D1AF21E5B0032C536 /* HA LE 3D47.jpg */; };
+		2957F6C01AF21E5B0032C536 /* HA LE 3D48.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F68E1AF21E5B0032C536 /* HA LE 3D48.jpg */; };
+		2957F6C11AF21E5B0032C536 /* HA LE 3D49.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F68F1AF21E5B0032C536 /* HA LE 3D49.jpg */; };
+		2957F6C21AF21E5B0032C536 /* HA LE 3D50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6901AF21E5B0032C536 /* HA LE 3D50.jpg */; };
 		2965C1471AF1CB0300779FE5 /* HA LE11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C11F1AF1CB0300779FE5 /* HA LE11.jpg */; };
 		2965C1481AF1CB0300779FE5 /* HA LE12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1201AF1CB0300779FE5 /* HA LE12.jpg */; };
 		2965C1491AF1CB0300779FE5 /* HA LE13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1211AF1CB0300779FE5 /* HA LE13.jpg */; };
@@ -191,6 +242,58 @@
 		29459E931AF1B2100037D69E /* haarcascade_eye.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye.xml; sourceTree = "<group>"; };
 		29459E941AF1B2100037D69E /* haarcascade_lefteye_2splits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_lefteye_2splits.xml; sourceTree = "<group>"; };
 		29459E951AF1B2100037D69E /* haarcascade_righteye_2splits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_righteye_2splits.xml; sourceTree = "<group>"; };
+		2957F65C1AF21B940032C536 /* FaceRecognition_3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceRecognition_3D.h; sourceTree = "<group>"; };
+		2957F65D1AF21B940032C536 /* FaceRecognition_3D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceRecognition_3D.mm; sourceTree = "<group>"; };
+		2957F65F1AF21E5A0032C536 /* HA LE 3D1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D1.jpg"; sourceTree = "<group>"; };
+		2957F6601AF21E5A0032C536 /* HA LE 3D2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D2.jpg"; sourceTree = "<group>"; };
+		2957F6611AF21E5A0032C536 /* HA LE 3D3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D3.jpg"; sourceTree = "<group>"; };
+		2957F6621AF21E5A0032C536 /* HA LE 3D4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D4.jpg"; sourceTree = "<group>"; };
+		2957F6631AF21E5A0032C536 /* HA LE 3D5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D5.jpg"; sourceTree = "<group>"; };
+		2957F6641AF21E5A0032C536 /* HA LE 3D6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D6.jpg"; sourceTree = "<group>"; };
+		2957F6651AF21E5A0032C536 /* HA LE 3D7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D7.jpg"; sourceTree = "<group>"; };
+		2957F6661AF21E5A0032C536 /* HA LE 3D8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D8.jpg"; sourceTree = "<group>"; };
+		2957F6671AF21E5A0032C536 /* HA LE 3D9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D9.jpg"; sourceTree = "<group>"; };
+		2957F6681AF21E5A0032C536 /* HA LE 3D10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D10.jpg"; sourceTree = "<group>"; };
+		2957F6691AF21E5A0032C536 /* HA LE 3D11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D11.jpg"; sourceTree = "<group>"; };
+		2957F66A1AF21E5A0032C536 /* HA LE 3D12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D12.jpg"; sourceTree = "<group>"; };
+		2957F66B1AF21E5A0032C536 /* HA LE 3D13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D13.jpg"; sourceTree = "<group>"; };
+		2957F66C1AF21E5A0032C536 /* HA LE 3D14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D14.jpg"; sourceTree = "<group>"; };
+		2957F66D1AF21E5A0032C536 /* HA LE 3D15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D15.jpg"; sourceTree = "<group>"; };
+		2957F66E1AF21E5A0032C536 /* HA LE 3D16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D16.jpg"; sourceTree = "<group>"; };
+		2957F66F1AF21E5A0032C536 /* HA LE 3D17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D17.jpg"; sourceTree = "<group>"; };
+		2957F6701AF21E5A0032C536 /* HA LE 3D18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D18.jpg"; sourceTree = "<group>"; };
+		2957F6711AF21E5A0032C536 /* HA LE 3D19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D19.jpg"; sourceTree = "<group>"; };
+		2957F6721AF21E5A0032C536 /* HA LE 3D20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D20.jpg"; sourceTree = "<group>"; };
+		2957F6731AF21E5A0032C536 /* HA LE 3D21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D21.jpg"; sourceTree = "<group>"; };
+		2957F6741AF21E5A0032C536 /* HA LE 3D22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D22.jpg"; sourceTree = "<group>"; };
+		2957F6751AF21E5A0032C536 /* HA LE 3D23.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D23.jpg"; sourceTree = "<group>"; };
+		2957F6761AF21E5A0032C536 /* HA LE 3D24.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D24.jpg"; sourceTree = "<group>"; };
+		2957F6771AF21E5A0032C536 /* HA LE 3D25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D25.jpg"; sourceTree = "<group>"; };
+		2957F6781AF21E5A0032C536 /* HA LE 3D26.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D26.jpg"; sourceTree = "<group>"; };
+		2957F6791AF21E5A0032C536 /* HA LE 3D27.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D27.jpg"; sourceTree = "<group>"; };
+		2957F67A1AF21E5A0032C536 /* HA LE 3D28.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D28.jpg"; sourceTree = "<group>"; };
+		2957F67B1AF21E5B0032C536 /* HA LE 3D29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D29.jpg"; sourceTree = "<group>"; };
+		2957F67C1AF21E5B0032C536 /* HA LE 3D30.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D30.jpg"; sourceTree = "<group>"; };
+		2957F67D1AF21E5B0032C536 /* HA LE 3D31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D31.jpg"; sourceTree = "<group>"; };
+		2957F67E1AF21E5B0032C536 /* HA LE 3D32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D32.jpg"; sourceTree = "<group>"; };
+		2957F67F1AF21E5B0032C536 /* HA LE 3D33.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D33.jpg"; sourceTree = "<group>"; };
+		2957F6801AF21E5B0032C536 /* HA LE 3D34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D34.jpg"; sourceTree = "<group>"; };
+		2957F6811AF21E5B0032C536 /* HA LE 3D35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D35.jpg"; sourceTree = "<group>"; };
+		2957F6821AF21E5B0032C536 /* HA LE 3D36.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D36.jpg"; sourceTree = "<group>"; };
+		2957F6831AF21E5B0032C536 /* HA LE 3D37.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D37.jpg"; sourceTree = "<group>"; };
+		2957F6841AF21E5B0032C536 /* HA LE 3D38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D38.jpg"; sourceTree = "<group>"; };
+		2957F6851AF21E5B0032C536 /* HA LE 3D39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D39.jpg"; sourceTree = "<group>"; };
+		2957F6861AF21E5B0032C536 /* HA LE 3D40.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D40.jpg"; sourceTree = "<group>"; };
+		2957F6871AF21E5B0032C536 /* HA LE 3D41.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D41.jpg"; sourceTree = "<group>"; };
+		2957F6881AF21E5B0032C536 /* HA LE 3D42.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D42.jpg"; sourceTree = "<group>"; };
+		2957F6891AF21E5B0032C536 /* HA LE 3D43.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D43.jpg"; sourceTree = "<group>"; };
+		2957F68A1AF21E5B0032C536 /* HA LE 3D44.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D44.jpg"; sourceTree = "<group>"; };
+		2957F68B1AF21E5B0032C536 /* HA LE 3D45.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D45.jpg"; sourceTree = "<group>"; };
+		2957F68C1AF21E5B0032C536 /* HA LE 3D46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D46.jpg"; sourceTree = "<group>"; };
+		2957F68D1AF21E5B0032C536 /* HA LE 3D47.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D47.jpg"; sourceTree = "<group>"; };
+		2957F68E1AF21E5B0032C536 /* HA LE 3D48.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D48.jpg"; sourceTree = "<group>"; };
+		2957F68F1AF21E5B0032C536 /* HA LE 3D49.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D49.jpg"; sourceTree = "<group>"; };
+		2957F6901AF21E5B0032C536 /* HA LE 3D50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D50.jpg"; sourceTree = "<group>"; };
 		2965C11F1AF1CB0300779FE5 /* HA LE11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE11.jpg"; sourceTree = "<group>"; };
 		2965C1201AF1CB0300779FE5 /* HA LE12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE12.jpg"; sourceTree = "<group>"; };
 		2965C1211AF1CB0300779FE5 /* HA LE13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE13.jpg"; sourceTree = "<group>"; };
@@ -469,6 +572,56 @@
 		36B596401AD1DEBE002BF75A /* img */ = {
 			isa = PBXGroup;
 			children = (
+				2957F65F1AF21E5A0032C536 /* HA LE 3D1.jpg */,
+				2957F6601AF21E5A0032C536 /* HA LE 3D2.jpg */,
+				2957F6611AF21E5A0032C536 /* HA LE 3D3.jpg */,
+				2957F6621AF21E5A0032C536 /* HA LE 3D4.jpg */,
+				2957F6631AF21E5A0032C536 /* HA LE 3D5.jpg */,
+				2957F6641AF21E5A0032C536 /* HA LE 3D6.jpg */,
+				2957F6651AF21E5A0032C536 /* HA LE 3D7.jpg */,
+				2957F6661AF21E5A0032C536 /* HA LE 3D8.jpg */,
+				2957F6671AF21E5A0032C536 /* HA LE 3D9.jpg */,
+				2957F6681AF21E5A0032C536 /* HA LE 3D10.jpg */,
+				2957F6691AF21E5A0032C536 /* HA LE 3D11.jpg */,
+				2957F66A1AF21E5A0032C536 /* HA LE 3D12.jpg */,
+				2957F66B1AF21E5A0032C536 /* HA LE 3D13.jpg */,
+				2957F66C1AF21E5A0032C536 /* HA LE 3D14.jpg */,
+				2957F66D1AF21E5A0032C536 /* HA LE 3D15.jpg */,
+				2957F66E1AF21E5A0032C536 /* HA LE 3D16.jpg */,
+				2957F66F1AF21E5A0032C536 /* HA LE 3D17.jpg */,
+				2957F6701AF21E5A0032C536 /* HA LE 3D18.jpg */,
+				2957F6711AF21E5A0032C536 /* HA LE 3D19.jpg */,
+				2957F6721AF21E5A0032C536 /* HA LE 3D20.jpg */,
+				2957F6731AF21E5A0032C536 /* HA LE 3D21.jpg */,
+				2957F6741AF21E5A0032C536 /* HA LE 3D22.jpg */,
+				2957F6751AF21E5A0032C536 /* HA LE 3D23.jpg */,
+				2957F6761AF21E5A0032C536 /* HA LE 3D24.jpg */,
+				2957F6771AF21E5A0032C536 /* HA LE 3D25.jpg */,
+				2957F6781AF21E5A0032C536 /* HA LE 3D26.jpg */,
+				2957F6791AF21E5A0032C536 /* HA LE 3D27.jpg */,
+				2957F67A1AF21E5A0032C536 /* HA LE 3D28.jpg */,
+				2957F67B1AF21E5B0032C536 /* HA LE 3D29.jpg */,
+				2957F67C1AF21E5B0032C536 /* HA LE 3D30.jpg */,
+				2957F67D1AF21E5B0032C536 /* HA LE 3D31.jpg */,
+				2957F67E1AF21E5B0032C536 /* HA LE 3D32.jpg */,
+				2957F67F1AF21E5B0032C536 /* HA LE 3D33.jpg */,
+				2957F6801AF21E5B0032C536 /* HA LE 3D34.jpg */,
+				2957F6811AF21E5B0032C536 /* HA LE 3D35.jpg */,
+				2957F6821AF21E5B0032C536 /* HA LE 3D36.jpg */,
+				2957F6831AF21E5B0032C536 /* HA LE 3D37.jpg */,
+				2957F6841AF21E5B0032C536 /* HA LE 3D38.jpg */,
+				2957F6851AF21E5B0032C536 /* HA LE 3D39.jpg */,
+				2957F6861AF21E5B0032C536 /* HA LE 3D40.jpg */,
+				2957F6871AF21E5B0032C536 /* HA LE 3D41.jpg */,
+				2957F6881AF21E5B0032C536 /* HA LE 3D42.jpg */,
+				2957F6891AF21E5B0032C536 /* HA LE 3D43.jpg */,
+				2957F68A1AF21E5B0032C536 /* HA LE 3D44.jpg */,
+				2957F68B1AF21E5B0032C536 /* HA LE 3D45.jpg */,
+				2957F68C1AF21E5B0032C536 /* HA LE 3D46.jpg */,
+				2957F68D1AF21E5B0032C536 /* HA LE 3D47.jpg */,
+				2957F68E1AF21E5B0032C536 /* HA LE 3D48.jpg */,
+				2957F68F1AF21E5B0032C536 /* HA LE 3D49.jpg */,
+				2957F6901AF21E5B0032C536 /* HA LE 3D50.jpg */,
 				366C54841AF1B80A00908BF3 /* HA LE1.jpg */,
 				366C54851AF1B80A00908BF3 /* HA LE2.jpg */,
 				366C54861AF1B80A00908BF3 /* HA LE3.jpg */,
@@ -630,6 +783,8 @@
 				29459E901AF1A02E0037D69E /* NSLogger.m */,
 				36953F681AD38190005B4C1B /* FaceRecognition_2D.h */,
 				36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */,
+				2957F65C1AF21B940032C536 /* FaceRecognition_3D.h */,
+				2957F65D1AF21B940032C536 /* FaceRecognition_3D.mm */,
 				CB6F20CB1AD4CF8000563FFD /* UserDefaultsHelper.h */,
 				CB6F20CC1AD4CF8000563FFD /* UserDefaultsHelper.m */,
 				CB6F20CE1AD4D41800563FFD /* Constants.h */,
@@ -756,31 +911,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2957F6AC1AF21E5B0032C536 /* HA LE 3D28.jpg in Resources */,
 				366C54C71AF1B80A00908BF3 /* XIANG XU8.jpg in Resources */,
 				366C54BA1AF1B80A00908BF3 /* SHIWANI BECTOR5.jpg in Resources */,
 				2965C1591AF1CB0300779FE5 /* HA LE29.jpg in Resources */,
 				2965C15A1AF1CB0300779FE5 /* HA LE30.jpg in Resources */,
 				2965C1581AF1CB0300779FE5 /* HA LE28.jpg in Resources */,
+				2957F6A71AF21E5B0032C536 /* HA LE 3D23.jpg in Resources */,
+				2957F69F1AF21E5B0032C536 /* HA LE 3D15.jpg in Resources */,
+				2957F6BE1AF21E5B0032C536 /* HA LE 3D46.jpg in Resources */,
 				2965C14D1AF1CB0300779FE5 /* HA LE17.jpg in Resources */,
 				2965C1C51AF1D28C00779FE5 /* YIWEN SHI41.jpg in Resources */,
 				366C54BE1AF1B80A00908BF3 /* SHIWANI BECTOR9.jpg in Resources */,
 				2965C19F1AF1D28C00779FE5 /* YIWEN SHI3.jpg in Resources */,
+				2957F6B11AF21E5B0032C536 /* HA LE 3D33.jpg in Resources */,
 				2965C1631AF1CB0300779FE5 /* HA LE39.jpg in Resources */,
 				2965C1481AF1CB0300779FE5 /* HA LE12.jpg in Resources */,
+				2957F6AB1AF21E5B0032C536 /* HA LE 3D27.jpg in Resources */,
+				2957F6BC1AF21E5B0032C536 /* HA LE 3D44.jpg in Resources */,
 				366C54C51AF1B80A00908BF3 /* XIANG XU6.jpg in Resources */,
+				2957F6931AF21E5B0032C536 /* HA LE 3D3.jpg in Resources */,
 				2965C1C31AF1D28C00779FE5 /* YIWEN SHI39.jpg in Resources */,
 				CB0FE0E41AB37E97007BF483 /* Main.storyboard in Resources */,
+				2957F6961AF21E5B0032C536 /* HA LE 3D6.jpg in Resources */,
+				2957F6B21AF21E5B0032C536 /* HA LE 3D34.jpg in Resources */,
 				366C54C81AF1B80A00908BF3 /* XIANG XU9.jpg in Resources */,
 				2965C1651AF1CB0300779FE5 /* HA LE41.jpg in Resources */,
 				2965C1A91AF1D28C00779FE5 /* YIWEN SHI13.jpg in Resources */,
+				2957F6A11AF21E5B0032C536 /* HA LE 3D17.jpg in Resources */,
 				366C54AF1AF1B80A00908BF3 /* HA LE4.jpg in Resources */,
 				2965C1C81AF1D28C00779FE5 /* YIWEN SHI44.jpg in Resources */,
+				2957F6A21AF21E5B0032C536 /* HA LE 3D18.jpg in Resources */,
 				2965C1531AF1CB0300779FE5 /* HA LE23.jpg in Resources */,
 				2965C1B51AF1D28C00779FE5 /* YIWEN SHI25.jpg in Resources */,
 				2965C1AF1AF1D28C00779FE5 /* YIWEN SHI19.jpg in Resources */,
 				29459E981AF1B2100037D69E /* haarcascade_righteye_2splits.xml in Resources */,
 				2965C1BD1AF1D28C00779FE5 /* YIWEN SHI33.jpg in Resources */,
 				2965C1571AF1CB0300779FE5 /* HA LE27.jpg in Resources */,
+				2957F6AE1AF21E5B0032C536 /* HA LE 3D30.jpg in Resources */,
 				2965C15C1AF1CB0300779FE5 /* HA LE32.jpg in Resources */,
 				2965C1CA1AF1D28C00779FE5 /* YIWEN SHI46.jpg in Resources */,
 				2965C1B61AF1D28C00779FE5 /* YIWEN SHI26.jpg in Resources */,
@@ -790,6 +958,8 @@
 				2965C1AE1AF1D28C00779FE5 /* YIWEN SHI18.jpg in Resources */,
 				2965C15D1AF1CB0300779FE5 /* HA LE33.jpg in Resources */,
 				2965C1A11AF1D28C00779FE5 /* YIWEN SHI5.jpg in Resources */,
+				2957F6AF1AF21E5B0032C536 /* HA LE 3D31.jpg in Resources */,
+				2957F6BB1AF21E5B0032C536 /* HA LE 3D43.jpg in Resources */,
 				2965C1A31AF1D28C00779FE5 /* YIWEN SHI7.jpg in Resources */,
 				2965C16D1AF1CB0300779FE5 /* HA LE49.jpg in Resources */,
 				366C54C91AF1B80A00908BF3 /* XIANG XU10.jpg in Resources */,
@@ -798,39 +968,61 @@
 				2965C1BE1AF1D28C00779FE5 /* YIWEN SHI34.jpg in Resources */,
 				2965C15F1AF1CB0300779FE5 /* HA LE35.jpg in Resources */,
 				2965C1B01AF1D28C00779FE5 /* YIWEN SHI20.jpg in Resources */,
+				2957F6B51AF21E5B0032C536 /* HA LE 3D37.jpg in Resources */,
+				2957F6941AF21E5B0032C536 /* HA LE 3D4.jpg in Resources */,
 				2965C16E1AF1CB0300779FE5 /* HA LE50.jpg in Resources */,
 				29459E961AF1B2100037D69E /* haarcascade_eye.xml in Resources */,
 				366C54C21AF1B80A00908BF3 /* XIANG XU3.jpg in Resources */,
+				2957F6991AF21E5B0032C536 /* HA LE 3D9.jpg in Resources */,
 				CB0FE0E91AB37E97007BF483 /* LaunchScreen.xib in Resources */,
+				2957F6BF1AF21E5B0032C536 /* HA LE 3D47.jpg in Resources */,
+				2957F6AD1AF21E5B0032C536 /* HA LE 3D29.jpg in Resources */,
 				2965C1C61AF1D28C00779FE5 /* YIWEN SHI42.jpg in Resources */,
 				2965C1A51AF1D28C00779FE5 /* YIWEN SHI9.jpg in Resources */,
 				2965C19D1AF1D28C00779FE5 /* YIWEN SHI1.jpg in Resources */,
 				2965C1621AF1CB0300779FE5 /* HA LE38.jpg in Resources */,
 				366C54BD1AF1B80A00908BF3 /* SHIWANI BECTOR8.jpg in Resources */,
+				2957F6971AF21E5B0032C536 /* HA LE 3D7.jpg in Resources */,
+				2957F6BA1AF21E5B0032C536 /* HA LE 3D42.jpg in Resources */,
 				2965C1B71AF1D28C00779FE5 /* YIWEN SHI27.jpg in Resources */,
 				2965C1A21AF1D28C00779FE5 /* YIWEN SHI6.jpg in Resources */,
 				2965C1A41AF1D28C00779FE5 /* YIWEN SHI8.jpg in Resources */,
+				2957F6B91AF21E5B0032C536 /* HA LE 3D41.jpg in Resources */,
 				2965C14C1AF1CB0300779FE5 /* HA LE16.jpg in Resources */,
+				2957F6A01AF21E5B0032C536 /* HA LE 3D16.jpg in Resources */,
 				2965C1BF1AF1D28C00779FE5 /* YIWEN SHI35.jpg in Resources */,
 				CB7F09C91ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml in Resources */,
 				2965C1A81AF1D28C00779FE5 /* YIWEN SHI12.jpg in Resources */,
 				2965C15B1AF1CB0300779FE5 /* HA LE31.jpg in Resources */,
+				2957F6C21AF21E5B0032C536 /* HA LE 3D50.jpg in Resources */,
+				2957F6B31AF21E5B0032C536 /* HA LE 3D35.jpg in Resources */,
 				2965C1491AF1CB0300779FE5 /* HA LE13.jpg in Resources */,
+				2957F6AA1AF21E5B0032C536 /* HA LE 3D26.jpg in Resources */,
 				366C54B91AF1B80A00908BF3 /* SHIWANI BECTOR4.jpg in Resources */,
 				2965C14B1AF1CB0300779FE5 /* HA LE15.jpg in Resources */,
+				2957F6A31AF21E5B0032C536 /* HA LE 3D19.jpg in Resources */,
 				2965C1B21AF1D28C00779FE5 /* YIWEN SHI22.jpg in Resources */,
 				2965C1B11AF1D28C00779FE5 /* YIWEN SHI21.jpg in Resources */,
+				2957F6B61AF21E5B0032C536 /* HA LE 3D38.jpg in Resources */,
 				2965C1541AF1CB0300779FE5 /* HA LE24.jpg in Resources */,
 				29459E971AF1B2100037D69E /* haarcascade_lefteye_2splits.xml in Resources */,
+				2957F69E1AF21E5B0032C536 /* HA LE 3D14.jpg in Resources */,
+				2957F69A1AF21E5B0032C536 /* HA LE 3D10.jpg in Resources */,
+				2957F6C11AF21E5B0032C536 /* HA LE 3D49.jpg in Resources */,
 				2965C14A1AF1CB0300779FE5 /* HA LE14.jpg in Resources */,
 				366C54C31AF1B80A00908BF3 /* XIANG XU4.jpg in Resources */,
 				2965C1C01AF1D28C00779FE5 /* YIWEN SHI36.jpg in Resources */,
+				2957F6911AF21E5B0032C536 /* HA LE 3D1.jpg in Resources */,
+				2957F6A41AF21E5B0032C536 /* HA LE 3D20.jpg in Resources */,
 				2965C1C91AF1D28C00779FE5 /* YIWEN SHI45.jpg in Resources */,
 				366C54B61AF1B80A00908BF3 /* SHIWANI BECTOR1.jpg in Resources */,
 				2965C1681AF1CB0300779FE5 /* HA LE44.jpg in Resources */,
 				2965C1AC1AF1D28C00779FE5 /* YIWEN SHI16.jpg in Resources */,
 				2965C14F1AF1CB0300779FE5 /* HA LE19.jpg in Resources */,
+				2957F6951AF21E5B0032C536 /* HA LE 3D5.jpg in Resources */,
 				2965C1AB1AF1D28C00779FE5 /* YIWEN SHI15.jpg in Resources */,
+				2957F6B81AF21E5B0032C536 /* HA LE 3D40.jpg in Resources */,
+				2957F69B1AF21E5B0032C536 /* HA LE 3D11.jpg in Resources */,
 				CB7F09CB1ABD0E5500996B5E /* haarcascade_frontalface_default.xml in Resources */,
 				2965C1AA1AF1D28C00779FE5 /* YIWEN SHI14.jpg in Resources */,
 				2965C1C11AF1D28C00779FE5 /* YIWEN SHI37.jpg in Resources */,
@@ -841,17 +1033,25 @@
 				2965C14E1AF1CB0300779FE5 /* HA LE18.jpg in Resources */,
 				366C54AE1AF1B80A00908BF3 /* HA LE3.jpg in Resources */,
 				2965C1A71AF1D28C00779FE5 /* YIWEN SHI11.jpg in Resources */,
+				2957F6B41AF21E5B0032C536 /* HA LE 3D36.jpg in Resources */,
 				2965C1671AF1CB0300779FE5 /* HA LE43.jpg in Resources */,
 				366C54B11AF1B80A00908BF3 /* HA LE6.jpg in Resources */,
 				366C54C11AF1B80A00908BF3 /* XIANG XU2.jpg in Resources */,
+				2957F6A91AF21E5B0032C536 /* HA LE 3D25.jpg in Resources */,
 				366C54B21AF1B80A00908BF3 /* HA LE7.jpg in Resources */,
+				2957F6A81AF21E5B0032C536 /* HA LE 3D24.jpg in Resources */,
 				2965C16A1AF1CB0300779FE5 /* HA LE46.jpg in Resources */,
 				2965C1521AF1CB0300779FE5 /* HA LE22.jpg in Resources */,
 				366C54B01AF1B80A00908BF3 /* HA LE5.jpg in Resources */,
+				2957F69C1AF21E5B0032C536 /* HA LE 3D12.jpg in Resources */,
+				2957F69D1AF21E5B0032C536 /* HA LE 3D13.jpg in Resources */,
 				2965C1B91AF1D28C00779FE5 /* YIWEN SHI29.jpg in Resources */,
 				2965C1641AF1CB0300779FE5 /* HA LE40.jpg in Resources */,
+				2957F6A51AF21E5B0032C536 /* HA LE 3D21.jpg in Resources */,
 				2965C1B81AF1D28C00779FE5 /* YIWEN SHI28.jpg in Resources */,
+				2957F6A61AF21E5B0032C536 /* HA LE 3D22.jpg in Resources */,
 				2965C1471AF1CB0300779FE5 /* HA LE11.jpg in Resources */,
+				2957F6B01AF21E5B0032C536 /* HA LE 3D32.jpg in Resources */,
 				2965C1691AF1CB0300779FE5 /* HA LE45.jpg in Resources */,
 				366C54BF1AF1B80A00908BF3 /* SHIWANI BECTOR10.jpg in Resources */,
 				CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */,
@@ -861,20 +1061,24 @@
 				2965C1B41AF1D28C00779FE5 /* YIWEN SHI24.jpg in Resources */,
 				2965C1C41AF1D28C00779FE5 /* YIWEN SHI40.jpg in Resources */,
 				2965C1511AF1CB0300779FE5 /* HA LE21.jpg in Resources */,
+				2957F6BD1AF21E5B0032C536 /* HA LE 3D45.jpg in Resources */,
 				366C54AD1AF1B80A00908BF3 /* HA LE2.jpg in Resources */,
 				366C54C41AF1B80A00908BF3 /* XIANG XU5.jpg in Resources */,
 				2965C1501AF1CB0300779FE5 /* HA LE20.jpg in Resources */,
 				2965C1551AF1CB0300779FE5 /* HA LE25.jpg in Resources */,
+				2957F6981AF21E5B0032C536 /* HA LE 3D8.jpg in Resources */,
 				2965C1561AF1CB0300779FE5 /* HA LE26.jpg in Resources */,
 				366C54B51AF1B80A00908BF3 /* HA LE10.jpg in Resources */,
 				2965C16B1AF1CB0300779FE5 /* HA LE47.jpg in Resources */,
 				297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
+				2957F6C01AF21E5B0032C536 /* HA LE 3D48.jpg in Resources */,
 				2965C1C71AF1D28C00779FE5 /* YIWEN SHI43.jpg in Resources */,
 				2965C1B31AF1D28C00779FE5 /* YIWEN SHI23.jpg in Resources */,
 				366C54C01AF1B80A00908BF3 /* XIANG XU1.jpg in Resources */,
 				2965C16C1AF1CB0300779FE5 /* HA LE48.jpg in Resources */,
 				366C54BB1AF1B80A00908BF3 /* SHIWANI BECTOR6.jpg in Resources */,
 				29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */,
+				2957F6B71AF21E5B0032C536 /* HA LE 3D39.jpg in Resources */,
 				2965C1AD1AF1D28C00779FE5 /* YIWEN SHI17.jpg in Resources */,
 				2965C1BA1AF1D28C00779FE5 /* YIWEN SHI30.jpg in Resources */,
 				2965C1C21AF1D28C00779FE5 /* YIWEN SHI38.jpg in Resources */,
@@ -882,6 +1086,7 @@
 				2965C1661AF1CB0300779FE5 /* HA LE42.jpg in Resources */,
 				366C54C61AF1B80A00908BF3 /* XIANG XU7.jpg in Resources */,
 				2965C1A61AF1D28C00779FE5 /* YIWEN SHI10.jpg in Resources */,
+				2957F6921AF21E5B0032C536 /* HA LE 3D2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,6 +1117,7 @@
 				29459E911AF1A02E0037D69E /* NSLogger.m in Sources */,
 				36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */,
 				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
+				2957F65E1AF21B940032C536 /* FaceRecognition_3D.mm in Sources */,
 				CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */,
 				CB6F20CD1AD4CF8000563FFD /* UserDefaultsHelper.m in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,

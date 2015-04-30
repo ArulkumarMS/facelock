@@ -38,6 +38,37 @@
     return cascade;
 }
 
+// 64x96
++ (cv::Mat) normalizeFace:(cv::Mat)img andFaceSize:(cv::Point)face_size
+{
+    int desiredFaceWidth = face_size.x;
+    int desiredFaceHeight = face_size.y;
+    
+    /// Set your 3 points to calculate the  Affine Transform
+    cv::Point2f srcTri[3];
+    cv::Point2f dstTri[3];
+    srcTri[0] = cv::Point2f( 0,0 );
+    srcTri[1] = cv::Point2f( img.cols - 1, 0 );
+    srcTri[2] = cv::Point2f( 0, img.rows - 1 );
+    
+    dstTri[0] = cv::Point2f( 0, 0 );
+    dstTri[1] = cv::Point2f( desiredFaceWidth - 1, 0 );
+    dstTri[2] = cv::Point2f( 0, desiredFaceHeight - 1 );
+    
+    /// Get the Affine Transform
+    cv::Mat warp_mat = cv::getAffineTransform( srcTri, dstTri );
+
+    cv::Mat warped = cv::Mat(desiredFaceHeight, desiredFaceWidth, img.type());
+    cv::warpAffine(img, warped, warp_mat, warped.size());
+    
+    // Use the "Bilateral Filter" to reduce pixel noise by smoothing the image, but keeping the sharp edges in the face.
+    cv::Mat filtered;
+    cv::bilateralFilter(warped, filtered, 0, 20.0, 2.0);
+    
+    return filtered;
+
+}
+
 /*****************************************************************************
  *   Face Recognition using Eigenfaces or Fisherfaces
  ******************************************************************************
@@ -48,8 +79,8 @@
  *   Copyright Packt Publishing 2012.
  *   http://www.packtpub.com/cool-projects-with-opencv/book
  *****************************************************************************/
-+ (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Point) leftEye andEyeRight:(cv::Point) rightEye andFaceSize:(cv::Point)face_size andHistEqual:(BOOL)doLeftAndRightSeparately{
-    
++ (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Point) leftEye andEyeRight:(cv::Point) rightEye andFaceSize:(cv::Point)face_size andHistEqual:(BOOL)doLeftAndRightSeparately
+{
     const double DESIRED_LEFT_EYE_X = 0.16;     // Controls how much of the face is visible after preprocessing.
     const double DESIRED_LEFT_EYE_Y = 0.14;
     
@@ -115,45 +146,6 @@
     
     return filtered;
 }
-
-/*
-+ (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Mat) eye_left andEyeRight:(cv::Mat) eye_right andDstsize:(cv::Mat)dest_size andHistEqual:(BOOL)doLeftandRightSeparately{
- 
-    // distance between eyes
-    double dist_between_eye = cv::norm(eye_left-eye_right);
-    //NSLog(@"Distance between two eyes: %f", dist_between_eye);
-    cv::Point center = cv::Point((eye_left.at<double>(0, 0)+eye_right.at<double>(0, 0))/2, (eye_left.at<double>(0, 1)+eye_right.at<double>(0, 1))/2);
-    // get the direction
-    cv::Mat eye_direction = eye_right - eye_left;
-    // calculate rotation angle in radians
-    double rotation = atan(eye_direction.at<double>(0, 0)/eye_direction.at<double>(0, 1));
-    
-    double Desired_Face_Width = dest_size.at<double>(0,0);
-    double Desired_Face_Height = dest_size.at<double>(0,1);
-    const double DESIRED_LEFT_EYE_X = 0.16; const double DESIRED_LEFT_EYE_Y = 0.14;
-    const double DESIRED_RIGHT_EYE_X = 1 - DESIRED_LEFT_EYE_X;
-    double disiredLen = (DESIRED_RIGHT_EYE_X-DESIRED_LEFT_EYE_X)*Desired_Face_Width;
-    double scale = disiredLen/dist_between_eye;
-    
-    cv::Mat M = cv::getRotationMatrix2D(center, rotation, scale);
-    M.at<double>(0, 2) += Desired_Face_Width * 0.5f - center.x;
-    M.at<double>(1, 2) += Desired_Face_Width * DESIRED_LEFT_EYE_Y - center.y;
-    //cv::Mat M = (cv::Mat_<double> (2, 3)<< a,b,0, d,e,0);
-    cv::Mat warped = cv::Mat(Desired_Face_Height, Desired_Face_Width, CV_8U, cv::Scalar(128));
-    cv::warpAffine(img, warped, M, warped.size());
-    if (!doLeftandRightSeparately) {
-        cv::equalizeHist(warped, warped);
-    }else{
-        [self equalizeLeftAndRightHalves:warped];
-    }
-    cv::Mat filtered = cv::Mat(warped.size(), CV_8U);
-    cv::bilateralFilter(warped, filtered, 0, 20, 2);
-    //cv::namedWindow("image", CV_WINDOW_AUTOSIZE);
-    //imshow("image", filtered);
-    
-    return filtered;
-}
-*/
 
 
 // Histogram Equalize seperately for the left and right sides of the face.

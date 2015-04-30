@@ -40,7 +40,7 @@
     
     //if run FaceLock in the ios device first time, uncommend following part.
     //BOOL flag_fr_initial = [UserDefaultsHelper getBoolForKey: Str_FR_Initial];
-    //if (![FaceRecognition_2D LBPHfileExist]){
+    if (![FaceRecognition_2D LBPHfileExist]){
         NSLog(@"IN initiate part!");
         cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
@@ -51,7 +51,7 @@
         //[FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"XIANG XU" andLabel:3 andTrainNum:10];
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
-    //}
+    }
     
     _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
     [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
@@ -167,13 +167,13 @@
                         [utterance setRate:0.1f];
                         [synthesizer speakUtterance:utterance];
                     }
-                    else{
+//                    else{
 //                        NSLog(@"Sorry, you can not enter the door.\n");
-                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
-                        [utterance setRate:0.1f];
-                        [synthesizer speakUtterance:utterance];
-                    }
+//                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+//                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+//                        [utterance setRate:0.1f];
+//                        [synthesizer speakUtterance:utterance];
+//                    }
                     
                 }
                 
