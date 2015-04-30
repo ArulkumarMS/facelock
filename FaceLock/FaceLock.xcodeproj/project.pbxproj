@@ -51,6 +51,52 @@
 		2965C16C1AF1CB0300779FE5 /* HA LE48.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1441AF1CB0300779FE5 /* HA LE48.jpg */; };
 		2965C16D1AF1CB0300779FE5 /* HA LE49.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1451AF1CB0300779FE5 /* HA LE49.jpg */; };
 		2965C16E1AF1CB0300779FE5 /* HA LE50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1461AF1CB0300779FE5 /* HA LE50.jpg */; };
+		2965C19D1AF1D28C00779FE5 /* YIWEN SHI1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C16F1AF1D28C00779FE5 /* YIWEN SHI1.jpg */; };
+		2965C19E1AF1D28C00779FE5 /* YIWEN SHI2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1701AF1D28C00779FE5 /* YIWEN SHI2.jpg */; };
+		2965C19F1AF1D28C00779FE5 /* YIWEN SHI3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1711AF1D28C00779FE5 /* YIWEN SHI3.jpg */; };
+		2965C1A01AF1D28C00779FE5 /* YIWEN SHI4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1721AF1D28C00779FE5 /* YIWEN SHI4.jpg */; };
+		2965C1A11AF1D28C00779FE5 /* YIWEN SHI5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1731AF1D28C00779FE5 /* YIWEN SHI5.jpg */; };
+		2965C1A21AF1D28C00779FE5 /* YIWEN SHI6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1741AF1D28C00779FE5 /* YIWEN SHI6.jpg */; };
+		2965C1A31AF1D28C00779FE5 /* YIWEN SHI7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1751AF1D28C00779FE5 /* YIWEN SHI7.jpg */; };
+		2965C1A41AF1D28C00779FE5 /* YIWEN SHI8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1761AF1D28C00779FE5 /* YIWEN SHI8.jpg */; };
+		2965C1A51AF1D28C00779FE5 /* YIWEN SHI9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1771AF1D28C00779FE5 /* YIWEN SHI9.jpg */; };
+		2965C1A61AF1D28C00779FE5 /* YIWEN SHI10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1781AF1D28C00779FE5 /* YIWEN SHI10.jpg */; };
+		2965C1A71AF1D28C00779FE5 /* YIWEN SHI11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1791AF1D28C00779FE5 /* YIWEN SHI11.jpg */; };
+		2965C1A81AF1D28C00779FE5 /* YIWEN SHI12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C17A1AF1D28C00779FE5 /* YIWEN SHI12.jpg */; };
+		2965C1A91AF1D28C00779FE5 /* YIWEN SHI13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C17B1AF1D28C00779FE5 /* YIWEN SHI13.jpg */; };
+		2965C1AA1AF1D28C00779FE5 /* YIWEN SHI14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C17C1AF1D28C00779FE5 /* YIWEN SHI14.jpg */; };
+		2965C1AB1AF1D28C00779FE5 /* YIWEN SHI15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C17D1AF1D28C00779FE5 /* YIWEN SHI15.jpg */; };
+		2965C1AC1AF1D28C00779FE5 /* YIWEN SHI16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C17E1AF1D28C00779FE5 /* YIWEN SHI16.jpg */; };
+		2965C1AD1AF1D28C00779FE5 /* YIWEN SHI17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C17F1AF1D28C00779FE5 /* YIWEN SHI17.jpg */; };
+		2965C1AE1AF1D28C00779FE5 /* YIWEN SHI18.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1801AF1D28C00779FE5 /* YIWEN SHI18.jpg */; };
+		2965C1AF1AF1D28C00779FE5 /* YIWEN SHI19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1811AF1D28C00779FE5 /* YIWEN SHI19.jpg */; };
+		2965C1B01AF1D28C00779FE5 /* YIWEN SHI20.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1821AF1D28C00779FE5 /* YIWEN SHI20.jpg */; };
+		2965C1B11AF1D28C00779FE5 /* YIWEN SHI21.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1831AF1D28C00779FE5 /* YIWEN SHI21.jpg */; };
+		2965C1B21AF1D28C00779FE5 /* YIWEN SHI22.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1841AF1D28C00779FE5 /* YIWEN SHI22.jpg */; };
+		2965C1B31AF1D28C00779FE5 /* YIWEN SHI23.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1851AF1D28C00779FE5 /* YIWEN SHI23.jpg */; };
+		2965C1B41AF1D28C00779FE5 /* YIWEN SHI24.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1861AF1D28C00779FE5 /* YIWEN SHI24.jpg */; };
+		2965C1B51AF1D28C00779FE5 /* YIWEN SHI25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1871AF1D28C00779FE5 /* YIWEN SHI25.jpg */; };
+		2965C1B61AF1D28C00779FE5 /* YIWEN SHI26.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1881AF1D28C00779FE5 /* YIWEN SHI26.jpg */; };
+		2965C1B71AF1D28C00779FE5 /* YIWEN SHI27.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1891AF1D28C00779FE5 /* YIWEN SHI27.jpg */; };
+		2965C1B81AF1D28C00779FE5 /* YIWEN SHI28.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C18A1AF1D28C00779FE5 /* YIWEN SHI28.jpg */; };
+		2965C1B91AF1D28C00779FE5 /* YIWEN SHI29.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C18B1AF1D28C00779FE5 /* YIWEN SHI29.jpg */; };
+		2965C1BA1AF1D28C00779FE5 /* YIWEN SHI30.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C18C1AF1D28C00779FE5 /* YIWEN SHI30.jpg */; };
+		2965C1BB1AF1D28C00779FE5 /* YIWEN SHI31.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C18D1AF1D28C00779FE5 /* YIWEN SHI31.jpg */; };
+		2965C1BC1AF1D28C00779FE5 /* YIWEN SHI32.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C18E1AF1D28C00779FE5 /* YIWEN SHI32.jpg */; };
+		2965C1BD1AF1D28C00779FE5 /* YIWEN SHI33.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C18F1AF1D28C00779FE5 /* YIWEN SHI33.jpg */; };
+		2965C1BE1AF1D28C00779FE5 /* YIWEN SHI34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1901AF1D28C00779FE5 /* YIWEN SHI34.jpg */; };
+		2965C1BF1AF1D28C00779FE5 /* YIWEN SHI35.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1911AF1D28C00779FE5 /* YIWEN SHI35.jpg */; };
+		2965C1C01AF1D28C00779FE5 /* YIWEN SHI36.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1921AF1D28C00779FE5 /* YIWEN SHI36.jpg */; };
+		2965C1C11AF1D28C00779FE5 /* YIWEN SHI37.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1931AF1D28C00779FE5 /* YIWEN SHI37.jpg */; };
+		2965C1C21AF1D28C00779FE5 /* YIWEN SHI38.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1941AF1D28C00779FE5 /* YIWEN SHI38.jpg */; };
+		2965C1C31AF1D28C00779FE5 /* YIWEN SHI39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1951AF1D28C00779FE5 /* YIWEN SHI39.jpg */; };
+		2965C1C41AF1D28C00779FE5 /* YIWEN SHI40.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1961AF1D28C00779FE5 /* YIWEN SHI40.jpg */; };
+		2965C1C51AF1D28C00779FE5 /* YIWEN SHI41.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1971AF1D28C00779FE5 /* YIWEN SHI41.jpg */; };
+		2965C1C61AF1D28C00779FE5 /* YIWEN SHI42.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1981AF1D28C00779FE5 /* YIWEN SHI42.jpg */; };
+		2965C1C71AF1D28C00779FE5 /* YIWEN SHI43.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C1991AF1D28C00779FE5 /* YIWEN SHI43.jpg */; };
+		2965C1C81AF1D28C00779FE5 /* YIWEN SHI44.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C19A1AF1D28C00779FE5 /* YIWEN SHI44.jpg */; };
+		2965C1C91AF1D28C00779FE5 /* YIWEN SHI45.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C19B1AF1D28C00779FE5 /* YIWEN SHI45.jpg */; };
+		2965C1CA1AF1D28C00779FE5 /* YIWEN SHI46.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2965C19C1AF1D28C00779FE5 /* YIWEN SHI46.jpg */; };
 		297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */; };
 		29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */; };
 		362E2EBC1AE33AAC0073D12C /* TableViewController_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */; };
@@ -87,16 +133,6 @@
 		366C54C71AF1B80A00908BF3 /* XIANG XU8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C549F1AF1B80A00908BF3 /* XIANG XU8.jpg */; };
 		366C54C81AF1B80A00908BF3 /* XIANG XU9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A01AF1B80A00908BF3 /* XIANG XU9.jpg */; };
 		366C54C91AF1B80A00908BF3 /* XIANG XU10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A11AF1B80A00908BF3 /* XIANG XU10.jpg */; };
-		366C54CA1AF1B80A00908BF3 /* YIWEN SHI1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A21AF1B80A00908BF3 /* YIWEN SHI1.jpg */; };
-		366C54CB1AF1B80A00908BF3 /* YIWEN SHI2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A31AF1B80A00908BF3 /* YIWEN SHI2.jpg */; };
-		366C54CC1AF1B80A00908BF3 /* YIWEN SHI3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A41AF1B80A00908BF3 /* YIWEN SHI3.jpg */; };
-		366C54CD1AF1B80A00908BF3 /* YIWEN SHI4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A51AF1B80A00908BF3 /* YIWEN SHI4.jpg */; };
-		366C54CE1AF1B80A00908BF3 /* YIWEN SHI5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A61AF1B80A00908BF3 /* YIWEN SHI5.jpg */; };
-		366C54CF1AF1B80A00908BF3 /* YIWEN SHI6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A71AF1B80A00908BF3 /* YIWEN SHI6.jpg */; };
-		366C54D01AF1B80A00908BF3 /* YIWEN SHI7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A81AF1B80A00908BF3 /* YIWEN SHI7.jpg */; };
-		366C54D11AF1B80A00908BF3 /* YIWEN SHI8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54A91AF1B80A00908BF3 /* YIWEN SHI8.jpg */; };
-		366C54D21AF1B80A00908BF3 /* YIWEN SHI9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54AA1AF1B80A00908BF3 /* YIWEN SHI9.jpg */; };
-		366C54D31AF1B80A00908BF3 /* YIWEN SHI10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 366C54AB1AF1B80A00908BF3 /* YIWEN SHI10.jpg */; };
 		3672FBC31AEA9BB600236621 /* TableViewController_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC21AEA9BB600236621 /* TableViewController_Collaboration.m */; };
 		3672FBC61AEB287100236621 /* CollectionViewController_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC51AEB287100236621 /* CollectionViewController_Collaboration.m */; };
 		3672FBC91AEB31CE00236621 /* CollectionViewCell_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC81AEB31CE00236621 /* CollectionViewCell_Collaboration.m */; };
@@ -195,6 +231,52 @@
 		2965C1441AF1CB0300779FE5 /* HA LE48.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE48.jpg"; sourceTree = "<group>"; };
 		2965C1451AF1CB0300779FE5 /* HA LE49.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE49.jpg"; sourceTree = "<group>"; };
 		2965C1461AF1CB0300779FE5 /* HA LE50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE50.jpg"; sourceTree = "<group>"; };
+		2965C16F1AF1D28C00779FE5 /* YIWEN SHI1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI1.jpg"; sourceTree = "<group>"; };
+		2965C1701AF1D28C00779FE5 /* YIWEN SHI2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI2.jpg"; sourceTree = "<group>"; };
+		2965C1711AF1D28C00779FE5 /* YIWEN SHI3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI3.jpg"; sourceTree = "<group>"; };
+		2965C1721AF1D28C00779FE5 /* YIWEN SHI4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI4.jpg"; sourceTree = "<group>"; };
+		2965C1731AF1D28C00779FE5 /* YIWEN SHI5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI5.jpg"; sourceTree = "<group>"; };
+		2965C1741AF1D28C00779FE5 /* YIWEN SHI6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI6.jpg"; sourceTree = "<group>"; };
+		2965C1751AF1D28C00779FE5 /* YIWEN SHI7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI7.jpg"; sourceTree = "<group>"; };
+		2965C1761AF1D28C00779FE5 /* YIWEN SHI8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI8.jpg"; sourceTree = "<group>"; };
+		2965C1771AF1D28C00779FE5 /* YIWEN SHI9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI9.jpg"; sourceTree = "<group>"; };
+		2965C1781AF1D28C00779FE5 /* YIWEN SHI10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI10.jpg"; sourceTree = "<group>"; };
+		2965C1791AF1D28C00779FE5 /* YIWEN SHI11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI11.jpg"; sourceTree = "<group>"; };
+		2965C17A1AF1D28C00779FE5 /* YIWEN SHI12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI12.jpg"; sourceTree = "<group>"; };
+		2965C17B1AF1D28C00779FE5 /* YIWEN SHI13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI13.jpg"; sourceTree = "<group>"; };
+		2965C17C1AF1D28C00779FE5 /* YIWEN SHI14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI14.jpg"; sourceTree = "<group>"; };
+		2965C17D1AF1D28C00779FE5 /* YIWEN SHI15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI15.jpg"; sourceTree = "<group>"; };
+		2965C17E1AF1D28C00779FE5 /* YIWEN SHI16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI16.jpg"; sourceTree = "<group>"; };
+		2965C17F1AF1D28C00779FE5 /* YIWEN SHI17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI17.jpg"; sourceTree = "<group>"; };
+		2965C1801AF1D28C00779FE5 /* YIWEN SHI18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI18.jpg"; sourceTree = "<group>"; };
+		2965C1811AF1D28C00779FE5 /* YIWEN SHI19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI19.jpg"; sourceTree = "<group>"; };
+		2965C1821AF1D28C00779FE5 /* YIWEN SHI20.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI20.jpg"; sourceTree = "<group>"; };
+		2965C1831AF1D28C00779FE5 /* YIWEN SHI21.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI21.jpg"; sourceTree = "<group>"; };
+		2965C1841AF1D28C00779FE5 /* YIWEN SHI22.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI22.jpg"; sourceTree = "<group>"; };
+		2965C1851AF1D28C00779FE5 /* YIWEN SHI23.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI23.jpg"; sourceTree = "<group>"; };
+		2965C1861AF1D28C00779FE5 /* YIWEN SHI24.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI24.jpg"; sourceTree = "<group>"; };
+		2965C1871AF1D28C00779FE5 /* YIWEN SHI25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI25.jpg"; sourceTree = "<group>"; };
+		2965C1881AF1D28C00779FE5 /* YIWEN SHI26.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI26.jpg"; sourceTree = "<group>"; };
+		2965C1891AF1D28C00779FE5 /* YIWEN SHI27.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI27.jpg"; sourceTree = "<group>"; };
+		2965C18A1AF1D28C00779FE5 /* YIWEN SHI28.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI28.jpg"; sourceTree = "<group>"; };
+		2965C18B1AF1D28C00779FE5 /* YIWEN SHI29.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI29.jpg"; sourceTree = "<group>"; };
+		2965C18C1AF1D28C00779FE5 /* YIWEN SHI30.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI30.jpg"; sourceTree = "<group>"; };
+		2965C18D1AF1D28C00779FE5 /* YIWEN SHI31.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI31.jpg"; sourceTree = "<group>"; };
+		2965C18E1AF1D28C00779FE5 /* YIWEN SHI32.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI32.jpg"; sourceTree = "<group>"; };
+		2965C18F1AF1D28C00779FE5 /* YIWEN SHI33.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI33.jpg"; sourceTree = "<group>"; };
+		2965C1901AF1D28C00779FE5 /* YIWEN SHI34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI34.jpg"; sourceTree = "<group>"; };
+		2965C1911AF1D28C00779FE5 /* YIWEN SHI35.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI35.jpg"; sourceTree = "<group>"; };
+		2965C1921AF1D28C00779FE5 /* YIWEN SHI36.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI36.jpg"; sourceTree = "<group>"; };
+		2965C1931AF1D28C00779FE5 /* YIWEN SHI37.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI37.jpg"; sourceTree = "<group>"; };
+		2965C1941AF1D28C00779FE5 /* YIWEN SHI38.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI38.jpg"; sourceTree = "<group>"; };
+		2965C1951AF1D28C00779FE5 /* YIWEN SHI39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI39.jpg"; sourceTree = "<group>"; };
+		2965C1961AF1D28C00779FE5 /* YIWEN SHI40.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI40.jpg"; sourceTree = "<group>"; };
+		2965C1971AF1D28C00779FE5 /* YIWEN SHI41.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI41.jpg"; sourceTree = "<group>"; };
+		2965C1981AF1D28C00779FE5 /* YIWEN SHI42.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI42.jpg"; sourceTree = "<group>"; };
+		2965C1991AF1D28C00779FE5 /* YIWEN SHI43.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI43.jpg"; sourceTree = "<group>"; };
+		2965C19A1AF1D28C00779FE5 /* YIWEN SHI44.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI44.jpg"; sourceTree = "<group>"; };
+		2965C19B1AF1D28C00779FE5 /* YIWEN SHI45.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI45.jpg"; sourceTree = "<group>"; };
+		2965C19C1AF1D28C00779FE5 /* YIWEN SHI46.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI46.jpg"; sourceTree = "<group>"; };
 		297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
 		362E2EBA1AE33AAC0073D12C /* TableViewController_Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_Setting.h; sourceTree = "<group>"; };
@@ -235,16 +317,6 @@
 		366C549F1AF1B80A00908BF3 /* XIANG XU8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "XIANG XU8.jpg"; sourceTree = "<group>"; };
 		366C54A01AF1B80A00908BF3 /* XIANG XU9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "XIANG XU9.jpg"; sourceTree = "<group>"; };
 		366C54A11AF1B80A00908BF3 /* XIANG XU10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "XIANG XU10.jpg"; sourceTree = "<group>"; };
-		366C54A21AF1B80A00908BF3 /* YIWEN SHI1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI1.jpg"; sourceTree = "<group>"; };
-		366C54A31AF1B80A00908BF3 /* YIWEN SHI2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI2.jpg"; sourceTree = "<group>"; };
-		366C54A41AF1B80A00908BF3 /* YIWEN SHI3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI3.jpg"; sourceTree = "<group>"; };
-		366C54A51AF1B80A00908BF3 /* YIWEN SHI4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI4.jpg"; sourceTree = "<group>"; };
-		366C54A61AF1B80A00908BF3 /* YIWEN SHI5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI5.jpg"; sourceTree = "<group>"; };
-		366C54A71AF1B80A00908BF3 /* YIWEN SHI6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI6.jpg"; sourceTree = "<group>"; };
-		366C54A81AF1B80A00908BF3 /* YIWEN SHI7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI7.jpg"; sourceTree = "<group>"; };
-		366C54A91AF1B80A00908BF3 /* YIWEN SHI8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI8.jpg"; sourceTree = "<group>"; };
-		366C54AA1AF1B80A00908BF3 /* YIWEN SHI9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI9.jpg"; sourceTree = "<group>"; };
-		366C54AB1AF1B80A00908BF3 /* YIWEN SHI10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "YIWEN SHI10.jpg"; sourceTree = "<group>"; };
 		3672FBC11AEA9BB600236621 /* TableViewController_Collaboration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_Collaboration.h; sourceTree = "<group>"; };
 		3672FBC21AEA9BB600236621 /* TableViewController_Collaboration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_Collaboration.m; sourceTree = "<group>"; };
 		3672FBC41AEB287100236621 /* CollectionViewController_Collaboration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController_Collaboration.h; sourceTree = "<group>"; };
@@ -467,16 +539,52 @@
 				366C549F1AF1B80A00908BF3 /* XIANG XU8.jpg */,
 				366C54A01AF1B80A00908BF3 /* XIANG XU9.jpg */,
 				366C54A11AF1B80A00908BF3 /* XIANG XU10.jpg */,
-				366C54A21AF1B80A00908BF3 /* YIWEN SHI1.jpg */,
-				366C54A31AF1B80A00908BF3 /* YIWEN SHI2.jpg */,
-				366C54A41AF1B80A00908BF3 /* YIWEN SHI3.jpg */,
-				366C54A51AF1B80A00908BF3 /* YIWEN SHI4.jpg */,
-				366C54A61AF1B80A00908BF3 /* YIWEN SHI5.jpg */,
-				366C54A71AF1B80A00908BF3 /* YIWEN SHI6.jpg */,
-				366C54A81AF1B80A00908BF3 /* YIWEN SHI7.jpg */,
-				366C54A91AF1B80A00908BF3 /* YIWEN SHI8.jpg */,
-				366C54AA1AF1B80A00908BF3 /* YIWEN SHI9.jpg */,
-				366C54AB1AF1B80A00908BF3 /* YIWEN SHI10.jpg */,
+				2965C16F1AF1D28C00779FE5 /* YIWEN SHI1.jpg */,
+				2965C1701AF1D28C00779FE5 /* YIWEN SHI2.jpg */,
+				2965C1711AF1D28C00779FE5 /* YIWEN SHI3.jpg */,
+				2965C1721AF1D28C00779FE5 /* YIWEN SHI4.jpg */,
+				2965C1731AF1D28C00779FE5 /* YIWEN SHI5.jpg */,
+				2965C1741AF1D28C00779FE5 /* YIWEN SHI6.jpg */,
+				2965C1751AF1D28C00779FE5 /* YIWEN SHI7.jpg */,
+				2965C1761AF1D28C00779FE5 /* YIWEN SHI8.jpg */,
+				2965C1771AF1D28C00779FE5 /* YIWEN SHI9.jpg */,
+				2965C1781AF1D28C00779FE5 /* YIWEN SHI10.jpg */,
+				2965C1791AF1D28C00779FE5 /* YIWEN SHI11.jpg */,
+				2965C17A1AF1D28C00779FE5 /* YIWEN SHI12.jpg */,
+				2965C17B1AF1D28C00779FE5 /* YIWEN SHI13.jpg */,
+				2965C17C1AF1D28C00779FE5 /* YIWEN SHI14.jpg */,
+				2965C17D1AF1D28C00779FE5 /* YIWEN SHI15.jpg */,
+				2965C17E1AF1D28C00779FE5 /* YIWEN SHI16.jpg */,
+				2965C17F1AF1D28C00779FE5 /* YIWEN SHI17.jpg */,
+				2965C1801AF1D28C00779FE5 /* YIWEN SHI18.jpg */,
+				2965C1811AF1D28C00779FE5 /* YIWEN SHI19.jpg */,
+				2965C1821AF1D28C00779FE5 /* YIWEN SHI20.jpg */,
+				2965C1831AF1D28C00779FE5 /* YIWEN SHI21.jpg */,
+				2965C1841AF1D28C00779FE5 /* YIWEN SHI22.jpg */,
+				2965C1851AF1D28C00779FE5 /* YIWEN SHI23.jpg */,
+				2965C1861AF1D28C00779FE5 /* YIWEN SHI24.jpg */,
+				2965C1871AF1D28C00779FE5 /* YIWEN SHI25.jpg */,
+				2965C1881AF1D28C00779FE5 /* YIWEN SHI26.jpg */,
+				2965C1891AF1D28C00779FE5 /* YIWEN SHI27.jpg */,
+				2965C18A1AF1D28C00779FE5 /* YIWEN SHI28.jpg */,
+				2965C18B1AF1D28C00779FE5 /* YIWEN SHI29.jpg */,
+				2965C18C1AF1D28C00779FE5 /* YIWEN SHI30.jpg */,
+				2965C18D1AF1D28C00779FE5 /* YIWEN SHI31.jpg */,
+				2965C18E1AF1D28C00779FE5 /* YIWEN SHI32.jpg */,
+				2965C18F1AF1D28C00779FE5 /* YIWEN SHI33.jpg */,
+				2965C1901AF1D28C00779FE5 /* YIWEN SHI34.jpg */,
+				2965C1911AF1D28C00779FE5 /* YIWEN SHI35.jpg */,
+				2965C1921AF1D28C00779FE5 /* YIWEN SHI36.jpg */,
+				2965C1931AF1D28C00779FE5 /* YIWEN SHI37.jpg */,
+				2965C1941AF1D28C00779FE5 /* YIWEN SHI38.jpg */,
+				2965C1951AF1D28C00779FE5 /* YIWEN SHI39.jpg */,
+				2965C1961AF1D28C00779FE5 /* YIWEN SHI40.jpg */,
+				2965C1971AF1D28C00779FE5 /* YIWEN SHI41.jpg */,
+				2965C1981AF1D28C00779FE5 /* YIWEN SHI42.jpg */,
+				2965C1991AF1D28C00779FE5 /* YIWEN SHI43.jpg */,
+				2965C19A1AF1D28C00779FE5 /* YIWEN SHI44.jpg */,
+				2965C19B1AF1D28C00779FE5 /* YIWEN SHI45.jpg */,
+				2965C19C1AF1D28C00779FE5 /* YIWEN SHI46.jpg */,
 			);
 			path = img;
 			sourceTree = "<group>";
@@ -654,90 +762,126 @@
 				2965C15A1AF1CB0300779FE5 /* HA LE30.jpg in Resources */,
 				2965C1581AF1CB0300779FE5 /* HA LE28.jpg in Resources */,
 				2965C14D1AF1CB0300779FE5 /* HA LE17.jpg in Resources */,
+				2965C1C51AF1D28C00779FE5 /* YIWEN SHI41.jpg in Resources */,
 				366C54BE1AF1B80A00908BF3 /* SHIWANI BECTOR9.jpg in Resources */,
+				2965C19F1AF1D28C00779FE5 /* YIWEN SHI3.jpg in Resources */,
 				2965C1631AF1CB0300779FE5 /* HA LE39.jpg in Resources */,
 				2965C1481AF1CB0300779FE5 /* HA LE12.jpg in Resources */,
 				366C54C51AF1B80A00908BF3 /* XIANG XU6.jpg in Resources */,
+				2965C1C31AF1D28C00779FE5 /* YIWEN SHI39.jpg in Resources */,
 				CB0FE0E41AB37E97007BF483 /* Main.storyboard in Resources */,
-				366C54D11AF1B80A00908BF3 /* YIWEN SHI8.jpg in Resources */,
-				366C54CB1AF1B80A00908BF3 /* YIWEN SHI2.jpg in Resources */,
 				366C54C81AF1B80A00908BF3 /* XIANG XU9.jpg in Resources */,
 				2965C1651AF1CB0300779FE5 /* HA LE41.jpg in Resources */,
+				2965C1A91AF1D28C00779FE5 /* YIWEN SHI13.jpg in Resources */,
 				366C54AF1AF1B80A00908BF3 /* HA LE4.jpg in Resources */,
+				2965C1C81AF1D28C00779FE5 /* YIWEN SHI44.jpg in Resources */,
 				2965C1531AF1CB0300779FE5 /* HA LE23.jpg in Resources */,
+				2965C1B51AF1D28C00779FE5 /* YIWEN SHI25.jpg in Resources */,
+				2965C1AF1AF1D28C00779FE5 /* YIWEN SHI19.jpg in Resources */,
 				29459E981AF1B2100037D69E /* haarcascade_righteye_2splits.xml in Resources */,
+				2965C1BD1AF1D28C00779FE5 /* YIWEN SHI33.jpg in Resources */,
 				2965C1571AF1CB0300779FE5 /* HA LE27.jpg in Resources */,
 				2965C15C1AF1CB0300779FE5 /* HA LE32.jpg in Resources */,
-				366C54CD1AF1B80A00908BF3 /* YIWEN SHI4.jpg in Resources */,
+				2965C1CA1AF1D28C00779FE5 /* YIWEN SHI46.jpg in Resources */,
+				2965C1B61AF1D28C00779FE5 /* YIWEN SHI26.jpg in Resources */,
 				366C54B31AF1B80A00908BF3 /* HA LE8.jpg in Resources */,
 				366C54B71AF1B80A00908BF3 /* SHIWANI BECTOR2.jpg in Resources */,
 				2965C1601AF1CB0300779FE5 /* HA LE36.jpg in Resources */,
+				2965C1AE1AF1D28C00779FE5 /* YIWEN SHI18.jpg in Resources */,
 				2965C15D1AF1CB0300779FE5 /* HA LE33.jpg in Resources */,
+				2965C1A11AF1D28C00779FE5 /* YIWEN SHI5.jpg in Resources */,
+				2965C1A31AF1D28C00779FE5 /* YIWEN SHI7.jpg in Resources */,
 				2965C16D1AF1CB0300779FE5 /* HA LE49.jpg in Resources */,
 				366C54C91AF1B80A00908BF3 /* XIANG XU10.jpg in Resources */,
+				2965C1BB1AF1D28C00779FE5 /* YIWEN SHI31.jpg in Resources */,
 				2965C1611AF1CB0300779FE5 /* HA LE37.jpg in Resources */,
+				2965C1BE1AF1D28C00779FE5 /* YIWEN SHI34.jpg in Resources */,
 				2965C15F1AF1CB0300779FE5 /* HA LE35.jpg in Resources */,
+				2965C1B01AF1D28C00779FE5 /* YIWEN SHI20.jpg in Resources */,
 				2965C16E1AF1CB0300779FE5 /* HA LE50.jpg in Resources */,
 				29459E961AF1B2100037D69E /* haarcascade_eye.xml in Resources */,
 				366C54C21AF1B80A00908BF3 /* XIANG XU3.jpg in Resources */,
 				CB0FE0E91AB37E97007BF483 /* LaunchScreen.xib in Resources */,
+				2965C1C61AF1D28C00779FE5 /* YIWEN SHI42.jpg in Resources */,
+				2965C1A51AF1D28C00779FE5 /* YIWEN SHI9.jpg in Resources */,
+				2965C19D1AF1D28C00779FE5 /* YIWEN SHI1.jpg in Resources */,
 				2965C1621AF1CB0300779FE5 /* HA LE38.jpg in Resources */,
 				366C54BD1AF1B80A00908BF3 /* SHIWANI BECTOR8.jpg in Resources */,
+				2965C1B71AF1D28C00779FE5 /* YIWEN SHI27.jpg in Resources */,
+				2965C1A21AF1D28C00779FE5 /* YIWEN SHI6.jpg in Resources */,
+				2965C1A41AF1D28C00779FE5 /* YIWEN SHI8.jpg in Resources */,
 				2965C14C1AF1CB0300779FE5 /* HA LE16.jpg in Resources */,
+				2965C1BF1AF1D28C00779FE5 /* YIWEN SHI35.jpg in Resources */,
 				CB7F09C91ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml in Resources */,
+				2965C1A81AF1D28C00779FE5 /* YIWEN SHI12.jpg in Resources */,
 				2965C15B1AF1CB0300779FE5 /* HA LE31.jpg in Resources */,
 				2965C1491AF1CB0300779FE5 /* HA LE13.jpg in Resources */,
 				366C54B91AF1B80A00908BF3 /* SHIWANI BECTOR4.jpg in Resources */,
 				2965C14B1AF1CB0300779FE5 /* HA LE15.jpg in Resources */,
+				2965C1B21AF1D28C00779FE5 /* YIWEN SHI22.jpg in Resources */,
+				2965C1B11AF1D28C00779FE5 /* YIWEN SHI21.jpg in Resources */,
 				2965C1541AF1CB0300779FE5 /* HA LE24.jpg in Resources */,
 				29459E971AF1B2100037D69E /* haarcascade_lefteye_2splits.xml in Resources */,
 				2965C14A1AF1CB0300779FE5 /* HA LE14.jpg in Resources */,
 				366C54C31AF1B80A00908BF3 /* XIANG XU4.jpg in Resources */,
+				2965C1C01AF1D28C00779FE5 /* YIWEN SHI36.jpg in Resources */,
+				2965C1C91AF1D28C00779FE5 /* YIWEN SHI45.jpg in Resources */,
 				366C54B61AF1B80A00908BF3 /* SHIWANI BECTOR1.jpg in Resources */,
 				2965C1681AF1CB0300779FE5 /* HA LE44.jpg in Resources */,
+				2965C1AC1AF1D28C00779FE5 /* YIWEN SHI16.jpg in Resources */,
 				2965C14F1AF1CB0300779FE5 /* HA LE19.jpg in Resources */,
+				2965C1AB1AF1D28C00779FE5 /* YIWEN SHI15.jpg in Resources */,
 				CB7F09CB1ABD0E5500996B5E /* haarcascade_frontalface_default.xml in Resources */,
+				2965C1AA1AF1D28C00779FE5 /* YIWEN SHI14.jpg in Resources */,
+				2965C1C11AF1D28C00779FE5 /* YIWEN SHI37.jpg in Resources */,
+				2965C1BC1AF1D28C00779FE5 /* YIWEN SHI32.jpg in Resources */,
 				366C54B81AF1B80A00908BF3 /* SHIWANI BECTOR3.jpg in Resources */,
 				2965C15E1AF1CB0300779FE5 /* HA LE34.jpg in Resources */,
+				2965C19E1AF1D28C00779FE5 /* YIWEN SHI2.jpg in Resources */,
 				2965C14E1AF1CB0300779FE5 /* HA LE18.jpg in Resources */,
 				366C54AE1AF1B80A00908BF3 /* HA LE3.jpg in Resources */,
+				2965C1A71AF1D28C00779FE5 /* YIWEN SHI11.jpg in Resources */,
 				2965C1671AF1CB0300779FE5 /* HA LE43.jpg in Resources */,
-				366C54D21AF1B80A00908BF3 /* YIWEN SHI9.jpg in Resources */,
 				366C54B11AF1B80A00908BF3 /* HA LE6.jpg in Resources */,
 				366C54C11AF1B80A00908BF3 /* XIANG XU2.jpg in Resources */,
 				366C54B21AF1B80A00908BF3 /* HA LE7.jpg in Resources */,
 				2965C16A1AF1CB0300779FE5 /* HA LE46.jpg in Resources */,
 				2965C1521AF1CB0300779FE5 /* HA LE22.jpg in Resources */,
 				366C54B01AF1B80A00908BF3 /* HA LE5.jpg in Resources */,
-				366C54CA1AF1B80A00908BF3 /* YIWEN SHI1.jpg in Resources */,
+				2965C1B91AF1D28C00779FE5 /* YIWEN SHI29.jpg in Resources */,
 				2965C1641AF1CB0300779FE5 /* HA LE40.jpg in Resources */,
+				2965C1B81AF1D28C00779FE5 /* YIWEN SHI28.jpg in Resources */,
 				2965C1471AF1CB0300779FE5 /* HA LE11.jpg in Resources */,
 				2965C1691AF1CB0300779FE5 /* HA LE45.jpg in Resources */,
-				366C54CC1AF1B80A00908BF3 /* YIWEN SHI3.jpg in Resources */,
 				366C54BF1AF1B80A00908BF3 /* SHIWANI BECTOR10.jpg in Resources */,
 				CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */,
 				366C54B41AF1B80A00908BF3 /* HA LE9.jpg in Resources */,
 				366C54BC1AF1B80A00908BF3 /* SHIWANI BECTOR7.jpg in Resources */,
 				366C54AC1AF1B80A00908BF3 /* HA LE1.jpg in Resources */,
+				2965C1B41AF1D28C00779FE5 /* YIWEN SHI24.jpg in Resources */,
+				2965C1C41AF1D28C00779FE5 /* YIWEN SHI40.jpg in Resources */,
 				2965C1511AF1CB0300779FE5 /* HA LE21.jpg in Resources */,
 				366C54AD1AF1B80A00908BF3 /* HA LE2.jpg in Resources */,
 				366C54C41AF1B80A00908BF3 /* XIANG XU5.jpg in Resources */,
-				366C54CE1AF1B80A00908BF3 /* YIWEN SHI5.jpg in Resources */,
 				2965C1501AF1CB0300779FE5 /* HA LE20.jpg in Resources */,
 				2965C1551AF1CB0300779FE5 /* HA LE25.jpg in Resources */,
 				2965C1561AF1CB0300779FE5 /* HA LE26.jpg in Resources */,
 				366C54B51AF1B80A00908BF3 /* HA LE10.jpg in Resources */,
 				2965C16B1AF1CB0300779FE5 /* HA LE47.jpg in Resources */,
 				297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
+				2965C1C71AF1D28C00779FE5 /* YIWEN SHI43.jpg in Resources */,
+				2965C1B31AF1D28C00779FE5 /* YIWEN SHI23.jpg in Resources */,
 				366C54C01AF1B80A00908BF3 /* XIANG XU1.jpg in Resources */,
 				2965C16C1AF1CB0300779FE5 /* HA LE48.jpg in Resources */,
 				366C54BB1AF1B80A00908BF3 /* SHIWANI BECTOR6.jpg in Resources */,
 				29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */,
-				366C54D01AF1B80A00908BF3 /* YIWEN SHI7.jpg in Resources */,
+				2965C1AD1AF1D28C00779FE5 /* YIWEN SHI17.jpg in Resources */,
+				2965C1BA1AF1D28C00779FE5 /* YIWEN SHI30.jpg in Resources */,
+				2965C1C21AF1D28C00779FE5 /* YIWEN SHI38.jpg in Resources */,
+				2965C1A01AF1D28C00779FE5 /* YIWEN SHI4.jpg in Resources */,
 				2965C1661AF1CB0300779FE5 /* HA LE42.jpg in Resources */,
 				366C54C61AF1B80A00908BF3 /* XIANG XU7.jpg in Resources */,
-				366C54CF1AF1B80A00908BF3 /* YIWEN SHI6.jpg in Resources */,
-				366C54D31AF1B80A00908BF3 /* YIWEN SHI10.jpg in Resources */,
+				2965C1A61AF1D28C00779FE5 /* YIWEN SHI10.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

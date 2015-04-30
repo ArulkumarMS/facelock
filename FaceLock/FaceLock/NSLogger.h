@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NSLogger : NSObject
-
+-(void)log:(NSString *)title;
 -(void)log:(NSString *)title properties:(NSDictionary *)properties;
 
 -(NSURL *)logDirectory;

@@ -30,6 +30,38 @@
     
 }
 
+-(void)log:(NSString *)title {
+    NSMutableString *appendContents = [[NSMutableString alloc] init];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:LOGGER_DIRECTORY]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:LOGGER_DIRECTORY withIntermediateDirectories:false attributes:nil error:nil];
+        
+        [appendContents appendString:LOGGER_HEADER];
+        
+        if (self.degbugger) NSLog(@"NSLogger file created: %@" ,LOGGER_FILENAME);
+        
+    }
+    
+    [appendContents appendString:[self logPrint]];
+    [appendContents appendString:[NSString stringWithFormat:@"%@ \n" ,[self formatDate]]];
+    
+    NSAssert(title != nil, @"Event title cannot be nill");
+    NSAssert(title.length > 2, @"Event title needs to be longer that 2 characters");
+    
+    [appendContents appendString:[NSString stringWithFormat:@"EVENT: \"%@\"\n" ,title]];
+    
+    [appendContents appendString:@"\n"];
+    
+    NSError *writingError;
+    if (![appendContents writeToURL:[self logDirectory] atomically:true encoding:NSUTF8StringEncoding error:&writingError]) {
+        if (self.degbugger) NSLog(@"NSLogger was not updated due to error: %@" ,writingError);
+        
+    }
+    else {
+        if (self.degbugger) NSLog(@"NSLogger event \"%@\" added" ,title);
+        
+    }
+}
+
 -(void)log:(NSString *)title properties:(NSDictionary *)properties {
     NSMutableString *appendContents = [[NSMutableString alloc] init];
     if (![[NSFileManager defaultManager] fileExistsAtPath:LOGGER_DIRECTORY]) {
