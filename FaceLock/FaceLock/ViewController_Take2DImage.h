@@ -35,13 +35,14 @@
     //NSArray *_features;
     cv::CascadeClassifier *_faceCascade;
     cv::CascadeClassifier *_eyeCascade;
-    std::vector<cv::Rect> _faces;
-    std::vector<cv::Rect> _eyes;
+    std::vector<cv::Rect> _mfaces;
+    std::vector<cv::Rect> _meyes;
     CGContextRef _contextRef;
     cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
     NSString *user;
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
+
 @property(nonatomic) NSString *FullName;
 
 

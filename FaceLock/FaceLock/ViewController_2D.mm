@@ -39,7 +39,7 @@
     
     //if run FaceLock in the ios device first time, uncommend following part.
     //BOOL flag_fr_initial = [UserDefaultsHelper getBoolForKey: Str_FR_Initial];
-    if (![FaceRecognition_2D LBPHfileExist]){
+    //if (![FaceRecognition_2D LBPHfileExist]){
         NSLog(@"IN initiate part!");
         cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
@@ -48,7 +48,7 @@
         [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"ha" andLabel:2 andTrainNum:9];
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
-    }
+    //}
     
     _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
     [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
@@ -144,7 +144,7 @@
                     double predicted_confidence;
                     _LBPHFaceRecognizer->predict(normalFaceImg, label, predicted_confidence);
                     NSLog(@"Found %d,with confidence %f \n", label, predicted_confidence);
-                    if(predicted_confidence < 20){
+                    if(predicted_confidence < 200){
                         NSLog(@"Welcome Back.\n");
                         AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
                         AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back."];
