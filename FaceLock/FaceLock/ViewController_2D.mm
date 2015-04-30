@@ -44,9 +44,9 @@
         cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"YIWEN SHI" andLabel:0 andTrainNum:10];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"HA LE" andLabel:1 andTrainNum:10];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"SHIWANI BECTOR" andLabel:2 andTrainNum:10];
+//        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"YIWEN SHI" andLabel:0 andTrainNum:10];
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"HA LE" andLabel:1 andTrainNum:50];
+//        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"SHIWANI BECTOR" andLabel:2 andTrainNum:10];
         //[FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"XIANG XU" andLabel:3 andTrainNum:10];
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
@@ -112,18 +112,18 @@
                 // Get face region
                 cv::Mat image_face_roi = image_roi_clone(_faces[i]);
                 // Eye detection
-                _eyeCascade->detectMultiScale(image_face_roi, _eyes,1.1, 1, 0|CV_HAAR_SCALE_IMAGE);
+                _eyeCascade->detectMultiScale(image_face_roi, _eyes,1.1, 3, 0|CV_HAAR_SCALE_IMAGE);
 //                _eyeCascade->detectMultiScale(image_face_roi, _eyes);
                 
                 if (_eyes.size() > 0) {
-                    NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
+//                    NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
                 }
                 
                 if (_eyes.size() == 2) {
                     // Face Alignment
                     cv::Point eye_one( _eyes[0].x + _eyes[0].width/2, _eyes[0].y + _eyes[0].height/2 );
                     cv::Point eye_two( _eyes[1].x + _eyes[1].width/2, _eyes[1].y + _eyes[1].height/2 );
-                    cv::Point face_size(70,70);
+                    cv::Point face_size(200,200);
                     cv::Mat normalFaceImg;
                     if (eye_one.x <= eye_two.x) {
                         normalFaceImg = [Utils normalizeFace:image_face_roi.clone()
@@ -142,39 +142,30 @@
                     imagename = [NSString stringWithFormat:@"aligned_face_%.4d.jpg", _imagename_count];
                     [Utils saveMATImage:normalFaceImg andName:imagename];
                     
+                    
                     //Face recognition
                     int label;
                     double predicted_confidence;
                     _LBPHFaceRecognizer->predict(normalFaceImg, label, predicted_confidence);
-                    NSLog(@"Found %d,with confidence %f \n", label, predicted_confidence);
-                    if(predicted_confidence < 200){
-                        //NSMutableArray *UserName=[Setting_UserManagement LoadUserFile];
+                    NSLog(@"Found %d, confidence %.4f \n", label, predicted_confidence);
+                    if(predicted_confidence < 30){
+                        NSString* welcome;
                         if (label==0){
-                            NSLog(@"Welcome Back, Yiwen.\n");
-                            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back, Yiwen."];
-                            [utterance setRate:0.1f];
-                            [synthesizer speakUtterance:utterance];
+                            welcome = @"Welcome back, Yiwen.";
                         }
                         if (label==1){
-                            NSLog(@"Welcome Back, Ha.\n");
-                            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back, Ha."];
-                            [utterance setRate:0.1f];
-                            [synthesizer speakUtterance:utterance];
+                            welcome = @"Welcome back, Ha.";
                         }
                         if (label==2){
-                            NSLog(@"Welcome Back, Shiwani.\n");
-                            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back, Shiwani."];
-                            [utterance setRate:0.1f];
-                            [synthesizer speakUtterance:utterance];
+                            welcome = @"Welcome back, Shiwani.";
                         }
-                        //NSLog(@"Welcome Back.\n");
+                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:welcome];
+                        [utterance setRate:0.1f];
+                        [synthesizer speakUtterance:utterance];
                     }
-                    
                     else{
-                        NSLog(@"Sorry, you can not enter the door.\n");
+//                        NSLog(@"Sorry, you can not enter the door.\n");
                         AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
                         AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
                         [utterance setRate:0.1f];
@@ -197,9 +188,9 @@
     }
 
     // Draw face and eye boundaries
-    for(int i =0; i<_mfaces.size(); i++){
-        cv::rectangle(image_roi, _mfaces[i], cv::Scalar(0, 255, 255), 1, 8);
-        cv::Mat image_face_roi = image_roi(_mfaces[i]);
+    if ((_mfaces.size() == 1) && (_meyes.size() <= 2)){
+        cv::rectangle(image_roi, _mfaces[0], cv::Scalar(0, 255, 255), 1, 8);
+        cv::Mat image_face_roi = image_roi(_mfaces[0]);
         for (int j = 0; j<_meyes.size(); j++) {
             cv::Point eye_center( _meyes[j].x + _meyes[j].width/2, _meyes[j].y + _meyes[j].height/2 );
             int radius = cvRound((_meyes[j].width + _meyes[j].height)*0.25 );

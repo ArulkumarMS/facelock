@@ -60,9 +60,11 @@
         if(cvImage.data )                              // Check for invalid input
         {
             NSLog(@"!!!");
-            Images.push_back(cvImage);Lables.push_back(label);
+            Images.push_back(cvImage);
+            Lables.push_back(label);
         }
     }
     LBPHFR->update(Images, Lables);
+//    LBPHFR->train(Images, Lables);
 }
 @end
