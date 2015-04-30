@@ -44,8 +44,10 @@
         cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"xiang" andLabel:1 andTrainNum:9];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"ha" andLabel:2 andTrainNum:9];
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"YIWEN SHI" andLabel:0 andTrainNum:10];
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"HA LE" andLabel:1 andTrainNum:10];
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"SHIWANI BECTOR" andLabel:2 andTrainNum:10];
+        //[FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"XIANG XU" andLabel:3 andTrainNum:10];
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
     //}
@@ -146,20 +148,38 @@
                     _LBPHFaceRecognizer->predict(normalFaceImg, label, predicted_confidence);
                     NSLog(@"Found %d,with confidence %f \n", label, predicted_confidence);
                     if(predicted_confidence < 200){
-                        NSLog(@"Welcome Back.\n");
-                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back."];
-                        [utterance setRate:0.1f];
-                        [synthesizer speakUtterance:utterance];
+                        //NSMutableArray *UserName=[Setting_UserManagement LoadUserFile];
+                        if (label==0){
+                            NSLog(@"Welcome Back, Yiwen.\n");
+                            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+                            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back, Yiwen."];
+                            [utterance setRate:0.1f];
+                            [synthesizer speakUtterance:utterance];
+                        }
+                        if (label==1){
+                            NSLog(@"Welcome Back, Ha.\n");
+                            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+                            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back, Ha."];
+                            [utterance setRate:0.1f];
+                            [synthesizer speakUtterance:utterance];
+                        }
+                        if (label==2){
+                            NSLog(@"Welcome Back, Shiwani.\n");
+                            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+                            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Welcome back, Shiwani."];
+                            [utterance setRate:0.1f];
+                            [synthesizer speakUtterance:utterance];
+                        }
+                        //NSLog(@"Welcome Back.\n");
                     }
-                    /*
+                    
                     else{
                         NSLog(@"Sorry, you can not enter the door.\n");
                         AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
                         AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
                         [utterance setRate:0.1f];
                         [synthesizer speakUtterance:utterance];
-                    }*/
+                    }
                     
                 }
                 

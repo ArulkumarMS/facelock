@@ -53,7 +53,7 @@
         NSString *filename = [NSString stringWithFormat: @"%@%@",
                               username, [@(i) stringValue]];
         NSLog(@"%@",filename);
-        NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"JPG" ];
+        NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"jpg" ];
         const char * cpath = [filePath cStringUsingEncoding:NSUTF8StringEncoding];
         cv::Mat cvImage = cv::imread( cpath, CV_LOAD_IMAGE_GRAYSCALE );
         

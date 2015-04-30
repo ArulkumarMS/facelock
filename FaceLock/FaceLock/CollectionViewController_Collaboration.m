@@ -90,7 +90,7 @@ static NSString * const reuseIdentifier = @"Cell";
         cell.Portrait.image=[UIImage imageNamed:self.ImageNames[row]];
     }
     else{
-        NSLog(@"%@ is found!",self.ImageNames[row]);
+        NSLog(@"%@ is not found!",self.ImageNames[row]);
         cell.Portrait.image=[UIImage imageNamed:@"Default.png"];
     }
     
