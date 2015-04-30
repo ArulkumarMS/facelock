@@ -62,15 +62,20 @@ struct AppStatus
     
     AppStatus _appStatus;
     
+    // Face Recognition variables
+    int _imagename_count;
+    // Logger
+    NSLogger *logger;
+    
 }
 
 - (BOOL)connectAndStartStreaming;
 - (void)renderDepthFrame:(STDepthFrame*)depthFrame;
 - (void)renderNormalsFrame:(STDepthFrame*)normalsFrame;
 - (void)renderColorFrame:(CMSampleBufferRef)sampleBuffer;
-- (void)setupColorCamera;
-- (void)startColorCamera;
-- (void)stopColorCamera;
+//- (void)setupColorCamera;
+//- (void)startColorCamera;
+//- (void)stopColorCamera;
 
 @end
 
@@ -80,51 +85,55 @@ struct AppStatus
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    // Logger Init
+    logger = [[NSLogger alloc] init];
+    // Face Recognition Init
+    _imagename_count = 0;
+    // Structure Sensor Init
     _sensorController = [STSensorController sharedController];
     _sensorController.delegate = self;
     
     // Create three image views where we will render our frames
     
     CGRect depthFrame = self.view.frame;
-    depthFrame.size.height /= 2;
-    //depthFrame.origin.y = self.view.frame.size.height/2;
-    //depthFrame.origin.x = 1;
-    //depthFrame.origin.x = -self.view.frame.size.width * 0.25;
+//    depthFrame.size.height /= 2;
+//    depthFrame.origin.y = self.view.frame.size.height/2;
+//    depthFrame.origin.x = 1;
+//    depthFrame.origin.x = -self.view.frame.size.width * 0.25;
     
-    CGRect normalsFrame = self.view.frame;
-    normalsFrame.size.height /= 2;
-    normalsFrame.origin.y = self.view.frame.size.height/2;
-    normalsFrame.origin.x = 1;
-    //normalsFrame.origin.y = self.view.frame.size.width * 0.25;
-    
-    CGRect colorFrame = self.view.frame;
-    colorFrame.size.height /= 2;
+//    CGRect normalsFrame = self.view.frame;
+//    normalsFrame.size.height /= 2;
+//    normalsFrame.origin.y = self.view.frame.size.height/2;
+//    normalsFrame.origin.x = 1;
+//    normalsFrame.origin.y = self.view.frame.size.width * 0.25;
+//    
+//    CGRect colorFrame = self.view.frame;
+//    colorFrame.size.height /= 2;
     
     _linearizeBuffer = NULL;
     _coloredDepthBuffer = NULL;
     _normalsBuffer = NULL;
     
     _depthImageView = [[UIImageView alloc] initWithFrame:depthFrame];
-    _depthImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _depthImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_depthImageView];
     
-    _normalsImageView = [[UIImageView alloc] initWithFrame:normalsFrame];
-    _normalsImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:_normalsImageView];
+//    _normalsImageView = [[UIImageView alloc] initWithFrame:normalsFrame];
+//    _normalsImageView.contentMode = UIViewContentModeScaleAspectFit;
+//    [self.view addSubview:_normalsImageView];
     
-    _colorImageView = [[UIImageView alloc] initWithFrame:colorFrame];
-    _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
-    //[self.view addSubview:_colorImageView];
+//    _colorImageView = [[UIImageView alloc] initWithFrame:colorFrame];
+//    _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
+//    [self.view addSubview:_colorImageView];
     
-    [self setupColorCamera];
+//    [self setupColorCamera];
     
-    // Sample usage of wireless debugging API
-    //    NSError* error = nil;
-    //    [STWirelessLog broadcastLogsToWirelessConsoleAtAddress:@"10.1.10.44" usingPort:4999 error:&error];
-    //
-    //    if (error)
-    //        NSLog(@"Oh no! Can't start wireless log: %@", [error localizedDescription]);
+//     Sample usage of wireless debugging API
+//    NSError* error = nil;
+//    [STWirelessLog broadcastLogsToWirelessConsoleAtAddress:@"172.25.97.219" usingPort:4999 error:&error];
+//    
+//    if (error)
+//        NSLog(@"Oh no! Can't start wireless log: %@", [error localizedDescription]);
 }
 
 - (void)dealloc
@@ -183,7 +192,7 @@ struct AppStatus
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-    [self stopColorCamera];
+//    [self stopColorCamera];
 }
 
 - (void)didReceiveMemoryWarning
@@ -208,7 +217,7 @@ struct AppStatus
         [self updateAppStatusMessage];
         
         // Start the color camera, setup if needed
-        [self startColorCamera];
+//        [self startColorCamera];
         
         // Set sensor stream quality
         STStreamConfig streamConfig = STStreamConfigDepth320x240;
@@ -218,7 +227,7 @@ struct AppStatus
         // After this call, we will start to receive frames through the delegate methods
         NSError* error = nil;
         BOOL optionsAreValid = [_sensorController startStreamingWithOptions:@{kSTStreamConfigKey : @(streamConfig),
-                                                                              kSTFrameSyncConfigKey : @(STFrameSyncDepthAndRgb)} error:&error];
+                                                                              kSTFrameSyncConfigKey : @(STFrameSyncOff)} error:&error];
         if (!optionsAreValid)
         {
             NSLog(@"Error during streaming start: %s", [[error localizedDescription] UTF8String]);
@@ -330,6 +339,80 @@ struct AppStatus
     return [_sensorController isConnected] && ![_sensorController isLowPower];
 }
 
+#pragma mark -
+#pragma mark Face Segmentation and Recognition
+
+-(cv::Rect) faceSegmentation:(cv::Mat&) depth_mat
+{
+    const double MAX_DEPTH = 8192.0 / 9.0; // 2^9 / 9 * 16 = 910.2222
+    const int ELEMENT_RADIUS = 5;
+    cv::Rect face;
+    // filter out object not in range
+    cv::Mat mask = depth_mat <= MAX_DEPTH;
+    // Save this mask to image
+    [Utils saveMATImage:mask andName:@"mask.jpg"];
+    cv::normalize(mask, mask, 0, 1, cv::NORM_MINMAX);
+    // Find the largest Connected Components
+//    cv::Mat labels;
+//    cv::connectedComponents(mask, labels);
+    // Apply image erosion
+    cv::Mat element = getStructuringElement(cv::MORPH_ELLIPSE,
+                                            cv::Size(2*ELEMENT_RADIUS+1, 2*ELEMENT_RADIUS+1));
+    cv::erode(mask, mask, element);
+    // Compute projected histogram
+    // mask = MxN
+    // xHist = 1xN
+    // yHist = Mx1
+    cv::Mat xHist, yHist;
+    cv::reduce(mask, xHist, 0, CV_REDUCE_SUM, CV_32SC1); // Sum of each column
+    cv::reduce(mask, yHist, 1, CV_REDUCE_SUM, CV_32SC1); // Sum of each row
+    // Find top
+    int i;
+    const int* yHistData = yHist.ptr<int>(0);
+    i = 0;
+    while ((i < yHist.rows) && (yHistData[i] == 0)) {
+        i++;
+    }
+    face.y = i;
+    // Find the adaptive threshold for vertical projected histogram
+    double maxVal;
+    cv::Point maxLoc;
+    cv::minMaxLoc(xHist, NULL, &maxVal, NULL, &maxLoc);
+    int maxIdx = maxLoc.y;
+    int lowerIdx = std::max(maxIdx - xHist.cols/8, 0);
+    int upperIdx = std::min(maxIdx + xHist.cols/8, xHist.cols-1);
+    // Compute the gradient histogram
+    const int* xHistData = xHist.ptr<int>(0);
+    std::vector<int> gradient;
+    for (i = lowerIdx; i < upperIdx; i++) {
+        gradient.push_back(xHistData[i+1]-xHistData[i]);
+    }
+    long left = lowerIdx + (std::max_element(gradient.begin(), gradient.end()) - gradient.begin());
+    long right = lowerIdx + (std::min_element(gradient.begin(), gradient.end()) - gradient.begin());
+//    face.x = (int) left;
+    // Width = right - left
+    face.width = (int) right - face.x;
+    
+    double t = maxVal-50;
+    // Find left
+    i = 0;
+    while ((i < xHist.cols) && (xHistData[i] < t)) {
+        i++;
+    }
+    face.x = i;
+    // Find right
+    i = xHist.cols-1;
+    while ((i > 0) && (xHistData[i] < t)) {
+        i--;
+    }
+    face.width = i - face.x;
+    
+
+    // Height = 1.25 * width
+    face.height = 1.25 * face.width;
+    return face;
+}
+
 
 #pragma mark -
 #pragma mark Structure SDK Delegate Methods
@@ -342,7 +425,7 @@ struct AppStatus
     [self updateAppStatusMessage];
     
     // Stop the color camera when there isn't a connected Structure Sensor
-    [self stopColorCamera];
+//    [self stopColorCamera];
 }
 
 - (void)sensorDidConnect
@@ -370,14 +453,14 @@ struct AppStatus
     //If needed, change any UI elements to account for the stopped stream
     
     // Stop the color camera when we're not streaming from the Structure Sensor
-    [self stopColorCamera];
+//    [self stopColorCamera];
     
 }
 
 - (void)sensorDidOutputDepthFrame:(STDepthFrame *)depthFrame
 {
     [self renderDepthFrame:depthFrame];
-    [self renderNormalsFrame:depthFrame];
+//    [self renderNormalsFrame:depthFrame];
 }
 
 // This synchronized API will only be called when two frames match. Typically, timestamps are within 1ms of each other.
@@ -388,8 +471,8 @@ struct AppStatus
                                andColorBuffer:(CMSampleBufferRef)sampleBuffer
 {
     [self renderDepthFrame:depthFrame];
-    [self renderNormalsFrame:depthFrame];
-    [self renderColorFrame:sampleBuffer];
+//    [self renderNormalsFrame:depthFrame];
+//    [self renderColorFrame:sampleBuffer];
 }
 
 
@@ -442,7 +525,7 @@ const uint16_t maxShiftValue = 2048;
                 _coloredDepthBuffer[4*i+1] = lowerByte;
                 _coloredDepthBuffer[4*i+2] = 0;
                 break;
-            case 2:
+            /*case 2:
                 _coloredDepthBuffer[4*i+0] = 255-lowerByte;
                 _coloredDepthBuffer[4*i+1] = 255;
                 _coloredDepthBuffer[4*i+2] = 0;
@@ -461,7 +544,7 @@ const uint16_t maxShiftValue = 2048;
                 _coloredDepthBuffer[4*i+0] = 0;
                 _coloredDepthBuffer[4*i+1] = 0;
                 _coloredDepthBuffer[4*i+2] = 255-lowerByte;
-                break;
+                break; */
             default:
                 _coloredDepthBuffer[4*i+0] = 0;
                 _coloredDepthBuffer[4*i+1] = 0;
@@ -471,6 +554,35 @@ const uint16_t maxShiftValue = 2048;
     }
 }
 
+/* https://www.cocoanetics.com/2010/07/drawing-on-uiimages/ */
+- (UIImage *)drawingRectangleOnImage:(UIImage *)image withRectangle:(CGRect&) roi;
+{
+    // begin a graphics context of sufficient size
+    UIGraphicsBeginImageContext(image.size);
+    
+    // draw original image into the context
+    [image drawAtPoint:CGPointZero];
+    
+    // get the context for CoreGraphics
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    // set stroking color and draw circle
+    [[UIColor greenColor] setStroke];
+    
+//    CGRect roi = CGRectMake(0.25*image.size.width, 0, image.size.width/2, image.size.height);
+    
+    // draw circle
+    CGContextStrokeRectWithWidth(ctx, roi, 1);
+    
+    // make image out of bitmap context
+    UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // free the context
+    UIGraphicsEndImageContext();
+    
+    return retImage;
+}
+
 - (void)renderDepthFrame:(STDepthFrame *)depthFrame
 {
     size_t cols = depthFrame.width;
@@ -478,9 +590,13 @@ const uint16_t maxShiftValue = 2048;
     
     
     
-    if (_linearizeBuffer == NULL || _normalsBuffer == NULL)
+    if (_linearizeBuffer == NULL /* || _normalsBuffer == NULL*/)
     {
         [self populateLinearizeBuffer];
+        
+    }
+    if (_coloredDepthBuffer == NULL)
+    {
         _coloredDepthBuffer = (uint8_t*)malloc(cols * rows * 4);
     }
     
@@ -512,12 +628,43 @@ const uint16_t maxShiftValue = 2048;
                                         kCGRenderingIntentDefault);  //rendering intent
     
     // Assign CGImage to UIImage
-    UIImage* Img = [UIImage imageWithCGImage:imageRef];
-    _depthImageView.image = Img;
+    UIImage *coloredDepth = [UIImage imageWithCGImage:imageRef];
+//    CGRect roi = CGRectMake(0.25*coloredDepth.size.width, 0, coloredDepth.size.width/2, coloredDepth.size.height);
+//    coloredDepth = [self drawingRectangleOnImage:coloredDepth withRectangle:roi];
+    
+    cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);
+    cv::Rect face = [self faceSegmentation:depth_mat];
+    CGRect cgface = CGRectMake(face.x, face.y, face.width, face.height);
+    coloredDepth = [self drawingRectangleOnImage:coloredDepth withRectangle:cgface];
+    _depthImageView.image = coloredDepth;
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
     
+    
+//    cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);
+//    cv::Rect face = [self faceSegmentation:depth_mat];
+//    CGRect cgface = CGRectMake(face.x, face.y, face.width, face.height);
+    
+    /*
+    // Run face detection, nose detection and face recognition in a thread (using global thread pool)
+    dispatch_queue_t face_recognition_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(face_recognition_queue, ^{
+        // 3D Face Recognition here
+        
+        
+        
+        
+//        _imagename_count += 1;
+//        NSString* imagename = [NSString stringWithFormat:@"depth_%.4d.jpg", _imagename_count];
+//        [Utils saveMATImage:depth_mat andName:imagename];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Update the UI
+            
+        });
+    });
+    */
+
 }
 
 - (void) renderNormalsFrame: (STDepthFrame*) depthFrame
@@ -531,28 +678,17 @@ const uint16_t maxShiftValue = 2048;
     size_t cols = normalsFrame.width;
     size_t rows = normalsFrame.height;
     
-    
-    size_t index = [self findNosePosition:depthFrame];
     // Convert normal unit vectors (ranging from -1 to 1) to RGB (ranging from 0 to 255)
     // Z can be slightly positive in some cases too!
     if (_normalsBuffer == NULL)
     {
         _normalsBuffer = (uint8_t*)malloc(cols * rows * 4);
     }
-    
     for (size_t i = 0; i < cols * rows; i++)
     {
-        if (i == index) {
-            _normalsBuffer[4*i+0] = (uint8_t)(255);
-        }else if(depthFrame.data[i]>600||depthFrame.data[i]<400) {
-            _normalsBuffer[4*i+0] = (uint8_t)(0);
-            _normalsBuffer[4*i+1] = (uint8_t)(0);
-            _normalsBuffer[4*i+2] = (uint8_t)(0);
-        }else{
-            _normalsBuffer[4*i+0] = (uint8_t)( ( ( normalsFrame.normals[i].x / 2 ) + 0.5 ) * 255);
-            _normalsBuffer[4*i+1] = (uint8_t)( ( ( normalsFrame.normals[i].y / 2 ) + 0.5 ) * 255);
-            _normalsBuffer[4*i+2] = (uint8_t)( ( ( normalsFrame.normals[i].z / 2 ) + 0.5 ) * 255);
-        }
+        _normalsBuffer[4*i+0] = (uint8_t)( ( ( normalsFrame.normals[i].x / 2 ) + 0.5 ) * 255);
+        _normalsBuffer[4*i+1] = (uint8_t)( ( ( normalsFrame.normals[i].y / 2 ) + 0.5 ) * 255);
+        _normalsBuffer[4*i+2] = (uint8_t)( ( ( normalsFrame.normals[i].z / 2 ) + 0.5 ) * 255);
     }
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
@@ -576,33 +712,12 @@ const uint16_t maxShiftValue = 2048;
                                         false,
                                         kCGRenderingIntentDefault);
     
-    UIImage *Img = [[UIImage alloc] initWithCGImage:imageRef];
-    CGRect rect = CGRectMake(cols/4, rows/4, cols/2, rows/2);
-    [Img drawInRect:rect];
-    
-    _normalsImageView.image = Img;
+    _normalsImageView.image = [[UIImage alloc] initWithCGImage:imageRef];
     
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpace);
     
-}
-
--(size_t)findNosePosition:(STDepthFrame*) depthFrame{
-    
-    size_t ind = 0;
-    size_t cols = depthFrame.width;
-    size_t rows = depthFrame.height;
-    
-    uint8_t MAX_DEPTH = 100;
-    
-    for (size_t i = 0; i < cols*rows; i++) {
-        if (depthFrame.data[i]< MAX_DEPTH) {
-            ind = i;
-        }
-    }
-    
-    return ind;
 }
 
 - (void)renderColorFrame:(CMSampleBufferRef)sampleBuffer
@@ -648,7 +763,7 @@ const uint16_t maxShiftValue = 2048;
 }
 
 
-
+/*
 #pragma mark -  AVFoundation
 
 - (BOOL)queryCameraAuthorizationStatusAndNotifyUserIfNotGranted
@@ -847,6 +962,6 @@ const uint16_t maxShiftValue = 2048;
     // Pass into the driver. The sampleBuffer will return later with a synchronized depth or IR pair.
     [_sensorController frameSyncNewColorBuffer:sampleBuffer];
 }
-
+*/
 
 @end

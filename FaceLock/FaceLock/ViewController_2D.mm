@@ -27,7 +27,7 @@
     [self.view addSubview:_colorImageView];
     // Create face detector
     _faceCascade = [Utils loadClassifier:@"haarcascade_frontalface_alt2"];
-    _eyeCascade = [Utils loadClassifier:@"haarcascade_eye_tree_eyeglasses"];
+    _eyeCascade = [Utils loadClassifier:@"haarcascade_eye"];
     // Call OPENCV video camera
     self.videoCamera = [[CvVideoCamera alloc] initWithParentView:_colorImageView];
     self.videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionFront;
@@ -110,7 +110,8 @@
                 // Get face region
                 cv::Mat image_face_roi = image_roi_clone(_faces[i]);
                 // Eye detection
-                _eyeCascade->detectMultiScale(image_face_roi, _eyes);
+                _eyeCascade->detectMultiScale(image_face_roi, _eyes,1.1, 1, 0|CV_HAAR_SCALE_IMAGE);
+//                _eyeCascade->detectMultiScale(image_face_roi, _eyes);
                 
                 if (_eyes.size() > 0) {
                     NSLog(@"Found %@ eyes!\n", @(_eyes.size()));
