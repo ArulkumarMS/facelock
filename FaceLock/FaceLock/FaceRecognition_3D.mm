@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FaceRecognition_3D.h"
-#define MODEL_NAME_3D @"EigenFace3DModel.xml"
+#define MODEL_NAME_3D @"LBPFace3DModel.xml"
 
 @implementation FaceRecognition_3D
 
@@ -55,7 +55,7 @@
             Lables.push_back(label);
         }
     }
-//    faceRecognizer->update(Images, Lables);
-    faceRecognizer->train(Images, Lables);
+    faceRecognizer->update(Images, Lables);
+//    faceRecognizer->train(Images, Lables);
 }
 @end

@@ -133,7 +133,7 @@ struct AppStatus
     
     if (![FaceRecognition_3D doesModelFileExist]){
         [logger log:@"IN 3D initiate part!"];
-        cv::Ptr<cv::face::FaceRecognizer> initFaceRecognizer=cv::face::createEigenFaceRecognizer();
+        cv::Ptr<cv::face::FaceRecognizer> initFaceRecognizer=cv::face::createLBPHFaceRecognizer();
         [FaceRecognition_3D saveFaceRecognizer:initFaceRecognizer];
         [FaceRecognition_3D loadFaceRecognizer:initFaceRecognizer];
 //        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"YIWEN SHI 3D" andLabel:0 andTrainNum:46];
@@ -142,7 +142,7 @@ struct AppStatus
 //        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"XIANG XU 3D" andLabel:3 andTrainNum:10];
         [FaceRecognition_3D saveFaceRecognizer:initFaceRecognizer];
     }
-    _faceRecognizer=cv::face::createEigenFaceRecognizer();
+    _faceRecognizer=cv::face::createLBPHFaceRecognizer();
     [FaceRecognition_3D loadFaceRecognizer:_faceRecognizer];
     
 //     Sample usage of wireless debugging API
