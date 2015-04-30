@@ -21,6 +21,7 @@
     [super viewDidLoad];
     _count = 0;
     _imagename_count = 0;
+    logger = [[NSLogger alloc] init];
     CGRect colorFrame = self.view.frame;
     _colorImageView = [[UIImageView alloc]initWithFrame:colorFrame];
     _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -147,8 +148,10 @@
                     int label;
                     double predicted_confidence;
                     _LBPHFaceRecognizer->predict(normalFaceImg, label, predicted_confidence);
+                    NSString* event = [NSString stringWithFormat:@"Label: %d Confidence: %.4f",label, predicted_confidence];
+                    [logger log:event properties:nil];
                     NSLog(@"Found %d, confidence %.4f \n", label, predicted_confidence);
-                    if(predicted_confidence < 30){
+                    if(predicted_confidence < 40){
                         NSString* welcome;
                         if (label==0){
                             welcome = @"Welcome back, Yiwen.";
