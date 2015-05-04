@@ -50,7 +50,7 @@
         NSLog(@"element: %@,%lu", element,(unsigned long)[curUserName indexOfObject:element]);
     NSLog(@"total user: %lu",(unsigned long)[curUserName count]);
     [Setting_UserManagement SaveUserFile:curUserName];
-    
+    [Setting_ImageManagement removeImage:DeleteUserName andTrainNum:50];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,21 +79,17 @@
     }
     cell.Name.text = [self.UserName objectAtIndex:row];
     cell.Label.text = [@(row) stringValue];
-    cell.Portrait.image=[self loadImage:[self.UserName objectAtIndex:row]];
+    NSString *PortraitImageName=[NSString stringWithFormat:@"%@1.jpg", cell.Name.text];
+    if ([Setting_ImageManagement ImageExist:PortraitImageName]) {
+        cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
+    }
+    else{
+        cell.Portrait.image=[UIImage imageNamed:@"Default.png"];
+    }
+    //cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
     return cell;
 }
 
-- (UIImage*)loadImage: (NSString *)FullName
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0004.jpg"];
-    UIImage* image = [UIImage imageWithContentsOfFile:path];
-    NSString* imageName=[NSString stringWithFormat:@"%@1.jpg", FullName];
-    image=[UIImage imageNamed:imageName];
-    return image;
-}
 
 /*
  // Override to support conditional editing of the table view.
@@ -108,9 +104,12 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        NSString *DeleteUserName=self.UserName[indexPath.row];
         [self.UserName removeObjectAtIndex:indexPath.row];
+        
         [Setting_UserManagement SaveUserFile:self.UserName];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [Setting_ImageManagement removeImage:DeleteUserName andTrainNum:50];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }

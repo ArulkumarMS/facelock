@@ -7,12 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>DEF48853-D44D-4EAA-B6E2-8D88A9173C1F</string>
 	<key>IDESourceControlProjectName</key>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>71A69775BBF0DD28B94CA46CB319C447721D3EE6</key>
 		<string>https://bitbucket.org/facelock/facelock.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
+	<string>FaceLock/FaceLock.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>71A69775BBF0DD28B94CA46CB319C447721D3EE6</key>
@@ -33,7 +35,6 @@
 			<string>71A69775BBF0DD28B94CA46CB319C447721D3EE6</string>
 			<key>IDESourceControlWCCName</key>
 			<string>facelock</string>
-			<string>FaceLock</string>
 		</dict>
 	</array>
 </dict>

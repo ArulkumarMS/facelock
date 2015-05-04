@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Setting_UserManagement.h"
 #import "UserCell.h"
+#import "Setting_ImageManagement.h"
+
 
 
 @interface TableViewController_AddUser : UITableViewController

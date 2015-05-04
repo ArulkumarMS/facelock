@@ -10,6 +10,8 @@
 #import "Setting_UserManagement.h"
 #import "UserCell.h"
 #import "CollectionViewController_Collaboration.h"
+#import "Setting_ImageManagement.h"
+
 
 @interface TableViewController_Collaboration : UITableViewController
 @property (nonatomic, strong) NSString *fullname;

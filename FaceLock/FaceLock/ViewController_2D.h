@@ -20,6 +20,7 @@
 #import "FaceRecognition_2D.h"
 #import "UserDefaultsHelper.h"
 #import "Constants.h"
+#import "Setting_UserManagement.h"
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
@@ -42,6 +43,7 @@
     cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
     NSString *user;
     NSLogger* logger;
+    NSMutableArray *UserName;
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 

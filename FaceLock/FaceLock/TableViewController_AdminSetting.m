@@ -1,25 +1,22 @@
 //
-//  TableViewController_Setting.m
+//  TableViewController_AdminSetting.m
 //  FaceLock
 //
-//  Created by Yiwen Shi on 4/18/15.
+//  Created by Yiwen Shi on 5/3/15.
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
-#import "TableViewController_Setting.h"
+#import "TableViewController_AdminSetting.h"
 
-@interface TableViewController_Setting ()
-
+@interface TableViewController_AdminSetting ()
 
 @end
 
-@implementation TableViewController_Setting{
-        //NSArray *SettingOptions;
-}
+@implementation TableViewController_AdminSetting
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //SettingOptions=[NSArray arrayWithObjects:@"User Management",@"Collaboration",@"Threshold", nil];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -35,26 +32,21 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
     return 2;
-    
-    //return [SettingOptions count];
 }
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    static NSString *simpleTableIdentifier = @"SettingCell";
+    // Configure the cell...
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    //cell.textLabel.text = [SettingOptions objectAtIndex:indexPath.row];
     return cell;
 }
 */
@@ -94,24 +86,21 @@
 */
 
 
+#pragma mark - Navigation
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"Segue_Add_User"]) {
-        //NSIndexPath *indexPath= [self.tableView indexPathForSelectedRow];
-        TableViewController_Setting *destViewController = segue.destinationViewController;
-        //destViewController.settingOptions = [SettingOptions objectAtIndex:indexPath.row];
-        destViewController.title=@"Add User";
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"Segue_Collaboration"]) {
+        TableViewController_AdminSetting *destViewController = segue.destinationViewController;
+        destViewController.title=@"Training Image Library";
     }
-    else if ([segue.identifier isEqualToString:@"Segue_Delete_User"]) {
-        TableViewController_Setting *destViewController = segue.destinationViewController;
-        destViewController.title=@"Delete User";
+    else if ([segue.identifier isEqualToString:@"Segue_Threshold"]){
+        TableViewController_AdminSetting *destViewController = segue.destinationViewController;
+        destViewController.title=@"Set Threshold";
     }
-
-
 }
 
-//-(NSUInteger)supportedInterfaceOrientations{
-//    return UIInterfaceOrientationMaskPortrait;
-//}
 
 @end

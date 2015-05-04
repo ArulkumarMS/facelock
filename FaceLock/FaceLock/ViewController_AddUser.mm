@@ -14,16 +14,15 @@
 
 - (IBAction)TrainFaceRecg:(id)sender {    
     cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
     [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
-    [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
+    [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
     NSMutableArray *UserName=[Setting_UserManagement LoadUserFile];
     
     for(int i=0;i<=[UserName count]-1;i++){
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:9];
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
     }
-
     [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+    self.LBNotification.text=@"Trainning Completed!";
 }
 
 - (IBAction)AddNewUser:(id)sender {

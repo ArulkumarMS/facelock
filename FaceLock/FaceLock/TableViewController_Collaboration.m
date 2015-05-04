@@ -54,21 +54,18 @@
     cell.Name.text = [self.UserName objectAtIndex:row];
     cell.Label.text = [@(row) stringValue];
     self.fullname=[self.UserName objectAtIndex:row];
-    cell.Portrait.image=[self loadImage:self.fullname];
+    NSString *PortraitImageName=[NSString stringWithFormat:@"%@1.jpg", self.fullname];
+    if ([Setting_ImageManagement ImageExist:PortraitImageName]) {
+        cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
+    }
+    else{
+        cell.Portrait.image=[UIImage imageNamed:@"Default.png"];
+    }
+    //cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
     return cell;
 }
 
-- (UIImage*)loadImage: (NSString *)FullName
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:@"faces_0004.jpg"];
-    UIImage* image = [UIImage imageWithContentsOfFile:path];
-    NSString* imageName=[NSString stringWithFormat:@"%@1.jpg", FullName];
-    image=[UIImage imageNamed:imageName];
-    return image;
-}
+
 
 /*
 // Override to support conditional editing of the table view.

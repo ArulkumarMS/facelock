@@ -21,7 +21,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.ImageNames=[[NSMutableArray alloc]init];
-    for (NSInteger i=1; i<=10; i++) {
+    for (NSInteger i=1; i<=50; i++) {
         NSString *ImageName=[NSString stringWithFormat:@"%@%ld.jpg", self.FullName,(long)i];
         NSLog(@"image name is: %@",ImageName);
         if (!self.ImageNames ) self.ImageNames  = [[NSMutableArray alloc] init];
@@ -72,7 +72,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return 50;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,12 +82,12 @@ static NSString * const reuseIdentifier = @"Cell";
     NSInteger row = [indexPath row];
 
     // Configure the cell
-    //if ([self ImageExist:ImageNames[row]]) {
-    //    cell.Portrait.image=[self loadImage:ImageNames[row]];
+    if ([Setting_ImageManagement ImageExist:self.ImageNames[row]]) {
+        cell.Portrait.image=[Setting_ImageManagement loadImage:self.ImageNames[row]];
     //}
-    if([UIImage imageNamed:self.ImageNames[row]]!=nil){
-        NSLog(@"%@ is found!",self.ImageNames[row]);
-        cell.Portrait.image=[UIImage imageNamed:self.ImageNames[row]];
+    //if([UIImage imageNamed:self.ImageNames[row]]!=nil){
+    //    NSLog(@"%@ is found!",self.ImageNames[row]);
+    //    cell.Portrait.image=[UIImage imageNamed:self.ImageNames[row]];
     }
     else{
         NSLog(@"%@ is not found!",self.ImageNames[row]);
@@ -99,25 +99,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 
-- (BOOL)ImageExist:(NSString*)ImageName
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *ImagePath = [documentsDirectory stringByAppendingPathComponent:ImageName];
-    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:ImagePath];
-    NSLog(@"%@,%s",ImageName, fileExists ? "true" : "false");
-    return fileExists;
-}
 
-- (UIImage*)loadImage:(NSString*)ImageName
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:ImageName];
-    UIImage* image = [UIImage imageWithContentsOfFile:path];
-    return image;
-}
 
 
 #pragma mark <UICollectionViewDelegate>

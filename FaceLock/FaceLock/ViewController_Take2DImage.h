@@ -16,6 +16,7 @@
 #import <opencv2/face/facerec.hpp>
 #import "UIImageCVMatConverter.h"
 #import "Utils.h"
+#import "NSLogger.h"
 #import "FaceRecognition_2D.h"
 #import "UserDefaultsHelper.h"
 #import "Constants.h"
@@ -40,6 +41,7 @@
     CGContextRef _contextRef;
     cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
     NSString *user;
+    NSLogger* logger;
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
 

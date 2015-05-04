@@ -264,10 +264,14 @@
 		2957F6C21AF21E5B0032C536 /* HA LE 3D50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6901AF21E5B0032C536 /* HA LE 3D50.jpg */; };
 		297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */; };
 		29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */; };
+		360B5D111AF736EF001D62A1 /* Threshold.m in Sources */ = {isa = PBXBuildFile; fileRef = 360B5D101AF736EF001D62A1 /* Threshold.m */; };
+		360B5D141AF73B32001D62A1 /* ViewController_SetThreshold.m in Sources */ = {isa = PBXBuildFile; fileRef = 360B5D131AF73B32001D62A1 /* ViewController_SetThreshold.m */; };
 		362E2EBC1AE33AAC0073D12C /* TableViewController_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */; };
 		362E2EC21AE3FCBD0073D12C /* TableViewController_AddUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC11AE3FCBD0073D12C /* TableViewController_AddUser.m */; };
 		362E2EC91AE3FE7D0073D12C /* Setting_UserManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */; };
 		362E2ECC1AE41BB80073D12C /* TableViewController_DeleteUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */; };
+		3666AE081AF6DD59000ACD88 /* TableViewController_AdminSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666AE071AF6DD59000ACD88 /* TableViewController_AdminSetting.m */; };
+		3666AE0B1AF7127D000ACD88 /* Setting_ImageManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3666AE0A1AF7127D000ACD88 /* Setting_ImageManagement.m */; };
 		3672FBC31AEA9BB600236621 /* TableViewController_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC21AEA9BB600236621 /* TableViewController_Collaboration.m */; };
 		3672FBC61AEB287100236621 /* CollectionViewController_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC51AEB287100236621 /* CollectionViewController_Collaboration.m */; };
 		3672FBC91AEB31CE00236621 /* CollectionViewCell_Collaboration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3672FBC81AEB31CE00236621 /* CollectionViewCell_Collaboration.m */; };
@@ -580,6 +584,10 @@
 		2957F6901AF21E5B0032C536 /* HA LE 3D50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D50.jpg"; sourceTree = "<group>"; };
 		297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
+		360B5D0F1AF736EF001D62A1 /* Threshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Threshold.h; sourceTree = "<group>"; };
+		360B5D101AF736EF001D62A1 /* Threshold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Threshold.m; sourceTree = "<group>"; };
+		360B5D121AF73B32001D62A1 /* ViewController_SetThreshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_SetThreshold.h; sourceTree = "<group>"; };
+		360B5D131AF73B32001D62A1 /* ViewController_SetThreshold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController_SetThreshold.m; sourceTree = "<group>"; };
 		362E2EBA1AE33AAC0073D12C /* TableViewController_Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_Setting.h; sourceTree = "<group>"; };
 		362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_Setting.m; sourceTree = "<group>"; };
 		362E2EC01AE3FCBD0073D12C /* TableViewController_AddUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_AddUser.h; sourceTree = "<group>"; };
@@ -588,6 +596,10 @@
 		362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting_UserManagement.m; sourceTree = "<group>"; };
 		362E2ECA1AE41BB80073D12C /* TableViewController_DeleteUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_DeleteUser.h; sourceTree = "<group>"; };
 		362E2ECB1AE41BB80073D12C /* TableViewController_DeleteUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_DeleteUser.m; sourceTree = "<group>"; };
+		3666AE061AF6DD59000ACD88 /* TableViewController_AdminSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_AdminSetting.h; sourceTree = "<group>"; };
+		3666AE071AF6DD59000ACD88 /* TableViewController_AdminSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_AdminSetting.m; sourceTree = "<group>"; };
+		3666AE091AF7127D000ACD88 /* Setting_ImageManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Setting_ImageManagement.h; sourceTree = "<group>"; };
+		3666AE0A1AF7127D000ACD88 /* Setting_ImageManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting_ImageManagement.m; sourceTree = "<group>"; };
 		3672FBC11AEA9BB600236621 /* TableViewController_Collaboration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_Collaboration.h; sourceTree = "<group>"; };
 		3672FBC21AEA9BB600236621 /* TableViewController_Collaboration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_Collaboration.m; sourceTree = "<group>"; };
 		3672FBC41AEB287100236621 /* CollectionViewController_Collaboration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController_Collaboration.h; sourceTree = "<group>"; };
@@ -710,6 +722,14 @@
 				3672FBC81AEB31CE00236621 /* CollectionViewCell_Collaboration.m */,
 				3672FBCC1AEB480000236621 /* UIImageView_Collaboration.h */,
 				3672FBCD1AEB480000236621 /* UIImageView_Collaboration.m */,
+				3666AE061AF6DD59000ACD88 /* TableViewController_AdminSetting.h */,
+				3666AE071AF6DD59000ACD88 /* TableViewController_AdminSetting.m */,
+				3666AE091AF7127D000ACD88 /* Setting_ImageManagement.h */,
+				3666AE0A1AF7127D000ACD88 /* Setting_ImageManagement.m */,
+				360B5D0F1AF736EF001D62A1 /* Threshold.h */,
+				360B5D101AF736EF001D62A1 /* Threshold.m */,
+				360B5D121AF73B32001D62A1 /* ViewController_SetThreshold.h */,
+				360B5D131AF73B32001D62A1 /* ViewController_SetThreshold.m */,
 			);
 			name = "Setting View";
 			sourceTree = "<group>";
@@ -1441,6 +1461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB0FE0E11AB37E97007BF483 /* ViewController.mm in Sources */,
+				360B5D111AF736EF001D62A1 /* Threshold.m in Sources */,
 				CB0FE0DE1AB37E97007BF483 /* AppDelegate.m in Sources */,
 				362E2EBC1AE33AAC0073D12C /* TableViewController_Setting.m in Sources */,
 				3672FBC31AEA9BB600236621 /* TableViewController_Collaboration.m in Sources */,
@@ -1450,6 +1471,7 @@
 				362E2ECC1AE41BB80073D12C /* TableViewController_DeleteUser.m in Sources */,
 				362E2EC91AE3FE7D0073D12C /* Setting_UserManagement.m in Sources */,
 				CB27EBD91AE01593006B5750 /* ViewController_3D.mm in Sources */,
+				3666AE081AF6DD59000ACD88 /* TableViewController_AdminSetting.m in Sources */,
 				29459E911AF1A02E0037D69E /* NSLogger.m in Sources */,
 				36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */,
 				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
@@ -1458,8 +1480,10 @@
 				CB6F20CD1AD4CF8000563FFD /* UserDefaultsHelper.m in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,
 				3672FBCE1AEB480000236621 /* UIImageView_Collaboration.m in Sources */,
+				360B5D141AF73B32001D62A1 /* ViewController_SetThreshold.m in Sources */,
 				368DEE211AE851B9004895C1 /* UserCell.m in Sources */,
 				3672FBC91AEB31CE00236621 /* CollectionViewCell_Collaboration.m in Sources */,
+				3666AE0B1AF7127D000ACD88 /* Setting_ImageManagement.m in Sources */,
 				3672FBC61AEB287100236621 /* CollectionViewController_Collaboration.m in Sources */,
 				CB6F20D01AD4D41800563FFD /* Constants.m in Sources */,
 				36CD1C201AD86B2200D0140F /* ViewController_AddUser.mm in Sources */,

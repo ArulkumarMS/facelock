@@ -46,16 +46,22 @@
     std::vector<int> Lables;
     
     for(int i=1; i<=imageNum; i++){
-        //NSString *path = [[NSBundle mainBundle] pathForResource:@"pattern" ofType:@"bmp"];
-        //const char * cpath = [path cStringUsingEncoding:NSUTF8StringEncoding];
-        //cv::Mat img_object = cv::imread( cpath, CV_LOAD_IMAGE_GRAYSCALE );
         
-        NSString *filename = [NSString stringWithFormat: @"%@%@",
+        //NSString *filename = [NSString stringWithFormat: @"%@%@", username, [@(i) stringValue]];
+        
+        //NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"jpg" ];
+        //const char * cpath = [filePath cStringUsingEncoding:NSUTF8StringEncoding];
+        //cv::Mat cvImage = cv::imread( cpath, CV_LOAD_IMAGE_GRAYSCALE );
+        NSString *filename = [NSString stringWithFormat: @"%@%@.jpg",
                               username, [@(i) stringValue]];
         NSLog(@"%@",filename);
-        NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"jpg" ];
-        const char * cpath = [filePath cStringUsingEncoding:NSUTF8StringEncoding];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:filename];
+        const char * cpath = [path cStringUsingEncoding:NSUTF8StringEncoding];
         cv::Mat cvImage = cv::imread( cpath, CV_LOAD_IMAGE_GRAYSCALE );
+        
         
         if(cvImage.data )                              // Check for invalid input
         {

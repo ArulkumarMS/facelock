@@ -9,6 +9,8 @@
 #import <opencv2/opencv.hpp>
 #import <opencv2/face.hpp>
 #import <opencv2/face/facerec.hpp>
+#import <UIKit/UIKit.h>
+#import "UIImageCVMatConverter.h"
 
 
 @interface FaceRecognition_2D : NSObject{

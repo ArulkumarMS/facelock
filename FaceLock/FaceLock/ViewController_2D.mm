@@ -40,6 +40,7 @@
     
     //if run FaceLock in the ios device first time, uncommend following part.
     //BOOL flag_fr_initial = [UserDefaultsHelper getBoolForKey: Str_FR_Initial];
+    /*
     if (![FaceRecognition_2D LBPHfileExist]){
         NSLog(@"IN initiate part!");
         cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
@@ -52,6 +53,20 @@
         [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
         //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
     }
+    */
+    
+    //if (![FaceRecognition_2D LBPHfileExist]){
+        cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+        [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+        [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
+        UserName=[Setting_UserManagement LoadUserFile];
+    
+        for(int i=0;i<=[UserName count]-1;i++){
+            [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
+        }
+        [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+    //}
+
     
     _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
     [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
@@ -63,7 +78,6 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-//    [super viewDidDisappear:<#animated#>];
     [self.videoCamera stop];
 }
 
@@ -151,19 +165,8 @@
                     NSString* event = [NSString stringWithFormat:@"Label: %d Confidence: %.4f",label, predicted_confidence];
                     [logger log:event];
                     NSLog(@"Label: %d Confidence %.4f\n", label, predicted_confidence);
-                    if(predicted_confidence < 70){
-                        NSString* welcome;
-                        if (label==0){
-                            welcome = @"Welcome back, Yiwen.";
-                        } else
-                        if (label==1){
-                            welcome = @"Welcome back, Ha.";
-                        } else
-                        if (label==2){
-                            welcome = @"Welcome back, Shiwani.";
-                        } else if (label == 3) {
-                            welcome = @"Welcome back, Xiang.";
-                        }
+                    if(predicted_confidence < 300){
+                        NSString* welcome=[NSString stringWithFormat:@"Welcome back, %@", UserName[label]];
                             
                             
                         AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
