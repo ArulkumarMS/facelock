@@ -111,6 +111,7 @@
         CollectionViewController_Collaboration *controller = (CollectionViewController_Collaboration *)segue.destinationViewController;
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
         NSInteger row = [indexPath row];
+        controller.title=[self.UserName objectAtIndex:row];
         controller.FullName = [self.UserName objectAtIndex:row];
     }
 }
