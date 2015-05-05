@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface Threshold : NSObject
-+ (double)getThreshold_2D;
-+ (void)setThreshold_2D:(double)newThreshold2D;
-+ (double)getThreshold_3D;
-+ (void)setThreshold_3D:(double)newThreshold3D;
+
++ (BOOL)Threshold2dfileExist;
++ (NSString *) Load2DThresholdFile;
++ (void) init2DThresholdFile;
++ (void) Save2DThresholdFile:(NSString *)Threshold2D;
++ (BOOL)Threshold3dfileExist;
++ (NSString *) Load3DThresholdFile;
++ (void) init3DThresholdFile;
++ (void) Save3DThresholdFile:(NSString *)Threshold3D;
 @end

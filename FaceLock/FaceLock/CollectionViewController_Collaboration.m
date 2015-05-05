@@ -45,7 +45,7 @@ static NSString * const reuseIdentifier = @"Cell";
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     // Do any additional setup after loading the view.
 }
 
@@ -99,9 +99,6 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 
-
-
-
 #pragma mark <UICollectionViewDelegate>
 
 /*
@@ -116,8 +113,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-*/
 
+*/
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {

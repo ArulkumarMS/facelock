@@ -16,9 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tfThreshold2D.text=[NSString stringWithFormat:@"%f", [Threshold getThreshold_2D]];
-    self.tfThreshold3D.text=[NSString stringWithFormat:@"%f", [Threshold getThreshold_3D]];
-    // Do any additional setup after loading the view.
+    if(![Threshold Threshold2dfileExist]){
+        [Threshold init2DThresholdFile];
+    }
+    if(![Threshold Threshold3dfileExist]){
+        [Threshold init3DThresholdFile];
+    }
+    
+    self.tfThreshold2D.text=[Threshold Load2DThresholdFile];
+    self.tfThreshold3D.text=[Threshold Load3DThresholdFile];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,8 +32,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)SaveTreshold:(id)sender {
-    [Threshold setThreshold_2D:[self.tfThreshold2D.text doubleValue]];
-    [Threshold setThreshold_3D:[self.tfThreshold3D.text doubleValue]];
+    [Threshold Save2DThresholdFile:self.tfThreshold2D.text];
+    [Threshold Save3DThresholdFile:self.tfThreshold3D.text];
     self.LBNotification.text=@"Threshold updated!";
 }
 

@@ -7,23 +7,70 @@
 //
 
 #import "Threshold.h"
-
-static double Threshold2D = 0; // static means it is only accessible from the current file
-static double Threshold3D = 0;
-
 @implementation Threshold
 
-+ (double)getThreshold_2D {
-    return Threshold2D;
-}
-+ (void)setThreshold_2D:(double)newThreshold2D {
-    Threshold2D = newThreshold2D;
++ (BOOL)Threshold2dfileExist{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString  *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"2DThreshold.txt"];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    NSLog(@"2DThreshold.txt,%s", fileExists ? "true" : "false");
+    return fileExists;
 }
 
-+ (double)getThreshold_3D {
-    return Threshold3D;
++ (NSString *) Load2DThresholdFile{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/2DThreshold.txt", documentsDirectory];
+    return [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
 }
-+ (void)setThreshold_3D:(double)newThreshold3D {
-    Threshold3D = newThreshold3D;
+
++ (void) init2DThresholdFile{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/2DThreshold.txt", documentsDirectory];
+    [@"0" writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+
+}
+
++ (void) Save2DThresholdFile:(NSString *)Threshold2D{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/2DThreshold.txt", documentsDirectory];
+    [Threshold2D writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+}
+
++ (BOOL)Threshold3dfileExist{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString  *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"3DThreshold.txt"];
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    NSLog(@"3DThreshold.txt,%s", fileExists ? "true" : "false");
+    return fileExists;
+}
+
++ (NSString *) Load3DThresholdFile{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/3DThreshold.txt", documentsDirectory];
+    return [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:nil];
+}
+
++ (void) init3DThresholdFile{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/3DThreshold.txt", documentsDirectory];
+    [@"0" writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
+}
+
++ (void) Save3DThresholdFile:(NSString *)Threshold3D{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains
+    (NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [NSString stringWithFormat:@"%@/3DThreshold.txt", documentsDirectory];
+    [Threshold3D writeToFile:fileName atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil];
 }
 @end
