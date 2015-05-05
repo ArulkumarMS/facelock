@@ -54,4 +54,23 @@
 
     }
 }
+
++ (void)removeOneImage:(NSString *)ImageName
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:ImageName];
+    if([fileManager fileExistsAtPath:filePath]){
+        NSError *error;
+        BOOL success = [fileManager removeItemAtPath:filePath error:&error];
+        if (success) {
+            NSLog(@"Delete Image -:%@ ",ImageName);
+        }
+        else
+        {
+            NSLog(@"Could not delete Image -%@:%@ ",ImageName, [error localizedDescription]);
+        }
+    }
+}
 @end

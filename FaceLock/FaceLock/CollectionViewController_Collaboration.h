@@ -10,6 +10,7 @@
 #import "Setting_UserManagement.h"
 #import "CollectionViewCell_Collaboration.h"
 #import "Setting_ImageManagement.h"
+#import "ViewController_Add2DImage.h"
 
 @interface CollectionViewController_Collaboration : UICollectionViewController
 @property(nonatomic) NSString *FullName;

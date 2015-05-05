@@ -70,11 +70,29 @@
     
     _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
     [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
+    threshold2D=[[Threshold Load2DThresholdFile] doubleValue];
+    NSLog(@"threshold is %f",threshold2D);
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.videoCamera start];
+    cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+    [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
+    UserName=[Setting_UserManagement LoadUserFile];
+    
+    for(int i=0;i<=[UserName count]-1;i++){
+        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
+    }
+    [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+    //}
+    
+    
+    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
+    threshold2D=[[Threshold Load2DThresholdFile] doubleValue];
+    NSLog(@"threshold is %f",threshold2D);
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -165,9 +183,9 @@
                     NSString* event = [NSString stringWithFormat:@"Label: %d Confidence: %.4f",label, predicted_confidence];
                     [logger log:event];
                     NSLog(@"Label: %d Confidence %.4f\n", label, predicted_confidence);
-                    if(predicted_confidence < 300){
+                    if(predicted_confidence < threshold2D){
                         NSString* welcome=[NSString stringWithFormat:@"Welcome back, %@", UserName[label]];
-                            
+                        
                             
                         AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
                         AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:welcome];

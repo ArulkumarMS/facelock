@@ -35,11 +35,6 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.tableView reloadData];
-//    curUserName=[Setting_UserManagement LoadUserFile];
-//    cell.textLabel.text = [curUserName objectAtIndex:indexPath.row];
-}
-
-- (void)viewDidDisappear:(BOOL)animated{
 }
 
 - (void)addNewItem{
@@ -86,7 +81,6 @@
         cell.Portrait.image=[UIImage imageNamed:@"Default.png"];
     }
     //cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
-    return cell;
     return cell;
 }
 

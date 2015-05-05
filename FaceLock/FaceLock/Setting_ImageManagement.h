@@ -15,4 +15,6 @@
 + (BOOL)ImageExist:(NSString*)ImageName;
 + (UIImage*)loadImage:(NSString*)ImageName;
 + (void)removeImage:(NSString *)ImageName andTrainNum:(NSInteger)imageNum;
++ (void)removeOneImage:(NSString *)ImageName;
+
 @end

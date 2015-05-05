@@ -1,10 +1,11 @@
 //
-//  ViewController_2D.h
+//  ViewController_Add2DImage.h
 //  FaceLock
 //
-//  Created by Alan Xu on 3/19/15.
+//  Created by Yiwen Shi on 5/5/15.
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
+
 
 #ifdef __cpluscplus
 #import <opencv2/opencv.hpp>
@@ -20,15 +21,14 @@
 #import "FaceRecognition_2D.h"
 #import "UserDefaultsHelper.h"
 #import "Constants.h"
-#import "Setting_UserManagement.h"
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <ImageIO/ImageIO.h>
-#import "Threshold.h"
+#import "Setting_ImageManagement.h"
 
-@interface ViewController_2D : UIViewController <CvVideoCameraDelegate>{
+@interface ViewController_Add2DImage : UIViewController <CvVideoCameraDelegate>{
     UIImageView *_colorImageView;
     CvVideoCamera* _videoCamera;
     int _count;
@@ -44,11 +44,8 @@
     cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
     NSString *user;
     NSLogger* logger;
-    NSMutableArray *UserName;
-    double threshold2D;
 }
 @property (nonatomic, retain) CvVideoCamera* videoCamera;
-
-
+@property (nonatomic) NSString *UserName;
 
 @end

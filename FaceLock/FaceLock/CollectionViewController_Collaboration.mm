@@ -28,30 +28,31 @@ static NSString * const reuseIdentifier = @"Cell";
         //[listData addObject:jobName];
         [self.ImageNames  addObject:ImageName];
     }
-    /*
-    ImageNames=@[@"%@1.jpg",
-                          @"2.jpg",
-                          @"3.jpg",
-                          @"4.jpg",
-                          @"5.jpg",
-                          @"6.jpg",
-                          @"7.jpg",
-                          @"8.jpg",
-                          @"9.jpg",
-                          @"100.jpg",];
-    */
-     //Uncomment the following line to preserve selection between presentations
-     //self.clearsSelectionOnViewWillAppear = NO;
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    // Do any additional setup after loading the view.
+    UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add2DTrainingImage:)];
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = addButton;    // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.collectionView reloadData];
+}
+
+-(void)Add2DTrainingImage:(id)sender {
+    [self performSegueWithIdentifier:@"Segue_Add2DTrainingImage" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"Segue_Add2DTrainingImage"]){
+        ViewController_Add2DImage *controller = (ViewController_Add2DImage *)segue.destinationViewController;
+        controller.UserName = self.FullName;
+    }
 }
 
 /*
@@ -98,6 +99,12 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger row=[indexPath row];
+    NSString *ImageName=[NSString stringWithFormat:@"%@%ld.jpg", self.FullName,(long)row+1];
+    [Setting_ImageManagement removeOneImage:(NSString *)ImageName];
+    [collectionView reloadData];
+}
 
 #pragma mark <UICollectionViewDelegate>
 
