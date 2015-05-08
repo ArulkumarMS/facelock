@@ -19,6 +19,7 @@
 + (BOOL)LBPHfileExist;
 + (void)saveFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;
 + (void)loadFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;
++ (void)loadDefaultFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR;
 + (void)trainFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR andUser:(NSString*) username andLabel: (int)label andTrainNum:(NSInteger)imageNum;
 
 @end

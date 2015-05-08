@@ -246,7 +246,7 @@ struct AppStatus
 //        [self startColorCamera];
         
         // Set sensor stream quality
-        STStreamConfig streamConfig = STStreamConfigDepth320x240AndInfrared320x248;
+        STStreamConfig streamConfig = STStreamConfigDepth320x240;
         
         
         // Request that we receive depth frames with synchronized color pairs

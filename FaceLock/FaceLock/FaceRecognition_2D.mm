@@ -38,6 +38,13 @@
     LBPHFR->load(filename);
 }
 
++ (void)loadDefaultFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR
+{
+    NSString* LBPHfilePath = [[NSBundle mainBundle]pathForResource:@"LBPHmodel" ofType:@"xml"];
+    const cv::String filename=([LBPHfilePath UTF8String]);
+    LBPHFR->load(filename);
+}
+
 + (void)trainFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR andUser:(NSString*) username andLabel: (int)label andTrainNum:(NSInteger)imageNum{
     
     std::vector<cv::Mat> Images;

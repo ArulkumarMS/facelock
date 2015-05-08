@@ -33,27 +33,18 @@
     // Load threshold
     threshold2D = [[Threshold Load2DThresholdFile] doubleValue];
     NSLog(@"Threshold 2D: %.4f",threshold2D);
+    // Load username
+    UserName = [Setting_UserManagement LoadUserFile];
     // Load face recognition model
+    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+//    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer(2,16,16,16,threshold2D);
     if (![FaceRecognition_2D LBPHfileExist]){
-        //      radius = 1
-        //      neighbors = 8
-        //      grid_x = 8
-        //      grid_y = 8
-        cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer(2,16,16,16,threshold2D);
-        [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
-        [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
-        UserName=[Setting_UserManagement LoadUserFile];
-        for(int i = 0; i < UserName.count; i++){
-            [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
-        }
-        [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
+            [FaceRecognition_2D loadDefaultFaceRecognizer:_LBPHFaceRecognizer];
+    } else {
+
+        [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
     }
 
-
-    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer(2,16,16,16,threshold2D);
-    [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
-
-    
     // Setup camera view
     CGRect colorFrame = self.view.frame;
     _colorImageView = [[UIImageView alloc]initWithFrame:colorFrame];
@@ -73,13 +64,18 @@
     [super viewDidAppear:animated];
     [self.videoCamera start];
 
-//    UserName = [Setting_UserManagement LoadUserFile];
-//    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-//    for(int i=0;i<=[UserName count]-1;i++){
-//        [FaceRecognition_2D trainFaceRecognizer:_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
-//    }
-//    threshold2D=[[Threshold Load2DThresholdFile] doubleValue];
-//    NSLog(@"threshold is %f",threshold2D);
+    UserName = [Setting_UserManagement LoadUserFile];
+    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+    if (UserName.count == 0) {
+        [FaceRecognition_2D loadDefaultFaceRecognizer:_LBPHFaceRecognizer];
+    } else
+    {
+        for(int i=0;i<=[UserName count]-1;i++){
+            [FaceRecognition_2D trainFaceRecognizer:_LBPHFaceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
+        }
+    }
+    threshold2D=[[Threshold Load2DThresholdFile] doubleValue];
+    NSLog(@"threshold is %f",threshold2D);
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -145,6 +141,7 @@
                         }
                     }
                 }
+                
                 if (foundEyes) {
                     // Face Alignment
                     cv::Point face_size(200,200);
