@@ -40,7 +40,20 @@
     return cvimage;
 }
 
-+ (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path{
++ (void) saveMAT: (cv::Mat) cvMat andName:(NSString*) imagename andKey:(NSString*) keyname
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docs = [paths objectAtIndex:0];
+    NSString *filePath = [docs stringByAppendingPathComponent:imagename];
+    
+    cv::FileStorage fs([filePath UTF8String], cv::FileStorage::WRITE);
+    if (fs.isOpened()) {
+        fs[[keyname UTF8String]]>> cvMat;
+    }
+    fs.release();
+}
++ (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path
+{
     NSString* model = [[NSBundle mainBundle]pathForResource:model_file_path ofType:@"xml"];
     cv::CascadeClassifier* cascade = new cv::CascadeClassifier();
     cascade->load([model UTF8String]);

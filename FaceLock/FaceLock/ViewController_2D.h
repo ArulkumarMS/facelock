@@ -18,32 +18,29 @@
 #import "Utils.h"
 #import "NSLogger.h"
 #import "FaceRecognition_2D.h"
-#import "UserDefaultsHelper.h"
-#import "Constants.h"
 #import "Setting_UserManagement.h"
-
+#import "Threshold.h"
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <ImageIO/ImageIO.h>
-#import "Threshold.h"
+
 
 @interface ViewController_2D : UIViewController <CvVideoCameraDelegate>{
     UIImageView *_colorImageView;
     CvVideoCamera* _videoCamera;
     int _count;
     int _imagename_count;
-    //CIDetector *_faceDectector;
-    //CIContext *_context;
-    //NSArray *_features;
+    NSLogger* logger;
     cv::CascadeClassifier *_faceCascade;
     cv::CascadeClassifier *_eyeCascade;
+    cv::CascadeClassifier *_lefteyeCascade;
+    cv::CascadeClassifier *_righteyeCascade;
     std::vector<cv::Rect> _mfaces;
     std::vector<cv::Rect> _meyes;
     CGContextRef _contextRef;
     cv::Ptr<cv::face::FaceRecognizer> _LBPHFaceRecognizer;
     NSString *user;
-    NSLogger* logger;
     NSMutableArray *UserName;
     double threshold2D;
 }

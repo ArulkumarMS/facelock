@@ -22,8 +22,6 @@
 }
 
 + (void)saveFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) LBPHFR{
-    //    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"LBPHmodel" ofType:@"xml" ];
-    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *LBPHfilePath = [documentsDirectory stringByAppendingPathComponent:@"LBPHmodel.xml"];
@@ -36,7 +34,7 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *LBPHfilePath = [documentsDirectory stringByAppendingPathComponent:@"LBPHmodel.xml"];
     const cv::String filename=([LBPHfilePath UTF8String]);
-    //cv::Ptr<cv::face::FaceRecognizer> LBPHFR=cv::face::createLBPHFaceRecognizer();
+//    LBPHFR = cv::face::createLBPHFaceRecognizer();
     LBPHFR->load(filename);
 }
 

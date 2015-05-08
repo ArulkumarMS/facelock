@@ -49,6 +49,7 @@ struct AppStatus
     
     UIImageView *_depthImageView;
     UIImageView *_normalsImageView;
+    UIImageView *_infrarredImageView;
     UIImageView *_colorImageView;
     
     uint16_t *_linearizeBuffer;
@@ -62,12 +63,14 @@ struct AppStatus
     
     AppStatus _appStatus;
     
-    // Face Recognition variables
+    // Counting variables
     int _count;
     int _imagename_count;
-    cv::Ptr<cv::face::FaceRecognizer> _faceRecognizer;
     // Logger
     NSLogger *logger;
+    // Face Recognition model
+    cv::Ptr<cv::face::FaceRecognizer> _faceRecognizer;
+
     
 }
 
@@ -87,11 +90,27 @@ struct AppStatus
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Logger Init
-    logger = [[NSLogger alloc] init];
-    // Face Recognition Init
+    // Init Counting variables
     _count = 0;
     _imagename_count = 0;
+    // Logger Init
+    logger = [[NSLogger alloc] init];
+    // Load Face Recognition Model
+    if (![FaceRecognition_3D doesModelFileExist]){
+        [logger log:@"Training 3D model"];
+        cv::Ptr<cv::face::FaceRecognizer> initFaceRecognizer=cv::face::createLBPHFaceRecognizer();
+        [FaceRecognition_3D saveFaceRecognizer:initFaceRecognizer];
+        [FaceRecognition_3D loadFaceRecognizer:initFaceRecognizer];
+        //        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"YIWEN SHI 3D" andLabel:0 andTrainNum:50];
+        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"HA LE 3D" andLabel:1 andTrainNum:50];
+        //        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"SHIWANI BECTOR 3D" andLabel:2 andTrainNum:50];
+        //        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"XIANG XU 3D" andLabel:3 andTrainNum:50];
+        [FaceRecognition_3D saveFaceRecognizer:initFaceRecognizer];
+    }
+    _faceRecognizer=cv::face::createLBPHFaceRecognizer();
+    [FaceRecognition_3D loadFaceRecognizer:_faceRecognizer];
+    
+    
     // Structure Sensor Init
     _sensorController = [STSensorController sharedController];
     _sensorController.delegate = self;
@@ -109,6 +128,13 @@ struct AppStatus
 //    normalsFrame.origin.y = self.view.frame.size.height/2;
 //    normalsFrame.origin.x = 1;
 //    normalsFrame.origin.y = self.view.frame.size.width * 0.25;
+    
+//    CGRect infrarredFrame = self.view.frame;
+//    infrarredFrame.size.height /= 2;
+//    infrarredFrame.origin.y = self.view.frame.size.height/2;
+//    infrarredFrame.origin.x = 1;
+//    infrarredFrame.origin.y = self.view.frame.size.width * 0.25;
+    
 //    
 //    CGRect colorFrame = self.view.frame;
 //    colorFrame.size.height /= 2;
@@ -125,32 +151,15 @@ struct AppStatus
     _normalsImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:_normalsImageView];
     
+//    _infrarredImageView = [[UIImageView alloc] initWithFrame:infrarredFrame];
+//    _infrarredImageView.contentMode = UIViewContentModeScaleAspectFill;
+//    [self.view addSubview:_infrarredImageView];
+    
 //    _colorImageView = [[UIImageView alloc] initWithFrame:colorFrame];
 //    _colorImageView.contentMode = UIViewContentModeScaleAspectFit;
 //    [self.view addSubview:_colorImageView];
     
 //    [self setupColorCamera];
-    
-    if (![FaceRecognition_3D doesModelFileExist]){
-        [logger log:@"IN 3D initiate part!"];
-        cv::Ptr<cv::face::FaceRecognizer> initFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-        [FaceRecognition_3D saveFaceRecognizer:initFaceRecognizer];
-        [FaceRecognition_3D loadFaceRecognizer:initFaceRecognizer];
-//        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"YIWEN SHI 3D" andLabel:0 andTrainNum:46];
-        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"HA LE 3D" andLabel:1 andTrainNum:50];
-//        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"SHIWANI BECTOR 3D" andLabel:2 andTrainNum:10];
-//        [FaceRecognition_3D trainFaceRecognizer:initFaceRecognizer andUser:@"XIANG XU 3D" andLabel:3 andTrainNum:10];
-        [FaceRecognition_3D saveFaceRecognizer:initFaceRecognizer];
-    }
-    _faceRecognizer=cv::face::createLBPHFaceRecognizer();
-    [FaceRecognition_3D loadFaceRecognizer:_faceRecognizer];
-    
-//     Sample usage of wireless debugging API
-//    NSError* error = nil;
-//    [STWirelessLog broadcastLogsToWirelessConsoleAtAddress:@"10.2.13.57" usingPort:4999 error:&error];
-//    
-//    if (error)
-//        NSLog(@"Oh no! Can't start wireless log: %@", [error localizedDescription]);
 }
 
 - (void)dealloc
@@ -237,7 +246,7 @@ struct AppStatus
 //        [self startColorCamera];
         
         // Set sensor stream quality
-        STStreamConfig streamConfig = STStreamConfigDepth320x240;
+        STStreamConfig streamConfig = STStreamConfigDepth320x240AndInfrared320x248;
         
         
         // Request that we receive depth frames with synchronized color pairs
@@ -370,7 +379,7 @@ struct AppStatus
     cv::Mat mask = depth_mat <= MAX_DEPTH;
     // Save this mask to image
 //    _imagename_count++;
-//    if (_imagename_count % 10 == 0) {
+//    if (count % 30 == 0) {
 //        NSString* mask_image_name = [NSString stringWithFormat:@"mask%.4d.jpg",_imagename_count];
 //        [Utils saveMATImage:mask andName:mask_image_name];
 //    }
@@ -488,6 +497,11 @@ struct AppStatus
 //    [self renderDepthFrame:depthFrame];
     [self renderNormalsFrame:depthFrame];
 }
+
+//- (void)sensorDidOutputInfraredFrame:(STInfraredFrame *)irFrame
+//{
+//    [self renderInfrarredFrame:irFrame];
+//}
 
 // This synchronized API will only be called when two frames match. Typically, timestamps are within 1ms of each other.
 // Two important things have to happen for this method to be called:
@@ -655,7 +669,7 @@ const uint16_t maxShiftValue = 2048;
     
     // Assign CGImage to UIImage
     UIImage* coloredDepth = [UIImage imageWithCGImage:imageRef];
-//    NSString* depth_image_name = [NSString stringWithFormat:@"depth%.4d.jpg",_imagename_count+1];
+//    NSString* depth_image_name = [NSString stringWithFormat:@"depth%.4d.jpg",_imagename_count];
 //    [Utils saveUIImage:coloredDepth andName:depth_image_name];
 //    // Face Segmentation
 //    cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);
@@ -715,15 +729,17 @@ const uint16_t maxShiftValue = 2048;
     
     UIImage* normalsImg = [[UIImage alloc] initWithCGImage:imageRef];
     
-    //    CGRect roi = CGRectMake(0.25*normalsImg.size.width, 0, normalsImg.size.width/2, normalsImg.size.height);
-    //    normalsImg = [self drawingRectangleOnImage:normalsImg withRectangle:roi];
     
     // Face Segmentation
     cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);
     cv::Rect face = [self faceSegmentation:depth_mat];
-    CGRect cgface = CGRectMake(face.x, face.y, face.width, face.height);
-    normalsImg = [self drawingRectangleOnImage:normalsImg withRectangle:cgface];
-    
+    if (_count % 30 == 0) {
+        _imagename_count++;
+        NSString* depth_mat_path = [NSString stringWithFormat:@"depth_%.4d.xml",_imagename_count];
+        [Utils saveMAT:depth_mat(face) andName:depth_mat_path andKey:@"depth_mat"];
+        CGRect cgface = CGRectMake(face.x, face.y, face.width, face.height);
+        normalsImg = [self drawingRectangleOnImage:normalsImg withRectangle:cgface];
+    }
     // Update View
     _normalsImageView.image = normalsImg;
     
@@ -744,9 +760,10 @@ const uint16_t maxShiftValue = 2048;
 //    cv::Point face_size(64,96);
 //    cv::Mat aligned_face = [Utils normalizeFace:normals_face andFaceSize:face_size];
     // Save face
-    _imagename_count++;
-    NSString* aligned_face_name = [NSString stringWithFormat:@"aligned_3dface_%.4d.jpg",_imagename_count];
-    [Utils saveMATImage:aligned_face andName:aligned_face_name];
+    if (_count % 30 == 0) {
+        NSString* aligned_face_name = [NSString stringWithFormat:@"aligned_3dface_%.4d.jpg",_imagename_count];
+        [Utils saveMATImage:aligned_face andName:aligned_face_name];
+    }
     cv::Mat gray;
     cv::cvtColor(aligned_face, gray, CV_RGBA2GRAY);
     
@@ -772,13 +789,12 @@ const uint16_t maxShiftValue = 2048;
         [utterance setRate:0.1f];
         [synthesizer speakUtterance:utterance];
     }
-//    else{
-//        NSLog(@"Sorry, you can not enter the door.\n");
-//        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-//        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
-//        [utterance setRate:0.1f];
-//        [synthesizer speakUtterance:utterance];
-//    }
+    else{
+        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+        [utterance setRate:0.1f];
+        [synthesizer speakUtterance:utterance];
+    }
 
     
     /*
@@ -787,19 +803,9 @@ const uint16_t maxShiftValue = 2048;
         // Crop face
         cv::Mat normals_mat = cv::Mat((int) rows, (int) cols, CV_8UC4, _normalsBuffer);
         __block cv::Mat normals_face = normals_mat(face).clone();
-     
         // Run nose detection, face alignment and face recognition in a thread (using global thread pool)
         dispatch_queue_t face_recognition_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(face_recognition_queue, ^{
-            // Face Alignment
-            cv::Point face_size(64,96);
-            cv::Mat aligned_face = [Utils normalizeFace:normals_face andFaceSize:face_size];
-            // Save face
-            _imagename_count++;
-            NSString* aligned_face_name = [NSString stringWithFormat:@"aligned_3dface%.4d.jpg",_imagename_count];
-            [Utils saveMATImage:aligned_face andName:aligned_face_name];
-            
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 // Update the UI
                 
@@ -808,6 +814,11 @@ const uint16_t maxShiftValue = 2048;
         });
     }
      */
+}
+
+- (void) renderInfrarredFrame: (STInfraredFrame*) irFrame
+{
+    
 }
 
 - (void)renderColorFrame:(CMSampleBufferRef)sampleBuffer
