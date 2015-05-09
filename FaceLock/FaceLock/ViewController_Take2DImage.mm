@@ -35,24 +35,6 @@
     self.videoCamera.defaultFPS = 30;
     self.videoCamera.grayscaleMode = NO;
     self.videoCamera.delegate = self;
-    
-    //if run FaceLock in the ios device first time, uncommend following part.
-    //BOOL flag_fr_initial = [UserDefaultsHelper getBoolForKey: Str_FR_Initial];
-    if (![FaceRecognition_2D LBPHfileExist]){
-        NSLog(@"IN initiate part!");
-        cv::Ptr<cv::face::FaceRecognizer> ini_LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-        [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
-        [FaceRecognition_2D loadFaceRecognizer:ini_LBPHFaceRecognizer];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"YIWEN SHI" andLabel:0 andTrainNum:50];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"HA LE" andLabel:1 andTrainNum:50];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"SHIWANI BECTOR" andLabel:2 andTrainNum:50];
-        [FaceRecognition_2D trainFaceRecognizer:ini_LBPHFaceRecognizer andUser:@"XIANG XU" andLabel:3 andTrainNum:50];
-        [FaceRecognition_2D saveFaceRecognizer:ini_LBPHFaceRecognizer];
-        //[UserDefaultsHelper setBoolForKey:true andKey:Str_FR_Initial];
-    }
-    
-    _LBPHFaceRecognizer=cv::face::createLBPHFaceRecognizer();
-    [FaceRecognition_2D loadFaceRecognizer:_LBPHFaceRecognizer];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -102,15 +84,8 @@
             for(int i =0; i <_faces.size(); i++){
                 
                 if (_imagename_count<=50) {
-
-
-                    NSString* imagename = [NSString stringWithFormat:@"%@_%d.jpg", self.FullName, _imagename_count];
                 
                     cv::Mat face_image = image_roi_clone(_faces[i]).clone();
-                //                cv::Mat face_image;
-                //                cv::cvtColor(image_roi_clone(_faces[i]), face_image, CV_BGRA2RGB);
-                    [Utils saveMATImage:face_image andName:imagename];
-                
                     // Get face region
                     cv::Mat image_face_roi = image_roi_clone(_faces[i]);
                     // Eye detection
@@ -141,14 +116,14 @@
                                                 andHistEqual: true];
                         }
                     
-                        imagename = [NSString stringWithFormat:@"%@%d.jpg", self.FullName, _imagename_count];
+                        NSString *imagename = [NSString stringWithFormat:@"%@2D%d.jpg", self.FullName, _imagename_count];
                         [Utils saveMATImage:normalFaceImg andName:imagename];
                         _imagename_count++;
                     }
                 }
                 else{
                     AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Already taken 50 images, please go back."];
+                    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Already taken fifty images, please go back."];
                     [utterance setRate:0.1f];
                     [synthesizer speakUtterance:utterance];
                 }

@@ -81,6 +81,10 @@
         ViewController_Take2DImage *controller = (ViewController_Take2DImage *)segue.destinationViewController;
         controller.FullName = fullname;
     }
+    if([segue.identifier isEqualToString:@"Segue_take3Dimage"]){
+        ViewController_Take3DImage *controller = (ViewController_Take3DImage *)segue.destinationViewController;
+        controller.FullName = fullname;
+    }
 }
 
 /*

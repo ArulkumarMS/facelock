@@ -1,20 +1,18 @@
 //
-//  CollectionViewController_Collaboration.m
+//  CollectionViewController_TrainingImg3D.m
 //  FaceLock
 //
-//  Created by Yiwen Shi on 4/24/15.
+//  Created by Yiwen Shi on 5/9/15.
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
-#import "CollectionViewController_Collaboration.h"
+#import "CollectionViewController_TrainingImg3D.h"
 
-@interface CollectionViewController_Collaboration ()
+@interface CollectionViewController_TrainingImg3D ()
 
 @end
 
-@implementation CollectionViewController_Collaboration{
-    
-}
+@implementation CollectionViewController_TrainingImg3D
 
 static NSString * const reuseIdentifier = @"Cell";
 
@@ -22,14 +20,14 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     //self.ImageNames=[[NSMutableArray alloc]init];
     for (NSInteger i=1; i<=50; i++) {
-        NSString *ImageName=[NSString stringWithFormat:@"%@2D%ld.jpg", self.FullName,(long)i];
+        NSString *ImageName=[NSString stringWithFormat:@"%@3D%ld.jpg", self.FullName,(long)i];
         NSLog(@"image name is: %@",ImageName);
         if (!self.ImageNames ) self.ImageNames  = [[NSMutableArray alloc] init];
         //[listData addObject:jobName];
         [self.ImageNames  addObject:ImageName];
     }
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add2DTrainingImage:)];
+    UIBarButtonItem *addButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add3DTrainingImage:)];
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = addButton;    // Do any additional setup after loading the view.
 }
@@ -39,8 +37,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView reloadData];
 }
 
--(void)Add2DTrainingImage:(id)sender {
-    [self performSegueWithIdentifier:@"Segue_Add2DTrainingImage" sender:self];
+-(void)Add3DTrainingImage:(id)sender {
+    [self performSegueWithIdentifier:@"Segue_Add3DTrainingImage" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,21 +47,21 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"Segue_Add2DTrainingImage"]){
-        ViewController_Add2DImage *controller = (ViewController_Add2DImage *)segue.destinationViewController;
+    if([segue.identifier isEqualToString:@"Segue_Add3DTrainingImage"]){
+        ViewController_Add3DImage *controller = (ViewController_Add3DImage *)segue.destinationViewController;
         controller.UserName = self.FullName;
     }
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark <UICollectionViewDataSource>
 
@@ -81,14 +79,14 @@ static NSString * const reuseIdentifier = @"Cell";
     static NSString *simpleTableIdentifier = @"CollectionCollaborationCell";
     CollectionViewCell_Collaboration *cell = [collectionView dequeueReusableCellWithReuseIdentifier:simpleTableIdentifier forIndexPath:indexPath];
     NSInteger row = [indexPath row];
-
+    
     // Configure the cell
     if ([Setting_ImageManagement ImageExist:self.ImageNames[row]]) {
         cell.Portrait.image=[Setting_ImageManagement loadImage:self.ImageNames[row]];
-    //}
-    //if([UIImage imageNamed:self.ImageNames[row]]!=nil){
-    //    NSLog(@"%@ is found!",self.ImageNames[row]);
-    //    cell.Portrait.image=[UIImage imageNamed:self.ImageNames[row]];
+        //}
+        //if([UIImage imageNamed:self.ImageNames[row]]!=nil){
+        //    NSLog(@"%@ is found!",self.ImageNames[row]);
+        //    cell.Portrait.image=[UIImage imageNamed:self.ImageNames[row]];
     }
     else{
         NSLog(@"%@ is not found!",self.ImageNames[row]);
@@ -101,7 +99,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger row=[indexPath row];
-    NSString *ImageName=[NSString stringWithFormat:@"%@2D%ld.jpg", self.FullName,(long)row+1];
+    NSString *ImageName=[NSString stringWithFormat:@"%@%ld.jpg", self.FullName,(long)row+1];
     [Setting_ImageManagement removeOneImage:(NSString *)ImageName];
     [collectionView reloadData];
 }
@@ -109,32 +107,32 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDelegate>
 
 /*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+ // Uncomment this method to specify if the specified item should be highlighted during tracking
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
-}
-*/
+ }
+ */
 
 /*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-*/
+ // Uncomment this method to specify if the specified item should be selected
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+ return YES;
+ }
+ 
+ */
 /*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+ // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
 	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+ }
+ 
+ - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
 	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+ }
+ 
+ - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
 	
-}
-*/
+ }
+ */
 
 @end

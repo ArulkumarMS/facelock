@@ -79,7 +79,7 @@
     }
     cell.Name.text = [self.UserName objectAtIndex:row];
     cell.Label.text = [@(row) stringValue];
-    NSString *PortraitImageName=[NSString stringWithFormat:@"%@1.jpg", cell.Name.text];
+    NSString *PortraitImageName=[NSString stringWithFormat:@"%@2D1.jpg", cell.Name.text];
     if ([Setting_ImageManagement ImageExist:PortraitImageName]) {
         cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
     }

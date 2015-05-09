@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="337" y="-603"/>
+            <point key="canvasLocation" x="224.5" y="-539.5"/>
         </scene>
         <!--3D-->
         <scene sceneID="PPh-E0-Jjy">
@@ -119,7 +119,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LOz-q0-SVy" id="rHu-F7-yWa">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="User Training Image Library" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bsv-em-exN">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="User 2D Training Image Library" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bsv-em-exN">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,7 +128,24 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zM5-MP-j5D" kind="show" identifier="Segue_Collaboration" id="AlN-wx-65B"/>
+                                            <segue destination="zM5-MP-j5D" kind="show" identifier="Segue_2DTrainingImg" id="AlN-wx-65B"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Qww-DY-FrR" style="IBUITableViewCellStyleDefault" id="gcP-Yg-3FB">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gcP-Yg-3FB" id="2hK-RU-jSq">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="User 3D Training Image Library" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qww-DY-FrR">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="hrI-9T-ms2" kind="show" identifier="Segue_3DTrainingImg" id="YRb-PR-Pzb"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="gVt-h8-iNw" style="IBUITableViewCellStyleDefault" id="F3X-tP-mBC">
@@ -275,7 +292,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xEa-qp-FTS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xzn-Tz-EyZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kGT-h8-CUz" userLabel="tfLastName">
@@ -342,6 +359,7 @@
                                 </state>
                                 <connections>
                                     <action selector="AddNewUser:" destination="Vmb-mr-gVm" eventType="touchUpInside" id="25I-iR-UFb"/>
+                                    <segue destination="RYz-UT-x2n" kind="show" identifier="Segue_take3Dimage" id="vog-yT-XXZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6t0-lW-Uqn">
@@ -361,7 +379,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="VaQ-fw-G2n"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="LBNotification" destination="9D2-ie-yH0" id="Hcj-O9-RtR"/>
                         <outlet property="TFFirstName" destination="ivr-gk-BAR" id="H8h-kx-S7q"/>
@@ -370,7 +388,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyi-Kz-h7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1187" y="340"/>
+            <point key="canvasLocation" x="1186.5" y="340.5"/>
         </scene>
         <!--View Controller Take2D Image-->
         <scene sceneID="VVg-nd-xOA">
@@ -392,12 +410,32 @@
             </objects>
             <point key="canvasLocation" x="1664.5" y="340.5"/>
         </scene>
+        <!--View Controller Take3D Image-->
+        <scene sceneID="t48-MS-jMh">
+            <objects>
+                <viewController id="RYz-UT-x2n" customClass="ViewController_Take3DImage" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Edg-Ob-w2K"/>
+                        <viewControllerLayoutGuide type="bottom" id="r2A-EP-Ocl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tER-Vb-ZMe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2jz-Ni-2Wf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.5" y="1134.5"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Z8O-HR-4V8">
             <objects>
                 <tabBarController storyboardIdentifier="sb_tb" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MI0-ht-pFD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="aQH-CN-FhC">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -411,7 +449,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7eU-op-nh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="333"/>
+            <point key="canvasLocation" x="-286.5" y="340.5"/>
         </scene>
         <!--User Setting-->
         <scene sceneID="TLE-1d-zft">
@@ -430,7 +468,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gxq-c5-G6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-398" y="1127"/>
+            <point key="canvasLocation" x="-286.5" y="1134.5"/>
         </scene>
         <!--Table View Controller Collaboration-->
         <scene sceneID="2Gw-YA-zU3">
@@ -449,16 +487,16 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RcG-qm-qVk">
                                             <rect key="frame" x="8" y="9" width="76" height="76"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnY-Xm-I8f">
-                                            <rect key="frame" x="92" y="19" width="253" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyf-QY-YcS">
                                             <rect key="frame" x="92" y="53" width="253" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.51707409270000004" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnY-Xm-I8f">
+                                            <rect key="frame" x="92" y="19" width="253" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -467,7 +505,7 @@
                                     <outlet property="Label" destination="Uyf-QY-YcS" id="8qN-4n-2wO"/>
                                     <outlet property="Name" destination="VnY-Xm-I8f" id="VGf-1Q-fG8"/>
                                     <outlet property="Portrait" destination="RcG-qm-qVk" id="skt-PO-gP2"/>
-                                    <segue destination="VhF-hZ-dXm" kind="show" identifier="Segue_Collaboration2" id="h5A-QY-iGB"/>
+                                    <segue destination="VhF-hZ-dXm" kind="show" identifier="Segue_2DTrainingImg2" id="h5A-QY-iGB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -482,6 +520,123 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6B-RF-Tk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="689.5" y="2122.5"/>
+        </scene>
+        <!--Table View Controller Training Img3D-->
+        <scene sceneID="cGp-xE-Rua">
+            <objects>
+                <tableViewController id="hrI-9T-ms2" customClass="TableViewController_TrainingImg3D" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q5k-PK-CiF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CollaborationUserCell" rowHeight="95" id="RJI-Mv-r7i" customClass="UserCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RJI-Mv-r7i" id="y3Z-ex-XCf">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gD9-UL-S9e" customClass="UIImageView_Collaboration">
+                                            <rect key="frame" x="8" y="10" width="76" height="76"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McB-ky-xT1">
+                                            <rect key="frame" x="92" y="19" width="253" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9e-gq-PxP">
+                                            <rect key="frame" x="92" y="48" width="253" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.51707409270000004" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="Label" destination="L9e-gq-PxP" id="i2H-o9-dcI"/>
+                                    <outlet property="Name" destination="McB-ky-xT1" id="OO7-t9-8Rq"/>
+                                    <outlet property="Portrait" destination="gD9-UL-S9e" id="1JT-08-eFq"/>
+                                    <segue destination="wBx-qV-LaE" kind="show" identifier="Segue_3DTrainingImg2" id="qsH-RF-YpF"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hrI-9T-ms2" id="rMo-O8-zf7"/>
+                            <outlet property="delegate" destination="hrI-9T-ms2" id="kGj-fM-3DP"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bdC-XW-rPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689.5" y="2917.5"/>
+        </scene>
+        <!--Collection View Controller Training Img3D-->
+        <scene sceneID="oJL-fT-tOO">
+            <objects>
+                <collectionViewController id="wBx-qV-LaE" customClass="CollectionViewController_TrainingImg3D" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xmd-Di-7ih">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vmJ-vk-rgZ">
+                            <size key="itemSize" width="250" height="250"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCollaborationCell" id="xte-XR-uyw" customClass="CollectionViewCell_Collaboration">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OtE-Zm-7Nd" customClass="UIImageView_Collaboration">
+                                            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <size key="customSize" width="250" height="250"/>
+                                <connections>
+                                    <outlet property="Portrait" destination="OtE-Zm-7Nd" id="dUg-th-dh6"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="wBx-qV-LaE" id="zLL-e4-JHz"/>
+                            <outlet property="delegate" destination="wBx-qV-LaE" id="GgO-3t-ral"/>
+                        </connections>
+                    </collectionView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="L7g-WS-bgf" kind="show" identifier="Segue_Add3DTrainingImage" id="gLj-Gu-JdV"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zH9-Rc-ixA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159.5" y="2917.5"/>
+        </scene>
+        <!--View Controller Add3D Image-->
+        <scene sceneID="FKE-GL-AfD">
+            <objects>
+                <viewController id="L7g-WS-bgf" customClass="ViewController_Add3DImage" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7NS-T5-fQE"/>
+                        <viewControllerLayoutGuide type="bottom" id="PEu-Tb-ecD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u60-35-adi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2GZ-JR-Cq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611.5" y="2917.5"/>
         </scene>
         <!--Set Threshold-->
         <scene sceneID="MiQ-zB-2uZ">
@@ -550,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7z-eF-ans" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689.5" y="2941.5"/>
+            <point key="canvasLocation" x="224.5" y="2917.5"/>
         </scene>
         <!--Collection View Controller Collaboration-->
         <scene sceneID="cta-fM-rO6">
@@ -638,7 +793,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qD7-Su-NtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="2123"/>
+            <point key="canvasLocation" x="-286.5" y="2122.5"/>
         </scene>
     </scenes>
 </document>

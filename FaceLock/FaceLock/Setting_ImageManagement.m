@@ -37,7 +37,7 @@
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     for(int i=1; i<=imageNum; i++){
-        NSString *ImageName = [NSString stringWithFormat: @"%@%@.jpg", UserName, [@(i) stringValue]];
+        NSString *ImageName = [NSString stringWithFormat: @"%@2D%@.jpg", UserName, [@(i) stringValue]];
         NSString *filePath = [documentsPath stringByAppendingPathComponent:ImageName];
         if([fileManager fileExistsAtPath:filePath]){
             NSError *error;
@@ -52,6 +52,24 @@
 
         }
 
+    }
+    
+    for(int i=1; i<=imageNum; i++){
+        NSString *ImageName = [NSString stringWithFormat: @"%@3D%@.jpg", UserName, [@(i) stringValue]];
+        NSString *filePath = [documentsPath stringByAppendingPathComponent:ImageName];
+        if([fileManager fileExistsAtPath:filePath]){
+            NSError *error;
+            BOOL success = [fileManager removeItemAtPath:filePath error:&error];
+            if (success) {
+                NSLog(@"Delete Image -:%@ ",ImageName);
+            }
+            else
+            {
+                NSLog(@"Could not delete Image -%@:%@ ",ImageName, [error localizedDescription]);
+            }
+            
+        }
+        
     }
 }
 

@@ -1,28 +1,29 @@
 //
-//  TableViewController_AdminSetting.m
+//  TableViewController_TrainingImg3D.m
 //  FaceLock
 //
-//  Created by Yiwen Shi on 5/3/15.
+//  Created by Yiwen Shi on 5/9/15.
 //  Copyright (c) 2015 CBL. All rights reserved.
 //
 
-#import "TableViewController_AdminSetting.h"
+#import "TableViewController_TrainingImg3D.h"
 
-@interface TableViewController_AdminSetting ()
+@interface TableViewController_TrainingImg3D ()
 
 @end
 
-@implementation TableViewController_AdminSetting
+@implementation TableViewController_TrainingImg3D
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.UserName=[Setting_UserManagement LoadUserFile];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -32,24 +33,38 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 3;
+    return [self.UserName count];;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *simpleTableIdentifier = @"CollaborationUserCell";
     
-    // Configure the cell...
-    
+    UserCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    NSInteger row = [indexPath row];
+    if (cell == nil){
+        cell = [[UserCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    cell.Name.text = [self.UserName objectAtIndex:row];
+    cell.Label.text = [@(row) stringValue];
+    self.fullname=[self.UserName objectAtIndex:row];
+    NSString *PortraitImageName=[NSString stringWithFormat:@"%@2D1.jpg", self.fullname];
+    if ([Setting_ImageManagement ImageExist:PortraitImageName]) {
+        cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
+    }
+    else{
+        cell.Portrait.image=[UIImage imageNamed:@"Default.png"];
+    }
+    //cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
     return cell;
 }
-*/
+
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -89,24 +104,14 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"Segue_2DTrainingImg"]) {
-        TableViewController_AdminSetting *destViewController = segue.destinationViewController;
-        destViewController.title=@"2D Training Image Library";
-    }
-    
-    else if ([segue.identifier isEqualToString:@"Segue_3DTrainingImg"]) {
-        TableViewController_AdminSetting *destViewController = segue.destinationViewController;
-        destViewController.title=@"3D Training Image Library";
-    }
-    
-    else if ([segue.identifier isEqualToString:@"Segue_Threshold"]){
-        TableViewController_AdminSetting *destViewController = segue.destinationViewController;
-        destViewController.title=@"Set Threshold";
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"Segue_3DTrainingImg2"]){
+        CollectionViewController_TrainingImg3D *controller = (CollectionViewController_TrainingImg3D *)segue.destinationViewController;
+        NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+        NSInteger row = [indexPath row];
+        controller.title=[self.UserName objectAtIndex:row];
+        controller.FullName = [self.UserName objectAtIndex:row];
     }
 }
-
 
 @end
