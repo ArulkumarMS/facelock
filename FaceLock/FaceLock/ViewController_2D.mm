@@ -170,13 +170,13 @@
                         [utterance setRate:0.1f];
                         [synthesizer speakUtterance:utterance];
                     }
-                    else{
-                        NSLog(@"Sorry, you can not enter the door.\n");
-                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
-                        [utterance setRate:0.1f];
-                        [synthesizer speakUtterance:utterance];
-                    }
+//                    else{
+//                        NSLog(@"Sorry, you can not enter the door.\n");
+//                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+//                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+//                        [utterance setRate:0.1f];
+//                        [synthesizer speakUtterance:utterance];
+//                    }
                     
                 }
                 
