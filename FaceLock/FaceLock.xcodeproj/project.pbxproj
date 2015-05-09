@@ -62,9 +62,7 @@
 		2957F6C01AF21E5B0032C536 /* HA LE 3D48.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F68E1AF21E5B0032C536 /* HA LE 3D48.jpg */; };
 		2957F6C11AF21E5B0032C536 /* HA LE 3D49.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F68F1AF21E5B0032C536 /* HA LE 3D49.jpg */; };
 		2957F6C21AF21E5B0032C536 /* HA LE 3D50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2957F6901AF21E5B0032C536 /* HA LE 3D50.jpg */; };
-		297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */; };
-		29B00BE21AFD6957006A8A44 /* LBPHmodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29B00BE11AFD6957006A8A44 /* LBPHmodel.xml */; };
-		29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */; };
+		29ED7BD31AFDB0D4002F8471 /* LBPHmodel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 29ED7BD21AFDB0D4002F8471 /* LBPHmodel.xml */; };
 		360B5D111AF736EF001D62A1 /* Threshold.m in Sources */ = {isa = PBXBuildFile; fileRef = 360B5D101AF736EF001D62A1 /* Threshold.m */; };
 		360B5D141AF73B32001D62A1 /* ViewController_SetThreshold.m in Sources */ = {isa = PBXBuildFile; fileRef = 360B5D131AF73B32001D62A1 /* ViewController_SetThreshold.m */; };
 		362E2EBC1AE33AAC0073D12C /* TableViewController_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 362E2EBB1AE33AAC0073D12C /* TableViewController_Setting.m */; };
@@ -106,7 +104,6 @@
 		CB7EB9A71AB7DC8500B2A40D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EB9A61AB7DC8500B2A40D /* UIKit.framework */; };
 		CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = CB7F09C61ABCD2FB00996B5E /* UIImageCVMatConverter.mm */; };
 		CB7F09C91ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */; };
-		CB7F09CB1ABD0E5500996B5E /* haarcascade_frontalface_default.xml in Resources */ = {isa = PBXBuildFile; fileRef = CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */; };
 		CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBB1DF161ACF8CF2000A5A6D /* Utils.mm */; };
 		CBFD80601AB3A44400C8CE64 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD805F1AB3A44400C8CE64 /* libz.dylib */; };
 		CBFD80621AB3A45A00C8CE64 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBFD80611AB3A45A00C8CE64 /* CoreMotion.framework */; };
@@ -184,9 +181,7 @@
 		2957F68E1AF21E5B0032C536 /* HA LE 3D48.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D48.jpg"; sourceTree = "<group>"; };
 		2957F68F1AF21E5B0032C536 /* HA LE 3D49.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D49.jpg"; sourceTree = "<group>"; };
 		2957F6901AF21E5B0032C536 /* HA LE 3D50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "HA LE 3D50.jpg"; sourceTree = "<group>"; };
-		297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
-		29B00BE11AFD6957006A8A44 /* LBPHmodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBPHmodel.xml; sourceTree = "<group>"; };
-		29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
+		29ED7BD21AFDB0D4002F8471 /* LBPHmodel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LBPHmodel.xml; sourceTree = "<group>"; };
 		360B5D0F1AF736EF001D62A1 /* Threshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Threshold.h; sourceTree = "<group>"; };
 		360B5D101AF736EF001D62A1 /* Threshold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Threshold.m; sourceTree = "<group>"; };
 		360B5D121AF73B32001D62A1 /* ViewController_SetThreshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_SetThreshold.h; sourceTree = "<group>"; };
@@ -256,7 +251,6 @@
 		CB7F09C51ABCD2FB00996B5E /* UIImageCVMatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageCVMatConverter.h; sourceTree = "<group>"; };
 		CB7F09C61ABCD2FB00996B5E /* UIImageCVMatConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIImageCVMatConverter.mm; sourceTree = "<group>"; };
 		CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
-		CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_default.xml; sourceTree = "<group>"; };
 		CBB1DF151ACF8CF2000A5A6D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		CBB1DF161ACF8CF2000A5A6D /* Utils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Utils.mm; sourceTree = "<group>"; };
 		CBFD805F1AB3A44400C8CE64 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -478,10 +472,7 @@
 				CB0FE0E21AB37E97007BF483 /* Main.storyboard */,
 				CB0FE0E51AB37E97007BF483 /* Images.xcassets */,
 				CB0FE0E71AB37E97007BF483 /* LaunchScreen.xib */,
-				29B00BE11AFD6957006A8A44 /* LBPHmodel.xml */,
-				29E3411B1AD08A5B003CF1EC /* lbpcascade_frontalface.xml */,
-				297947471ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml */,
-				CB7F09CA1ABD0E5500996B5E /* haarcascade_frontalface_default.xml */,
+				29ED7BD21AFDB0D4002F8471 /* LBPHmodel.xml */,
 				CB7F09C81ABD0E4800996B5E /* haarcascade_frontalface_alt2.xml */,
 				29459E931AF1B2100037D69E /* haarcascade_eye.xml */,
 				29459E941AF1B2100037D69E /* haarcascade_lefteye_2splits.xml */,
@@ -601,6 +592,7 @@
 				2957F6931AF21E5B0032C536 /* HA LE 3D3.jpg in Resources */,
 				CB0FE0E41AB37E97007BF483 /* Main.storyboard in Resources */,
 				2957F6961AF21E5B0032C536 /* HA LE 3D6.jpg in Resources */,
+				29ED7BD31AFDB0D4002F8471 /* LBPHmodel.xml in Resources */,
 				2957F6B21AF21E5B0032C536 /* HA LE 3D34.jpg in Resources */,
 				2957F6A11AF21E5B0032C536 /* HA LE 3D17.jpg in Resources */,
 				2957F6A21AF21E5B0032C536 /* HA LE 3D18.jpg in Resources */,
@@ -634,7 +626,6 @@
 				2957F6951AF21E5B0032C536 /* HA LE 3D5.jpg in Resources */,
 				2957F6B81AF21E5B0032C536 /* HA LE 3D40.jpg in Resources */,
 				2957F69B1AF21E5B0032C536 /* HA LE 3D11.jpg in Resources */,
-				CB7F09CB1ABD0E5500996B5E /* haarcascade_frontalface_default.xml in Resources */,
 				2957F6B41AF21E5B0032C536 /* HA LE 3D36.jpg in Resources */,
 				2957F6A91AF21E5B0032C536 /* HA LE 3D25.jpg in Resources */,
 				2957F6A81AF21E5B0032C536 /* HA LE 3D24.jpg in Resources */,
@@ -646,12 +637,9 @@
 				CB0FE0E61AB37E97007BF483 /* Images.xcassets in Resources */,
 				2957F6BD1AF21E5B0032C536 /* HA LE 3D45.jpg in Resources */,
 				2957F6981AF21E5B0032C536 /* HA LE 3D8.jpg in Resources */,
-				297947481ACA539300209054 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
 				2957F6C01AF21E5B0032C536 /* HA LE 3D48.jpg in Resources */,
-				29E3411C1AD08A5B003CF1EC /* lbpcascade_frontalface.xml in Resources */,
 				2957F6B71AF21E5B0032C536 /* HA LE 3D39.jpg in Resources */,
 				2957F6921AF21E5B0032C536 /* HA LE 3D2.jpg in Resources */,
-				29B00BE21AFD6957006A8A44 /* LBPHmodel.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

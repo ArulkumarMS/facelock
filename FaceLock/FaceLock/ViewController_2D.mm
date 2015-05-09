@@ -87,11 +87,6 @@
 
 - (void) processImage:(cv::Mat &)image{
     _count++;
-    // Draw a detection boundary
-//    cv::Rect roi = cv::Rect(0.25*image.cols,0,image.cols/2,image.rows);
-//    cv::rectangle(image, roi, cv::Scalar(0, 255, 0), 1, 8);
-//    cv::Mat image_roi = image(roi);
-
     // Detection and Recognition every roundly 10 frames
     if (_count == 1) {
         // Since we will run this part in another thread, we need to clone a copy of detection region
@@ -104,10 +99,10 @@
             std::vector<cv::Rect> _eyes;
             _faceCascade->detectMultiScale(image_roi_clone, _faces, 1.1, 1, 0|CV_HAAR_SCALE_IMAGE, cv::Size(200,200), cv::Size(image.cols, image.cols));
             for(int i =0; i <_faces.size(); i++){
-                _imagename_count++;
-                NSString* imagename = [NSString stringWithFormat:@"face_%.4d.jpg", _imagename_count];
-                cv::Mat face_image = image_roi_clone(_faces[i]).clone();
-                [Utils saveMATImage:face_image andName:imagename];
+//                _imagename_count++;
+//                NSString* imagename = [NSString stringWithFormat:@"face_%.4d.jpg", _imagename_count];
+//                cv::Mat face_image = image_roi_clone(_faces[i]).clone();
+//                [Utils saveMATImage:face_image andName:imagename];
                 
                 // Get face region
                 cv::Mat image_face_roi = image_roi_clone(_faces[i]);
@@ -154,32 +149,32 @@
                                              andFaceSize: face_size
                                             andHistEqual: true];
                     
-                    imagename = [NSString stringWithFormat:@"aligned_face_%.4d.jpg", _imagename_count];
-                    [Utils saveMATImage:normalFaceImg andName:imagename];
-                    
-                    
+//                    NSString* imagename = [NSString stringWithFormat:@"aligned_face_%.4d.jpg", _imagename_count];
+//                    [Utils saveMATImage:normalFaceImg andName:imagename];
+
                     //Face recognition
                     int label;
                     double predicted_confidence;
-                    _LBPHFaceRecognizer->predict(normalFaceImg, label, predicted_confidence);
-                    NSString* event = [NSString stringWithFormat:@"Label: %d Confidence: %.4f",label, predicted_confidence];
-                    [logger log:event];
-                    NSLog(@"Label: %d Confidence %.4f\n", label, predicted_confidence);
-                    if(label >= 0 && label < UserName.count && predicted_confidence < threshold2D){
-                        NSString* welcome=[NSString stringWithFormat:@"Welcome back, %@", UserName[label]];
-                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:welcome];
-                        [utterance setRate:0.1f];
-                        [synthesizer speakUtterance:utterance];
+                    if (UserName.count) {
+                        _LBPHFaceRecognizer->predict(normalFaceImg, label, predicted_confidence);
+                        NSString* event = [NSString stringWithFormat:@"2D Label: %d Confidence: %.4f",label, predicted_confidence];
+                        [logger log:event];
+                        NSLog(@"2D Label: %d Confidence %.4f\n", label, predicted_confidence);
+                        if(label >= 0 && label < UserName.count && predicted_confidence < threshold2D){
+                            NSString* welcome=[NSString stringWithFormat:@"Welcome back, %@", UserName[label]];
+                            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+                            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:welcome];
+                            [utterance setRate:0.1f];
+                            [synthesizer speakUtterance:utterance];
+                        }
+//                        else{
+//                            NSLog(@"Sorry, you can not enter the door.\n");
+//                            AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+//                            AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+//                            [utterance setRate:0.1f];
+//                            [synthesizer speakUtterance:utterance];
+//                        }
                     }
-//                    else{
-//                        NSLog(@"Sorry, you can not enter the door.\n");
-//                        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-//                        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
-//                        [utterance setRate:0.1f];
-//                        [synthesizer speakUtterance:utterance];
-//                    }
-                    
                 }
                 
             }
@@ -196,7 +191,7 @@
     }
 
     // Draw face and eye boundaries
-    if ((_mfaces.size() == 1) && (_meyes.size() <= 2)){
+    if ((_mfaces.size() == 1) && (_meyes.size() == 2)){
         cv::rectangle(image, _mfaces[0], cv::Scalar(0, 255, 255), 1, 8);
         cv::Mat image_face_roi = image(_mfaces[0]);
         for (int j = 0; j<_meyes.size(); j++) {
