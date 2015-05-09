@@ -133,11 +133,13 @@
                 } else {
                     _lefteyeCascade->detectMultiScale(image_face_roi(leftROI), _eyes,1.1, 3, 0|CV_HAAR_SCALE_IMAGE);
                     if (_eyes.size() == 1) {
+                        cv::Rect leftEyeRect = _eyes[0];
                         leftEyeCenter = cv::Point( _eyes[0].x + _eyes[0].width/2, _eyes[0].y + _eyes[0].height/2 );
                         _righteyeCascade->detectMultiScale(image_face_roi(rightROI), _eyes,1.1, 3, 0|CV_HAAR_SCALE_IMAGE);
                         if (_eyes.size() == 1) {
                             foundEyes = true;
                             rightEyeCenter = cv::Point( rightROI.x + _eyes[0].x + _eyes[0].width/2, _eyes[0].y + _eyes[0].height/2 );
+                            _eyes.push_back(leftEyeRect);
                         }
                     }
                 }
