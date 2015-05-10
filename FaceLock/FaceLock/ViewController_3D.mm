@@ -8,12 +8,6 @@
 
 #import "ViewController_3D.h"
 
-#import <AVFoundation/AVFoundation.h>
-
-#import <Structure/StructureSLAM.h>
-
-#include <algorithm>
-
 struct AppStatus
 {
     NSString* const pleaseConnectSensorMessage = @"Please connect Structure Sensor.";
@@ -470,7 +464,10 @@ struct AppStatus
         cv::Mat normalized_face_mat;
         cv::normalize(new_face_mat, normalized_face_mat, 0, 255, cv::NORM_MINMAX, CV_8UC1);
         normalized_face_mat = 255 - normalized_face_mat;
-        cv::resize(normalized_face_mat, face_mat, cv::Size(64,96));
+        cv::Mat paintMask = normalized_face_mat == 0;
+        cv::Mat inpaint_face_mat;
+        cv::inpaint(normalized_face_mat, paintMask, inpaint_face_mat, 3, cv::INPAINT_NS);
+        cv::resize(inpaint_face_mat, face_mat, cv::Size(64,96));
         return true;
     }
     return false;
@@ -526,7 +523,7 @@ struct AppStatus
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
     // set stroking color and draw circle
-    [[UIColor redColor] setStroke];
+    [[UIColor greenColor] setStroke];
     
 //    CGRect roi = CGRectMake(0.25*image.size.width, 0, image.size.width/2, image.size.height);
     

@@ -23,7 +23,6 @@
 #import "Setting_UserManagement.h"
 #import "Threshold.h"
 
-#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <ImageIO/ImageIO.h>
