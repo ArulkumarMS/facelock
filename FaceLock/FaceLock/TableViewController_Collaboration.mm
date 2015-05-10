@@ -55,7 +55,7 @@
     cell.Name.text = [self.UserName objectAtIndex:row];
     cell.Label.text = [@(row) stringValue];
     self.fullname=[self.UserName objectAtIndex:row];
-    NSString *PortraitImageName=[NSString stringWithFormat:@"%@1.jpg", self.fullname];
+    NSString *PortraitImageName=[NSString stringWithFormat:@"%@2D1.jpg", self.fullname];
     if ([Setting_ImageManagement ImageExist:PortraitImageName]) {
         cell.Portrait.image=[Setting_ImageManagement loadImage:PortraitImageName];
     }
@@ -107,7 +107,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"Segue_Collaboration2"]){
+    if([segue.identifier isEqualToString:@"Segue_2DTrainingImg2"]){
         CollectionViewController_Collaboration *controller = (CollectionViewController_Collaboration *)segue.destinationViewController;
         NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
         NSInteger row = [indexPath row];

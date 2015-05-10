@@ -29,6 +29,10 @@
 		368DEE211AE851B9004895C1 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 368DEE201AE851B9004895C1 /* UserCell.m */; };
 		36953F6A1AD381C8005B4C1B /* FaceRecognition_2D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */; };
 		36A8FE661AF954CF007E8BFB /* ViewController_Add2DImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36A8FE651AF954CF007E8BFB /* ViewController_Add2DImage.mm */; };
+		36AA3F191AFEA43E009A7005 /* ViewController_Take3DImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36AA3F181AFEA43E009A7005 /* ViewController_Take3DImage.mm */; };
+		36AA3F1C1AFEA9D1009A7005 /* TableViewController_TrainingImg3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AA3F1B1AFEA9D1009A7005 /* TableViewController_TrainingImg3D.m */; };
+		36AA3F1F1AFEADB5009A7005 /* CollectionViewController_TrainingImg3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AA3F1E1AFEADB5009A7005 /* CollectionViewController_TrainingImg3D.m */; };
+		36AA3F221AFEAF76009A7005 /* ViewController_Add3DImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36AA3F211AFEAF76009A7005 /* ViewController_Add3DImage.mm */; };
 		36CD1C201AD86B2200D0140F /* ViewController_AddUser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.mm */; };
 		36CEBAF71AE731E700A08135 /* ViewController_Take2DImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 36CEBAF61AE731E700A08135 /* ViewController_Take2DImage.mm */; };
 		CB0FE0DB1AB37E97007BF483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB0FE0DA1AB37E97007BF483 /* main.m */; };
@@ -112,6 +116,14 @@
 		36953F691AD381C8005B4C1B /* FaceRecognition_2D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FaceRecognition_2D.mm; sourceTree = "<group>"; };
 		36A8FE641AF954CF007E8BFB /* ViewController_Add2DImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_Add2DImage.h; sourceTree = "<group>"; };
 		36A8FE651AF954CF007E8BFB /* ViewController_Add2DImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController_Add2DImage.mm; sourceTree = "<group>"; };
+		36AA3F171AFEA43E009A7005 /* ViewController_Take3DImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_Take3DImage.h; sourceTree = "<group>"; };
+		36AA3F181AFEA43E009A7005 /* ViewController_Take3DImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController_Take3DImage.mm; sourceTree = "<group>"; };
+		36AA3F1A1AFEA9D1009A7005 /* TableViewController_TrainingImg3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController_TrainingImg3D.h; sourceTree = "<group>"; };
+		36AA3F1B1AFEA9D1009A7005 /* TableViewController_TrainingImg3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController_TrainingImg3D.m; sourceTree = "<group>"; };
+		36AA3F1D1AFEADB5009A7005 /* CollectionViewController_TrainingImg3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController_TrainingImg3D.h; sourceTree = "<group>"; };
+		36AA3F1E1AFEADB5009A7005 /* CollectionViewController_TrainingImg3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController_TrainingImg3D.m; sourceTree = "<group>"; };
+		36AA3F201AFEAF76009A7005 /* ViewController_Add3DImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_Add3DImage.h; sourceTree = "<group>"; };
+		36AA3F211AFEAF76009A7005 /* ViewController_Add3DImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController_Add3DImage.mm; sourceTree = "<group>"; };
 		36CD1C1E1AD86B2200D0140F /* ViewController_AddUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_AddUser.h; sourceTree = "<group>"; };
 		36CD1C1F1AD86B2200D0140F /* ViewController_AddUser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController_AddUser.mm; sourceTree = "<group>"; };
 		36CEBAF51AE731E700A08135 /* ViewController_Take2DImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController_Take2DImage.h; sourceTree = "<group>"; };
@@ -207,6 +219,8 @@
 				362E2EC81AE3FE7D0073D12C /* Setting_UserManagement.m */,
 				36CEBAF51AE731E700A08135 /* ViewController_Take2DImage.h */,
 				36CEBAF61AE731E700A08135 /* ViewController_Take2DImage.mm */,
+				36AA3F171AFEA43E009A7005 /* ViewController_Take3DImage.h */,
+				36AA3F181AFEA43E009A7005 /* ViewController_Take3DImage.mm */,
 				368DEE1F1AE851B9004895C1 /* UserCell.h */,
 				368DEE201AE851B9004895C1 /* UserCell.m */,
 				3672FBC11AEA9BB600236621 /* TableViewController_Collaboration.h */,
@@ -227,6 +241,12 @@
 				360B5D131AF73B32001D62A1 /* ViewController_SetThreshold.m */,
 				36A8FE641AF954CF007E8BFB /* ViewController_Add2DImage.h */,
 				36A8FE651AF954CF007E8BFB /* ViewController_Add2DImage.mm */,
+				36AA3F1A1AFEA9D1009A7005 /* TableViewController_TrainingImg3D.h */,
+				36AA3F1B1AFEA9D1009A7005 /* TableViewController_TrainingImg3D.m */,
+				36AA3F1D1AFEADB5009A7005 /* CollectionViewController_TrainingImg3D.h */,
+				36AA3F1E1AFEADB5009A7005 /* CollectionViewController_TrainingImg3D.m */,
+				36AA3F201AFEAF76009A7005 /* ViewController_Add3DImage.h */,
+				36AA3F211AFEAF76009A7005 /* ViewController_Add3DImage.mm */,
 			);
 			name = SettingView;
 			sourceTree = "<group>";
@@ -451,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36AA3F1C1AFEA9D1009A7005 /* TableViewController_TrainingImg3D.m in Sources */,
 				CB0FE0E11AB37E97007BF483 /* ViewController.mm in Sources */,
 				360B5D111AF736EF001D62A1 /* Threshold.m in Sources */,
 				CB0FE0DE1AB37E97007BF483 /* AppDelegate.m in Sources */,
@@ -468,11 +489,15 @@
 				CBB1DF171ACF8CF2000A5A6D /* Utils.mm in Sources */,
 				2957F65E1AF21B940032C536 /* FaceRecognition_3D.mm in Sources */,
 				CB7F09C71ABCD2FB00996B5E /* UIImageCVMatConverter.mm in Sources */,
+				36AA3F191AFEA43E009A7005 /* ViewController_Take3DImage.mm in Sources */,
+				CB6F20CD1AD4CF8000563FFD /* UserDefaultsHelper.m in Sources */,
 				36A8FE661AF954CF007E8BFB /* ViewController_Add2DImage.mm in Sources */,
 				CB0FE0DB1AB37E97007BF483 /* main.m in Sources */,
 				3672FBCE1AEB480000236621 /* UIImageView_Collaboration.m in Sources */,
+				36AA3F221AFEAF76009A7005 /* ViewController_Add3DImage.mm in Sources */,
 				360B5D141AF73B32001D62A1 /* ViewController_SetThreshold.m in Sources */,
 				368DEE211AE851B9004895C1 /* UserCell.m in Sources */,
+				36AA3F1F1AFEADB5009A7005 /* CollectionViewController_TrainingImg3D.m in Sources */,
 				3672FBC91AEB31CE00236621 /* CollectionViewCell_Collaboration.m in Sources */,
 				3666AE0B1AF7127D000ACD88 /* Setting_ImageManagement.m in Sources */,
 				3672FBC61AEB287100236621 /* CollectionViewController_Collaboration.mm in Sources */,

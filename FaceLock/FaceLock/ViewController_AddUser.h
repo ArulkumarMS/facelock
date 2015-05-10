@@ -12,6 +12,7 @@
 #import "TableViewController_AddUser.h"
 #import "Setting_UserManagement.h"
 #import "ViewController_Take2DImage.h"
+#import "ViewController_Take3DImage.h"
 #import "FaceRecognition_2D.h"
 
 
