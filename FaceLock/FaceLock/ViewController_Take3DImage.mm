@@ -357,10 +357,10 @@ struct AppStatus
     // filter out object not in range
     cv::Mat mask = depth_mat <= maxRange;
     // save this mask to image
-    if (_count % 10 == 0) {
-        NSString* mask_image_name = [NSString stringWithFormat:@"mask%.4d.jpg",_count];
-        [Utils saveMATImage:mask andName:mask_image_name];
-    }
+//    if (_count % 10 == 0) {
+//        NSString* mask_image_name = [NSString stringWithFormat:@"mask%.4d.jpg",_count];
+//        [Utils saveMATImage:mask andName:mask_image_name];
+//    }
     cv::normalize(mask, mask, 0, 1, cv::NORM_MINMAX);
     
     // Apply image erosion
@@ -423,7 +423,7 @@ struct AppStatus
     
     [logger log:[NSString stringWithFormat:@"x:%.4d y:%.4d width:%.4d height: %.4d", face.x, face.y, face.width, face.height]];
     
-    if (face.width > 30) {
+    if (face.width > 30 && face.height > 30) {
         cv::Mat face_roi_mat = depth_mat(face);
         cv::Mat new_face_mat;
         face_roi_mat.convertTo(new_face_mat, CV_32FC1);
@@ -504,10 +504,10 @@ struct AppStatus
     
     // Assign CGImage to UIImage
     UIImage* coloredDepth = [UIImage imageWithCGImage:imageRef];
-    if (_count % 10 == 0) {
-        NSString* depth_image_name = [NSString stringWithFormat:@"colored_depth_%.4d.jpg",_count];
-        [Utils saveUIImage:coloredDepth andName:depth_image_name];
-    }
+//    if (_count % 10 == 0) {
+//        NSString* depth_image_name = [NSString stringWithFormat:@"colored_depth_%.4d.jpg",_count];
+//        [Utils saveUIImage:coloredDepth andName:depth_image_name];
+//    }
     
     // Create opencv Mat from depth frame
     cv::Mat depth_mat = cv::Mat((int)rows, (int)cols, CV_16UC1, depthFrame.data);

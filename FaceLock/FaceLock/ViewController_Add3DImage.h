@@ -28,9 +28,8 @@
 #import <ImageIO/ImageIO.h>
 #import "Setting_ImageManagement.h"
 
-@interface ViewController_Add3DImage : UIViewController{
-    int _imagename_count;
-}
 
-@property (nonatomic) NSString *UserName;
+@interface ViewController_Add3DImage : UIViewController<STSensorControllerDelegate>{
+}
+@property(nonatomic) NSString *UserName;
 @end

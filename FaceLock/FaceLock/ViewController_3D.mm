@@ -469,7 +469,7 @@ struct AppStatus
     
     [logger log:[NSString stringWithFormat:@"x:%.4d y:%.4d width:%.4d height: %.4d", face.x, face.y, face.width, face.height]];
     
-    if (face.width > 30) {
+    if (face.width > 30 && face.height > 30) {
         cv::Mat face_roi_mat = depth_mat(face);
         cv::Mat new_face_mat;
         face_roi_mat.convertTo(new_face_mat, CV_32FC1);
