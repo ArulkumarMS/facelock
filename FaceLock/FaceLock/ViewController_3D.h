@@ -20,8 +20,8 @@
 #import <opencv2/face/facerec.hpp>
 
 #import "FaceRecognition_3D.h"
-#import "UserDefaultsHelper.h"
-#import "Constants.h"
+#import "Setting_UserManagement.h"
+#import "Threshold.h"
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>

@@ -17,6 +17,7 @@
 + (BOOL)doesModelFileExist;
 + (void)saveFaceRecognizer: (cv::Ptr<cv::face::FaceRecognizer>) faceRecognizer;
 + (void)loadFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) faceRecognizer;
++ (void)loadDefaultFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) faceRecognizer;
 + (void)trainFaceRecognizer:(cv::Ptr<cv::face::FaceRecognizer>) faceRecognizer andUser:(NSString*) username andLabel: (int)label andTrainNum:(NSInteger)imageNum;
 
 @end

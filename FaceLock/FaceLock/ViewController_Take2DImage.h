@@ -18,8 +18,6 @@
 #import "Utils.h"
 #import "NSLogger.h"
 #import "FaceRecognition_2D.h"
-#import "UserDefaultsHelper.h"
-#import "Constants.h"
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
