@@ -161,6 +161,20 @@ struct AppStatus
                                                      name:UIApplicationDidBecomeActiveNotification
                                                    object:nil];
     }
+    
+    // Train
+    UserName = [Setting_UserManagement LoadUserFile];
+    _faceRecognizer=cv::face::createLBPHFaceRecognizer();
+    if (UserName.count == 0) {
+        [FaceRecognition_3D loadDefaultFaceRecognizer:_faceRecognizer];
+    } else
+    {
+        for(int i=0; i < UserName.count; i++){
+            [FaceRecognition_3D trainFaceRecognizer:_faceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
+        }
+    }
+    threshold3D=[[Threshold Load3DThresholdFile] doubleValue];
+    NSLog(@"threshold is %f",threshold3D);
 }
 
 

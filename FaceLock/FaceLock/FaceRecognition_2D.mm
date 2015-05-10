@@ -70,7 +70,7 @@
         
         if(cvImage.data )                              // Check for invalid input
         {
-            NSLog(@"!!!");
+//            NSLog(@"!!!");
             Images.push_back(cvImage);
             Lables.push_back(label);
         }

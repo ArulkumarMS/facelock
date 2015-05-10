@@ -50,10 +50,17 @@
     std::vector<cv::Mat> Images;
     std::vector<int> Lables;
     
-    for(int i=1; i<=imageNum; i++){
-        NSString *filename = [NSString stringWithFormat: @"3DData/%@_3D_%.2d", username, i];
-        NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"jpg" ];
-        const char * cpath = [filePath cStringUsingEncoding:NSUTF8StringEncoding];
+    for(int i = 1; i<= imageNum; i++){
+//        NSString *filename = [NSString stringWithFormat: @"3DData/%@_3D_%.2d", username, i];
+//        NSString *path = [[NSBundle mainBundle] pathForResource:filename ofType:@"jpg" ];
+        
+        NSString *filename = [NSString stringWithFormat: @"%@3D%d.jpg", username, i];
+        NSLog(@"%@",filename);
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:filename];
+        const char * cpath = [path cStringUsingEncoding:NSUTF8StringEncoding];
         cv::Mat cvImage = cv::imread( cpath, CV_LOAD_IMAGE_GRAYSCALE );
         
         if(cvImage.data )                              // Check for invalid input

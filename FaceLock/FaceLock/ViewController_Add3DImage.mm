@@ -17,8 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _imagename_count=1;
-    NSString *imagename = [NSString stringWithFormat:@"%@3D%d.jpg", self.UserName, _imagename_count];
+//    _imagename_count=1;
+//    NSString *imagename = [NSString stringWithFormat:@"%@3D%d.jpg", self.UserName, _imagename_count];
     //[Utils saveMATImage:normalFaceImg andName:imagename];
 
     
