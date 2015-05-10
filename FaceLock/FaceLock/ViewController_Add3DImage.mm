@@ -138,6 +138,7 @@ struct AppStatus
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
+    [_sensorController stopStreaming];
 }
 
 - (void)didReceiveMemoryWarning
@@ -517,6 +518,10 @@ struct AppStatus
     BOOL success = [self faceSegmentation:depth_mat faceRect:face faceMat:face_mat];
     if (success && _imagename_count <= 50) {
         NSString *imagename = [NSString stringWithFormat:@"%@3D%d.jpg", self.UserName, _imagename_count];
+        while ([Setting_ImageManagement ImageExist:imagename]) {
+            _imagename_count++;
+            imagename = [NSString stringWithFormat:@"%@3D%d.jpg", self.UserName, _imagename_count];
+        }
         [Utils saveMATImage:face_mat andName:imagename];
         if (_imagename_count == 50) {
             AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];

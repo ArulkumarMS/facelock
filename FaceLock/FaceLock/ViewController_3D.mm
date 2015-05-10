@@ -184,6 +184,7 @@ struct AppStatus
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
+    [_sensorController stopStreaming];
 }
 
 - (void)didReceiveMemoryWarning
