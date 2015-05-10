@@ -99,7 +99,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger row=[indexPath row];
-    NSString *ImageName=[NSString stringWithFormat:@"%@%ld.jpg", self.FullName,(long)row+1];
+    NSString *ImageName=[NSString stringWithFormat:@"%@3D%ld.jpg", self.FullName,(long)row+1];
     [Setting_ImageManagement removeOneImage:(NSString *)ImageName];
     [collectionView reloadData];
 }
