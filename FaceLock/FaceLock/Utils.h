@@ -17,7 +17,7 @@
 + (cv::Mat) loadImage2MAT: (NSString*) imagename;
 + (void) saveMAT: (cv::Mat) cvMat andName:(NSString*) imagename  andKey:(NSString*) keyname;
 + (cv::CascadeClassifier*)loadClassifier: (NSString*) model_file_path;
-+ (cv::Mat) normalizeFace:(cv::Mat)img andFaceSize:(cv::Point)face_size;
++ (cv::Mat) normalizeFace:(cv::Mat)img andFaceSize:(cv::Point)face_size andNoise:(cv::Point)nose;
 + (cv::Mat) normalizeFace: (cv::Mat) img andEyeLeft: (cv::Point) leftEye andEyeRight:(cv::Point) rightEye andFaceSize: (cv::Point) face_size andHistEqual: (BOOL) doLeftandRightSeparately;
 + (void) equalizeLeftAndRightHalves: (cv::Mat&) faceImg;
 @end

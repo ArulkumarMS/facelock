@@ -57,7 +57,7 @@
         //NSString* filePath = [[NSBundle mainBundle] pathForResource:filename ofType:@"jpg" ];
         //const char * cpath = [filePath cStringUsingEncoding:NSUTF8StringEncoding];
         //cv::Mat cvImage = cv::imread( cpath, CV_LOAD_IMAGE_GRAYSCALE );
-        NSString *filename = [NSString stringWithFormat: @"%@%@.jpg",
+        NSString *filename = [NSString stringWithFormat: @"%@2D%@.jpg",
                               username, [@(i) stringValue]];
         NSLog(@"%@",filename);
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,

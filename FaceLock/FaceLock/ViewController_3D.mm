@@ -164,16 +164,28 @@ struct AppStatus
     
     // Train
     UserName = [Setting_UserManagement LoadUserFile];
-    _faceRecognizer=cv::face::createLBPHFaceRecognizer();
-    if (UserName.count == 0) {
-        [FaceRecognition_3D loadDefaultFaceRecognizer:_faceRecognizer];
-    } else
+    if (UserName.count > 0)
     {
-        for(int i=0; i < UserName.count; i++){
-            [FaceRecognition_3D trainFaceRecognizer:_faceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
+        BOOL test = true;
+        for(int i=0;i<UserName.count;i++){
+            int test_count = 1;
+            NSString *imagename = [NSString stringWithFormat:@"%@3D%d.jpg", UserName[i], test_count];
+            while (test_count <= 50 && [Setting_ImageManagement ImageExist:imagename]) {
+                test_count++;
+                imagename = [NSString stringWithFormat:@"%@3D%d.jpg", UserName[i], test_count];
+            }
+            if (test_count <= 50) {
+                test = false;
+            }
         }
-    }
-    threshold3D=[[Threshold Load3DThresholdFile] doubleValue];
+        if (test) {
+            _faceRecognizer=cv::face::createLBPHFaceRecognizer();
+            for (int i = 0; i < UserName.count; i++) {
+                [FaceRecognition_3D trainFaceRecognizer:_faceRecognizer andUser:UserName[i] andLabel:i andTrainNum:50];
+            }
+        }
+        
+    }    threshold3D=[[Threshold Load3DThresholdFile] doubleValue];
     NSLog(@"threshold is %f",threshold3D);
 }
 
@@ -387,6 +399,7 @@ struct AppStatus
 -(BOOL) faceSegmentation:(cv::Mat&) depth_mat faceRect:(cv::Rect&) face faceMat:(cv::Mat&) face_mat
 {
     // Some defined constant
+    const double MAX_FACE_DEPTH = 256;
     const double MAX_DEPTH = 512;
     const double MAX_RANGE = 916;
     const int ELEMENT_RADIUS = 2;
@@ -468,22 +481,35 @@ struct AppStatus
     // Height = 1.5 * width
     face.height = std::min((3 * face.width) / 2, rows-face.y-1);
     
-    [logger log:[NSString stringWithFormat:@"x:%.4d y:%.4d width:%.4d height: %.4d", face.x, face.y, face.width, face.height]];
+//    [logger log:[NSString stringWithFormat:@"x:%.4d y:%.4d width:%.4d height: %.4d", face.x, face.y, face.width, face.height]];
     
-    if (face.width > 30 && face.height > 30) {
+    if (face.width > 50 && face.height > 50) {
         cv::Mat face_roi_mat = depth_mat(face);
-        cv::Mat new_face_mat;
-        face_roi_mat.convertTo(new_face_mat, CV_32FC1);
-        cv::threshold(new_face_mat, new_face_mat, minRange, 0, cv::THRESH_TOZERO);
-        cv::threshold(new_face_mat, new_face_mat, maxRange, 0, cv::THRESH_TRUNC);
-        cv::Mat normalized_face_mat;
-        cv::normalize(new_face_mat, normalized_face_mat, 0, 255, cv::NORM_MINMAX, CV_8UC1);
-        normalized_face_mat = 255 - normalized_face_mat;
-        cv::Mat paintMask = normalized_face_mat == 0;
-        cv::Mat inpaint_face_mat;
-        cv::inpaint(normalized_face_mat, paintMask, inpaint_face_mat, 3, cv::INPAINT_NS);
-        cv::resize(inpaint_face_mat, face_mat, cv::Size(64,96));
-        return true;
+        cv::Point minLoc;
+        cv::minMaxLoc(face_roi_mat, &minRange, NULL, &minLoc);
+        int left = face_roi_mat.cols/2-5;
+        int right = face_roi_mat.cols/2+5;
+        int top = 3*face_roi_mat.rows/4-5;
+        int bottom = 3*face_roi_mat.rows/4+5;
+        [logger log:[NSString stringWithFormat:@"minLocx: %.4d minLocy: %.4d l:%.4d r:%.4d t:%.4d b: %.4d",
+                     minLoc.x, minLoc.y, left, right, top, bottom]];
+        if (minLoc.x >= left && minLoc.x <= right && minLoc.y >= top && minLoc.y <= bottom) {
+            minRange = minRange - 10;
+            maxRange = std::min(minRange + MAX_FACE_DEPTH, MAX_RANGE);
+            cv::Mat new_face_mat;
+            face_roi_mat.convertTo(new_face_mat, CV_32FC1);
+            cv::threshold(new_face_mat, new_face_mat, minRange, 0, cv::THRESH_TOZERO);
+            cv::threshold(new_face_mat, new_face_mat, maxRange, 0, cv::THRESH_TRUNC);
+            cv::Mat normalized_face_mat;
+            cv::normalize(new_face_mat, normalized_face_mat, 0, 255, cv::NORM_MINMAX, CV_8UC1);
+            normalized_face_mat = 255 - normalized_face_mat;
+            cv::Mat paintMask = normalized_face_mat == 0;
+            cv::Mat inpaint_face_mat;
+            cv::inpaint(normalized_face_mat, paintMask, inpaint_face_mat, 3, cv::INPAINT_NS);
+            face_mat = [Utils normalizeFace:inpaint_face_mat andFaceSize:cv::Size(64,96) andNoise:minLoc];
+//            cv::resize(inpaint_face_mat, face_mat, cv::Size(64,96));
+            return true;
+        }
     }
     return false;
 }
@@ -495,30 +521,22 @@ struct AppStatus
     double predicted_confidence;
     _faceRecognizer->predict(face_mat, label, predicted_confidence);
     
-    [logger log:[NSString stringWithFormat:@"Label: %d Confidence: %.4f",label, predicted_confidence]];
+    [logger log:[NSString stringWithFormat:@"3D Label: %d Confidence: %.4f",label, predicted_confidence]];
     
-    if(predicted_confidence < threshold3D){
-        NSString* welcome;
-        if (label==0){
-            welcome = @"Welcome back, Yiwen.";
-        }
-        if (label==1){
-            welcome = @"Welcome back, Ha.";
-        }
-        if (label==2){
-            welcome = @"Welcome back, Shiwani.";
-        }
+    if(label >= 0 && label < UserName.count && predicted_confidence < threshold3D){
+        NSString* welcome=[NSString stringWithFormat:@"Welcome back, %@", UserName[label]];
         AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
         AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:welcome];
         [utterance setRate:0.1f];
         [synthesizer speakUtterance:utterance];
     }
-    else{
-        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
-        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
-        [utterance setRate:0.1f];
-        [synthesizer speakUtterance:utterance];
-    }
+//    else
+//    {
+//        AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
+//        AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:@"Sorry, you can not enter the door."];
+//        [utterance setRate:0.1f];
+//        [synthesizer speakUtterance:utterance];
+//    }
 }
 
 
@@ -556,7 +574,6 @@ struct AppStatus
 
 - (void)renderDepthFrame:(STDepthFrame *)depthFrame
 {
-
     [_floatDepthFrame updateFromDepthFrame:depthFrame];
     [_rgbDepthFrame convertDepthFrameToRgba:_floatDepthFrame];
     size_t cols = depthFrame.width;
@@ -582,6 +599,12 @@ struct AppStatus
                                         NULL,                        //decode
                                         false,                       //pixel interpolation
                                         kCGRenderingIntentDefault);  //rendering intent
+    
+    if (_count < 90) {
+        _count++;
+    } else {
+        _count = 0;
+    }
     
     // Assign CGImage to UIImage
     UIImage* coloredDepth = [UIImage imageWithCGImage:imageRef];

@@ -19,6 +19,7 @@
 #import "NSLogger.h"
 #import "FaceRecognition_2D.h"
 #import "Setting_UserManagement.h"
+#import "Setting_ImageManagement.h"
 #import "Threshold.h"
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>

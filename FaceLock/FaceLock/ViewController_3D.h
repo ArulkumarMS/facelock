@@ -21,6 +21,7 @@
 
 #import "FaceRecognition_3D.h"
 #import "Setting_UserManagement.h"
+#import "Setting_ImageManagement.h"
 #import "Threshold.h"
 
 #import <AVFoundation/AVFoundation.h>
