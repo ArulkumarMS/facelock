@@ -214,6 +214,8 @@
             cv::circle(image_face_roi, eye_center, radius, cv::Scalar( 255, 0, 255 ), 1, 8);
         }
     }
+    // Draw Facelock
+    cv::putText(image, "FaceLock", cv::Point(50, image.rows-50), cv::FONT_ITALIC, 1, cv::Scalar(255, 0, 0));
 }
 
 #endif
