@@ -421,35 +421,48 @@ struct AppStatus
     // Width = right - left
     face.width = right - left;
     // Height = 1.5 * width
-    face.height = std::min((3 * face.width) / 2, rows-face.y-1);
+    face.height = std::min((int)(1.8 * face.width), rows-face.y-1);
     
-//    [logger log:[NSString stringWithFormat:@"x:%.4d y:%.4d width:%.4d height: %.4d", face.x, face.y, face.width, face.height]];
+    //    [logger log:[NSString stringWithFormat:@"x:%.4d y:%.4d width:%.4d height: %.4d", face.x, face.y, face.width, face.height]];
     
-    if (face.width > 50 && face.height > 50) {
+    if (face.width > 30 && face.height > 30) {
         cv::Mat face_roi_mat = depth_mat(face);
         cv::Point minLoc;
         cv::minMaxLoc(face_roi_mat, &minRange, NULL, &minLoc);
-        int left = face_roi_mat.cols/2-5;
-        int right = face_roi_mat.cols/2+5;
-        int top = 3*face_roi_mat.rows/4-5;
-        int bottom = 3*face_roi_mat.rows/4+5;
+        int left = face_roi_mat.cols/2-10;
+        int right = face_roi_mat.cols/2+10;
+        int top = (int)(0.65*face_roi_mat.rows)-15;
+        int bottom = (int)(0.65*face_roi_mat.rows)+15;
         [logger log:[NSString stringWithFormat:@"minLocx: %.4d minLocy: %.4d l:%.4d r:%.4d t:%.4d b: %.4d",
                      minLoc.x, minLoc.y, left, right, top, bottom]];
         if (minLoc.x >= left && minLoc.x <= right && minLoc.y >= top && minLoc.y <= bottom) {
-            minRange = minRange - 10;
+            //            minRange = minRange - 10;
             maxRange = std::min(minRange + MAX_FACE_DEPTH, MAX_RANGE);
             cv::Mat new_face_mat;
             face_roi_mat.convertTo(new_face_mat, CV_32FC1);
-            cv::threshold(new_face_mat, new_face_mat, minRange, 0, cv::THRESH_TOZERO);
+            //            cv::threshold(new_face_mat, new_face_mat, minRange, 0, cv::THRESH_TOZERO);
             cv::threshold(new_face_mat, new_face_mat, maxRange, 0, cv::THRESH_TRUNC);
             cv::Mat normalized_face_mat;
             cv::normalize(new_face_mat, normalized_face_mat, 0, 255, cv::NORM_MINMAX, CV_8UC1);
             normalized_face_mat = 255 - normalized_face_mat;
+            if (_count % 10 == 0) {
+                NSString* norm_face_name = [NSString stringWithFormat:@"norm_face%.4d.jpg",_count];
+                [Utils saveMATImage:normalized_face_mat andName:norm_face_name];
+            }
             cv::Mat paintMask = normalized_face_mat == 0;
             cv::Mat inpaint_face_mat;
-            cv::inpaint(normalized_face_mat, paintMask, inpaint_face_mat, 3, cv::INPAINT_NS);
-            face_mat = [Utils normalizeFace:inpaint_face_mat andFaceSize:cv::Size(64,96) andNoise:minLoc];
-//            cv::resize(inpaint_face_mat, face_mat, cv::Size(64,96));
+            cv::inpaint(normalized_face_mat, paintMask, inpaint_face_mat, 3, cv::INPAINT_TELEA);
+            //            cv::Rect roi = cv::Rect(2,2,normalized_face_mat.cols-2, normalized_face_mat.rows-2);
+            //            cv::Mat small_normalized_face_mat = normalized_face_mat(roi).clone();
+            if (_count % 10 == 0) {
+                NSString* inpainted_face_name = [NSString stringWithFormat:@"inpainted_face%.4d.jpg",_count];
+                [Utils saveMATImage:normalized_face_mat andName:inpainted_face_name];
+            }
+            face_mat = [Utils normalizeFace:normalized_face_mat andFaceSize:cv::Size(50,90) andNoise:minLoc];
+            if (_count % 10 == 0) {
+                NSString* aligned_face_name = [NSString stringWithFormat:@"aligned_face%.4d.jpg",_count];
+                [Utils saveMATImage:face_mat andName:aligned_face_name];
+            }
             return true;
         }
     }

@@ -63,29 +63,30 @@
 // 64x96
 + (cv::Mat) normalizeFace:(cv::Mat)gray andFaceSize:(cv::Point)face_size andNoise:(cv::Point)nose
 {
-    int desiredFaceWidth = face_size.x;
-    int desiredFaceHeight = face_size.y;
+    double desiredFaceWidth = (double)face_size.x;
+    double desiredFaceHeight = (double)face_size.y;
     
     
-    double scale = desiredFaceWidth / (gray.cols-12);
+    double scale = std::max(desiredFaceHeight / (double) gray.rows, desiredFaceWidth / (double) gray.cols) + 0.3;
     // Get the transformation matrix for rotating and scaling the face to the desired angle & size.
     cv::Mat rot_mat = getRotationMatrix2D(nose, 0, scale);
     // Shift the center of the eyes to be the desired center between the eyes.
     rot_mat.at<double>(0, 2) += desiredFaceWidth * 0.5f - nose.x;
-    rot_mat.at<double>(1, 2) += desiredFaceHeight * 0.75f - nose.y;
+    rot_mat.at<double>(1, 2) += desiredFaceHeight * 0.65f - nose.y;
     
     // Rotate and scale and translate the image to the desired angle & size & position!
     // Note that we use 'w' for the height instead of 'h', because the input face has 1:1 aspect ratio.
-    cv::Mat warped = cv::Mat(desiredFaceHeight, desiredFaceWidth, CV_8U, cv::Scalar(128)); // Clear the output image to a default grey.
-    cv::warpAffine(gray, warped, rot_mat, warped.size());
+    cv::Mat warped = cv::Mat(desiredFaceHeight, desiredFaceWidth, CV_8U, cv::Scalar(255)); // Clear the output image to a default grey.
+    cv::warpAffine(gray, warped, rot_mat, warped.size(),cv::INTER_LINEAR,cv::BORDER_CONSTANT,cv::Scalar(255));
+    return warped;
     
-    cv::equalizeHist(warped, warped);
-    
-    // Use the "Bilateral Filter" to reduce pixel noise by smoothing the image, but keeping the sharp edges in the face.
-    cv::Mat filtered = cv::Mat(warped.size(), CV_8U);
-    cv::bilateralFilter(warped, filtered, 0, 20.0, 2.0);
-    
-    return filtered;
+//    cv::equalizeHist(warped, warped);
+//    
+//    // Use the "Bilateral Filter" to reduce pixel noise by smoothing the image, but keeping the sharp edges in the face.
+//    cv::Mat filtered = cv::Mat(warped.size(), CV_8U);
+//    cv::bilateralFilter(warped, filtered, 0, 20.0, 2.0);
+//    
+//    return filtered;
 }
 
 /*****************************************************************************
